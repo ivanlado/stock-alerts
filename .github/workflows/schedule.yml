@@ -4,9 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # 19:15 - 19:55 (UTC)
-    - cron: '15,25,35,45,55 19 * * *'
-    # 20:05 - 20:55 (UTC)
-    - cron: '5,15,25,35,45,55 20 * * *'
+    - cron: '50,59 20 * * *'
 
 jobs:
   run-script:
