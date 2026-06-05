@@ -1,10 +1,10 @@
 name: Run main.py every 10 minutes
 
 on:
-  workflow_dispatch:
+  # workflow_dispatch:
   schedule:
     # 19:15 - 19:55 (UTC)
-    - cron: '50,59 20 * * *'
+    - cron: '01,10 21 * * *'
 
 jobs:
   run-script:
