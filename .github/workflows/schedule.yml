@@ -1,0 +1,27 @@
+name: Run main.py every 10 minutes
+
+on:
+  schedule:
+    # 19:15 - 19:55 (UTC)
+    - cron: '15,25,35,45,55 19 * * *'
+    # 20:05 - 20:55 (UTC)
+    - cron: '5,15,25,35,45,55 20 * * *'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run main.py
+        run: python src/main.py

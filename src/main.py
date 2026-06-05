@@ -1,4 +1,4 @@
-from src.price_alert import PriceAlert
+from price_alert import PriceAlert
 
 def main():
     tickers = ["AAPL", "MSFT", "AMZN", "GOOG", "META", "ITX.MC"]

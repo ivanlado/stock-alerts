@@ -30,3 +30,7 @@
 
 
 ## Filtros
+
+
+Para generar el requirements.txt, ejecutar el siguiente comando en la terminal:
+python -m pipreqs.pipreqs . --force
