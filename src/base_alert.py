@@ -10,6 +10,7 @@ class BaseAlert(ABC):
             raise ValueError("tickers cannot be empty")
 
         self.tickers = tickers
+        self.tickers_info = pd.read_csv("data/tickers.csv")
     @abstractmethod
     def get_data(self) -> Any:
         pass
