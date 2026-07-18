@@ -1,12 +1,14 @@
-from price_alert import PriceAlert
-from notifier import send_email
-from utils.data import load_tickers
+from alerts.analysts_alert import PriceAlert
+from notifications.notifier import send_email
+from providers import DataProviderImpl
 
 def main():
-    tickers = load_tickers()
-    tickers = tickers[:10]  # Limitar a los primeros 10 tickers para pruebas
+    data_provider = DataProviderImpl()
+    tickers = data_provider.get_tickers()
+    tickers = tickers[:5]  # Limitar a los primeros 10 tickers para pruebas
     print(f"Number of tickers: {len(tickers)}")
-    alert = PriceAlert(tickers)
+    print(f"Tickers: {tickers}")
+    alert = PriceAlert(tickers, data_provider=data_provider)
     msg = alert.run()
     print(msg)
 
