@@ -1,10 +1,10 @@
-name: Run main.py every 10 minutes
+name: Run main.py everyday at 14:00
 
 on:
   # workflow_dispatch:
   schedule:
-    # every 10 minuts
-    - cron: '*/10 * * * *'
+    # 14:00 hora peninsular española (CEST = UTC+2 en verano) -> 12:00 UTC
+    - cron: '0 12 * * *'
 
 jobs:
   run-script:
