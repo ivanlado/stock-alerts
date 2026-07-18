@@ -1,7 +1,7 @@
 import pandas as pd
 
 from providers.base import DataProvider
-from providers.yfinance import YFinanceProvider
+from providers.yfinance_provider import YFinanceProvider
 from pathlib import Path
 import json
 

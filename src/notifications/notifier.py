@@ -13,9 +13,9 @@ except ImportError:
     pass
 
 
-def send_email(alerts: List[str]) -> None:
+def send_email(msg_text: str) -> None:
     """
-    Envía por correo la lista de tickers con alerta usando el SMTP de Gmail.
+    Envía por correo el mensaje de alerta usando el SMTP de Gmail.
 
     Requiere las variables de entorno:
       - GMAIL_USER:         dirección de Gmail que envía (ej. tu@gmail.com)
@@ -27,11 +27,11 @@ def send_email(alerts: List[str]) -> None:
     to = os.environ.get("ALERT_TO", "iviivilaca@gmail.com")
 
     msg = EmailMessage()
-    msg["Subject"] = f"Alertas de acciones ({len(alerts)})"
+    msg["Subject"] = f"Alertas de acciones"
     msg["From"] = user
     msg["To"] = to
 
-    body = "Tickers con alerta:\n\n" + "\n".join(f"- {t}" for t in alerts)
+    body = "Tickers con alerta:\n\n" + msg_text
     msg.set_content(body)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:

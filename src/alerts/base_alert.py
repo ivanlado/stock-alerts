@@ -4,7 +4,7 @@ from pathlib import Path
 import requests
 import pandas as pd
 
-from ..providers.data_provider_impl import DataProviderImpl
+from providers.data_provider_impl import DataProviderImpl
 
 
 class BaseAlert(ABC):

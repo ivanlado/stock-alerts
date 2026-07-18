@@ -12,11 +12,11 @@ def main():
     msg = alert.run()
     print(msg)
 
-    # if alerts:
-    #     send_email(alerts)
-    #     print(f"Email enviado con {len(alerts)} alerta(s)")
-    # else:
-    #     print("Sin alertas, no se envía correo")
+    if msg:
+        send_email(msg)
+        print(f"Email enviado")
+    else:
+        print("Sin alertas, no se envía correo")
 
 
 

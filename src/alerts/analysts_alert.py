@@ -3,9 +3,9 @@ import random
 import logging
 from typing import Any, List, Dict
 import pandas as pd
-from ..providers.data_provider_impl import DataProviderImpl
+from providers.data_provider_impl import DataProviderImpl
 import yfinance as yf
-from .base_alert import BaseAlert
+from alerts.base_alert import BaseAlert
 
 # Silenciar el logger de yfinance para que no imprima los errores HTTP;
 # nosotros gestionamos e informamos los errores por ticker.
