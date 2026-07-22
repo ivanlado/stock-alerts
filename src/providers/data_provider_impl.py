@@ -7,7 +7,9 @@ import json
 
 
 
-TICKERS_DIR = Path("data") / "tickers"
+# Resolve relative to the repo root (src/providers/data_provider_impl.py -> repo root)
+# so it works regardless of the process's working directory.
+TICKERS_DIR = Path(__file__).resolve().parents[2] / "data" / "tickers"
 
 
 class DataProviderImpl(DataProvider):
