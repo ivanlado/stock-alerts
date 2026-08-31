@@ -26,3 +26,9 @@ class DataProviderImpl(DataProvider):
 
     def get_analyst_targets(self, tickers: list[str]) -> pd.DataFrame:
         return self._yf.get_analyst_targets(tickers)
+    
+    def get_fundamentals(self, tickers: list[str]) -> pd.DataFrame:
+        return self._yf.get_fundamentals(tickers)
+    
+    def get_prices(self, tickers: list[str], period: str = "7d", interval: str = "1h") -> pd.DataFrame:
+        return self._yf.get_prices(tickers, period, interval)

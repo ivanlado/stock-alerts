@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 import yfinance as yf
 
-from utils.tickers import get_tickers
+from scripts.tickers import get_tickers
 
 # Silenciar el logger de yfinance para que no imprima los errores HTTP;
 # nosotros gestionamos e informamos los errores por ticker.

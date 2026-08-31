@@ -9,3 +9,6 @@ venv/
 
 # Notebooks
 .ipynb_checkpoints/
+
+# Claude Code local settings
+.claude/settings.local.json

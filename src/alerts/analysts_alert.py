@@ -3,7 +3,7 @@ import random
 import logging
 from typing import Any, List, Dict
 import pandas as pd
-from providers.data_provider_impl import DataProviderImpl
+from providers.base import DataProvider
 import yfinance as yf
 from alerts.base_alert import BaseAlert
 
@@ -12,9 +12,9 @@ from alerts.base_alert import BaseAlert
 logging.getLogger("yfinance").setLevel(logging.CRITICAL)
 
 
-class PriceAlert(BaseAlert):
+class AnalystAlerts(BaseAlert):
 
-    def __init__(self, tickers: List[str], data_provider: DataProviderImpl = None):
+    def __init__(self, tickers: List[str], data_provider: DataProvider):
         super().__init__(tickers, data_provider)
         self.data = data_provider.get_analyst_targets(tickers)
 
@@ -31,7 +31,7 @@ class PriceAlert(BaseAlert):
         msg = ""
         alerts = alerts.merge(self.tickers_info, on="ticker", how="left")
         for index, row in alerts.iterrows():
-            aux = f"{row['ticker']}: Current={row['current']} | Median={row['median']} | Diff={row['price_diff']:.2f} | Pct Diff={row['price_diff']/row['median']*100:.1f}%\n"
+            aux = f"{row['ticker']} ({row['short_name']}): Current={row['current']} | Median={row['median']} | Diff={row['price_diff']:.2f} | Pct Diff={row['price_diff']/row['median']*100:.1f}%\n"
             msg += aux
         return msg
 
