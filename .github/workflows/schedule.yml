@@ -3,7 +3,7 @@ name: Run main.py everyday at 14:00
 on:
   # workflow_dispatch:
   schedule:
-    # 14:00 hora peninsular española (CEST = UTC+2 en verano) -> 12:00 UTC
+    # 14:00 mainland Spain time (CEST = UTC+2 in summer) -> 12:00 UTC
     - cron: '0 12 * * *'
 
 jobs:

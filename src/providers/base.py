@@ -4,18 +4,18 @@ import pandas as pd
 
 
 class DataProvider(ABC):
-    """Puerto (en el sentido de arquitectura hexagonal) hacia la fuente de datos de mercado.
+    """Port (in the hexagonal architecture sense) towards the market data source.
 
-    Cada adaptador concreto (yfinance, etc.) vive en su propio fichero e implementa
-    esta interfaz. Cuando se añadan capacidades nuevas (p. ej. ``get_fundamentals``),
-    se declaran aquí y todos los adaptadores deben proporcionarlas.
+    Every concrete adapter (yfinance, etc.) lives in its own file and implements
+    this interface. When new capabilities are added (e.g. ``get_fundamentals``),
+    they are declared here and every adapter must provide them.
     """
     @abstractmethod
     def get_tickers(self) -> list[str]:
-        """Lista de tickers disponibles en la fuente de datos."""
+        """Tickers available in the data source."""
         raise NotImplementedError
 
     @abstractmethod
     def get_analyst_targets(self, tickers: list[str]) -> pd.DataFrame:
-        """Precio objetivo medio de analistas para cada ticker."""
+        """Analysts' mean price target for each ticker."""
         raise NotImplementedError

@@ -1,23 +1,23 @@
 """
-wiki_tickers.py
-===============
-Funciones para obtener los tickers de índices bursátiles desde Wikipedia.
+tickers.py
+==========
+Functions that fetch the tickers of stock market indices from Wikipedia.
 
-Pensado para importarse desde otro proyecto:
+Meant to be imported from another module:
 
-    from wiki_tickers import get_tickers, scrape_tickers
+    from scripts.tickers import get_tickers, scrape_tickers
 
-    sp500 = get_tickers("sp500")        # por nombre (usa el registro INDICES)
+    sp500 = get_tickers("sp500")        # by name (uses the INDICES registry)
     ibex  = get_tickers("ibex35")
 
-    # o directamente por URL, sin tocar el registro:
-    otros = scrape_tickers(
+    # or straight from a URL, without touching the registry:
+    others = scrape_tickers(
         "https://es.wikipedia.org/wiki/FTSE_100",
         ticker_headers=["ticker", "símbolo", "epic"],
         expected_rows=100,
     )
 
-Requisitos:
+Requirements:
     pip install pandas lxml requests
 """
 
@@ -28,13 +28,16 @@ from io import StringIO
 import pandas as pd
 import requests
 
-# Wikipedia devuelve 403 sin un User-Agent de navegador real.
+# Wikipedia returns 403 without a real browser User-Agent.
 _HEADERS = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 }
 
-# Registro de índices conocidos. Añade aquí los que vayas necesitando.
+# Registry of known indices. Add the ones you need here.
+# The values in "ticker_headers" are data, not prose: they must match the
+# column headings of the Spanish Wikipedia pages being scraped, so they stay
+# in Spanish.
 INDICES: dict[str, dict] = {
     "sp500": {
         "url": "https://es.wikipedia.org/wiki/Anexo:Compa%C3%B1%C3%ADas_del_S%26P_500",
@@ -57,33 +60,33 @@ def scrape_tickers(
     timeout: int = 30,
     suffix: str | None = None,
 ) -> list[str]:
-    """Descarga una página de Wikipedia y devuelve la lista de tickers.
+    """Downloads a Wikipedia page and returns the list of tickers.
 
-    Parámetros
+    Parameters
     ----------
     url:
-        Enlace exacto a la página de Wikipedia.
+        Exact link to the Wikipedia page.
     ticker_headers:
-        Posibles nombres (en minúsculas) de la columna del ticker. Se compara
-        con startswith(), así que "símbolo" cubre "símbolo bursátil", etc.
+        Possible names (lowercase) of the ticker column. Compared with
+        startswith(), so "símbolo" also covers "símbolo bursátil", etc.
     expected_rows:
-        Nº aproximado de componentes. Desempata si varias tablas tienen una
-        columna de ticker (p. ej. la tabla de composición frente a una de
-        historial de cambios).
+        Approximate number of constituents. Breaks the tie when several tables
+        have a ticker column (e.g. the composition table against a table of
+        historical changes).
     timeout:
-        Segundos de espera para la petición HTTP.
+        Seconds to wait for the HTTP request.
 
-    Devuelve
-    --------
+    Returns
+    -------
     list[str]
-        Los tickers, ya limpios (sin notas al pie ni espacios).
+        The tickers, already cleaned (no footnotes, no whitespace).
 
-    Lanza
-    -----
+    Raises
+    ------
     requests.HTTPError
-        Si la descarga falla.
+        If the download fails.
     ValueError
-        Si no se encuentra ninguna columna de ticker.
+        If no ticker column is found.
     """
     resp = requests.get(url, headers=_HEADERS, timeout=timeout)
     resp.raise_for_status()
@@ -97,14 +100,14 @@ def scrape_tickers(
 
 
 def get_tickers(index_name: str) -> list[str]:
-    """Devuelve los tickers de un índice registrado en INDICES.
+    """Returns the tickers of an index registered in INDICES.
 
-    Ejemplo: get_tickers("sp500") -> ["MMM", "AOS", ...]
+    Example: get_tickers("sp500") -> ["MMM", "AOS", ...]
     """
     if index_name not in INDICES:
-        disponibles = ", ".join(INDICES)
+        available = ", ".join(INDICES)
         raise KeyError(
-            f"'{index_name}' no está en INDICES. Disponibles: {disponibles}"
+            f"'{index_name}' is not in INDICES. Available: {available}"
         )
     cfg = INDICES[index_name]
     return scrape_tickers(
@@ -116,14 +119,14 @@ def get_tickers(index_name: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
-# Helpers internos
+# Internal helpers
 # ---------------------------------------------------------------------------
 def _find_ticker_table(
     tables: list[pd.DataFrame],
     ticker_headers: list[str],
     expected_rows: int | None = None,
 ) -> tuple[pd.DataFrame, object]:
-    """Elige (tabla, columna) cuya cabecera coincide con ticker_headers."""
+    """Picks the (table, column) whose heading matches ticker_headers."""
     matches: list[tuple[pd.DataFrame, object]] = []
     for table in tables:
         for col in table.columns:
@@ -132,14 +135,14 @@ def _find_ticker_table(
                 matches.append((table, col))
                 break
     if not matches:
-        raise ValueError("No se encontró ninguna columna de ticker.")
+        raise ValueError("No ticker column found.")
     if expected_rows is not None:
         matches.sort(key=lambda m: abs(len(m[0]) - expected_rows))
     return matches[0]
 
 
 def _clean_tickers(series: pd.Series) -> list[str]:
-    """Quita notas al pie [1], espacios y celdas vacías/NaN."""
+    """Strips footnotes [1], whitespace and empty/NaN cells."""
     cleaned = (
         series.astype(str)
         .str.replace(r"\[.*?\]", "", regex=True)

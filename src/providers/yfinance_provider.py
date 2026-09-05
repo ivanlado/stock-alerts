@@ -7,23 +7,23 @@ import yfinance as yf
 
 from providers.base import DataProvider
 
-# Repo root / data / fundamentals.csv, resolviendo relativo a este fichero.
+# Repo root / data / fundamentals.csv, resolved relative to this file.
 FUNDAMENTALS_CSV = Path(__file__).resolve().parents[2] / "data" / "fundamentals.csv"
 
-# Métricas a las que interesa filtrar el DataFrame que devuelve get_fundamentals().
+# Metrics the DataFrame returned by get_fundamentals() is filtered down to.
 FUNDAMENTAL_METRICS = (
-    "Total Revenue",       # ingresos totales del periodo
-    "Cost Of Revenue",     # coste directo de producir/vender lo facturado (COGS)
-    "EBITDA",              # beneficio antes de intereses, impuestos, depreciación y amortización
-    "Free Cash Flow",      # caja libre: flujo operativo menos inversión en capex
-    "currentRatio",        # activo corriente / pasivo corriente (liquidez a corto plazo)
-    "debtToEquity",        # deuda total / patrimonio neto (nivel de apalancamiento)
-    "operatingMargins",    # margen operativo = resultado operativo / ingresos
+    "Total Revenue",       # total revenue for the period
+    "Cost Of Revenue",     # direct cost of producing/selling what was billed (COGS)
+    "EBITDA",              # earnings before interest, taxes, depreciation and amortization
+    "Free Cash Flow",      # free cash: operating cash flow minus capex
+    "currentRatio",        # current assets / current liabilities (short-term liquidity)
+    "debtToEquity",        # total debt / shareholders' equity (leverage level)
+    "operatingMargins",    # operating margin = operating income / revenue
 )
 
-# Ratios de FUNDAMENTAL_METRICS que no son una fila de las statements de yfinance,
-# sino que se calculan a partir de otras dos filas de la misma statement, año a año.
-# (metric, statement, fila numerador, fila denominador)
+# Ratios in FUNDAMENTAL_METRICS that are not a row of yfinance's statements, but
+# are computed from two other rows of the same statement, year by year.
+# (metric, statement, numerator row, denominator row)
 _RATIO_METRICS = (
     ("currentRatio", "balance_sheet", "Current Assets", "Current Liabilities"),
     ("debtToEquity", "balance_sheet", "Total Debt", "Stockholders Equity"),
@@ -32,20 +32,20 @@ _RATIO_METRICS = (
 
 
 class YFinanceProvider(DataProvider):
-    """Adaptador hacia yfinance."""
+    """Adapter towards yfinance."""
 
     def get_analyst_targets(self, tickers: list[str]) -> pd.DataFrame:
         rows = []
         for t in tickers:
-            # sleep aleatorio para no saturar los límites de la API
+            # Random sleep so we do not hit the API rate limits.
             time.sleep(random.uniform(0.4, 1.7))
             try:
                 pt = yf.Ticker(t).analyst_price_targets
             except Exception as e:
-                print(f"Error al obtener datos de {t}: {e}")
+                print(f"Error fetching data for {t}: {e}")
                 continue
             if pt is None:
-                print(f"Sin datos de price targets para {t}")
+                print(f"No price target data for {t}")
                 continue
             rows.append({
                 "ticker": t,
@@ -71,12 +71,12 @@ class YFinanceProvider(DataProvider):
             stock = yf.Ticker(t)
             statements = {}
             for attr in ("financials", "balance_sheet", "cashflow"):
-                # sleep aleatorio para no saturar los límites de la API
+                # Random sleep so we do not hit the API rate limits.
                 time.sleep(random.uniform(0.4, 1.7))
                 try:
                     statements[attr] = getattr(stock, attr)
                 except Exception as e:
-                    print(f"Error al obtener {attr} de {t}: {e}")
+                    print(f"Error fetching {attr} for {t}: {e}")
 
             for statement in statements.values():
                 if statement is None or statement.empty:
@@ -115,7 +115,7 @@ class YFinanceProvider(DataProvider):
         return df
     
     def get_prices(self, tickers: list[str], period: str = "1y", interval: str = "1d") -> pd.DataFrame:
-        # Downlaod the data
+        # Download the data
         data = yf.download(tickers, period=period, interval=interval, auto_adjust=False)
         if data.empty:
             return pd.DataFrame(columns=["ticker", "date", "open", "high", "low", "close", "volume"])

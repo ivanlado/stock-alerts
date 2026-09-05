@@ -1,6 +1,6 @@
-# Diagrama de clases UML
+# UML class diagram
 
-Diagrama de clases del proyecto `stock-alerts`, generado a partir del código en `src/`.
+Class diagram of the `stock-alerts` project, generated from the code in `src/`.
 
 ```mermaid
 classDiagram
@@ -66,28 +66,28 @@ classDiagram
 
     DataProvider <|-- DataProviderImpl
     DataProvider <|-- YFinanceProvider
-    DataProviderImpl o-- YFinanceProvider : usa
+    DataProviderImpl o-- YFinanceProvider : uses
 
     BaseAlert <|-- AnalystAlerts
     BaseAlert <|-- PriceAlert
-    BaseAlert o-- DataProvider : usa
-    FundamentalScreener o-- DataProvider : usa
+    BaseAlert o-- DataProvider : uses
+    FundamentalScreener o-- DataProvider : uses
 
-    Main ..> FundamentalScreener : crea
-    Main ..> AnalystAlerts : crea
-    Main ..> PriceAlert : crea
-    Main ..> DataProviderImpl : crea
-    Main ..> Notifier : usa
+    Main ..> FundamentalScreener : creates
+    Main ..> AnalystAlerts : creates
+    Main ..> PriceAlert : creates
+    Main ..> DataProviderImpl : creates
+    Main ..> Notifier : uses
 ```
 
-## Notas
+## Notes
 
-- `DataProvider` (`src/providers/base.py`) es el puerto de la arquitectura hexagonal para acceder a datos de mercado. Declara `get_tickers()` y `get_analyst_targets()`; `get_fundamentals()` y `get_prices()` existen en los adaptadores pero todavía no están declaradas en el puerto.
-- `DataProviderImpl` (`src/providers/data_provider_impl.py`) implementa `DataProvider` delegando en `YFinanceProvider` para price targets, fundamentales y precios históricos, y lee los tickers desde ficheros JSON locales en `data/tickers/`.
-- `YFinanceProvider` (`src/providers/yfinance_provider.py`) es el adaptador concreto hacia la librería `yfinance`; no implementa `get_tickers()`.
-- `BaseAlert` (`src/alerts/base_alert.py`) es la clase abstracta base de las alertas: mantiene la lista de tickers, una referencia al `DataProvider` y carga `data/tickers.csv` en `tickers_info` para enriquecer los mensajes con el nombre de la empresa.
-- `AnalystAlerts` (`src/alerts/analysts_alert.py`) implementa la regla basada en la diferencia porcentual entre el precio actual y el precio objetivo medio de analistas (alerta si está más de un 10% por debajo).
-- `PriceAlert` (`src/alerts/price_alerts.py`) implementa la regla basada en la variación del precio de cierre en distintas ventanas (1M, 3M, 6M, 9M) sobre un histórico de 1 año: alerta si cae más de -5%, -10%, -15% o -20% respectivamente.
-- `FundamentalScreener` (`src/screening/fundamental_screener.py`) filtra los tickers antes de las alertas según criterios fundamentales (deuda/equity y márgenes operativos).
-- `Notifier` (`src/notifications/notifier.py`) expone `send_email` para notificar las alertas por correo vía SMTP de Gmail.
-- `Main` (`src/main.py`) es el punto de entrada que orquesta el flujo: obtiene tickers, aplica el filtro fundamental, ejecuta ambas alertas y envía el email con los dos mensajes concatenados.
+- `DataProvider` (`src/providers/base.py`) is the hexagonal architecture's port for accessing market data. It declares `get_tickers()` and `get_analyst_targets()`; `get_fundamentals()` and `get_prices()` exist in the adapters but are not declared in the port yet.
+- `DataProviderImpl` (`src/providers/data_provider_impl.py`) implements `DataProvider` by delegating to `YFinanceProvider` for price targets, fundamentals and historical prices, and reads the tickers from local JSON files in `data/tickers/`.
+- `YFinanceProvider` (`src/providers/yfinance_provider.py`) is the concrete adapter towards the `yfinance` library; it does not implement `get_tickers()`.
+- `BaseAlert` (`src/alerts/base_alert.py`) is the abstract base class of the alerts: it holds the ticker list, a reference to the `DataProvider`, and loads `data/tickers.csv` into `tickers_info` to enrich the messages with the company name.
+- `AnalystAlerts` (`src/alerts/analysts_alert.py`) implements the rule based on the percentage difference between the current price and the analysts' median price target (alerts when it is more than 10% below).
+- `PriceAlert` (`src/alerts/price_alerts.py`) implements the rule based on the closing price variation over several windows (1M, 3M, 6M, 9M) against a 1-year history: it alerts on drops beyond -5%, -10%, -15% and -20% respectively.
+- `FundamentalScreener` (`src/screening/fundamental_screener.py`) screens the tickers before the alerts according to fundamental criteria (debt/equity and operating margins).
+- `Notifier` (`src/notifications/notifier.py`) exposes `send_email` to notify the alerts by email through Gmail's SMTP server.
+- `Main` (`src/main.py`) is the entry point that orchestrates the flow: it fetches tickers, applies the fundamental screen, runs both alerts and sends the email with the two messages concatenated.

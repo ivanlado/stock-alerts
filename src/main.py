@@ -10,13 +10,13 @@ def main() -> None:
     export_json(snapshot)
 
     if not snapshot.has_alerts:
-        print("Sin alertas, no se envía correo")
+        print("No alerts, skipping email")
         return
 
     body = format_snapshot(snapshot)
     print(body)
     send_email(body)
-    print("Email enviado")
+    print("Email sent")
 
 
 if __name__ == "__main__":

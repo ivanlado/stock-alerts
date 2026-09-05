@@ -4,9 +4,9 @@ from email.message import EmailMessage
 from typing import List
 
 try:
-    # En local carga las variables desde un fichero .env si existe.
-    # En GitHub Actions no hay .env y las variables vienen de los secrets,
-    # así que si python-dotenv no está instalado simplemente se ignora.
+    # Locally, load the variables from a .env file if there is one.
+    # On GitHub Actions there is no .env and the variables come from the
+    # secrets, so if python-dotenv is not installed this is simply ignored.
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
@@ -15,23 +15,23 @@ except ImportError:
 
 def send_email(msg_text: str) -> None:
     """
-    Envía por correo el mensaje de alerta usando el SMTP de Gmail.
+    Emails the alert message through Gmail's SMTP server.
 
-    Requiere las variables de entorno:
-      - GMAIL_USER:         dirección de Gmail que envía (ej. tu@gmail.com)
-      - GMAIL_APP_PASSWORD: App Password de 16 caracteres de esa cuenta
-      - ALERT_TO (opcional): destinatario; por defecto el propio GMAIL_USER
+    Requires the environment variables:
+      - GMAIL_USER:          sending Gmail address (e.g. you@gmail.com)
+      - GMAIL_APP_PASSWORD:  that account's 16-character App Password
+      - ALERT_TO (optional): recipient; defaults to GMAIL_USER itself
     """
     user = os.environ["GMAIL_USER"]
     password = os.environ["GMAIL_APP_PASSWORD"]
     to = os.environ.get("ALERT_TO", "iviivilaca@gmail.com")
 
     msg = EmailMessage()
-    msg["Subject"] = f"Alertas de acciones"
+    msg["Subject"] = "Stock alerts"
     msg["From"] = user
     msg["To"] = to
 
-    body = "Tickers con alerta:\n\n" + msg_text
+    body = "Tickers with alerts:\n\n" + msg_text
     msg.set_content(body)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:

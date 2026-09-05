@@ -27,7 +27,7 @@ def _records(df: pd.DataFrame) -> list[dict]:
 def _write(path: Path, generated_at: str, rows: list[dict]) -> None:
     payload = {"generated_at": generated_at, "rows": rows}
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"Escrito {path.name} ({len(rows)} filas)")
+    print(f"Wrote {path.name} ({len(rows)} rows)")
 
 
 def _screened_rows(tickers: list[str]) -> list[dict]:

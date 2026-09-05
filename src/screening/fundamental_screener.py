@@ -4,17 +4,17 @@ from providers.base import DataProvider
 
 
 class FundamentalScreener:
-    """Filtra una lista de tickers en base a criterios fundamentales.
+    """Filters a list of tickers based on fundamental criteria.
 
-    Los criterios se pasan como un ``dict`` para que el constructor no crezca
-    al añadir métricas nuevas. Un criterio nuevo = una key en el dict + un
-    método ``_xxx_ok`` + una línea en ``_passes``.
+    The criteria are passed as a ``dict`` so the constructor does not grow when
+    new metrics are added. A new criterion = a key in the dict + a ``_xxx_ok``
+    method + one line in ``_passes``.
     """
 
-    # Defaults en un único sitio; el dict de entrada solo sobreescribe lo que quiera.
+    # Defaults in a single place; the input dict only overrides what it wants to.
     DEFAULT_CRITERIA = {
-        "max_debt_to_equity": 1.0,      # 100%, solo último año
-        "min_operating_margin": 0.07,   # 7%, cada uno de los últimos N años
+        "max_debt_to_equity": 1.0,      # 100%, last year only
+        "min_operating_margin": 0.07,   # 7%, in each of the last N years
         "operating_margin_years": 3,
     }
 
@@ -27,7 +27,7 @@ class FundamentalScreener:
         self.criteria = {**self.DEFAULT_CRITERIA, **(criteria or {})}
 
     def filter(self, tickers: list[str]) -> list[str]:
-        """Devuelve el subconjunto de tickers que cumple TODOS los criterios."""
+        """Subset of tickers that meets EVERY criterion."""
         fundamentals = self.data_provider.get_fundamentals(tickers)
         return [
             t for t in tickers
@@ -44,7 +44,7 @@ class FundamentalScreener:
         )
 
     def _debt_to_equity_ok(self, df: pd.DataFrame, threshold: float) -> bool:
-        """debtToEquity del último año disponible <= threshold. Falta dato -> descarta."""
+        """debtToEquity of the last available year <= threshold. Missing data -> discard."""
         dte = df[df["metric"] == "debtToEquity"]
         if dte.empty:
             return False
@@ -54,9 +54,9 @@ class FundamentalScreener:
     def _operating_margin_ok(
         self, df: pd.DataFrame, threshold: float, years: int
     ) -> bool:
-        """operatingMargins >= threshold en cada uno de los últimos ``years``.
+        """operatingMargins >= threshold in each of the last ``years``.
 
-        Si hay menos de ``years`` años de datos, descarta el ticker.
+        If there is less than ``years`` years of data, the ticker is discarded.
         """
         om = df[df["metric"] == "operatingMargins"].nlargest(years, "year")
         if len(om) < years:

@@ -6,8 +6,8 @@ import pandas as pd
 from alerts.base_alert import BaseAlert
 from providers.base import DataProvider
 
-# Silenciar el logger de yfinance para que no imprima los errores HTTP;
-# nosotros gestionamos e informamos los errores por ticker.
+# Silence yfinance's logger so it does not print the HTTP errors;
+# we handle and report the errors per ticker ourselves.
 logging.getLogger("yfinance").setLevel(logging.CRITICAL)
 
 

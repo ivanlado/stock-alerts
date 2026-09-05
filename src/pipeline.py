@@ -45,7 +45,7 @@ def run_pipeline(limit: int | None = DEFAULT_TICKER_LIMIT) -> Snapshot:
     screened = screener.filter(tickers)
     if limit is not None:
         screened = screened[:limit]
-    print(f"Tickers tras filtro fundamental: {len(screened)} -> {screened}")
+    print(f"Tickers after fundamental screening: {len(screened)} -> {screened}")
 
     if not screened:
         return Snapshot(

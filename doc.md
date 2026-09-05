@@ -1,14 +1,14 @@
 
-## Datos
-- Precios de la acción (no alamcenar)
-- Valoraciones analistas (almacenar)
-- Fundamentales (almacenar)
+## Data
+- Share prices (do not store)
+- Analyst valuations (store)
+- Fundamentals (store)
 
 ## Stock price
 
-- Alertas por variaciones de precio LP
+- Long-term price variation alerts
 
-| X (variación porcentual) | Y (nº de días naturales) |
+| X (percentage change) | Y (calendar days) |
 |---|---|
 | -3% | 2/24 |
 | -5% | 1 |
@@ -16,21 +16,21 @@
 | -10% | 30 |
 | -30% | 180 |
 
-- Alertas por variaciones de precio CP, por hora. 
-  
-| X (variación porcentual) | Y (nº de días naturales) |
+- Short-term price variation alerts, hourly.
+
+| X (percentage change) | Y (calendar days) |
 |---|---|
 | -3% | 1 |
 | -5% | 2 |
 
 
-- Precios analistas por debajo de un umbral (LP)
+- Analyst prices below a threshold (long term)
 
-- Generar informe de empresas interesantes en cuanto a fundamentales.
-
-
-## Filtros
+- Generate a report of companies that look interesting on fundamentals.
 
 
-Para generar el requirements.txt, ejecutar el siguiente comando en la terminal:
+## Filters
+
+
+To generate requirements.txt, run the following command in the terminal:
 python -m pipreqs.pipreqs . --force

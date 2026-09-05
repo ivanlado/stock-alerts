@@ -7,8 +7,8 @@ import yfinance as yf
 
 from scripts.tickers import get_tickers
 
-# Silenciar el logger de yfinance para que no imprima los errores HTTP;
-# nosotros gestionamos e informamos los errores por ticker.
+# Silence yfinance's logger so it does not print the HTTP errors;
+# we handle and report the errors per ticker ourselves.
 logging.getLogger("yfinance").setLevel(logging.CRITICAL)
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
@@ -26,11 +26,11 @@ def _fetch_ticker_info(ticker_list: list[str]) -> tuple[pd.DataFrame, list[str]]
         try:
             info = obj.info
         except Exception as e:
-            print(f"Error al obtener info de {ticker}: {e}")
+            print(f"Error fetching info for {ticker}: {e}")
             errors.append(ticker)
             continue
         if not info:
-            print(f"Sin info para {ticker}")
+            print(f"No info for {ticker}")
             errors.append(ticker)
             continue
         rows.append({
@@ -75,12 +75,12 @@ if __name__ == "__main__":
     _update_csv(combined)
     print(f"Ticker info saved to {TICKERS_CSV}")
 
-    print("\n--- Resumen de errores por índice ---")
+    print("\n--- Error summary per index ---")
     total_err = total_all = 0
     for index, (n_err, total) in error_summary.items():
         pct = (n_err / total * 100) if total else 0.0
-        print(f"{index}: {n_err}/{total} errores ({pct:.1f}%)")
+        print(f"{index}: {n_err}/{total} errors ({pct:.1f}%)")
         total_err += n_err
         total_all += total
     pct_all = (total_err / total_all * 100) if total_all else 0.0
-    print(f"TOTAL: {total_err}/{total_all} errores ({pct_all:.1f}%)")
+    print(f"TOTAL: {total_err}/{total_all} errors ({pct_all:.1f}%)")
