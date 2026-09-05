@@ -10,5 +10,8 @@ venv/
 # Notebooks
 .ipynb_checkpoints/
 
+# Datos generados por el pipeline para la web (se regeneran en cada run)
+web/public/data/
+
 # Claude Code local settings
 .claude/settings.local.json
