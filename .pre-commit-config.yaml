@@ -1,12 +1,12 @@
-# Regenera requirements.txt a partir de los imports reales del codigo.
-# Instalacion (una vez por persona que clone el repo):
+# Regenerates requirements.txt from the code's actual imports.
+# Installation (once per person cloning the repo):
 #     pip install pre-commit
 #     pre-commit install
 repos:
   - repo: local
     hooks:
       - id: pipreqs
-        name: Regenerar requirements.txt (pipreqs)
+        name: Regenerate requirements.txt (pipreqs)
         entry: python -m pipreqs.pipreqs src --savepath requirements.txt --force
         language: python
         additional_dependencies: [pipreqs]
