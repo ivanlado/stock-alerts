@@ -28,6 +28,7 @@ repo/
     notifications/      # Sink: formatting (formatter.py) + email sending (notifier.py)
     export/             # Sink: Snapshot -> JSON for the web
     scripts/            # CLI data-ingestion scripts (not part of the main flow)
+    utils/              # Cross-cutting helpers (llm.py: LLM calls via LiteLLM)
     main.py             # Entry point: pipeline -> export + email
   data/                 # Hand-curated input (ticker JSON, CSV)
   web/                  # Frontend (Vite + React + TypeScript)
@@ -55,6 +56,7 @@ repo/
 - **Alerts return data, not text**: `BaseAlert.run()` returns a `DataFrame` enriched with `short_name`. Subclasses only implement `apply_rules()`. No formatting inside `alerts/`.
 - **Main flow**: `main.py` → `run_pipeline()` → `export_json()` + (when there are alerts) `format_snapshot()` → `send_email()`.
 - **Contract with the web**: every file in `web/public/data/` is `{"generated_at": <ISO>, "rows": [...]}`. The frontend depends on that shape, not on the Python code.
+- **LLM calls go through `utils/llm.py`**: `ask()` wraps LiteLLM, so the provider is a model name (`gemini/...`, `ollama/...`) and no caller needs to know which one answers.
 - **Ingestion scripts** (`src/scripts/`): run manually to refresh `data/`. Not part of the main flow.
 
 ## Frontend architecture (`web/`)
@@ -80,6 +82,8 @@ Backend — defined in `.env` (local) or GitHub Secrets (CI):
 - `GMAIL_USER`: Gmail address used to send
 - `GMAIL_APP_PASSWORD`: 16-character App Password
 - `ALERT_TO`: alert recipient (optional, defaults to GMAIL_USER)
+- `GEMINI_API_KEY`: key for the `gemini/*` models used by `utils/llm.py`
+- `LLM_MODEL`: overrides the default model (optional, e.g. `ollama/gemma3:1b`)
 
 The frontend does not need environment variables for now.
 
@@ -90,6 +94,7 @@ Backend:
 - `pandas`: DataFrames throughout the data flow
 - `requests`: Wikipedia scraping (index tickers)
 - `python-dotenv`: loads `.env` locally
+- `litellm`: one API for every LLM provider (Gemini, local Ollama, ...)
 
 Frontend:
 - `react` + `react-router-dom`: UI and routing
