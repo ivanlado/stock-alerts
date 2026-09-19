@@ -9,8 +9,22 @@ on:
 jobs:
   run-script:
     runs-on: ubuntu-latest
+    permissions:
+      # Needed to push the archive back to the "data" branch.
+      contents: write
     steps:
       - uses: actions/checkout@v4
+
+      # The Parquet archive lives on its own orphan branch so the code history
+      # stays free of a daily data commit. It is checked out beside the code
+      # and HISTORY_DIR points the export straight into it.
+      # fetch-depth: 1 keeps the checkout cheap as the archive grows.
+      - name: Check out the data branch
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: data-branch
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,5 +41,21 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           ALERT_TO: iviivilaca@gmail.com
+          HISTORY_DIR: ${{ github.workspace }}/data-branch/history
         run: python main.py
         working-directory: src
+
+      # Nothing to commit when the job is re-run on a day already archived and
+      # every file comes out byte-identical, hence the guard.
+      - name: Archive the run
+        working-directory: data-branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add history
+          if git diff --staged --quiet; then
+            echo "Archive unchanged, nothing to commit"
+          else
+            git commit -m "data: archive run of $(date -u +%Y-%m-%d)"
+            git push
+          fi

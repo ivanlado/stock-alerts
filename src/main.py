@@ -1,4 +1,4 @@
-from export import export_json
+from export import export_history, export_json
 from notifications.formatter import format_snapshot
 from notifications.notifier import send_email
 from pipeline import run_pipeline
@@ -8,6 +8,7 @@ def main() -> None:
     snapshot = run_pipeline()
 
     export_json(snapshot)
+    export_history(snapshot)
 
     if not snapshot.has_alerts:
         print("No alerts, skipping email")

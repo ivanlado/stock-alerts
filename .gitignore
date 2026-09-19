@@ -15,3 +15,7 @@ web/public/data/
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Parquet archive of past runs. Lives on the orphan "data" branch, never on
+# master: a local run must not dirty the working tree with it.
+history/
