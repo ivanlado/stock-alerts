@@ -42,6 +42,23 @@ PRICE_COLS = ["var_1m", "var_3m", "var_6m", "var_9m"]
 # Written by enrichment/, on whichever table happened to be enriched first.
 COMMENTARY_COLS = ["business", "explanation"]
 
+# Fundamentals the web receives, mapped from the metric name used in
+# ``data/fundamentals.csv`` to the key the frontend reads. The first three are
+# the ratios the screener itself filters on, which is why they are the ones
+# the cards lead with.
+FUNDAMENTAL_FIELDS = {
+    "operatingMargins": "operating_margin",
+    "debtToEquity": "debt_to_equity",
+    "currentRatio": "current_ratio",
+    "Total Revenue": "total_revenue",
+    "Cost Of Revenue": "cost_of_revenue",
+    "EBITDA": "ebitda",
+    "Free Cash Flow": "free_cash_flow",
+}
+
+# Stored as a fraction (0.18) but shown as a percentage (18.0%).
+PERCENT_FIELDS = {"operating_margin"}
+
 
 def _records(df: pd.DataFrame) -> list[dict]:
     """DataFrame -> JSON-safe rows (NaN becomes null, dates become ISO strings)."""
@@ -86,6 +103,38 @@ def _subset(df: pd.DataFrame, cols: list[str]) -> pd.DataFrame:
     return df[["ticker", *present]].drop_duplicates(subset="ticker")
 
 
+def _fundamentals_by_ticker(fundamentals: pd.DataFrame) -> dict[str, dict]:
+    """Long-form (ticker, year, metric, value) -> one entry per ticker.
+
+    Each entry is ``{"latest": {...}, "history": [...]}``: the most recent year
+    for the card, and every year for the detail panel. Every year carries every
+    key, filled with None when the source has no value, so the web can lay them
+    out as a table without checking which columns exist.
+    """
+    if fundamentals.empty:
+        return {}
+
+    wanted = fundamentals[fundamentals["metric"].isin(FUNDAMENTAL_FIELDS)]
+    by_ticker: dict[str, dict] = {}
+
+    for ticker, rows in wanted.groupby("ticker"):
+        years = []
+        for year, year_rows in rows.groupby("year"):
+            entry: dict = {"year": int(year)}
+            entry.update({name: None for name in FUNDAMENTAL_FIELDS.values()})
+            for metric, value in zip(year_rows["metric"], year_rows["value"]):
+                if pd.isna(value):
+                    continue
+                name = FUNDAMENTAL_FIELDS[metric]
+                entry[name] = float(value) * 100 if name in PERCENT_FIELDS else float(value)
+            years.append(entry)
+
+        years.sort(key=lambda entry: entry["year"])
+        by_ticker[str(ticker)] = {"latest": years[-1], "history": years}
+
+    return by_ticker
+
+
 def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
     """One row per alerted company, merging both alert tables.
 
@@ -112,7 +161,17 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
 
     merged = catalog.merge(merged, on="ticker", how="right")
     # Alphabetical so the cards do not jump around between runs.
-    return _records(merged.sort_values("ticker"))
+    rows = _records(merged.sort_values("ticker"))
+
+    # Attached after the DataFrame work because these are nested objects, not
+    # flat columns, and pandas has no use for them.
+    fundamentals = _fundamentals_by_ticker(snapshot.fundamentals)
+    for row in rows:
+        entry = fundamentals.get(row["ticker"])
+        row["fundamentals"] = entry["latest"] if entry else None
+        row["fundamentals_history"] = entry["history"] if entry else []
+
+    return rows
 
 
 def _screened_rows(tickers: list[str], catalog: pd.DataFrame) -> list[dict]:

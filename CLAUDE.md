@@ -60,6 +60,7 @@ repo/
 - **Main flow**: `main.py` → `run_pipeline()` → `export_json()` + (when there are alerts) `format_snapshot()` → `send_email()`.
 - **Contract with the web**: every file in `web/public/data/` is `{"generated_at": <ISO>, "rows": [...]}`. The frontend depends on that shape, not on the Python code.
 - **`companies.json`**: one row per alerted company, joining both alert tables so the web has a single card per company. A ticker that fired only one rule has nulls in the other rule's columns, and the UI greys them out. The join lives in `export/`, not in the browser.
+- **Fundamentals travel on the `Snapshot`**: `run_pipeline()` fetches them once, hands them to the screener (which would otherwise fetch them again) and keeps them, so a sink can show WHY a company passed the filters, not just that it did. `companies.json` carries them per company as `fundamentals` (latest year) and `fundamentals_history` (every year). The metric list lives in `FUNDAMENTAL_FIELDS` in `export/json_export.py`.
 - **Every exported row carries `sector` and `description`** from `data/tickers.csv`. `description` is Yahoo's own summary: it exists for every ticker, so the UI always has text to show when the LLM commentary is missing.
 - **Alert commentary** (`src/enrichment/`): two LLM calls per alerted company add the `business` and `explanation` columns. The questions live in `prompts.py` and nothing else needs touching to change them. A failed call leaves the cell empty rather than stopping the run.
 - **LLM calls go through `utils/llm.py`**: `ask()` wraps LiteLLM, so the provider is a model name (`gemini/...`, `ollama/...`) and no caller needs to know which one answers.
@@ -69,7 +70,9 @@ repo/
 
 - **Charting libraries stay encapsulated**: `DataGrid.tsx` is the only file that imports AG Grid; `Chart.tsx`, the only one that imports ECharts. Pages only use `<DataGrid>` and `<Chart>`. Switching library = touching one file.
 - **`lib/` is the boundary with the data**: `types.ts` mirrors the columns Python exports; `data.ts` concentrates the `fetch` and the `useData` hook. If the data ever comes from an API, only `data.ts` changes.
-- **Numbers are formatted in one place**: `lib/format.ts` holds the rounding (one decimal everywhere) and `variationStyle()`, the green/red gradient. The gradient scale is FIXED and saturates at ±20%, so the same percentage paints the same colour across tables, cards and chart, and between runs. Change the scale there and every view follows.
+- **Numbers are formatted in one place**: `lib/format.ts` holds the rounding (one decimal everywhere), `formatCompact()` for money (44.3B) and `variationStyle()`, the green/red gradient. The gradient scale is FIXED and saturates at ±20%, so the same percentage paints the same colour across tables, cards and chart, and between runs. Change the scale there and every view follows.
+- **Green and red mean price movement, and only that**: fundamentals are rendered neutral (`.stat`, not `.metric`). A debt ratio has no up-is-good direction, so putting it on the same colour scale would mislead.
+- **The fundamentals shown, and their labels and units, live in one array**: `FUNDAMENTALS` in `components/CompanyCards.tsx`. The cards lead with the first three, which are the ratios the Python screener filters on.
 - **Pages (`routes/`) know neither where the data comes from nor how a grid is painted**: they declare columns, call `useData` and compose.
 - **New page**: a file in `routes/` + a `<Link>` and a `<Route>` in `App.tsx`.
 - **New column**: add it to the DataFrame in Python → to the type in `types.ts` → to the page's column array.

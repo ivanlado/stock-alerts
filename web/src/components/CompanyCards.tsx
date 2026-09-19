@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
-import { formatNumber, formatPercent, variationStyle, MISSING } from "../lib/format";
-import type { CompanyCard } from "../lib/types";
+import {
+  formatCompact,
+  formatNumber,
+  formatPercent,
+  variationStyle,
+  MISSING,
+} from "../lib/format";
+import type { CompanyCard, Fundamentals } from "../lib/types";
 
 /**
  * The alerted companies as a grid of cards, each opening a full detail panel.
@@ -10,6 +16,36 @@ import type { CompanyCard } from "../lib/types";
  * get badges and the prose gets a clamped block that expands on click.
  */
 
+/**
+ * Every fundamental the web shows, in the order it is shown, each with how to
+ * write it.
+ *
+ * Declared once here so the card, the detail list and the year-by-year table
+ * cannot disagree about a label or a unit. `key` is restricted to the keys of
+ * Fundamentals, so a typo is a compile error rather than an empty cell.
+ */
+type FundamentalRow = {
+  key: Exclude<keyof Fundamentals, "year">;
+  label: string;
+  format: (value: number | null) => string;
+};
+
+const FUNDAMENTALS: FundamentalRow[] = [
+  { key: "operating_margin", label: "Op. margin", format: formatPercent },
+  { key: "debt_to_equity", label: "Debt/equity", format: formatNumber },
+  { key: "current_ratio", label: "Current ratio", format: formatNumber },
+  { key: "total_revenue", label: "Revenue", format: formatCompact },
+  { key: "cost_of_revenue", label: "Cost of revenue", format: formatCompact },
+  { key: "ebitda", label: "EBITDA", format: formatCompact },
+  { key: "free_cash_flow", label: "Free cash flow", format: formatCompact },
+];
+
+/**
+ * The three the cards lead with: the very ratios the Python screener filters
+ * on, so a card shows why the company got through in the first place.
+ */
+const HEADLINE_FUNDAMENTALS = FUNDAMENTALS.slice(0, 3);
+
 /** The text shown for a company, best source first. */
 function companyText(c: CompanyCard): string | null {
   // `??` is the nullish coalescing operator: it takes the left side unless it
@@ -18,12 +54,58 @@ function companyText(c: CompanyCard): string | null {
   return c.business ?? c.description ?? null;
 }
 
-/** One coloured number: the label above, the value below. */
+/** One coloured number: green for a rise, red for a drop. */
 function Metric({ label, value }: { label: string; value: number | null }) {
   return (
     <div className="metric" style={variationStyle(value)}>
       <span className="metric-label">{label}</span>
       <span className="metric-value">{formatPercent(value)}</span>
+    </div>
+  );
+}
+
+/**
+ * One fundamental, deliberately NOT colour-coded.
+ *
+ * Green and red mean "the price went up / down" everywhere else on this page.
+ * A debt ratio has no such direction -- low is good, which would invert the
+ * meaning -- so painting it on the same scale would mislead. It stays neutral.
+ */
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="stat">
+      <span className="metric-label">{label}</span>
+      <span className="metric-value">{value}</span>
+    </div>
+  );
+}
+
+/** The fundamentals of every reported year, one row per metric. */
+function FundamentalsHistory({ history }: { history: Fundamentals[] }) {
+  if (history.length === 0) return null;
+
+  return (
+    <div className="history-wrap">
+      <table className="history">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            {history.map((year) => (
+              <th key={year.year}>{year.year}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {FUNDAMENTALS.map((row) => (
+            <tr key={row.key}>
+              <th scope="row">{row.label}</th>
+              {history.map((year) => (
+                <td key={year.year}>{row.format(year[row.key])}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -47,6 +129,8 @@ function Detail({ company, onClose }: { company: CompanyCard; onClose: () => voi
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
+
+  const latest = company.fundamentals;
 
   return (
     // Clicking the dark backdrop closes the panel. `stopPropagation` on the
@@ -76,16 +160,37 @@ function Detail({ company, onClose }: { company: CompanyCard; onClose: () => voi
           </div>
         </div>
 
+        {/* Only rendered when the model actually answered: a quota or a
+            timeout leaves this null, and an empty heading helps nobody. */}
+        {company.explanation && (
+          <>
+            <h4>Why the price moved</h4>
+            <p>{company.explanation}</p>
+          </>
+        )}
+
+        {latest && (
+          <>
+            <h4>Fundamentals ({latest.year})</h4>
+            <div className="stats">
+              {FUNDAMENTALS.map((row) => (
+                <Stat key={row.key} label={row.label} value={row.format(latest[row.key])} />
+              ))}
+            </div>
+          </>
+        )}
+
+        {company.fundamentals_history.length > 1 && (
+          <>
+            <h4>By year</h4>
+            <FundamentalsHistory history={company.fundamentals_history} />
+          </>
+        )}
+
         {company.business && (
           <>
             <h4>Business</h4>
             <p>{company.business}</p>
-          </>
-        )}
-        {company.explanation && (
-          <>
-            <h4>Why the alert fired</h4>
-            <p>{company.explanation}</p>
           </>
         )}
         {company.description && (
@@ -115,6 +220,7 @@ export function CompanyCards({ rows }: { rows: CompanyCard[] }) {
             reuses the right element instead of rebuilding the whole list. */}
         {rows.map((company) => {
           const text = companyText(company);
+          const latest = company.fundamentals;
           return (
             <article
               key={company.ticker}
@@ -132,11 +238,23 @@ export function CompanyCards({ rows }: { rows: CompanyCard[] }) {
                 <Metric label="6M" value={company.var_6m} />
               </div>
 
+              <div className="stats">
+                {HEADLINE_FUNDAMENTALS.map((row) => (
+                  <Stat
+                    key={row.key}
+                    label={row.label}
+                    value={latest ? row.format(latest[row.key]) : MISSING}
+                  />
+                ))}
+              </div>
+
               {/* The text is clamped to a few lines by CSS rather than cut in
                   JavaScript, so the full string stays in the DOM and the panel
                   has it ready. */}
-              <p className="card-text">{text ?? <span className="muted">No description available</span>}</p>
-              {text && <span className="card-more">Read more</span>}
+              <p className="card-text">
+                {text ?? <span className="muted">No description available</span>}
+              </p>
+              <span className="card-more">Read more</span>
             </article>
           );
         })}
@@ -147,6 +265,3 @@ export function CompanyCards({ rows }: { rows: CompanyCard[] }) {
     </>
   );
 }
-
-/** Re-exported so pages can show the same placeholder for a missing number. */
-export { MISSING };

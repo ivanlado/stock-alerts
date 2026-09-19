@@ -66,6 +66,25 @@ export type PriceAlert = Company &
   };
 
 /**
+ * One year of a company's fundamentals, from `data/fundamentals.csv`.
+ *
+ * The first three are the ratios the Python screener filters on, which is why
+ * they are the ones the cards lead with. `operating_margin` arrives already
+ * converted to a percentage; the money figures are in the company's reporting
+ * currency and are shown compacted (44.3B).
+ */
+export type Fundamentals = {
+  year: number;
+  operating_margin: number | null;
+  debt_to_equity: number | null;
+  current_ratio: number | null;
+  total_revenue: number | null;
+  cost_of_revenue: number | null;
+  ebitda: number | null;
+  free_cash_flow: number | null;
+};
+
+/**
  * companies.json -- one row per ALERTED company, merging both alert tables.
  *
  * A company that fired only one of the two rules has nulls in the other
@@ -82,6 +101,10 @@ export type CompanyCard = Company &
     var_3m: number | null;
     var_6m: number | null;
     var_9m: number | null;
+    /** The most recent reported year, or null when the company has no data. */
+    fundamentals: Fundamentals | null;
+    /** Every reported year, oldest first. Empty when there is no data. */
+    fundamentals_history: Fundamentals[];
   };
 
 /** screener.json */

@@ -26,9 +26,17 @@ class FundamentalScreener:
         self.data_provider = data_provider
         self.criteria = {**self.DEFAULT_CRITERIA, **(criteria or {})}
 
-    def filter(self, tickers: list[str]) -> list[str]:
-        """Subset of tickers that meets EVERY criterion."""
-        fundamentals = self.data_provider.get_fundamentals(tickers)
+    def filter(
+        self, tickers: list[str], fundamentals: pd.DataFrame | None = None
+    ) -> list[str]:
+        """Subset of tickers that meets EVERY criterion.
+
+        ``fundamentals`` lets a caller that already holds the table pass it in,
+        so it is not fetched twice. Fetching it is expensive when the local CSV
+        cache is missing: it is one network round trip per ticker.
+        """
+        if fundamentals is None:
+            fundamentals = self.data_provider.get_fundamentals(tickers)
         return [
             t for t in tickers
             if self._passes(fundamentals[fundamentals["ticker"] == t])

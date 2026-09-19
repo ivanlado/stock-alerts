@@ -29,6 +29,10 @@ class Snapshot:
     screened: list[str]
     analyst_alerts: pd.DataFrame
     price_alerts: pd.DataFrame
+    # Long-form table (ticker, year, metric, value) for the screened tickers.
+    # Kept on the Snapshot so a sink can show WHY a company passed the filters,
+    # not just that it did.
+    fundamentals: pd.DataFrame
 
     @property
     def has_alerts(self) -> bool:
@@ -51,8 +55,12 @@ def run_pipeline(
     tickers = data_provider.get_tickers()
     print(f"Number of tickers: {len(tickers)}")
 
+    # Fetched once and handed to the screener, which would otherwise fetch it
+    # again on its own.
+    fundamentals = data_provider.get_fundamentals(tickers)
+
     screener = FundamentalScreener(data_provider)
-    screened = screener.filter(tickers)
+    screened = screener.filter(tickers, fundamentals)
     if limit is not None:
         screened = screened[:limit]
     print(f"Tickers after fundamental screening: {len(screened)} -> {screened}")
@@ -63,6 +71,7 @@ def run_pipeline(
             screened=[],
             analyst_alerts=pd.DataFrame(),
             price_alerts=pd.DataFrame(),
+            fundamentals=pd.DataFrame(),
         )
 
     analyst_alerts = AnalystAlerts(screened, data_provider=data_provider).run()
@@ -83,4 +92,5 @@ def run_pipeline(
         screened=screened,
         analyst_alerts=analyst_alerts,
         price_alerts=price_alerts,
+        fundamentals=fundamentals[fundamentals["ticker"].isin(screened)],
     )

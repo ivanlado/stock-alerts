@@ -40,6 +40,21 @@ export function formatPercent(value: number | null | undefined): string {
   return `${value.toFixed(DECIMALS)}%`;
 }
 
+/**
+ * Large money figures, shortened: 44328000000 becomes "44.3B".
+ *
+ * `Intl.NumberFormat` is built into the browser and does the shortening
+ * itself, so there is no table of thresholds to maintain here.
+ */
+export function formatCompact(value: number | null | undefined): string {
+  if (value == null || Number.isNaN(value)) return MISSING;
+  return new Intl.NumberFormat("en-US", {
+    notation: "compact",
+    minimumFractionDigits: DECIMALS,
+    maximumFractionDigits: DECIMALS,
+  }).format(value);
+}
+
 /** The CSS properties a variation cell or badge gets painted with. */
 export type VariationStyle = {
   backgroundColor: string;

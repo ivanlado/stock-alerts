@@ -129,6 +129,26 @@ h2 {
   padding: 0.3rem 0.55rem;
 }
 
+/* Fundamentals: same shape as a metric, but flat grey. Green and red are
+   reserved for price movement, and a debt ratio has no such direction. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4.4rem, 1fr));
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f6f8;
+  border: 1px solid #e6e8ec;
+  border-radius: 6px;
+  padding: 0.3rem 0.55rem;
+  color: #333;
+}
+
 .metric-label {
   font-size: 0.68rem;
   opacity: 0.8;
@@ -227,4 +247,42 @@ h2 {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+/* The year-by-year fundamentals. `overflow-x: auto` lets the table scroll
+   sideways on a narrow screen instead of stretching the panel. */
+.history-wrap {
+  overflow-x: auto;
+}
+
+.history {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  width: 100%;
+}
+
+.history th,
+.history td {
+  padding: 0.35rem 0.6rem;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
+}
+
+/* The metric name column, on the left. */
+.history th[scope="row"],
+.history thead th:first-child {
+  text-align: left;
+  font-weight: 500;
+  color: #555;
+}
+
+.history thead th {
+  color: #666;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+}
+
+.history td {
+  font-variant-numeric: tabular-nums;
 }
