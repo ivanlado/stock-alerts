@@ -4,7 +4,13 @@ import { CompanyCards } from "../components/CompanyCards";
 import { DataGrid, type ColDef, type Column } from "../components/DataGrid";
 import { useData } from "../lib/data";
 import { formatNumber, formatPercent, variationStyle } from "../lib/format";
-import type { AnalystAlert, Commentary, Company, CompanyCard, PriceAlert } from "../lib/types";
+import type {
+  AnalystAlert,
+  Company,
+  CompanyCard,
+  PriceAlert,
+  PriceSeries,
+} from "../lib/types";
 
 // --- Shared column behaviour ---
 // Declared outside the component on purpose: they are constants, and a value
@@ -53,20 +59,17 @@ function priceColumn<Row>(field: ColDef<Row>["field"], headerName: string): Colu
  * The company name, with its profile shown on hover.
  *
  * `tooltipValueGetter` returns the text AG Grid shows when the pointer rests
- * on the cell. The LLM summary is used when it exists, otherwise Yahoo's
- * description, which is there for every ticker.
+ * on the cell. Yahoo's description is what the alert tables carry, and it is
+ * there for every ticker; the model's shorter summary lives on the company
+ * cards, which is where the full profile is.
  */
-function nameColumn<Row extends Company & Commentary>(
-  field: ColDef<Row>["field"],
-): Column<Row> {
+function nameColumn<Row extends Company>(field: ColDef<Row>["field"]): Column<Row> {
   return {
     field,
     headerName: "Name",
     minWidth: 160,
     tooltipValueGetter: (params) => {
-      const row = params.data;
-      if (!row) return "";
-      const text = row.business ?? row.description;
+      const text = params.data?.description;
       if (!text) return "No description available";
       return text.length > TOOLTIP_LIMIT ? `${text.slice(0, TOOLTIP_LIMIT)}…` : text;
     },
@@ -108,6 +111,7 @@ export function AlertsPage() {
   const analyst = useData<AnalystAlert>("analyst_alerts.json");
   const price = useData<PriceAlert>("price_alerts.json");
   const companies = useData<CompanyCard>("companies.json");
+  const prices = useData<PriceSeries>("prices.json");
 
   // `useMemo(fn, deps)` remembers the result of `fn` and only recomputes it
   // when a value in `deps` changes. Needed here because `Chart` repaints
@@ -149,10 +153,12 @@ export function AlertsPage() {
 
   // Early returns: while loading or on failure, display that instead of the
   // page. Reaching further down guarantees the data is there.
-  if (analyst.loading || price.loading || companies.loading) return <p>Loading...</p>;
+  if (analyst.loading || price.loading || companies.loading || prices.loading)
+    return <p>Loading...</p>;
   if (analyst.error) return <p className="error">{analyst.error}</p>;
   if (price.error) return <p className="error">{price.error}</p>;
   if (companies.error) return <p className="error">{companies.error}</p>;
+  if (prices.error) return <p className="error">{prices.error}</p>;
 
   // Curly braces inside JSX insert a JavaScript value into the markup.
   return (
@@ -162,8 +168,12 @@ export function AlertsPage() {
 
       <section>
         <h2>Companies</h2>
-        <p className="meta">Click a card for the full profile.</p>
-        <CompanyCards rows={companies.rows} />
+        <p className="meta">
+          Every company that passed the fundamental screener, with both rules'
+          numbers. The ones that fired an alert come first. Click a card for the
+          full profile.
+        </p>
+        <CompanyCards rows={companies.rows} prices={prices.rows} />
       </section>
 
       <section>

@@ -203,12 +203,15 @@ h2 {
   z-index: 10;
 }
 
+/* Wide enough for the price chart and the year-by-year table to breathe. The
+   prose inside is capped separately (see `.detail p`): a paragraph running the
+   full width of a 900px panel is tiring to read. */
 .detail {
   position: relative;
   background: #fff;
   border-radius: 10px;
   padding: 1.75rem 2rem;
-  max-width: 62ch;
+  max-width: 900px;
   width: 100%;
 }
 
@@ -247,6 +250,64 @@ h2 {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.65;
+  max-width: 72ch;
+}
+
+/* The sector pill and the alert tags, on one line under the company name. */
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+/* Which rule fired. Blue, not green or red: it says what happened, not
+   whether the number behind it is good news. */
+.tag {
+  display: inline-block;
+  background: #e8effd;
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* --- The price chart's range buttons --- */
+
+.range-picker {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0.2rem 0 0.4rem;
+}
+
+.range {
+  background: #f5f6f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.2rem 0.65rem;
+  font: inherit;
+  font-size: 0.76rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.range:hover {
+  border-color: #c7ccd4;
+}
+
+/* The range currently drawn. */
+.range.active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
 }
 
 /* The year-by-year fundamentals. `overflow-x: auto` lets the table scroll

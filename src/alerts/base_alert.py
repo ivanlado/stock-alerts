@@ -10,9 +10,15 @@ from providers.base import DataProvider
 class BaseAlert(ABC):
     """Base class for alert rules.
 
-    Subclasses only implement ``apply_rules``, which returns the rows that
-    trigger the alert as a DataFrame. Formatting for a specific output
-    (email, JSON, ...) is NOT done here: it belongs to the consumer.
+    Subclasses implement ``compute`` -- every ticker's numbers, alert or not --
+    and ``apply_rules``, which keeps the rows that actually trigger. Formatting
+    for a specific output (email, JSON, ...) is NOT done here: it belongs to
+    the consumer.
+
+    The unfiltered table exists because a company card shows BOTH rules for
+    every alerted company: a ticker that only fired the analyst rule still has
+    a 1-month variation, it simply was not extreme enough to alert on. Without
+    ``compute`` those cells would be empty for no good reason.
     """
 
     def __init__(self, tickers: List[str], data_provider: DataProvider):
@@ -25,6 +31,11 @@ class BaseAlert(ABC):
         self.tickers_info = pd.read_csv(data_dir / "tickers.csv")
 
     @abstractmethod
+    def compute(self) -> pd.DataFrame:
+        """This rule's numbers for EVERY ticker, whether they alert or not."""
+        raise NotImplementedError
+
+    @abstractmethod
     def apply_rules(self) -> pd.DataFrame:
         """Rows matching the alert rule. One row per triggering ticker."""
         raise NotImplementedError
@@ -32,6 +43,10 @@ class BaseAlert(ABC):
     def run(self) -> pd.DataFrame:
         """Alert rows enriched with the ticker's display name."""
         return self._with_names(self.apply_rules())
+
+    def run_all(self) -> pd.DataFrame:
+        """Every ticker's numbers, enriched with the display name."""
+        return self._with_names(self.compute())
 
     def _with_names(self, alerts: pd.DataFrame) -> pd.DataFrame:
         """Adds ``short_name`` to the alert rows, keeping the CSV's extra columns out."""

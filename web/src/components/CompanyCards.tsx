@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { PriceHistory } from "./PriceHistory";
 import {
   formatCompact,
   formatNumber,
@@ -6,14 +7,18 @@ import {
   variationStyle,
   MISSING,
 } from "../lib/format";
-import type { CompanyCard, Fundamentals } from "../lib/types";
+import type { CompanyCard, CompanyProfile, Fundamentals, PriceSeries } from "../lib/types";
 
 /**
- * The alerted companies as a grid of cards, each opening a full detail panel.
+ * The screened companies as a grid of cards, each opening a full detail panel.
  *
  * WHY CARDS AND NOT A TABLE. These rows mix numbers with paragraphs of prose.
  * A table column tall enough to hold a paragraph is unreadable, so the numbers
  * get badges and the prose gets a clamped block that expands on click.
+ *
+ * THE PROSE IS IN SPANISH. It is written by the model (see `src/enrichment/`)
+ * and is the only text on the page this code does not produce. The headings
+ * around it stay English, like every other label in the project.
  */
 
 /**
@@ -25,7 +30,7 @@ import type { CompanyCard, Fundamentals } from "../lib/types";
  * Fundamentals, so a typo is a compile error rather than an empty cell.
  */
 type FundamentalRow = {
-  key: Exclude<keyof Fundamentals, "year">;
+  key: Exclude<keyof Fundamentals, "period">;
   label: string;
   format: (value: number | null) => string;
 };
@@ -46,12 +51,29 @@ const FUNDAMENTALS: FundamentalRow[] = [
  */
 const HEADLINE_FUNDAMENTALS = FUNDAMENTALS.slice(0, 3);
 
-/** The text shown for a company, best source first. */
+/**
+ * The profile sections shown in the detail panel, in order.
+ *
+ * `key` must match a key of `CompanyProfile`, which is what Python writes from
+ * `PROFILE_SECTIONS` in `src/enrichment/prompts.py`. Adding a question there
+ * and a line here is the whole job; `summary` is missing on purpose, since it
+ * is shown at the top rather than as one section among others.
+ */
+const PROFILE_SECTIONS: { key: keyof CompanyProfile; heading: string }[] = [
+  { key: "revenue_sources", heading: "Revenue sources" },
+  { key: "moat", heading: "Economic moat" },
+  { key: "competitors", heading: "Competitors" },
+  { key: "threats", heading: "Threats" },
+  { key: "outlook", heading: "Outlook" },
+];
+
+/** The short text shown on a card, best source first. */
 function companyText(c: CompanyCard): string | null {
-  // `??` is the nullish coalescing operator: it takes the left side unless it
-  // is null or undefined, in which case it falls through to the right. The
-  // LLM summary is preferred when it exists; Yahoo's description always does.
-  return c.business ?? c.description ?? null;
+  // `?.` skips the lookup when `profile` is null instead of crashing, and `??`
+  // takes the left side unless it is null or undefined. So: the model's own
+  // two-line summary when it exists, and Yahoo's description -- which is there
+  // for every ticker but far longer -- only as a fallback.
+  return c.profile?.summary ?? c.description ?? null;
 }
 
 /** One coloured number: green for a rise, red for a drop. */
@@ -80,7 +102,38 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-/** The fundamentals of every reported year, one row per metric. */
+/**
+ * Which rules fired, as small pills.
+ *
+ * Every card now carries BOTH rules' numbers, so the numbers alone no longer
+ * say what made the company show up. These do.
+ */
+function AlertTags({ company }: { company: CompanyCard }) {
+  return (
+    <span className="tags">
+      {company.analyst_alert && <span className="tag">Analyst target</span>}
+      {company.price_alert && <span className="tag">Price drop</span>}
+    </span>
+  );
+}
+
+/** One prose section, rendered only when the model actually answered. */
+function Section({ heading, text }: { heading: string; text: string | null | undefined }) {
+  if (!text) return null;
+  return (
+    <>
+      <h4>{heading}</h4>
+      <p>{text}</p>
+    </>
+  );
+}
+
+/**
+ * The fundamentals of every reported period, one row per metric.
+ *
+ * The same component draws the annual and the quarterly table: Python gives
+ * both the same shape, with `period` holding "2025" or "2025Q3".
+ */
 function FundamentalsHistory({ history }: { history: Fundamentals[] }) {
   if (history.length === 0) return null;
 
@@ -90,8 +143,8 @@ function FundamentalsHistory({ history }: { history: Fundamentals[] }) {
         <thead>
           <tr>
             <th>Metric</th>
-            {history.map((year) => (
-              <th key={year.year}>{year.year}</th>
+            {history.map((entry) => (
+              <th key={entry.period}>{entry.period}</th>
             ))}
           </tr>
         </thead>
@@ -99,8 +152,8 @@ function FundamentalsHistory({ history }: { history: Fundamentals[] }) {
           {FUNDAMENTALS.map((row) => (
             <tr key={row.key}>
               <th scope="row">{row.label}</th>
-              {history.map((year) => (
-                <td key={year.year}>{row.format(year[row.key])}</td>
+              {history.map((entry) => (
+                <td key={entry.period}>{row.format(entry[row.key])}</td>
               ))}
             </tr>
           ))}
@@ -111,13 +164,68 @@ function FundamentalsHistory({ history }: { history: Fundamentals[] }) {
 }
 
 /**
+ * The year-by-year table and the quarter-by-quarter one, behind two buttons.
+ *
+ * Both are already downloaded, so switching only changes which array is drawn.
+ * The quarterly view is offered only when Yahoo publishes one: not every
+ * market requires quarterly statements, and an empty table says nothing.
+ */
+function FundamentalsTables({
+  annual,
+  quarterly,
+}: {
+  annual: Fundamentals[];
+  quarterly: Fundamentals[];
+}) {
+  const [view, setView] = useState<"annual" | "quarterly">("annual");
+
+  // Nothing worth a table: a single year is already shown as badges above.
+  if (annual.length <= 1 && quarterly.length === 0) return null;
+
+  const showing = view === "quarterly" && quarterly.length > 0 ? quarterly : annual;
+
+  return (
+    <>
+      <h4>History</h4>
+      {quarterly.length > 0 && (
+        <div className="range-picker">
+          <button
+            type="button"
+            className={view === "annual" ? "range active" : "range"}
+            onClick={() => setView("annual")}
+          >
+            Annual
+          </button>
+          <button
+            type="button"
+            className={view === "quarterly" ? "range active" : "range"}
+            onClick={() => setView("quarterly")}
+          >
+            Quarterly
+          </button>
+        </div>
+      )}
+      <FundamentalsHistory history={showing} />
+    </>
+  );
+}
+
+/**
  * The full detail panel, shown on top of the page when a card is clicked.
  *
  * `onClose` is a prop that happens to be a FUNCTION. Passing a function down
  * is how a child tells its parent something happened -- here, "the user wants
  * me gone" -- without the child needing to know what closing actually means.
  */
-function Detail({ company, onClose }: { company: CompanyCard; onClose: () => void }) {
+function Detail({
+  company,
+  series,
+  onClose,
+}: {
+  company: CompanyCard;
+  series: PriceSeries | null;
+  onClose: () => void;
+}) {
   // Closing with the Escape key is a browser-wide concern, not something that
   // happens inside this markup, so it needs useEffect: React runs the code
   // after painting, and runs the returned cleanup before the panel disappears.
@@ -130,7 +238,22 @@ function Detail({ company, onClose }: { company: CompanyCard; onClose: () => voi
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
+  // Freezing the page behind the panel, for the same reason and in the same
+  // way: the panel scrolls on its own, and without this the wheel would keep
+  // scrolling the list of cards underneath once the panel reached its end.
+  // The cleanup restores whatever the page had before, rather than assuming
+  // it was the default.
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, []);
+
   const latest = company.fundamentals;
+  const profile = company.profile;
+  const summary = companyText(company);
 
   return (
     // Clicking the dark backdrop closes the panel. `stopPropagation` on the
@@ -145,7 +268,10 @@ function Detail({ company, onClose }: { company: CompanyCard; onClose: () => voi
         <h3>
           {company.ticker} <span className="meta">{company.short_name}</span>
         </h3>
-        {company.sector && <span className="sector">{company.sector}</span>}
+        <div className="detail-tags">
+          {company.sector && <span className="sector">{company.sector}</span>}
+          <AlertTags company={company} />
+        </div>
 
         <div className="detail-numbers">
           <p>
@@ -160,18 +286,9 @@ function Detail({ company, onClose }: { company: CompanyCard; onClose: () => voi
           </div>
         </div>
 
-        {/* Only rendered when the model actually answered: a quota or a
-            timeout leaves this null, and an empty heading helps nobody. */}
-        {company.explanation && (
-          <>
-            <h4>Why the price moved</h4>
-            <p>{company.explanation}</p>
-          </>
-        )}
-
         {latest && (
           <>
-            <h4>Fundamentals ({latest.year})</h4>
+            <h4>Fundamentals ({latest.period})</h4>
             <div className="stats">
               {FUNDAMENTALS.map((row) => (
                 <Stat key={row.key} label={row.label} value={row.format(latest[row.key])} />
@@ -180,36 +297,71 @@ function Detail({ company, onClose }: { company: CompanyCard; onClose: () => voi
           </>
         )}
 
-        {company.fundamentals_history.length > 1 && (
+        <h4>Price history</h4>
+        <PriceHistory series={series} />
+
+        {summary && (
           <>
-            <h4>By year</h4>
-            <FundamentalsHistory history={company.fundamentals_history} />
+            <h4>Summary</h4>
+            <p>{summary}</p>
           </>
         )}
 
-        {company.business && (
-          <>
-            <h4>Business</h4>
-            <p>{company.business}</p>
-          </>
+        {/* Written on every run, unlike the sections below: it is about
+            today's move, so a cached answer would be a wrong one. Null when
+            the model call failed (a quota, a timeout). */}
+        <Section heading="Recent move" text={company.explanation} />
+
+        {PROFILE_SECTIONS.map((section) => (
+          <Section
+            key={section.key}
+            heading={section.heading}
+            text={profile ? profile[section.key] : null}
+          />
+        ))}
+
+        {/* An absent profile is a normal state -- the model may have been out
+            of quota when this company came up -- and an unexplained gap where
+            six sections should be reads as a broken page. So it says so. */}
+        {!profile && (
+          <p className="muted">
+            No profile written yet: the model had nothing to say about this company on
+            the last run. It is filled in on a later run and then cached.
+          </p>
         )}
-        {company.description && (
-          <>
-            <h4>Profile</h4>
-            <p>{company.description}</p>
-          </>
-        )}
+
+        {/* `?? []` guards against data written by an older Python: a
+            dashboard whose JSON predates a new column should show less, not
+            crash. The files are regenerated daily, but a checkout is not. */}
+        <FundamentalsTables
+          annual={company.fundamentals_history ?? []}
+          quarterly={company.fundamentals_quarterly ?? []}
+        />
       </div>
     </div>
   );
 }
 
-export function CompanyCards({ rows }: { rows: CompanyCard[] }) {
+export function CompanyCards({
+  rows,
+  prices = [],
+}: {
+  rows: CompanyCard[];
+  prices?: PriceSeries[];
+}) {
   // `useState` is how a component remembers something across repaints. Here it
   // holds the company whose detail panel is open, or null when none is. React
   // repaints the moment the setter is called, which is what makes the panel
   // appear.
   const [selected, setSelected] = useState<CompanyCard | null>(null);
+
+  // A Map is a lookup table: finding a ticker in it is immediate, whereas
+  // searching the array again on every repaint would walk it from the start.
+  // `useMemo` builds it only when the downloaded prices change.
+  const seriesByTicker = useMemo(
+    () => new Map(prices.map((series) => [series.ticker, series])),
+    [prices],
+  );
 
   if (rows.length === 0) return null;
 
@@ -230,7 +382,10 @@ export function CompanyCards({ rows }: { rows: CompanyCard[] }) {
               <h3>
                 {company.ticker} <span className="meta">{company.short_name}</span>
               </h3>
-              {company.sector && <span className="sector">{company.sector}</span>}
+              <div className="detail-tags">
+                {company.sector && <span className="sector">{company.sector}</span>}
+                <AlertTags company={company} />
+              </div>
 
               <div className="metrics">
                 <Metric label="vs target" value={company.pct_price_diff} />
@@ -261,7 +416,13 @@ export function CompanyCards({ rows }: { rows: CompanyCard[] }) {
       </div>
 
       {/* Rendered only while something is selected. */}
-      {selected && <Detail company={selected} onClose={() => setSelected(null)} />}
+      {selected && (
+        <Detail
+          company={selected}
+          series={seriesByTicker.get(selected.ticker) ?? null}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </>
   );
 }

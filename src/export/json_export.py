@@ -4,18 +4,30 @@ The contract with the frontend is the shape of these files, not the Python
 code: every file is ``{"generated_at": <ISO>, "rows": [...]}`` so metadata can
 be added later without breaking any consumer.
 
-Four files are written:
+Five files are written:
   - ``screener.json``:        the tickers that passed the fundamental filters
   - ``analyst_alerts.json``:  one row per analyst-divergence alert
   - ``price_alerts.json``:    one row per price-drop alert
-  - ``companies.json``:       one row per ALERTED COMPANY, merging both tables
+  - ``companies.json``:       one row per SCREENED COMPANY, merging both tables
+  - ``prices.json``:          the price history of each screened company
 
 ``companies.json`` exists because the two alert tables describe the same
 companies through different numbers: the analyst rule knows the gap to the
-price target, the price rule knows the variation over 1/3/6/9 months, and a
-ticker firing only one of them has no value for the other. The web wants a
-single card per company showing whatever is known about it, so the join is
-done here, once, rather than in the browser.
+price target, the price rule knows the variation over 1/3/6/9 months. The web
+wants a single card per company showing whatever is known about it, so the join
+is done here, once, rather than in the browser.
+
+Every company that PASSED THE SCREENER is on that list, alert or not. The
+dashboard is for looking at the companies that got through the fundamental
+filters, and hiding the quiet ones would only leave the reader wondering what
+happened to them. ``analyst_alert`` / ``price_alert`` say which rule fired, if
+any, and the rows that did fire come first. How many companies that is comes
+from ``DEFAULT_TICKER_LIMIT`` in ``pipeline.py``, which caps the screener.
+
+Their numbers come from the UNFILTERED tables (``analyst_all``, ``price_all``),
+so a card always shows both rules: firing only the price rule never meant the
+gap to the analyst target was unknown, only that it was not wide enough to
+alert on.
 """
 
 import json
@@ -39,8 +51,15 @@ CATALOG_COLS = ["ticker", "short_name", "sector", "description"]
 ANALYST_COLS = ["current", "median", "pct_price_diff"]
 PRICE_COLS = ["var_1m", "var_3m", "var_6m", "var_9m"]
 
-# Written by enrichment/, on whichever table happened to be enriched first.
-COMMENTARY_COLS = ["business", "explanation"]
+# Written by enrichment/commentary.py onto the rows that alerted. Only those:
+# a rule that did not fire has nothing to explain.
+COMMENTARY_COLS = ["explanation"]
+
+# How much price history the web receives, and how finely. Every trading day of
+# the last year, one point a week before that: the chart offers a 3-month view,
+# which needs daily points, and a 5-year one, where 1300 daily points would
+# paint the same line as 260 weekly ones at five times the download.
+DAILY_WINDOW_DAYS = 365
 
 # Fundamentals the web receives, mapped from the metric name used in
 # ``data/fundamentals.csv`` to the key the frontend reads. The first three are
@@ -93,7 +112,7 @@ def _with_catalog(df: pd.DataFrame, catalog: pd.DataFrame) -> pd.DataFrame:
 def _subset(df: pd.DataFrame, cols: list[str]) -> pd.DataFrame:
     """One row per ticker, keeping only ``cols`` that this table actually has.
 
-    An alert table may legitimately lack a column -- ``business`` is absent
+    An alert table may legitimately lack a column -- ``explanation`` is absent
     when the run was made with ``commentary=False`` -- so the columns are
     filtered by what is there instead of being assumed.
     """
@@ -103,49 +122,109 @@ def _subset(df: pd.DataFrame, cols: list[str]) -> pd.DataFrame:
     return df[["ticker", *present]].drop_duplicates(subset="ticker")
 
 
-def _fundamentals_by_ticker(fundamentals: pd.DataFrame) -> dict[str, dict]:
-    """Long-form (ticker, year, metric, value) -> one entry per ticker.
+def _fundamentals_by_ticker(fundamentals: pd.DataFrame, period_col: str) -> dict[str, dict]:
+    """Long-form (ticker, period, metric, value) -> one entry per ticker.
 
-    Each entry is ``{"latest": {...}, "history": [...]}``: the most recent year
-    for the card, and every year for the detail panel. Every year carries every
-    key, filled with None when the source has no value, so the web can lay them
-    out as a table without checking which columns exist.
+    ``period_col`` is the column holding the period: ``year`` (2025) for the
+    annual table, ``period`` ("2025Q3") for the quarterly one. Both end up in
+    the same shape, so the web renders them with the same component.
+
+    Each entry is ``{"latest": {...}, "history": [...]}``: the most recent
+    period for the card, and every period for the detail panel. Every one
+    carries every key, filled with None when the source has no value, so the
+    web can lay them out as a table without checking which columns exist.
+
+    The periods sort as strings ("2025Q3" < "2025Q4" < "2026Q1"), which is the
+    chronological order for both formats.
     """
-    if fundamentals.empty:
+    if fundamentals.empty or period_col not in fundamentals.columns:
         return {}
 
     wanted = fundamentals[fundamentals["metric"].isin(FUNDAMENTAL_FIELDS)]
     by_ticker: dict[str, dict] = {}
 
     for ticker, rows in wanted.groupby("ticker"):
-        years = []
-        for year, year_rows in rows.groupby("year"):
-            entry: dict = {"year": int(year)}
+        periods = []
+        for period, period_rows in rows.groupby(period_col):
+            entry: dict = {"period": str(period)}
             entry.update({name: None for name in FUNDAMENTAL_FIELDS.values()})
-            for metric, value in zip(year_rows["metric"], year_rows["value"]):
+            for metric, value in zip(period_rows["metric"], period_rows["value"]):
                 if pd.isna(value):
                     continue
                 name = FUNDAMENTAL_FIELDS[metric]
                 entry[name] = float(value) * 100 if name in PERCENT_FIELDS else float(value)
-            years.append(entry)
+            # yfinance reports the odd period with no figure in it at all --
+            # a quarter it knows the date of and nothing else. A column of
+            # dashes is worse than no column.
+            if any(entry[name] is not None for name in FUNDAMENTAL_FIELDS.values()):
+                periods.append(entry)
 
-        years.sort(key=lambda entry: entry["year"])
-        by_ticker[str(ticker)] = {"latest": years[-1], "history": years}
+        if not periods:
+            continue
+
+        periods.sort(key=lambda entry: entry["period"])
+        by_ticker[str(ticker)] = {"latest": periods[-1], "history": periods}
 
     return by_ticker
 
 
 def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
-    """One row per alerted company, merging both alert tables.
+    """One row per screened company, merging both alert tables."""
+    if not snapshot.screened:
+        return []
 
-    An outer join keeps companies that fired a single rule; the columns the
-    other rule would have filled stay null, and the web greys them out.
+    analyst = _subset(snapshot.analyst_all, ANALYST_COLS)
+    price = _subset(snapshot.price_all, PRICE_COLS)
+
+    merged = analyst.merge(price, on="ticker", how="outer")
+    # An outer join only knows the tickers its two sides carry. Starting from
+    # the screened list instead means a company whose price target could not be
+    # downloaded still gets a card, with that number missing.
+    merged = pd.DataFrame({"ticker": snapshot.screened}).merge(merged, on="ticker", how="left")
+
+    merged = merged.merge(_explanations(snapshot), on="ticker", how="left")
+    merged["analyst_alert"] = merged["ticker"].isin(_tickers(snapshot.analyst_alerts))
+    merged["price_alert"] = merged["ticker"].isin(_tickers(snapshot.price_alerts))
+
+    if merged.empty:
+        return []
+
+    merged = catalog.merge(merged, on="ticker", how="right")
+    # What fired comes first, and alphabetically within each group, so the
+    # cards do not jump around between runs.
+    merged["alerted"] = merged["analyst_alert"] | merged["price_alert"]
+    merged = merged.sort_values(["alerted", "ticker"], ascending=[False, True])
+    rows = _records(merged.drop(columns=["alerted"]))
+
+    # Attached after the DataFrame work because these are nested objects, not
+    # flat columns, and pandas has no use for them.
+    annual = _fundamentals_by_ticker(snapshot.fundamentals, "year")
+    quarterly = _fundamentals_by_ticker(snapshot.fundamentals_quarterly, "period")
+    for row in rows:
+        entry = annual.get(row["ticker"])
+        row["fundamentals"] = entry["latest"] if entry else None
+        row["fundamentals_history"] = entry["history"] if entry else []
+        quarters = quarterly.get(row["ticker"])
+        row["fundamentals_quarterly"] = quarters["history"] if quarters else []
+        profile = snapshot.profiles.get(row["ticker"]) or {}
+        row["profile"] = profile.get("sections") or None
+
+    return rows
+
+
+def _tickers(df: pd.DataFrame) -> set[str]:
+    return set() if df.empty else set(df["ticker"].astype(str))
+
+
+def _explanations(snapshot: Snapshot) -> pd.DataFrame:
+    """One ``explanation`` per ticker, from whichever rule managed to write it.
+
+    A ticker firing both rules has two of them; the analyst one wins, and the
+    price one fills in whatever it left empty.
     """
-    analyst = _subset(snapshot.analyst_alerts, ANALYST_COLS + COMMENTARY_COLS)
-    price = _subset(snapshot.price_alerts, PRICE_COLS + COMMENTARY_COLS)
+    analyst = _subset(snapshot.analyst_alerts, COMMENTARY_COLS)
+    price = _subset(snapshot.price_alerts, COMMENTARY_COLS)
 
-    # Both sides may carry the commentary columns. Pandas keeps both and
-    # suffixes the right-hand one, so they are coalesced below.
     merged = analyst.merge(price, on="ticker", how="outer", suffixes=("", "_dup"))
     for col in COMMENTARY_COLS:
         duplicate = f"{col}_dup"
@@ -155,22 +234,44 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
             else:
                 merged[col] = merged[duplicate]
             merged = merged.drop(columns=[duplicate])
+        elif col not in merged.columns:
+            # The run was made with commentary=False.
+            merged[col] = None
 
-    if merged.empty:
+    return merged[["ticker", *COMMENTARY_COLS]]
+
+
+def _price_rows(prices: pd.DataFrame) -> list[dict]:
+    """One row per ticker: ``{"ticker": ..., "points": [[date, close], ...]}``.
+
+    A pair instead of an object per point because the file is mostly this: the
+    same two keys repeated thousands of times would double its size for no
+    added meaning.
+    """
+    if prices.empty:
         return []
 
-    merged = catalog.merge(merged, on="ticker", how="right")
-    # Alphabetical so the cards do not jump around between runs.
-    rows = _records(merged.sort_values("ticker"))
+    df = prices[["ticker", "date", "close"]].copy()
+    df["date"] = pd.to_datetime(df["date"])
+    df = df.dropna(subset=["close"]).sort_values(["ticker", "date"])
 
-    # Attached after the DataFrame work because these are nested objects, not
-    # flat columns, and pandas has no use for them.
-    fundamentals = _fundamentals_by_ticker(snapshot.fundamentals)
-    for row in rows:
-        entry = fundamentals.get(row["ticker"])
-        row["fundamentals"] = entry["latest"] if entry else None
-        row["fundamentals_history"] = entry["history"] if entry else []
+    cutoff = df["date"].max() - pd.Timedelta(days=DAILY_WINDOW_DAYS)
+    recent = df[df["date"] >= cutoff]
+    # One point per calendar week for the older stretch: the last close of
+    # each, keeping the real trading date rather than the week's end.
+    older = df[df["date"] < cutoff].copy()
+    if not older.empty:
+        older["week"] = older["date"].dt.to_period("W")
+        weekly = older.drop_duplicates(subset=["ticker", "week"], keep="last")
+        df = pd.concat([weekly.drop(columns=["week"]), recent]).sort_values(["ticker", "date"])
 
+    rows = []
+    for ticker, group in df.groupby("ticker"):
+        points = [
+            [date.strftime("%Y-%m-%d"), round(float(close), 4)]
+            for date, close in zip(group["date"], group["close"])
+        ]
+        rows.append({"ticker": str(ticker), "points": points})
     return rows
 
 
@@ -198,3 +299,4 @@ def export_json(snapshot: Snapshot, out_dir: Path = WEB_DATA_DIR) -> None:
         _records(_with_catalog(snapshot.price_alerts, catalog)),
     )
     _write(out_dir / "companies.json", generated_at, _company_rows(snapshot, catalog))
+    _write(out_dir / "prices.json", generated_at, _price_rows(snapshot.prices))

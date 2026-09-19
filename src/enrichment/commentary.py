@@ -1,12 +1,16 @@
 """Adds the LLM-written commentary to the alert DataFrames.
 
-Two columns are appended to every alert table:
-  - ``business``:    what the company does and where its revenue comes from
-  - ``explanation``: why this particular alert fired
+One column is appended to every alert table:
+  - ``explanation``: why this particular alert fired, today
 
-They are plain data, like any other column, so both sinks pick them up for
-free: ``export/`` writes them into the JSON the web reads, and ``notifications/``
-could put them in the email.
+It is the volatile half of the commentary, asked on every run because a reason
+from last month is a wrong reason. What a company IS -- its business, its moat,
+its competitors -- does not move daily and lives in ``profiles.py``, cached on
+disk.
+
+It is plain data, like any other column, so both sinks pick it up for free:
+``export/`` writes it into the JSON the web reads, and ``notifications/`` could
+put it in the email.
 
 An LLM call is the only step of the pipeline that can fail for reasons outside
 the code -- a quota, a timeout, an unreachable Ollama. None of that should
@@ -46,37 +50,20 @@ def _answer(prompt: Prompt, **values: object) -> str | None:
         return None
 
 
-def add_commentary(
-    alerts: pd.DataFrame,
-    explanation: Prompt,
-    business_cache: dict[str, str | None] | None = None,
-) -> pd.DataFrame:
-    """Returns ``alerts`` with the ``business`` and ``explanation`` columns.
+def add_commentary(alerts: pd.DataFrame, explanation: Prompt) -> pd.DataFrame:
+    """Returns ``alerts`` with the ``explanation`` column added.
 
     ``explanation`` is the prompt matching this table's alert rule.
-    ``business_cache`` is shared between tables so that a ticker triggering both
-    alerts is described once rather than twice.
     """
     if alerts.empty:
         return alerts
 
-    cache = {} if business_cache is None else business_cache
     alerts = alerts.copy()
-
-    businesses: list[str | None] = []
     explanations: list[str | None] = []
 
     for _, row in alerts.iterrows():
-        ticker = str(row["ticker"])
-        name = row.get("short_name") or ticker
-        values = {**row.to_dict(), "name": name}
+        name = row.get("short_name") or str(row["ticker"])
+        explanations.append(_answer(explanation, **{**row.to_dict(), "name": name}))
 
-        if ticker not in cache:
-            cache[ticker] = _answer(prompts.BUSINESS, name=name, ticker=ticker)
-        businesses.append(cache[ticker])
-
-        explanations.append(_answer(explanation, **values))
-
-    alerts["business"] = businesses
     alerts["explanation"] = explanations
     return alerts

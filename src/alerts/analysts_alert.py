@@ -20,8 +20,13 @@ class AnalystAlerts(BaseAlert):
         super().__init__(tickers, data_provider)
         self.data = data_provider.get_analyst_targets(tickers)
 
-    def apply_rules(self) -> pd.DataFrame:
+    def compute(self) -> pd.DataFrame:
+        """Gap to the analysts' median target for every ticker, alert or not."""
         data = self.data.copy()
         data["price_diff"] = data["current"] - data["median"]
         data["pct_price_diff"] = data["price_diff"] / data["median"] * 100
+        return data
+
+    def apply_rules(self) -> pd.DataFrame:
+        data = self.compute()
         return data.loc[data["pct_price_diff"] < self.MAX_PCT_DIFF]
