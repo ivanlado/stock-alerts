@@ -1,34 +1,90 @@
 import { useMemo } from "react";
 import { Chart, type ChartOption } from "../components/Chart";
+import { CompanyCards } from "../components/CompanyCards";
 import { DataGrid, type ColDef } from "../components/DataGrid";
 import { useData } from "../lib/data";
-import type { AnalystAlert, PriceAlert } from "../lib/types";
+import { formatNumber, formatPercent, variationStyle } from "../lib/format";
+import type { AnalystAlert, Commentary, Company, CompanyCard, PriceAlert } from "../lib/types";
 
-// --- Column definitions ---
+// --- Shared column behaviour ---
 // Declared outside the component on purpose: they are constants, and a value
 // defined inside would be rebuilt on every repaint for no reason.
-// `field` must match the key in the JSON produced by Python; `headerName` is
-// the label shown to the user.
+
+/** How long a hover tooltip may get before it is cut short. */
+const TOOLTIP_LIMIT = 400;
+
+/**
+ * A column of percentages: rounded to one decimal and shaded green or red.
+ *
+ * `valueFormatter` changes only what is DISPLAYED -- the underlying number is
+ * what AG Grid keeps sorting and filtering by, so the order stays correct.
+ * `cellStyle` returns the CSS for that one cell, so each value is shaded by
+ * its own magnitude.
+ */
+function percentColumn<Row>(field: ColDef<Row>["field"], headerName: string): ColDef<Row> {
+  return {
+    field,
+    headerName,
+    valueFormatter: (params) => formatPercent(params.value),
+    cellStyle: (params) => variationStyle(params.value),
+  };
+}
+
+/** A column of plain prices, rounded to one decimal. */
+function priceColumn<Row>(field: ColDef<Row>["field"], headerName: string): ColDef<Row> {
+  return {
+    field,
+    headerName,
+    valueFormatter: (params) => formatNumber(params.value),
+  };
+}
+
+/**
+ * The company name, with its profile shown on hover.
+ *
+ * `tooltipValueGetter` returns the text AG Grid shows when the pointer rests
+ * on the cell. The LLM summary is used when it exists, otherwise Yahoo's
+ * description, which is there for every ticker.
+ */
+function nameColumn<Row extends Company & Commentary>(
+  field: ColDef<Row>["field"],
+): ColDef<Row> {
+  return {
+    field,
+    headerName: "Name",
+    minWidth: 160,
+    tooltipValueGetter: (params) => {
+      const row = params.data;
+      if (!row) return "";
+      const text = row.business ?? row.description;
+      if (!text) return "No description available";
+      return text.length > TOOLTIP_LIMIT ? `${text.slice(0, TOOLTIP_LIMIT)}…` : text;
+    },
+  };
+}
 
 const analystColumns: ColDef<AnalystAlert>[] = [
-  { field: "ticker", headerName: "Ticker" },
-  { field: "short_name", headerName: "Name" },
-  { field: "current", headerName: "Price" },
-  { field: "median", headerName: "Target" },
-  { field: "pct_price_diff", headerName: "Diff %" },
+  { field: "ticker", headerName: "Ticker", minWidth: 100 },
+  nameColumn<AnalystAlert>("short_name"),
+  { field: "sector", headerName: "Sector", minWidth: 140 },
+  priceColumn<AnalystAlert>("current", "Price"),
+  priceColumn<AnalystAlert>("median", "Target"),
+  percentColumn<AnalystAlert>("pct_price_diff", "Diff %"),
 ];
 
 const priceColumns: ColDef<PriceAlert>[] = [
-  { field: "ticker", headerName: "Ticker" },
-  { field: "short_name", headerName: "Name" },
-  { field: "var_1m", headerName: "1M %" },
-  { field: "var_3m", headerName: "3M %" },
-  { field: "var_6m", headerName: "6M %" },
-  { field: "var_9m", headerName: "9M %" },
+  { field: "ticker", headerName: "Ticker", minWidth: 100 },
+  nameColumn<PriceAlert>("short_name"),
+  { field: "sector", headerName: "Sector", minWidth: 140 },
+  percentColumn<PriceAlert>("var_1m", "1M %"),
+  percentColumn<PriceAlert>("var_3m", "3M %"),
+  percentColumn<PriceAlert>("var_6m", "6M %"),
+  percentColumn<PriceAlert>("var_9m", "9M %"),
 ];
 
 /**
- * Alerts page: both alert rules, each in its own section.
+ * Alerts page: both alert rules, each in its own section, plus one card per
+ * alerted company.
  *
  * A PAGE IS JUST A FUNCTION returning what to display. React calls it again
  * every time the data changes, and repaints only what actually differs.
@@ -36,6 +92,7 @@ const priceColumns: ColDef<PriceAlert>[] = [
 export function AlertsPage() {
   const analyst = useData<AnalystAlert>("analyst_alerts.json");
   const price = useData<PriceAlert>("price_alerts.json");
+  const companies = useData<CompanyCard>("companies.json");
 
   // `useMemo(fn, deps)` remembers the result of `fn` and only recomputes it
   // when a value in `deps` changes. Needed here because `Chart` repaints
@@ -43,15 +100,32 @@ export function AlertsPage() {
   // object would be built on every repaint, repainting the chart forever.
   const chartOption: ChartOption = useMemo(
     () => ({
-      tooltip: {},
+      tooltip: {
+        // ECharts hands the formatter either one hovered point or an array of
+        // them. Only the first matters here, since the chart has one series.
+        formatter: (params) => {
+          const [point] = Array.isArray(params) ? params : [params];
+          return `${point.name}: ${formatPercent(point.value as number | null)}`;
+        },
+      },
       // `.map()` turns an array into another array: here, rows into the list
       // of labels for the X axis and the list of values for the bars.
       xAxis: { type: "category", data: analyst.rows.map((r) => r.ticker) },
-      yAxis: { type: "value", name: "Diff %" },
+      yAxis: {
+        type: "value",
+        name: "Diff %",
+        axisLabel: { formatter: "{value}%" },
+      },
       series: [
         {
           type: "bar",
-          data: analyst.rows.map((r) => r.pct_price_diff),
+          // Each bar carries its own colour, on the same fixed scale the
+          // tables use. A bar is given as `{ value, itemStyle }` rather than
+          // as a bare number so the colour travels with the value.
+          data: analyst.rows.map((r) => ({
+            value: r.pct_price_diff,
+            itemStyle: { color: variationStyle(r.pct_price_diff).backgroundColor },
+          })),
         },
       ],
     }),
@@ -60,15 +134,22 @@ export function AlertsPage() {
 
   // Early returns: while loading or on failure, display that instead of the
   // page. Reaching further down guarantees the data is there.
-  if (analyst.loading || price.loading) return <p>Loading...</p>;
+  if (analyst.loading || price.loading || companies.loading) return <p>Loading...</p>;
   if (analyst.error) return <p className="error">{analyst.error}</p>;
   if (price.error) return <p className="error">{price.error}</p>;
+  if (companies.error) return <p className="error">{companies.error}</p>;
 
   // Curly braces inside JSX insert a JavaScript value into the markup.
   return (
     <div>
       <h1>Alerts</h1>
       <p className="meta">Generated at: {analyst.generatedAt}</p>
+
+      <section>
+        <h2>Companies</h2>
+        <p className="meta">Click a card for the full profile.</p>
+        <CompanyCards rows={companies.rows} />
+      </section>
 
       <section>
         <h2>Price vs analyst target</h2>

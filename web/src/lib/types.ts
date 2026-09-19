@@ -17,30 +17,76 @@ export type Payload<Row> = {
   rows: Row[];
 };
 
-/** analyst_alerts.json */
-export type AnalystAlert = {
+/**
+ * What every row knows about the company behind it, from `data/tickers.csv`.
+ *
+ * `description` is Yahoo's own business summary. Unlike the LLM commentary it
+ * is present for every ticker, so it is what the UI falls back to.
+ *
+ * The types below are written as `Company & { ... }`. The `&` is an
+ * intersection: a value having the fields of BOTH sides. It saves declaring
+ * these fields once per table, and lets a component accept "any row that
+ * identifies a company" without caring which table it came from.
+ */
+export type Company = {
   ticker: string;
   short_name: string | null;
-  current: number | null;
-  median: number | null;
-  price_diff: number | null;
-  pct_price_diff: number | null;
+  sector: string | null;
+  description: string | null;
 };
 
-/** price_alerts.json */
-export type PriceAlert = {
-  ticker: string;
-  short_name: string | null;
-  date: string;
-  close: number | null;
-  var_1m: number | null;
-  var_3m: number | null;
-  var_6m: number | null;
-  var_9m: number | null;
+/**
+ * The two LLM-written texts attached to every alert, from `src/enrichment/`.
+ * Both are null when the model call failed (a quota, a timeout), so the UI
+ * must cope with their absence.
+ */
+export type Commentary = {
+  business: string | null;
+  explanation: string | null;
 };
+
+/** analyst_alerts.json */
+export type AnalystAlert = Company &
+  Commentary & {
+    current: number | null;
+    median: number | null;
+    price_diff: number | null;
+    pct_price_diff: number | null;
+  };
+
+/** price_alerts.json */
+export type PriceAlert = Company &
+  Commentary & {
+    date: string;
+    close: number | null;
+    var_1m: number | null;
+    var_3m: number | null;
+    var_6m: number | null;
+    var_9m: number | null;
+  };
+
+/**
+ * companies.json -- one row per ALERTED company, merging both alert tables.
+ *
+ * A company that fired only one of the two rules has nulls in the other
+ * rule's columns: there is no 1-month variation for a ticker that only
+ * triggered the analyst rule. The cards grey those out rather than hiding
+ * them, so the shape of a card stays the same for every company.
+ */
+export type CompanyCard = Company &
+  Commentary & {
+    current: number | null;
+    median: number | null;
+    pct_price_diff: number | null;
+    var_1m: number | null;
+    var_3m: number | null;
+    var_6m: number | null;
+    var_9m: number | null;
+  };
 
 /** screener.json */
 export type ScreenerRow = {
   ticker: string;
   short_name: string | null;
+  sector: string | null;
 };

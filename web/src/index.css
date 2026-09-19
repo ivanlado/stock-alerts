@@ -48,6 +48,183 @@ h2 {
   font-size: 0.85rem;
 }
 
+.muted {
+  color: #999;
+  font-style: italic;
+}
+
 .error {
   color: #b00020;
+}
+
+/* The profile shown when hovering a company name in a table. AG Grid keeps
+   tooltips on one line by default, which is unreadable for a paragraph. */
+.ag-tooltip {
+  max-width: 44ch;
+  white-space: normal;
+  line-height: 1.5;
+}
+
+/* --- Company cards --- */
+
+/* `auto-fill` + `minmax` is a responsive grid with no media queries: the
+   browser fits as many 280px-or-wider columns as the screen allows and
+   stretches them to fill the row. */
+.cards {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.card h3,
+.detail h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+}
+
+/* The sector, as a small neutral pill under the company name. */
+.sector {
+  display: inline-block;
+  background: #eef1f5;
+  color: #445;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+}
+
+/* --- Coloured numbers --- */
+
+/* `auto-fit` + `minmax` keeps the badges on one tidy row: three of them fit a
+   card, five fit the wider detail panel, with no separate rule for each. */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4.4rem, 1fr));
+  gap: 0.4rem;
+  margin: 0.75rem 0;
+}
+
+/* The background colour and text colour come from `variationStyle` in
+   lib/format.ts, applied inline in JSX -- they depend on the value. */
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.3rem 0.55rem;
+}
+
+.metric-label {
+  font-size: 0.68rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.metric-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Card text, clamped to a few lines --- */
+
+/* `line-clamp` cuts the text after N lines and adds an ellipsis. The full
+   string stays in the DOM, so the detail panel already has it. */
+.card-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #444;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+.card-more {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+/* --- Detail panel --- */
+
+/* `position: fixed` takes the backdrop out of the page flow and pins it to the
+   viewport, so it covers everything regardless of how far the page is
+   scrolled. */
+.detail-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.detail {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  max-width: 62ch;
+  width: 100%;
+}
+
+.detail-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #888;
+  cursor: pointer;
+}
+
+.detail-close:hover {
+  color: #1a1a1a;
+}
+
+.detail-numbers p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.75rem 0 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.detail h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+  margin: 1.25rem 0 0.4rem;
+}
+
+.detail p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
