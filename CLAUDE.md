@@ -24,6 +24,7 @@ repo/
     alerts/             # Alert rules (BaseAlert, AnalystAlerts, PriceAlert)
     providers/          # Hexagonal: port (base.py) + adapters (yfinance)
     screening/          # Fundamental filters applied before the alerts
+    enrichment/         # LLM commentary on each alert (prompts.py holds the prompts)
     pipeline.py         # Runs the computation and returns a Snapshot (no side effects)
     notifications/      # Sink: formatting (formatter.py) + email sending (notifier.py)
     export/             # Sink: Snapshot -> JSON for the web
@@ -56,6 +57,7 @@ repo/
 - **Alerts return data, not text**: `BaseAlert.run()` returns a `DataFrame` enriched with `short_name`. Subclasses only implement `apply_rules()`. No formatting inside `alerts/`.
 - **Main flow**: `main.py` → `run_pipeline()` → `export_json()` + (when there are alerts) `format_snapshot()` → `send_email()`.
 - **Contract with the web**: every file in `web/public/data/` is `{"generated_at": <ISO>, "rows": [...]}`. The frontend depends on that shape, not on the Python code.
+- **Alert commentary** (`src/enrichment/`): two LLM calls per alerted company add the `business` and `explanation` columns. The questions live in `prompts.py` and nothing else needs touching to change them. A failed call leaves the cell empty rather than stopping the run.
 - **LLM calls go through `utils/llm.py`**: `ask()` wraps LiteLLM, so the provider is a model name (`gemini/...`, `ollama/...`) and no caller needs to know which one answers.
 - **Ingestion scripts** (`src/scripts/`): run manually to refresh `data/`. Not part of the main flow.
 

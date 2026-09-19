@@ -36,12 +36,20 @@ def ask(
     model: str | None = None,
     system: str | None = None,
     temperature: float = 0.2,
+    web_search: bool = False,
+    num_retries: int = 2,
 ) -> str:
     """Sends a single prompt to the model and returns its answer as plain text.
 
     ``model`` defaults to the LLM_MODEL environment variable, and to
     DEFAULT_MODEL when that is not set either. ``system`` is an optional
     instruction that frames how the model should answer.
+
+    ``web_search`` lets the model ground its answer in Google Search, which is
+    the only way to ask about anything more recent than its training data. It
+    only works on the ``gemini/*`` models, and on the free tier it has its own
+    small daily quota, separate from the ordinary one: once that runs out the
+    call fails with a 429 while plain calls keep working.
     """
     messages: list[dict[str, str]] = []
     if system:
@@ -52,5 +60,7 @@ def ask(
         model=model or os.environ.get("LLM_MODEL", DEFAULT_MODEL),
         messages=messages,
         temperature=temperature,
+        tools=[{"googleSearch": {}}] if web_search else None,
+        num_retries=num_retries,
     )
     return response.choices[0].message.content or ""

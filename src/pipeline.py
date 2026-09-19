@@ -11,6 +11,8 @@ import pandas as pd
 
 from alerts.analysts_alert import AnalystAlerts
 from alerts.price_alerts import PriceAlert
+from enrichment import add_commentary
+from enrichment import prompts
 from providers import DataProviderImpl
 from screening import FundamentalScreener
 
@@ -33,8 +35,16 @@ class Snapshot:
         return not self.analyst_alerts.empty or not self.price_alerts.empty
 
 
-def run_pipeline(limit: int | None = DEFAULT_TICKER_LIMIT) -> Snapshot:
-    """Loads tickers, screens them by fundamentals and runs every alert rule."""
+def run_pipeline(
+    limit: int | None = DEFAULT_TICKER_LIMIT,
+    commentary: bool = True,
+) -> Snapshot:
+    """Loads tickers, screens them by fundamentals and runs every alert rule.
+
+    ``commentary`` adds the LLM-written columns to the alerts. It costs two API
+    calls per alerted company, so it is worth turning off while testing the
+    rules themselves.
+    """
     generated_at = datetime.now(timezone.utc)
 
     data_provider = DataProviderImpl()
@@ -55,9 +65,22 @@ def run_pipeline(limit: int | None = DEFAULT_TICKER_LIMIT) -> Snapshot:
             price_alerts=pd.DataFrame(),
         )
 
+    analyst_alerts = AnalystAlerts(screened, data_provider=data_provider).run()
+    price_alerts = PriceAlert(screened, data_provider=data_provider).run()
+
+    if commentary:
+        # One shared cache, so a ticker firing both alerts is described once.
+        business_cache: dict[str, str | None] = {}
+        analyst_alerts = add_commentary(
+            analyst_alerts, prompts.ANALYST_DIVERGENCE, business_cache
+        )
+        price_alerts = add_commentary(
+            price_alerts, prompts.PRICE_DROP, business_cache
+        )
+
     return Snapshot(
         generated_at=generated_at,
         screened=screened,
-        analyst_alerts=AnalystAlerts(screened, data_provider=data_provider).run(),
-        price_alerts=PriceAlert(screened, data_provider=data_provider).run(),
+        analyst_alerts=analyst_alerts,
+        price_alerts=price_alerts,
     )
