@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Chart, type ChartOption } from "../components/Chart";
 import { CompanyCards } from "../components/CompanyCards";
-import { DataGrid, type ColDef } from "../components/DataGrid";
+import { DataGrid, type ColDef, type Column } from "../components/DataGrid";
 import { useData } from "../lib/data";
 import { formatNumber, formatPercent, variationStyle } from "../lib/format";
 import type { AnalystAlert, Commentary, Company, CompanyCard, PriceAlert } from "../lib/types";
@@ -21,20 +21,30 @@ const TOOLTIP_LIMIT = 400;
  * `cellStyle` returns the CSS for that one cell, so each value is shaded by
  * its own magnitude.
  */
-function percentColumn<Row>(field: ColDef<Row>["field"], headerName: string): ColDef<Row> {
+function percentColumn<Row>(
+  field: ColDef<Row>["field"],
+  headerName: string,
+  secondary = false,
+): Column<Row> {
   return {
     field,
     headerName,
+    secondary,
     valueFormatter: (params) => formatPercent(params.value),
     cellStyle: (params) => variationStyle(params.value),
   };
 }
 
-/** A column of plain prices, rounded to one decimal. */
-function priceColumn<Row>(field: ColDef<Row>["field"], headerName: string): ColDef<Row> {
+/**
+ * A column of plain prices, rounded to one decimal. Marked `secondary`: on a
+ * phone the difference between price and target says it all, and the two
+ * absolute numbers are one tap away on the company card.
+ */
+function priceColumn<Row>(field: ColDef<Row>["field"], headerName: string): Column<Row> {
   return {
     field,
     headerName,
+    secondary: true,
     valueFormatter: (params) => formatNumber(params.value),
   };
 }
@@ -48,7 +58,7 @@ function priceColumn<Row>(field: ColDef<Row>["field"], headerName: string): ColD
  */
 function nameColumn<Row extends Company & Commentary>(
   field: ColDef<Row>["field"],
-): ColDef<Row> {
+): Column<Row> {
   return {
     field,
     headerName: "Name",
@@ -63,23 +73,28 @@ function nameColumn<Row extends Company & Commentary>(
   };
 }
 
-const analystColumns: ColDef<AnalystAlert>[] = [
+// `secondary: true` = dropped on a phone by DataGrid, so the columns that
+// remain fit without sideways scrolling. The sector goes first: it is a pill
+// on every company card already.
+const analystColumns: Column<AnalystAlert>[] = [
   { field: "ticker", headerName: "Ticker", minWidth: 100 },
   nameColumn<AnalystAlert>("short_name"),
-  { field: "sector", headerName: "Sector", minWidth: 140 },
+  { field: "sector", headerName: "Sector", minWidth: 140, secondary: true },
   priceColumn<AnalystAlert>("current", "Price"),
   priceColumn<AnalystAlert>("median", "Target"),
   percentColumn<AnalystAlert>("pct_price_diff", "Diff %"),
 ];
 
-const priceColumns: ColDef<PriceAlert>[] = [
+const priceColumns: Column<PriceAlert>[] = [
   { field: "ticker", headerName: "Ticker", minWidth: 100 },
   nameColumn<PriceAlert>("short_name"),
-  { field: "sector", headerName: "Sector", minWidth: 140 },
+  { field: "sector", headerName: "Sector", minWidth: 140, secondary: true },
   percentColumn<PriceAlert>("var_1m", "1M %"),
   percentColumn<PriceAlert>("var_3m", "3M %"),
   percentColumn<PriceAlert>("var_6m", "6M %"),
-  percentColumn<PriceAlert>("var_9m", "9M %"),
+  // The longest window is the one to drop on a phone: the shorter ones are
+  // what the alert reacts to first.
+  percentColumn<PriceAlert>("var_9m", "9M %", true),
 ];
 
 /**

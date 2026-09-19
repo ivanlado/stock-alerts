@@ -75,6 +75,8 @@ repo/
 - **Green and red mean price movement, and only that**: fundamentals are rendered neutral (`.stat`, not `.metric`). A debt ratio has no up-is-good direction, so putting it on the same colour scale would mislead.
 - **The fundamentals shown, and their labels and units, live in one array**: `FUNDAMENTALS` in `components/CompanyCards.tsx`. The cards lead with the first three, which are the ratios the Python screener filters on.
 - **Pages (`routes/`) know neither where the data comes from nor how a grid is painted**: they declare columns, call `useData` and compose.
+- **One breakpoint, 640px, in two places**: the `@media` block at the end of `index.css` (paddings, badges per row) and `NARROW_WIDTH` in `lib/useIsNarrow.ts`, the hook for what CSS cannot decide (how tall a grid or chart is, which columns exist). Everything else adapts on its own through `auto-fill`/`auto-fit`. If the breakpoint moves, both must move together.
+- **A column can declare itself `secondary`**: `DataGrid` drops those columns below the breakpoint and caps the width the rest ask for, so the table fits a phone without sideways scrolling. Pages declare the intent; the responsive logic lives in `DataGrid.tsx`.
 - **New page**: a file in `routes/` + a `<Link>` and a `<Route>` in `App.tsx`.
 - **New column**: add it to the DataFrame in Python → to the type in `types.ts` → to the page's column array.
 - **HashRouter**, not BrowserRouter: GitHub Pages returns 404 when reloading normal routes.

@@ -286,3 +286,41 @@ h2 {
 .history td {
   font-variant-numeric: tabular-nums;
 }
+
+/* --- Narrow screens (a phone held upright) --- */
+
+/* A `@media` block applies its rules only when the condition holds. This is
+   the ONLY breakpoint of the project, and the same 640px lives in
+   lib/useIsNarrow.ts, which handles what CSS cannot decide: dropping grid
+   columns and shrinking the chart. Everything else (cards, badges, tables)
+   already adapts on its own through `auto-fill` and `auto-fit`, so the rules
+   below only claw back the padding that a 375px-wide screen cannot spare. */
+@media (max-width: 640px) {
+  nav {
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  main {
+    padding: 1rem 1rem 3rem;
+  }
+
+  h2 {
+    margin-top: 1.75rem;
+  }
+
+  /* The full-screen overlay: no room for a 3rem frame around the panel. */
+  .detail-backdrop {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .detail {
+    padding: 1.5rem 1.15rem;
+  }
+
+  /* Two badges per row instead of a cramped five. */
+  .metrics,
+  .stats {
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  }
+}

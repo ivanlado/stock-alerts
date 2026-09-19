@@ -1,9 +1,13 @@
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
+import { useIsNarrow } from "../lib/useIsNarrow";
 
 // `EChartsOption` is ECharts' configuration object: it describes axes, series,
 // tooltip... Re-exported so that pages never import echarts directly.
 export type ChartOption = echarts.EChartsOption;
+
+/** Height of the chart on a phone. */
+const NARROW_HEIGHT = 220;
 
 type Props = {
   /**
@@ -35,6 +39,8 @@ type Props = {
  * once (empty `[]`), but repainted every time the data changes (`[option]`).
  */
 export function Chart({ option, height = 320 }: Props) {
+  // `true` on a phone, where the given height would take most of the screen.
+  const isNarrow = useIsNarrow();
   const container = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts | null>(null);
 
@@ -65,5 +71,12 @@ export function Chart({ option, height = 320 }: Props) {
   }, [option]);
 
   // The div React hands over to ECharts. `ref` fills in `container.current`.
-  return <div ref={container} style={{ height, width: "100%" }} />;
+  // Changing its height does not need an extra `resize()` call: the listener
+  // above already fires, because a width change is what moves the breakpoint.
+  return (
+    <div
+      ref={container}
+      style={{ height: isNarrow ? Math.min(height, NARROW_HEIGHT) : height, width: "100%" }}
+    />
+  );
 }
