@@ -113,6 +113,14 @@ export type Fundamentals = {
   operating_margin: number | null;
   debt_to_equity: number | null;
   current_ratio: number | null;
+  /**
+   * The two price-based ratios, measured at that year's closing price (see
+   * `src/valuation.py`). Null before the five years of price history start,
+   * and on a year the company lost money, where a PER is arithmetic rather
+   * than information. The quarterly table never carries them.
+   */
+  price_earnings: number | null;
+  price_to_sales: number | null;
   total_revenue: number | null;
   cost_of_revenue: number | null;
   ebitda: number | null;
@@ -141,6 +149,14 @@ export type CompanyCard = Company &
     price_alert: boolean;
     /** The cached LLM profile, or null when the company has none yet. */
     profile: CompanyProfile | null;
+    /**
+     * Today's PER and price/sales: trailing twelve months against the CURRENT
+     * price, so they belong to no reported period and sit beside the
+     * fundamentals rather than inside them. Null for a company with no
+     * earnings to divide by, which is normal.
+     */
+    trailing_pe: number | null;
+    price_to_sales: number | null;
     /** The most recent reported year, or null when the company has no data. */
     fundamentals: Fundamentals | null;
     /** Every reported year, oldest first. Empty when there is no data. */

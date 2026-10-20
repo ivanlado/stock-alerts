@@ -15,6 +15,7 @@ from enrichment import add_commentary, get_profiles
 from enrichment import prompts
 from providers import DataProviderImpl
 from screening import FundamentalScreener
+from valuation import valuation_history, valuation_today
 
 # Kept from the previous main.py: caps how many screened tickers reach the
 # alert stage. Set to None to process all of them.
@@ -53,6 +54,12 @@ class Snapshot:
     # ``{ticker: profile}`` -- the cached LLM description of each screened
     # company. See ``enrichment/profiles.py``.
     profiles: dict[str, dict] = field(default_factory=dict)
+    # Today's PER and price/sales per ticker (ticker, trailing_pe,
+    # price_to_sales). Trailing twelve months against the CURRENT price, so
+    # unlike everything above they belong to no period: they are the headline
+    # number on a card, while ``fundamentals`` carries the year-by-year series
+    # of the same two ratios.
+    valuation: pd.DataFrame = field(default_factory=pd.DataFrame)
 
     @property
     def has_alerts(self) -> bool:
@@ -103,6 +110,25 @@ def run_pipeline(
     # they are there for the company cards.
     fundamentals_quarterly = data_provider.get_quarterly_fundamentals(screened)
 
+    # The PER and price/sales series, computed rather than fetched: they need a
+    # price per year, which is why they cannot live in the fundamentals cache
+    # (see valuation.py). Appended to the annual table so every sink sees them
+    # as two more metrics.
+    screened_fundamentals = fundamentals[fundamentals["ticker"].isin(screened)]
+    valuation_inputs = data_provider.get_valuation_inputs(screened)
+    history = valuation_history(valuation_inputs, screened_fundamentals, prices)
+    if not history.empty:
+        screened_fundamentals = pd.concat([screened_fundamentals, history], ignore_index=True)
+
+    # The same two ratios against TODAY's price and the last twelve months.
+    # Computed from the price history and the statements already in hand, not
+    # fetched: yfinance's own ``trailingPE`` contradicts its own accounts for
+    # some tickers (see valuation.py), and a number that disagrees with the
+    # price printed next to it is worse than no number.
+    valuation = valuation_today(
+        prices, fundamentals_quarterly, valuation_inputs, screened_fundamentals
+    )
+
     analyst = AnalystAlerts(screened, data_provider=data_provider)
     price = PriceAlert(screened, data_provider=data_provider, prices=prices)
 
@@ -122,12 +148,13 @@ def run_pipeline(
         screened=screened,
         analyst_alerts=analyst_alerts,
         price_alerts=price_alerts,
-        fundamentals=fundamentals[fundamentals["ticker"].isin(screened)],
+        fundamentals=screened_fundamentals,
         fundamentals_quarterly=fundamentals_quarterly,
         analyst_all=analyst_all,
         price_all=price_all,
         prices=prices,
         profiles=profiles,
+        valuation=valuation,
     )
 
 

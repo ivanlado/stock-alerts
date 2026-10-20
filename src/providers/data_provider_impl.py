@@ -33,5 +33,8 @@ class DataProviderImpl(DataProvider):
     def get_quarterly_fundamentals(self, tickers: list[str]) -> pd.DataFrame:
         return self._yf.get_quarterly_fundamentals(tickers)
     
+    def get_valuation_inputs(self, tickers: list[str]) -> pd.DataFrame:
+        return self._yf.get_valuation_inputs(tickers)
+
     def get_prices(self, tickers: list[str], period: str = "7d", interval: str = "1h") -> pd.DataFrame:
         return self._yf.get_prices(tickers, period, interval)

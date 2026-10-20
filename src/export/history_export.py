@@ -20,6 +20,7 @@ Layout (``history/`` at the repo root, kept on its own ``data`` branch)::
       price_alerts/2026-09-19.parquet
       fundamentals/2026-09-19.parquet
       fundamentals_quarterly/2026-09-19.parquet
+      valuation/2026-09-19.parquet
 
 Parquet rather than JSON for two reasons. It is columnar and compressed, and
 these tables repeat sectors, tickers and descriptions constantly, so they
@@ -121,6 +122,10 @@ def export_history(snapshot: Snapshot, out_dir: Path = HISTORY_DIR) -> None:
         "price_alerts": snapshot.price_alerts,
         "fundamentals": snapshot.fundamentals,
         "fundamentals_quarterly": snapshot.fundamentals_quarterly,
+        # Today's PER and price/sales. Archived like the rest because they are
+        # a point-in-time fact: they are computed against today's price, and
+        # nothing recovers them for a day that was not written down.
+        "valuation": snapshot.valuation,
     }
 
     for name, df in tables.items():

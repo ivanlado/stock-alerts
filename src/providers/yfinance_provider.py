@@ -14,6 +14,12 @@ FUNDAMENTALS_CSV = DATA_DIR / "fundamentals.csv"
 # own column (``period``, "2026Q2") and, unlike the annual figures, they are
 # only fetched for the handful of tickers that reach the alert stage.
 QUARTERLY_CSV = DATA_DIR / "fundamentals_quarterly.csv"
+# The two statement rows the price-based ratios are built from (see
+# ``valuation.py``). They live apart from FUNDAMENTALS_CSV because that file
+# covers the whole universe and these are only ever needed for the handful of
+# tickers that reach a company card: a PER needs a price, and prices are only
+# downloaded for the screened ones. Cached per ticker, like the quarterly file.
+VALUATION_CSV = DATA_DIR / "valuation_inputs.csv"
 
 # Metrics the DataFrame returned by get_fundamentals() is filtered down to.
 FUNDAMENTAL_METRICS = (
@@ -24,6 +30,14 @@ FUNDAMENTAL_METRICS = (
     "currentRatio",        # current assets / current liabilities (short-term liquidity)
     "debtToEquity",        # total debt / shareholders' equity (leverage level)
     "operatingMargins",    # operating margin = operating income / revenue
+)
+
+# Rows of the annual income statement that feed the price-based ratios:
+# earnings per share for the PER, and the share count for the market
+# capitalisation behind the price/sales ratio.
+VALUATION_METRICS = (
+    "Diluted EPS",            # earnings per share, after dilution
+    "Diluted Average Shares", # shares used for that EPS; price x shares = market cap
 )
 
 # Ratios in FUNDAMENTAL_METRICS that are not a row of yfinance's statements, but
@@ -67,13 +81,20 @@ def _period_label(column: object, quarterly: bool) -> int | str:
 
 
 def _statement_rows(
-    statements: dict[str, pd.DataFrame], ticker: str, quarterly: bool
+    statements: dict[str, pd.DataFrame],
+    ticker: str,
+    quarterly: bool,
+    wanted: tuple[str, ...] = FUNDAMENTAL_METRICS,
+    ratios: tuple[tuple[str, str, str, str], ...] = _RATIO_METRICS,
 ) -> list[dict]:
     """Long-form rows (ticker, period, metric, value) for one ticker.
 
     Two kinds of metric end up in the same shape: the ones yfinance reports as
     a row of a statement, and the ratios computed from two rows of the same
     statement for each period.
+
+    ``wanted`` and ``ratios`` are parameters so the same scraper also serves
+    the valuation inputs, which want two other rows and no computed ratio.
     """
     rows: list[dict] = []
     column = "period" if quarterly else "year"
@@ -83,7 +104,7 @@ def _statement_rows(
             continue
         for period, values in statement.items():
             for metric, value in values.items():
-                if metric not in FUNDAMENTAL_METRICS:
+                if metric not in wanted:
                     continue
                 rows.append({
                     "ticker": ticker,
@@ -92,7 +113,7 @@ def _statement_rows(
                     "value": value,
                 })
 
-    for metric, name, num_row, den_row in _RATIO_METRICS:
+    for metric, name, num_row, den_row in ratios:
         statement = statements.get(name)
         if statement is None or statement.empty:
             continue
@@ -178,11 +199,51 @@ class YFinanceProvider(DataProvider):
             print(f"Fetching quarterly fundamentals for {len(missing)} ticker(s)")
             rows = []
             for t in missing:
-                rows.extend(_statement_rows(_fetch_statements(yf.Ticker(t), True), t, True))
+                rows.extend(
+                    _statement_rows(
+                        _fetch_statements(yf.Ticker(t), True), t, True,
+                        # Plus the valuation inputs: the trailing-twelve-month
+                        # PER is built from the last four quarters' EPS.
+                        wanted=FUNDAMENTAL_METRICS + VALUATION_METRICS,
+                    )
+                )
             if rows:
                 cached = pd.concat([cached, pd.DataFrame(rows, columns=columns)], ignore_index=True)
                 QUARTERLY_CSV.parent.mkdir(parents=True, exist_ok=True)
                 cached.to_csv(QUARTERLY_CSV, index=False)
+
+        return cached[cached["ticker"].isin(tickers)]
+
+    def get_valuation_inputs(self, tickers: list[str]) -> pd.DataFrame:
+        """EPS and share count, year by year, cached PER TICKER.
+
+        Same shape and same caching rule as the quarterly fundamentals: these
+        only feed the company cards, so the file grows ticker by ticker and a
+        run only pays for the ones it has not seen. Only the income statement
+        is fetched -- both rows live there -- so this costs a third of what a
+        fundamentals fetch costs.
+        """
+        columns = ["ticker", "year", "metric", "value"]
+        cached = pd.read_csv(VALUATION_CSV) if VALUATION_CSV.exists() else pd.DataFrame(columns=columns)
+
+        missing = [t for t in tickers if t not in set(cached["ticker"])]
+        if missing:
+            print(f"Fetching valuation inputs for {len(missing)} ticker(s)")
+            rows = []
+            for t in missing:
+                time.sleep(random.uniform(0.4, 1.7))
+                try:
+                    statements = {"financials": yf.Ticker(t).financials}
+                except Exception as e:
+                    print(f"Error fetching financials for {t}: {e}")
+                    continue
+                rows.extend(
+                    _statement_rows(statements, t, False, wanted=VALUATION_METRICS, ratios=())
+                )
+            if rows:
+                cached = pd.concat([cached, pd.DataFrame(rows, columns=columns)], ignore_index=True)
+                VALUATION_CSV.parent.mkdir(parents=True, exist_ok=True)
+                cached.to_csv(VALUATION_CSV, index=False)
 
         return cached[cached["ticker"].isin(tickers)]
 

@@ -69,6 +69,11 @@ FUNDAMENTAL_FIELDS = {
     "operatingMargins": "operating_margin",
     "debtToEquity": "debt_to_equity",
     "currentRatio": "current_ratio",
+    # Computed, not fetched: these two need a price, so they come from
+    # ``valuation.py`` and exist for the annual table only (a PER on a single
+    # quarter's earnings would read four times too high).
+    "priceEarnings": "price_earnings",
+    "priceToSales": "price_to_sales",
     "Total Revenue": "total_revenue",
     "Cost Of Revenue": "cost_of_revenue",
     "EBITDA": "ebitda",
@@ -200,6 +205,7 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
     # flat columns, and pandas has no use for them.
     annual = _fundamentals_by_ticker(snapshot.fundamentals, "year")
     quarterly = _fundamentals_by_ticker(snapshot.fundamentals_quarterly, "period")
+    valuation = _valuation_by_ticker(snapshot.valuation)
     for row in rows:
         entry = annual.get(row["ticker"])
         row["fundamentals"] = entry["latest"] if entry else None
@@ -208,8 +214,31 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
         row["fundamentals_quarterly"] = quarters["history"] if quarters else []
         profile = snapshot.profiles.get(row["ticker"]) or {}
         row["profile"] = profile.get("sections") or None
+        # Today's PER and price/sales, which belong to no period: the card
+        # leads with these, and `fundamentals_history` carries the year-by-year
+        # series of the same two ratios underneath.
+        today = valuation.get(row["ticker"], {})
+        row["trailing_pe"] = today.get("trailing_pe")
+        row["price_to_sales"] = today.get("price_to_sales")
 
     return rows
+
+
+def _valuation_by_ticker(valuation: pd.DataFrame) -> dict[str, dict]:
+    """``{ticker: {"trailing_pe": ..., "price_to_sales": ...}}``, NaN dropped.
+
+    yfinance leaves both empty for a company with no earnings to divide by, so
+    a missing key here is a normal state and the card greys the badge out.
+    """
+    if valuation.empty:
+        return {}
+    out: dict[str, dict] = {}
+    for row in valuation.to_dict("records"):
+        out[str(row["ticker"])] = {
+            key: (None if pd.isna(row.get(key)) else float(row[key]))
+            for key in ("trailing_pe", "price_to_sales")
+        }
+    return out
 
 
 def _tickers(df: pd.DataFrame) -> set[str]:

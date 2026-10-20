@@ -39,6 +39,8 @@ const FUNDAMENTALS: FundamentalRow[] = [
   { key: "operating_margin", label: "Op. margin", format: formatPercent },
   { key: "debt_to_equity", label: "Debt/equity", format: formatNumber },
   { key: "current_ratio", label: "Current ratio", format: formatNumber },
+  { key: "price_earnings", label: "PER", format: formatNumber },
+  { key: "price_to_sales", label: "Price/sales", format: formatNumber },
   { key: "total_revenue", label: "Revenue", format: formatCompact },
   { key: "cost_of_revenue", label: "Cost of revenue", format: formatCompact },
   { key: "ebitda", label: "EBITDA", format: formatCompact },
@@ -50,6 +52,22 @@ const FUNDAMENTALS: FundamentalRow[] = [
  * on, so a card shows why the company got through in the first place.
  */
 const HEADLINE_FUNDAMENTALS = FUNDAMENTALS.slice(0, 3);
+
+/**
+ * The two price-based ratios AS OF TODAY, read straight off the company row
+ * rather than out of a reported period.
+ *
+ * They are kept apart from `FUNDAMENTALS` on purpose. Everything in that array
+ * belongs to a year the company reported; these two are today's price over the
+ * last twelve months' earnings and sales, so they have no period and cannot go
+ * in the same table. The year-by-year version of the same two ratios IS in
+ * that array (`price_earnings`, `price_to_sales`), measured at each year's
+ * closing price, which is what the History table shows.
+ */
+const VALUATION: { key: "trailing_pe" | "price_to_sales"; label: string }[] = [
+  { key: "trailing_pe", label: "PER" },
+  { key: "price_to_sales", label: "Price/sales" },
+];
 
 /**
  * The profile sections shown in the detail panel, in order.
@@ -143,6 +161,14 @@ function Section({ heading, text }: { heading: string; text: string | null | und
 function FundamentalsHistory({ history }: { history: Fundamentals[] }) {
   if (history.length === 0) return null;
 
+  // A metric with no value in ANY period gets no row: a line of dashes reads
+  // like broken data. This is how PER and price/sales disappear from the
+  // quarterly table, where they are deliberately not computed -- a quarter's
+  // earnings would put the PER at four times its real value.
+  const rows = FUNDAMENTALS.filter((row) =>
+    history.some((entry) => entry[row.key] !== null && entry[row.key] !== undefined),
+  );
+
   return (
     <div className="history-wrap">
       <table className="history">
@@ -155,7 +181,7 @@ function FundamentalsHistory({ history }: { history: Fundamentals[] }) {
           </tr>
         </thead>
         <tbody>
-          {FUNDAMENTALS.map((row) => (
+          {rows.map((row) => (
             <tr key={row.key}>
               <th scope="row">{row.label}</th>
               {history.map((entry) => (
@@ -292,6 +318,16 @@ function Detail({
           </div>
         </div>
 
+        {/* Its own heading, away from the reported figures below: these are
+            today's price over the last twelve months, not the 2025 accounts,
+            and filing them under "Fundamentals (2025)" would date them wrong. */}
+        <h4>Valuation (today)</h4>
+        <div className="stats">
+          {VALUATION.map((row) => (
+            <Stat key={row.key} label={row.label} value={formatNumber(company[row.key])} />
+          ))}
+        </div>
+
         {latest && (
           <>
             <h4>Fundamentals ({latest.period})</h4>
@@ -401,6 +437,9 @@ export function CompanyCards({
                     label={row.label}
                     value={latest ? row.format(latest[row.key]) : MISSING}
                   />
+                ))}
+                {VALUATION.map((row) => (
+                  <Stat key={row.key} label={row.label} value={formatNumber(company[row.key])} />
                 ))}
               </div>
 
