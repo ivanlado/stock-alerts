@@ -250,7 +250,19 @@ h2 {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+/* A block of prose inside the detail panel. The panel is as wide as the price
+   chart and the fundamentals table need (900px), which is far wider than a
+   paragraph should be: a line of 100-odd characters is tiring to read. So the
+   text is capped at 72ch and `margin-inline: auto` centres that column in the
+   panel, instead of leaving it pinned to the left with a dead gutter down the
+   right. Below the cap -- a phone, a narrow window -- `max-width` stops
+   binding and the block simply fills the panel, so nothing to undo at the
+   breakpoint. */
+.prose {
   max-width: 72ch;
+  margin-inline: auto;
 }
 
 /* The sector pill and the alert tags, on one line under the company name. */

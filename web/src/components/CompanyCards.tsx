@@ -117,14 +117,20 @@ function AlertTags({ company }: { company: CompanyCard }) {
   );
 }
 
-/** One prose section, rendered only when the model actually answered. */
+/**
+ * One prose section, rendered only when the model actually answered.
+ *
+ * Heading and paragraph share a `.prose` wrapper so they move together: the
+ * text is capped at a readable line length and centred in the panel, which
+ * is wider than prose wants to be (see `.prose` in index.css).
+ */
 function Section({ heading, text }: { heading: string; text: string | null | undefined }) {
   if (!text) return null;
   return (
-    <>
+    <div className="prose">
       <h4>{heading}</h4>
       <p>{text}</p>
-    </>
+    </div>
   );
 }
 
@@ -300,12 +306,7 @@ function Detail({
         <h4>Price history</h4>
         <PriceHistory series={series} />
 
-        {summary && (
-          <>
-            <h4>Summary</h4>
-            <p>{summary}</p>
-          </>
-        )}
+        <Section heading="Summary" text={summary} />
 
         {/* Written on every run, unlike the sections below: it is about
             today's move, so a cached answer would be a wrong one. Null when
@@ -324,7 +325,7 @@ function Detail({
             of quota when this company came up -- and an unexplained gap where
             six sections should be reads as a broken page. So it says so. */}
         {!profile && (
-          <p className="muted">
+          <p className="muted prose">
             No profile written yet: the model had nothing to say about this company on
             the last run. It is filled in on a later run and then cached.
           </p>
