@@ -71,21 +71,47 @@ def _quarter_index(period: str) -> int | None:
         return None
 
 
+def _reporting_step(indices: list[int]) -> int:
+    """How many quarters one filing of this company covers: 1, 2 or 4.
+
+    Read off the spacing of the periods it actually filed, because yfinance
+    does not say: a quarterly filer's periods are one apart, a half-yearly
+    one's two. The most common gap wins, so a single hole in the history does
+    not turn a quarterly filer into something else.
+    """
+    gaps = [b - a for a, b in zip(sorted(indices), sorted(indices)[1:]) if b > a]
+    if not gaps:
+        return 1
+    step = max(set(gaps), key=gaps.count)
+    return step if step in (1, 2, 4) else 1
+
+
 def _trailing_window(periods: list[str]) -> list[str]:
-    """The periods of ``periods`` that fall in the last twelve months.
+    """The periods covering the last twelve months, or NOTHING if they do not.
 
     Taking "the last four rows" would be wrong: a company reporting twice a
     year -- which several on the Spanish side do -- would hand back two full
     years and halve its PER. So the window is measured in quarters from the
-    most recent period, and whatever the company filed inside it is what gets
-    summed, be that four quarters or two halves.
+    most recent period.
+
+    The catch is that a window of the right WIDTH can still be missing a
+    filing inside it. Fluidra has no 2025Q3 in yfinance at all, so the last
+    four quarters hold three filings; summing those three gave nine months of
+    revenue under a full year's market capitalisation and a price/sales ratio
+    a third too high. So the window is only returned when it is complete --
+    as many filings as the company's own reporting cadence calls for -- and
+    the caller falls back to the last full year when it is not.
     """
     indexed = [(p, _quarter_index(p)) for p in periods]
     indexed = [(p, i) for p, i in indexed if i is not None]
     if not indexed:
         return []
+
     latest = max(i for _, i in indexed)
-    return [p for p, i in indexed if latest - 3 <= i <= latest]
+    window = [p for p, i in indexed if latest - 3 <= i <= latest]
+
+    expected = 4 // _reporting_step([i for _, i in indexed])
+    return window if len(window) == expected else []
 
 
 def _pivot(table: pd.DataFrame) -> dict[tuple[str, int], dict[str, float]]:
@@ -172,10 +198,10 @@ def _last_closes(prices: pd.DataFrame) -> dict[str, float]:
 def _trailing_totals(quarterly: pd.DataFrame) -> dict[str, dict[str, float]]:
     """Each ticker's last twelve months, metric by metric.
 
-    Only sums the periods `_trailing_window` keeps, and only when every one of
-    them reports the metric: a year missing a quarter would understate the
-    total and overstate nothing visible, which is the kind of wrong number
-    that gets believed.
+    Only sums the periods `_trailing_window` keeps -- which is nothing at all
+    unless they add up to a full twelve months -- and only when every one of
+    them reports the metric. A part-year total under a full year's market
+    capitalisation is the kind of wrong number that gets believed.
 
     Everything here is summed, so only FLOW metrics (earnings, revenue) may be
     read off the result. A balance such as the share count must not be.
