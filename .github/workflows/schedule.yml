@@ -1,17 +1,35 @@
 name: Run main.py everyday at 14:00
 
 on:
-  # workflow_dispatch:
+  # Lets the dashboard be rebuilt on demand, without waiting for the cron.
+  workflow_dispatch:
   schedule:
     # 14:00 mainland Spain time (CEST = UTC+2 in summer) -> 12:00 UTC
     - cron: '0 12 * * *'
 
+# A second run started while the first is still deploying would race it for the
+# Pages deployment, so the later one waits instead of cancelling: the email has
+# already been sent by then and the archive commit must not be lost.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
+  # One job on purpose: the JSON the dashboard reads is written by main.py into
+  # web/public/data/, which exists only inside this runner. Building and
+  # deploying in a separate job would mean publishing a site with no data.
   run-script:
     runs-on: ubuntu-latest
     permissions:
       # Needed to push the archive back to the "data" branch.
       contents: write
+      # Needed by the GitHub Pages deployment: pages to publish, id-token for
+      # the OIDC token deploy-pages exchanges for permission to do so.
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -41,6 +59,10 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           ALERT_TO: iviivilaca@gmail.com
+          # Without this key the commentary and the profiles come out empty and
+          # the run still succeeds, so the dashboard would publish textless
+          # cards without anything failing.
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HISTORY_DIR: ${{ github.workspace }}/data-branch/history
         run: python main.py
         working-directory: src
@@ -59,3 +81,36 @@ jobs:
             git commit -m "data: archive run of $(date -u +%Y-%m-%d)"
             git push
           fi
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          # Caches the downloaded packages between runs, keyed on the lockfile.
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # npm ci, not npm install: it installs the exact versions in the
+      # lockfile, so the site deployed today is built from the same
+      # dependencies as the one deployed last week.
+      - name: Install web dependencies
+        run: npm ci
+        working-directory: web
+
+      # Vite copies web/public/ into web/dist/, so the JSON main.py just wrote
+      # ends up at dist/data/ -- which is where the frontend fetches it from.
+      - name: Build the dashboard
+        run: npm run build
+        working-directory: web
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
