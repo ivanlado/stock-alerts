@@ -1,0 +1,14 @@
+{
+  "ticker": "ABT",
+  "name": "Abbott Laboratories",
+  "generated_at": "2026-10-21T21:44:01.935117+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Abbott Laboratories es una compañía de atención sanitaria diversificada que desarrolla y comercializa dispositivos médicos, equipos de diagnóstico, productos nutricionales y medicamentos genéricos de marca. Opera a nivel global atendiendo tanto a entornos hospitalarios y de laboratorio como al consumidor final.",
+    "revenue_sources": "Su división de dispositivos médicos es la mayor fuente y genera aproximadamente el 43% de los ingresos, impulsada por la monitorización de glucosa FreeStyle Libre. Le siguen el área de diagnóstico con cerca del 24%, nutrición infantil y de adultos con un 20%, y productos farmacéuticos establecidos en mercados emergentes con un 13%.",
+    "moat": "Posee un foso económico sólido basado en patentes tecnológicas, altos costes de cambio para hospitales integrados a sus sistemas de diagnóstico y economías de escala en distribución global. Estas ventajas se ven reforzadas por complejas barreras regulatorias que dificultan la entrada de nuevos competidores.",
+    "competitors": "Compite con Medtronic (MDT) y Boston Scientific (BSX) en dispositivos cardiovasculares, Dexcom (DXCM) en diabetes, Danaher (DHR) y Roche (RHHBY) en diagnóstico, y Nestlé (NESN) en nutrición.",
+    "threats": "Sus mayores amenazas son los litigios legales por fórmulas nutricionales infantiles, la competencia en innovación dentro del mercado de diabetes y la presión regulatoria sobre los precios de la salud pública. Adicionalmente, las fluctuaciones de divisas afectan a sus ingresos internacionales.",
+    "outlook": "Se espera un crecimiento de ingresos de un dígito medio a alto apoyado en la continua adopción de FreeStyle Libre y nuevos lanzamientos cardiovasculares. Sin embargo, fallos judiciales adversos en demandas pendientes o retrasos en aprobaciones regulatorias podrían mermar este desempeño proyectado."
+  }
+}

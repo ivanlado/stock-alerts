@@ -1,0 +1,14 @@
+{
+  "ticker": "MRL.MC",
+  "name": "MERLIN PROPERTIES SOCIMI, S.A.",
+  "generated_at": "2026-10-21T21:41:27.990079+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Merlin Properties es una sociedad cotizada de inversión inmobiliaria (SOCIMI) dedicada a la adquisición y gestión de activos terciarios en la península ibérica. Su cartera se compone principalmente de oficinas, naves logísticas, centros comerciales y centros de datos.",
+    "revenue_sources": "Sus ingresos proceden del alquiler de inmuebles, distribuidos aproximadamente en un 47% en oficinas, un 28% en centros comerciales y un 17% en logística. El porcentaje restante corresponde a centros de datos y otros ingresos por servicios.",
+    "moat": "Posee un foso económico estrecho sustentado en la escala y la ubicación estratégica de activos prémium en Madrid, Barcelona y Lisboa. Esta escasez de suelo prime genera barreras de entrada locales, pero no protege a la empresa de los ciclos macroeconómicos del sector inmobiliario.",
+    "competitors": "Sus principales competidores cotizados son Inmobiliaria Colonial (COL.MC) en oficinas y Lar España Real Estate (LRE.MC) en centros comerciales. A nivel logístico e internacional compite con grupos como Prologis (PLD) y Klépierre (LI.PA).",
+    "threats": "Sus mayores riesgos son el entorno de tipos de interés altos que encarece la refinanciación y deprime las valoraciones de activos, además de la incertidumbre sobre posibles cambios fiscales al régimen de las SOCIMI en España. También influye el impacto del teletrabajo en la demanda futura de espacio de oficinas.",
+    "outlook": "Se espera que el crecimiento futuro esté liderado por la expansión de su plan de centros de datos y la capacidad de trasladar la inflación a las rentas vigentes. Sin embargo, este desempeño podría verse truncado si surgen retrasos en la entrega de proyectos, dificultades de acceso a la red eléctrica o costes de capital elevados."
+  }
+}

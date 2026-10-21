@@ -1,0 +1,14 @@
+{
+  "ticker": "ADBE",
+  "name": "Adobe Inc.",
+  "generated_at": "2026-10-21T21:45:24.028001+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Adobe Inc. es una empresa de software especializada en herramientas de creación de contenido digital, diseño gráfico, edición de vídeo y gestión de documentos. Ofrece sus productos principalmente a profesionales creativos, especialistas en marketing y empresas a través de modelos de suscripción en la nube.",
+    "revenue_sources": "Su principal fuente de ingresos es el segmento Digital Media, que aporta en torno al 73% del total a través de Creative Cloud y Document Cloud. El segmento Digital Experience, enfocado en software de marketing, comercio electrónico y analítica empresarial, representa aproximadamente el 25%. El porcentaje restante procede de servicios de soporte y licencias tradicionales.",
+    "moat": "Posee un foso económico amplio y sólido sustentado en elevados costes de cambio y efectos de red de facto, ya que formatos como PDF y herramientas como Photoshop son el estándar formativo y profesional de la industria. La integración profunda de su ecosistema en los flujos de trabajo corporativos dificulta la migración de los usuarios a plataformas alternativas.",
+    "competitors": "Compite en el sector de diseño y creatividad con Canva (no cotizada) y Autodesk (ADSK), además de herramientas especializadas de Apple (AAPL). En el ámbito de documentos y experiencia digital para empresas se enfrenta a Microsoft (MSFT), Salesforce (CRM) y Oracle (ORCL).",
+    "threats": "La principal amenaza tecnológica proviene de la inteligencia artificial generativa y nuevos modelos visuales que facilitan la creación automática de contenido a bajo coste. También afronta presiones competitivas de herramientas ligeras y colaborativas en la nube, además de riesgos regulatorios antimonopolio que limitan su capacidad para absorber rivales, como ocurrió con Figma.",
+    "outlook": "Se espera que mantenga un crecimiento de ingresos de un dígito alto o doble dígito bajo, impulsado por la integración de su motor de IA Firefly y la expansión de Document Cloud. Existe el riesgo de que esta expectativa se frustre si no logra monetizar adecuadamente sus innovaciones de IA o si la presión competitiva reduce la disposición de pago de las empresas."
+  }
+}

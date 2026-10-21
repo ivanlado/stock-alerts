@@ -1,0 +1,14 @@
+{
+  "ticker": "ABBV",
+  "name": "AbbVie Inc.",
+  "generated_at": "2026-10-21T21:44:36.317556+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "AbbVie es una compañía biofarmacéutica global dedicada a la investigación, desarrollo y comercialización de medicamentos especializados. Sus áreas clave de negocio abarcan la inmunología, la oncología, la neurociencia y la estética médica.",
+    "revenue_sources": "La cartera de inmunología genera entre el 45% y el 50% de las ventas totales, liderada por Skyrizi, Rinvoq y el remanente de Humira. Los tratamientos de neurociencia y la división de oncología aportan aproximadamente un 15% y un 11% respectivamente, mientras que el negocio de estética médica representa en torno al 10%.",
+    "moat": "Su foso económico se sustenta en patentes y propiedad intelectual, complementado por una gran escala comercial y elevadas barreras de entrada regulatorias. Su solidez es notable a medio plazo, aunque presenta una vulnerabilidad periódica ligada a la expiración de exclusividades comerciales.",
+    "competitors": "Compite con gigantes farmacéuticos globales como Johnson & Johnson (JNJ), Pfizer (PFE), Novartis (NVS), Amgen (AMGN) y Roche (RHHBY).",
+    "threats": "La mayor amenaza es la presión competitiva de medicamentos biosimilares genéricos tras la pérdida de patentes clave como la de Humira. También enfrenta riesgos derivados de la regulación de precios sanitarios en Estados Unidos y el riesgo inherente de fracaso clínico en su cartera de nuevos fármacos en desarrollo.",
+    "outlook": "Se prevé que la empresa retome un crecimiento sostenido de un solo dígito medio a partir de 2025, respaldada por la expansión de las indicaciones de Skyrizi y Rinvoq. El cumplimiento de esta expectativa dependerá de que las ventas de estos fármacos y las recientes adquisiciones compensen definitivamente la erosión de sus productos más maduros."
+  }
+}

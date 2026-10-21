@@ -1,0 +1,14 @@
+{
+  "ticker": "AOS",
+  "name": "A.O. Smith Corporation",
+  "generated_at": "2026-10-21T21:42:58.308304+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "A. O. Smith Corporation diseña y fabrica calentadores de agua comerciales y residenciales, calderas y sistemas de tratamiento de agua. La empresa comercializa sus productos principalmente en Norteamérica y mantiene una presencia relevante en mercados como China e India.",
+    "revenue_sources": "El segmento de Norteamérica genera aproximadamente el 75% de las ventas totales mediante la venta de calentadores de agua y calderas. El segmento del Resto del Mundo aporta cerca del 25% restante, derivado principalmente de calentadores y equipos de purificación de agua en China e India.",
+    "moat": "Posee un foso económico moderado basado en el reconocimiento de sus marcas y en una sólida red de distribución mayorista con instaladores profesionales. La lealtad del canal de fontanería y el peso de la demanda de reposición dificultan la entrada de nuevos competidores.",
+    "competitors": "Compite con Watts Water Technologies (WTS), Pentair (PNR) y Rinnai Corporation (TYO: 5947), además de fabricantes privados líderes como Rheem y Bradford White.",
+    "threats": "Afronta riesgos derivados del enfriamiento en el sector inmobiliario y el consumo en China, así como de la volatilidad en el precio de materias primas como el acero. Asimismo, los cambios regulatorios hacia la electrificación y la descarbonización exigen adaptaciones tecnológicas continuas frente a nuevos competidores.",
+    "outlook": "Se espera un crecimiento moderado de un dígito bajo a medio sustentado por la naturaleza recurrente del mercado de sustitución de calentadores y la expansión en filtración de agua. Este escenario previsto podría verse obstaculizado por una debilidad prolongada de la economía china o por un freno mayor en la construcción residencial estadounidense."
+  }
+}

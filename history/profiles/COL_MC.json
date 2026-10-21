@@ -1,0 +1,14 @@
+{
+  "ticker": "COL.MC",
+  "name": "COLONIAL SFL, SOCIMI. S.A.",
+  "generated_at": "2026-10-21T21:40:55.816358+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Inmobiliaria Colonial es una socimi especializada en la adquisición, desarrollo y arrendamiento de edificios de oficinas prime. Sus activos se concentran casi en su totalidad en los distritos financieros de París, Madrid y Barcelona.",
+    "revenue_sources": "La totalidad de su facturación procede del cobro de rentas por alquiler de oficinas y, residualmente, locales comerciales. Por distribución geográfica, París aporta aproximadamente entre el 55% y el 60% de los ingresos por rentas, Madrid en torno al 25%-30% y Barcelona el 10%-15% restante.",
+    "moat": "Su foso económico se sustenta en la posesión de activos irreemplazables en ubicaciones céntricas con escasez física de oferta. La solidez de este foso es moderadamente alta frente a competidores directos, aunque vulnerable al ciclo de tipos de interés.",
+    "competitors": "Merlin Properties (MRL.MC) en España, y Gecina (GFC.PA) y Covivio (COV.PA) en Francia.",
+    "threats": "Las principales amenazas son financieras, derivadas de un entorno de tipos de interés altos que encarece la refinanciación de la deuda y presiona a la baja la valoración de sus inmuebles. También afronta el riesgo estructural del trabajo híbrido o teletrabajo, que modera la demanda neta de metros cuadrados de oficinas.",
+    "outlook": "Se prevé una evolución plana o de crecimiento moderado de los ingresos impulsada por la indexación de contratos a la inflación y la alta ocupación de sus activos de gama alta. Como expectativa sujeta a riesgo, la persistencia de costes de financiación elevados o una desaceleración económica podrían lastrar el valor neto de los activos y el dividendo."
+  }
+}

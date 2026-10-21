@@ -1,0 +1,14 @@
+{
+  "ticker": "FDR.MC",
+  "name": "FLUIDRA, S.A.",
+  "generated_at": "2026-10-21T21:37:35.687522+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Fluidra es una compañía global dedicada al diseño, fabricación y distribución de componentes, equipos y soluciones conectadas para piscinas residenciales y comerciales. Su actividad abarca tanto el equipamiento de obra nueva como el mantenimiento, recambio y rehabilitación del parque de piscinas existente.",
+    "revenue_sources": "La piscina residencial genera en torno al 70-75% de las ventas totales, siendo la principal fuente de ingresos del grupo. La piscina comercial representa cerca del 10-15%, mientras que el resto procede de la conducción de fluidos, tratamiento del agua y productos químicos complementarios.",
+    "moat": "Posee un foso económico basado en economías de escala y una red de distribución global muy capilar, complementada por el reconocimiento de marcas como AstralPool y Zodiac. Este foso se refuerza con costes de cambio moderados para los instaladores profesionales, mostrando una solidez media-alta.",
+    "competitors": "Sus mayores competidores globales que cotizan en bolsa son Pentair plc (PNR) y Hayward Holdings (HAYW), además del distribuidor Pool Corporation (POOL).",
+    "threats": "Afronta riesgos derivados de la debilidad macroeconómica y los tipos de interés que frenan la construcción de obra nueva y reformas discrecionales. También está expuesta a normativas medioambientales más estrictas y restricciones al llenado de piscinas derivadas de sequías prolongadas.",
+    "outlook": "Se espera un crecimiento moderado impulsado por la piscina conectada, la sostenibilidad y la recurrencia del parque instalado a medida que se normalicen los inventarios de los distribuidores. No obstante, este escenario positivo podría retrasarse si persiste el parón en la construcción residencial o se endurecen las restricciones hídricas."
+  }
+}

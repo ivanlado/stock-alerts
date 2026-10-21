@@ -1,0 +1,14 @@
+{
+  "ticker": "ACN",
+  "name": "Accenture plc",
+  "generated_at": "2026-10-21T21:45:00.992804+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Accenture plc es una multinacional de servicios profesionales especializada en consultoría estratégica, tecnología y externalización de operaciones. Proporciona a empresas y administraciones públicas servicios de integración de sistemas, modernización tecnológica y transformación digital.",
+    "revenue_sources": "Sus ingresos se dividen por tipo de servicio en Consultoría, que genera aproximadamente el 52% del total, y Servicios Gestionados (Managed Services), que aporta cerca del 48%. Por geografías, Norteamérica concentra en torno al 47% de las ventas, seguida de EMEA (Europa, Oriente Medio y África) con cerca del 35% y los mercados de crecimiento con el resto.",
+    "moat": "Presenta un foso económico moderado a sólido fundamentado en altos costes de cambio y economías de escala. Su profunda integración en la infraestructura tecnológica y operativa de grandes corporaciones dificulta su sustitución, mientras que su escala le otorga alianzas privilegiadas con los principales proveedores de software del mundo.",
+    "competitors": "Compite directamente contra empresas cotizadas como International Business Machines (IBM), Cognizant Technology Solutions (CTSH), Infosys (INFY) y Capgemini (CAP en París). También rivaliza en distintas áreas con firmas de consultoría no cotizadas como Deloitte, PwC, McKinsey & Company y Boston Consulting Group.",
+    "threats": "Sus mayores riesgos provienen de la reducción o retraso del gasto discrecional en consultoría tecnológica por parte de las empresas en entornos de debilidad macroeconómica. Asimismo, afronta una intensa competencia salarial y el riesgo tecnológico de que la inteligencia artificial generativa automatice tareas que antes facturaba por horas.",
+    "outlook": "Se espera que mantenga un crecimiento moderado de los ingresos en el rango de un solo dígito medio apoyado en proyectos de migración a la nube, ciberseguridad y despliegue de inteligencia artificial. No obstante, esta expectativa está sujeta a la recuperación del gasto corporativo en consultoría y a la estabilización de los presupuestos tecnológicos globales."
+  }
+}

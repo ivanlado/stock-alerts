@@ -1,0 +1,14 @@
+{
+  "ticker": "GOOG",
+  "name": "Alphabet Inc.",
+  "generated_at": "2026-10-21T21:47:05.325913+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Alphabet es una empresa tecnológica global cuya principal filial es Google, centrada en servicios de internet, publicidad digital y software. También opera en computación en la nube, hardware de consumo y proyectos de tecnología experimental.",
+    "revenue_sources": "La publicidad digital mediante las búsquedas de Google y otros servicios propios representa aproximadamente el 55% de sus ingresos. El resto de la publicidad, que incluye YouTube y su red de anuncios de terceros, aporta en torno al 20%. Los servicios de computación en la nube de Google Cloud generan cerca del 11%, complementados por suscripciones, hardware y ventas de aplicaciones.",
+    "moat": "Alphabet cuenta con un foso económico muy sólido sustentado principalmente en economías de escala y potentes efectos de red en sus plataformas de búsqueda, Android y YouTube. Adicionalmente, se beneficia de altos costes de cambio en sus servicios empresariales en la nube y de una marca global de primer nivel.",
+    "competitors": "Compite en publicidad y computación en la nube con Amazon (AMZN) y Microsoft (MSFT). En el mercado de publicidad digital y redes sociales se enfrenta a Meta Platforms (META), y en sistemas operativos móviles y hardware a Apple (AAPL).",
+    "threats": "Afronta graves riesgos regulatorios antimonopolio en Estados Unidos y la Unión Europea que podrían forzar la segregación de negocios o la alteración de acuerdos comerciales clave. A nivel tecnológico, la rápida evolución de la inteligencia artificial generativa plantea una amenaza competitiva directa a la hegemonía de su motor de búsqueda tradicional.",
+    "outlook": "Las previsiones apuntan a que mantenga un crecimiento moderado apoyado en la expansión de su negocio en la nube y en la monetización de herramientas de inteligencia artificial. No obstante, este desempeño podría verse limitado si los costes de infraestructura para la IA presionan los márgenes o si pierde cuota en el mercado publicitario."
+  }
+}
