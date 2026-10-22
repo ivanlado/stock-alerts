@@ -1,0 +1,14 @@
+{
+  "ticker": "ROVI.MC",
+  "name": "LABORATORIOS FARMACEUTICOS ROVI",
+  "generated_at": "2026-10-22T17:08:35.994736+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Laboratorios Farmacéuticos Rovi es una compañía farmacéutica española centrada en la investigación, desarrollo y comercialización de medicamentos propios y bajo licencia. Asimismo, opera como un fabricante a terceros (CDMO) especializado en el llenado y acabado aséptico de inyectables.",
+    "revenue_sources": "La fabricación para terceros (CDMO), especialmente de vacunas y productos inyectables, aporta aproximadamente la mitad de los ingresos totales. El resto procede de su división de especialidades farmacéuticas, destacando la franquicia de heparinas de bajo peso molecular (bemiparina y biosimilar de enoxaparina), complementada por la comercialización de medicamentos bajo licencia.",
+    "moat": "Posee un foso económico moderado sustentado en costes de cambio elevados para los clientes de su división CDMO, dada la complejidad técnica y regulatoria que exige transferir la producción a otro proveedor. Además, cuenta con ventajas de escala y patentes técnicas en la formulación y síntesis de heparinas y tecnologías de liberación prolongada.",
+    "competitors": "En fabricación para terceros compite con Lonza Group (LONN.SW), Recipharm y Siegfried Holding (SFZN.SW). En heparinas y medicamentos de prescripción compite con grandes farmacéuticas como Sanofi (SAN.PA) y laboratorios nacionales como Faes Farma (FAE.MC).",
+    "threats": "Afronta una elevada concentración de clientes en su división CDMO tras la reducción de la demanda extraordinaria de vacunas contra la COVID-19. También está expuesta a la volatilidad del precio del principio activo biológico de la heparina (mucosa porcina) y a posibles rebajas en los precios regulados de fármacos por parte de las autoridades sanitarias.",
+    "outlook": "Se espera que el crecimiento a medio plazo esté impulsado por la expansión de la capacidad industrial en CDMO y la penetración internacional de su antipsicótico inyectable Okedi. No obstante, este desempeño previsto dependerá del ritmo de aprobación y comercialización en Estados Unidos y de su capacidad para reemplazar los volúmenes extraordinarios facturados durante la pandemia."
+  }
+}

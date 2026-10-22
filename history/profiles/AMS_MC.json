@@ -1,0 +1,14 @@
+{
+  "ticker": "AMS.MC",
+  "name": "AMADEUS IT GROUP, S.A.",
+  "generated_at": "2026-10-22T17:08:11.461393+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Amadeus IT Group es un proveedor tecnológico global que opera sistemas de distribución de reservas y software de gestión operativa para la industria de viajes. Su infraestructura digital conecta aerolíneas, hoteles y agencias de viajes procesando millones de transacciones comerciales diarias.",
+    "revenue_sources": "Sus ingresos se dividen principalmente en Distribución Aérea (su red GDS), que aporta alrededor del 45-50% del total; Soluciones Tecnológicas para Aerolíneas (sistemas de gestión de pasajeros), que genera cerca del 35-40%; y Hospitalidad y Otras Soluciones, que representa entre el 10% y el 15%.",
+    "moat": "Posee un foso económico muy sólido cimentado en fuertes efectos de red bilaterales en su negocio de distribución y en altísimos costes de cambio en sus plataformas de software para aerolíneas. La migración de estos sistemas críticos implica enormes riesgos operativos y costes para los clientes, lo que asegura contratos plurianuales y una retención muy alta.",
+    "competitors": "Sus competidores directos en distribución y software de transporte son Sabre Corporation (SABR) y Travelport, actualmente no cotizada. En el segmento de tecnología para hostelería compite con proveedores de software corporativo como Oracle Corporation (ORCL).",
+    "threats": "Destaca el riesgo de desintermediación si las aerolíneas logran canalizar más reservas mediante venta directa a través de nuevos estándares como el NDC de IATA. También afronta la exposición cíclica a crisis sanitarias, geopolíticas o económicas que frenen el tráfico aéreo, además de las inversiones requeridas para migrar su arquitectura a la nube pública.",
+    "outlook": "Se espera que la empresa mantenga un crecimiento continuo de ingresos apoyado en el incremento estructural de los viajes internacionales y en la mayor penetración de su software en cadenas hoteleras. No obstante, estas expectativas podrían verse limitadas si el gasto del consumidor en ocio se contrae o si las aerolíneas intensifican el desvío de tráfico fuera de su plataforma tradicional."
+  }
+}
