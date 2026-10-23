@@ -1,0 +1,14 @@
+{
+  "ticker": "GOOGL",
+  "name": "Alphabet Inc.",
+  "generated_at": "2026-10-23T17:07:30.381537+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Alphabet Inc. es un conglomerado tecnológico multinacional cuya principal filial es Google, enfocada en servicios y productos en internet. Su actividad principal abarca el motor de búsqueda Google Search, la plataforma de vídeo YouTube, el sistema operativo móvil Android y servicios de infraestructura en la nube.",
+    "revenue_sources": "La publicidad digital genera la mayor parte de los ingresos, desglosada en Google Search con cerca del 57%, YouTube Ads con aproximadamente el 10% y Google Network con el 8%. El segmento de computación en la nube (Google Cloud) aporta alrededor del 11%, mientras que las suscripciones, venta de hardware y servicios de la tienda Google Play suman el 14% restante.",
+    "moat": "Posee un foso económico muy sólido sustentado en fuertes efectos de red y economías de escala globales en datos e infraestructura. A esto se suman una marca con uso arraigado en miles de millones de usuarios y moderados costes de cambio en su ecosistema de nube y servicios empresariales.",
+    "competitors": "En publicidad digital e inteligencia artificial compite contra Meta Platforms (META) y Microsoft (MSFT). En servicios de infraestructura en la nube rivaliza con Amazon (AMZN) y Microsoft (MSFT), mientras que en distribución de contenidos compite con Apple (AAPL) y ByteDance (TikTok, no cotizada).",
+    "threats": "Las principales amenazas son de carácter regulatorio antimonopolio en Estados Unidos y la Unión Europea, con riesgos de sanciones económicas o fragmentación forzada del negocio publicitario. Tecnológicamente, la transición hacia interfaces conversacionales de inteligencia artificial supone un riesgo de disrupción directa para su tradicional modelo de monetización de búsquedas.",
+    "outlook": "Las expectativas del mercado apuntan a un crecimiento sostenido de los ingresos impulsado por la aceleración de Google Cloud y nuevos formatos de suscripción. El cumplimiento de esta expectativa dependerá de su capacidad para monetizar la inteligencia artificial sin deteriorar los márgenes operativos frente al elevado gasto de capital requerido."
+  }
+}

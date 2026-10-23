@@ -1,0 +1,14 @@
+{
+  "ticker": "ALLE",
+  "name": "Allegion plc",
+  "generated_at": "2026-10-23T17:03:06.767623+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Allegion diseña, fabrica y comercializa productos de seguridad y control de accesos mecánicos y electrónicos para edificios comerciales y residenciales. Su negocio abarca cerraduras, sistemas de salida antipánico y cierrapuertas operados bajo marcas reconocidas como Schlage, Von Duprin y LCN.",
+    "revenue_sources": "El segmento Allegion Americas genera la mayor parte de su facturación, aportando entre el 75% y el 80% de los ingresos totales. El negocio restante proviene de Allegion International, que representa entre el 20% y el 25%. Por tipo de producto, las ventas combinan hardware mecánico tradicional con soluciones crecientes de seguridad electrónica y accesos conectados.",
+    "moat": "Posee un foso económico sólido basado en costes de cambio y marcas consolidadas en el sector profesional. Sus dispositivos suelen especificarse formalmente en los proyectos arquitectónicos, lo que garantiza ventas cautivas recurrentes en reposición y mantenimiento durante décadas. Su extensa red de distribución especializada actúa como una barrera de entrada adicional frente a nuevos competidores.",
+    "competitors": "Compite a escala global principalmente contra Assa Abloy (STO: ASSA-B), dormakaba (SWX: DOKA) y Fortune Brands Innovations (NYSE: FBIN).",
+    "threats": "Sus mayores amenazas son la exposición al ciclo de construcción y reforma inmobiliaria comercial y residencial, y la presión en márgenes por costes de componentes. También enfrenta el riesgo de disrupción tecnológica por la entrada de empresas de software y domótica en el acceso digital inteligente.",
+    "outlook": "Se espera que mantenga un crecimiento modesto a medio plazo, impulsado por la transición estructural de cerraduras mecánicas tradicionales hacia sistemas electrónicos conectados en oficinas e instituciones. No obstante, existe el riesgo de que este crecimiento se frene ante una desaceleración en el sector de la edificación comercial no residencial o retrasos en los presupuestos corporativos de seguridad."
+  }
+}
