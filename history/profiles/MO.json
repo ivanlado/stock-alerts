@@ -1,0 +1,14 @@
+{
+  "ticker": "MO",
+  "name": "Altria Group, Inc.",
+  "generated_at": "2026-10-24T15:57:56.321290+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Altria Group es un holding estadounidense dedicado a la fabricación y comercialización de productos de tabaco, principalmente cigarrillos, tabaco oral y dispositivos de vapeo en Estados Unidos. Su principal activo comercial es la marca de cigarrillos Marlboro en el mercado norteamericano.",
+    "revenue_sources": "Los productos fumables, encabezados por Marlboro, generan aproximadamente el 87% de sus ingresos netos. El segmento de tabaco oral, que incluye marcas como Copenhagen, Skoal y las bolsas de nicotina on!, aporta cerca del 12%. El resto procede de dispositivos de vapeo como NJOY y otras operaciones menores.",
+    "moat": "Posee un foso económico sólido sustentado en el poder de fijación de precios y la fidelidad a la marca Marlboro, reforzado por altas barreras regulatorias que impiden la entrada de nuevos competidores. No obstante, este foso se enfrenta a una erosión estructural debido a la continua reducción en el número de fumadores.",
+    "competitors": "Sus competidores directos más relevantes son British American Tobacco (BTI) e Imperial Brands (IMB). También compite contra Philip Morris International (PM) en el segmento de productos libres de humo dentro de Estados Unidos.",
+    "threats": "La principal amenaza es el declive secular y acelerado en el volumen de consumo de cigarrillos tradicionales. Se suman riesgos regulatorios severos por parte de la FDA, como posibles límites al nivel de nicotina o la prohibición del mentol. Además, afronta el riesgo de fracaso o retraso en la adopción rentable de sus alternativas sin humo frente a marcas rivales.",
+    "outlook": "Se espera que la empresa sostenga un crecimiento de beneficios por acción de un dígito bajo mediante aumentos de precios, control de costes y recompra de acciones. La viabilidad futura del negocio dependerá de si logra escalar con éxito sus alternativas sin humo como on! y NJOY para compensar la caída del tabaco tradicional. Una aceleración imprevista en la pérdida de consumidores o una regulación más estricta podrían truncar estas proyecciones."
+  }
+}

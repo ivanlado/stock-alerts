@@ -1,0 +1,14 @@
+{
+  "ticker": "ANE.MC",
+  "name": "CORPORACI...N ACCIONA ENERG...A",
+  "generated_at": "2026-10-24T15:54:55.194342+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Corporación Acciona Energías Renovables es una compañía dedicada exclusivamente al desarrollo, construcción, operación y venta de energía eléctrica a partir de fuentes renovables, principalmente eólica y solar. Además, comercializa energía limpia y gestiona contratos bilaterales de suministro para clientes corporativos e industriales.",
+    "revenue_sources": "La mayor parte de los ingresos procede de la venta de electricidad generada en sus propias instalaciones, donde la tecnología eólica representa históricamente más del 60% de la facturación y la solar fotovoltaica en torno al 20%. El porcentaje restante se obtiene mediante la comercialización de energía a clientes finales y la gestión de contratos bilaterales a largo plazo.",
+    "moat": "Posee un foso económico estrecho basado en economías de escala operativa, experiencia técnica y contratos bilaterales a largo plazo que ofrecen cierta protección en flujos de caja. Sin embargo, su solidez es limitada porque la electricidad es una materia prima homogénea sujeta a fuerte competencia y precios de mercado volátiles.",
+    "competitors": "Compite a escala nacional e internacional con EDP Renováveis (EDPR.LS), Iberdrola (IBE.MC) y Ørsted (ORSTED.CO).",
+    "threats": "Sus mayores amenazas son la caída de los precios mayoristas de la energía por el exceso de generación renovable en horas punta y la incertidumbre por cambios regulatorios en sus principales mercados, especialmente España. Adicionalmente, los altos tipos de interés encarecen la financiación de nuevos proyectos intensivos en capital y la congestión de la red dificulta la evacuación de energía.",
+    "outlook": "Se espera que continúe ampliando su capacidad instalada y estabilizando ingresos mediante la rotación de activos y la firma de más contratos bilaterales con empresas. No obstante, existe el riesgo de que el crecimiento sea más lento de lo previsto si se prolonga la debilidad de los precios de la electricidad o persisten las trabas en la obtención de puntos de conexión."
+  }
+}
