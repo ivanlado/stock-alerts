@@ -24,7 +24,8 @@ dashboard is for looking at the companies that got through the fundamental
 filters, and hiding the quiet ones would only leave the reader wondering what
 happened to them. ``analyst_alert`` / ``price_alert`` say which rule fired, if
 any, and the rows that did fire come first. How many companies that is comes
-from ``DEFAULT_TICKER_LIMIT`` in ``pipeline.py``, which caps the screener.
+from ``DEFAULT_TICKER_LIMIT`` in ``pipeline.py``, which can cap the screener
+(it does not by default).
 
 Their numbers come from the UNFILTERED tables (``analyst_all``, ``price_all``),
 so a card always shows both rules: firing only the price rule never meant the

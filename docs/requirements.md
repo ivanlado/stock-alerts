@@ -25,8 +25,9 @@ default, a page) is not finished until it is written here.
   - operating margin ≥ 7% in each of the last 3 reported years.
 
   A company with missing data for a criterion is discarded.
-- **R2.3** While the project is in development, only the first 20 companies
-  that pass are kept (`DEFAULT_TICKER_LIMIT` in `src/pipeline.py`).
+- **R2.3** Every company that passes is kept, with no cap
+  (`DEFAULT_TICKER_LIMIT` in `src/pipeline.py` is `None`; about 220 pass
+  today).
 - **R2.4** Only screened companies are evaluated by the alert rules and shown
   on the dashboard, plus the funds of §2.5.
 

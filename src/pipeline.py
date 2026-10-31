@@ -17,9 +17,9 @@ from providers import DataProviderImpl
 from screening import FundamentalScreener
 from valuation import valuation_history, valuation_today
 
-# Kept from the previous main.py: caps how many screened tickers reach the
-# alert stage. Set to None to process all of them.
-DEFAULT_TICKER_LIMIT = 20
+# Caps how many screened tickers reach the alert stage. None processes all of
+# them; a number is handy while testing, to keep a local run short.
+DEFAULT_TICKER_LIMIT = None
 
 # How far back the price history goes. The price rule needs more than a year
 # for its longest window, and the web chart offers a five-year view, so one
