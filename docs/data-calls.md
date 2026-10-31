@@ -8,7 +8,7 @@ What the pipeline downloads, and how often. Per-company calls are spaced
 | Data | Call | Calls |
 |---|---|---|
 | Daily prices (5 years) | `yf.download([...])` | **1**, batched |
-| Analyst price target | `Ticker(t).analyst_price_targets` | **1 per company** — the real daily cost |
+| Analyst price target | `Ticker(t).analyst_price_targets` | **1 per company** (~540, the whole universe, for Search) — the real daily cost |
 | Fund data (TER, holdings, sectors) | `Ticker(t).funds_data` | 1 per fund (6). Could be cached |
 | LLM: today's explanation | Gemini | 1 per alert, capped at 20/day (free tier) |
 

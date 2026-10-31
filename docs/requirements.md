@@ -28,8 +28,10 @@ default, a page) is not finished until it is written here.
 - **R2.3** Every company that passes is kept, with no cap
   (`DEFAULT_TICKER_LIMIT` in `src/pipeline.py` is `None`; about 220 pass
   today).
-- **R2.4** Only screened companies are evaluated by the alert rules and shown
-  on the dashboard, plus the funds of §2.5.
+- **R2.4** Both rules are computed for every stock of the universe, so Search
+  (§4.7) can filter all of them, but only screened companies (and the funds of
+  §2.5, for the price rule) raise alerts, appear on the alert pages and in the
+  email, and get LLM commentary.
 
 ### 2.5 Index funds and ETFs
 
@@ -174,7 +176,29 @@ except the LLM commentary, which is in Spanish.
 
 ### 4.7 Search (`/search`)
 
-- **R4.7.1** Placeholder: lists the screened tickers. Not defined yet.
+- **R4.7.1** Lists every stock of the universe and every fund, screened or
+  not, as a sortable table. A row click opens the detail panel (§4.6).
+- **R4.7.2** Filters, all optional, kept in the URL:
+  - **Type** and **Sector**: as in §4.4.
+  - **Minimum gap to analyst target**: Any (default, no filter), 5%, 10%,
+    20%, 30%, or Custom.
+  - **Window** (3M by default) and **minimum drop over it**: Any (default, no
+    filter), 5%, 10%, 15%, 20%, or Custom.
+  - **Fundamentals**, a minimum and a maximum each: PER, operating margin,
+    debt/equity, revenue growth (last year against the year before). Boxes
+    accept a comma or a point as decimal mark. A PER filter leaves out
+    loss-making companies (negative PER).
+- **R4.7.3** Fundamental filters apply to stocks only: while any is set, funds
+  are hidden. With type "Funds" they are not shown.
+- **R4.7.4** Every fundamental has a small "i" button; hovering or clicking
+  it shows a short explanation in plain words for non-experts.
+- **R4.7.5** Default order: most undervalued against the analyst target first.
+  Columns: ticker, name, sector, price, target, gap to target, variation over
+  the chosen window, PER, price/sales, operating margin, debt/equity, current
+  ratio, revenue, revenue growth, free cash flow, and whether it passes the
+  screener. Every column sorts; numeric columns have a number filter (greater
+  than, between...), text columns a text one. Gap and fundamental headers
+  carry the "i" button.
 
 ## 5. Email
 
