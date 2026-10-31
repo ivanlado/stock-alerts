@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { CountryBar, FundComposition } from "./FundComposition";
 import { PriceHistory } from "./PriceHistory";
 import {
@@ -8,6 +8,7 @@ import {
   variationStyle,
   MISSING,
 } from "../lib/format";
+import { useData } from "../lib/data";
 import type { CompanyCard, CompanyProfile, Fundamentals, PriceSeries } from "../lib/types";
 import { PRICE_WINDOWS } from "../lib/windows";
 
@@ -274,20 +275,27 @@ function FundamentalsTables({
 
 /**
  * The full detail panel, shown on top of the page when a card is clicked.
+ * Exported because Search opens the same panel from a table row.
+ *
+ * The price series is downloaded HERE, when the panel opens: one small file
+ * per ticker (`prices/<ticker>.json`) rather than every series up front, which
+ * for the whole universe would be megabytes nobody looks at.
+ * `encodeURIComponent` escapes characters a ticker may carry that mean
+ * something in a URL, such as the `^` of an index.
  *
  * `onClose` is a prop that happens to be a FUNCTION. Passing a function down
  * is how a child tells its parent something happened -- here, "the user wants
  * me gone" -- without the child needing to know what closing actually means.
  */
-function Detail({
+export function CompanyDetail({
   company,
-  series,
   onClose,
 }: {
   company: CompanyCard;
-  series: PriceSeries | null;
   onClose: () => void;
 }) {
+  const prices = useData<PriceSeries>(`prices/${encodeURIComponent(company.ticker)}.json`);
+
   // Closing with the Escape key is a browser-wide concern, not something that
   // happens inside this markup, so it needs useEffect: React runs the code
   // after painting, and runs the returned cleanup before the panel disappears.
@@ -380,7 +388,11 @@ function Detail({
         {isFund && <CountryBar fund={company.fund} />}
 
         <h4>Price history</h4>
-        <PriceHistory series={series} />
+        {prices.loading ? (
+          <p className="muted">Loading...</p>
+        ) : (
+          <PriceHistory series={prices.rows[0] ?? null} />
+        )}
 
         {isFund && <FundComposition fund={company.fund} />}
 
@@ -431,12 +443,10 @@ function Detail({
  */
 export function CompanyCards({
   rows,
-  prices = [],
   badges = DEFAULT_BADGES,
   compact = false,
 }: {
   rows: CompanyCard[];
-  prices?: PriceSeries[];
   badges?: CardBadge[];
   compact?: boolean;
 }) {
@@ -445,14 +455,6 @@ export function CompanyCards({
   // repaints the moment the setter is called, which is what makes the panel
   // appear.
   const [selected, setSelected] = useState<CompanyCard | null>(null);
-
-  // A Map is a lookup table: finding a ticker in it is immediate, whereas
-  // searching the array again on every repaint would walk it from the start.
-  // `useMemo` builds it only when the downloaded prices change.
-  const seriesByTicker = useMemo(
-    () => new Map(prices.map((series) => [series.ticker, series])),
-    [prices],
-  );
 
   if (rows.length === 0) return null;
 
@@ -523,11 +525,7 @@ export function CompanyCards({
 
       {/* Rendered only while something is selected. */}
       {selected && (
-        <Detail
-          company={selected}
-          series={seriesByTicker.get(selected.ticker) ?? null}
-          onClose={() => setSelected(null)}
-        />
+        <CompanyDetail company={selected} onClose={() => setSelected(null)} />
       )}
     </>
   );

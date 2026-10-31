@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { InfoTip } from "./InfoTip";
 
 /**
  * The controls at the top of each alert page: sector, minimum drop, window.
@@ -14,13 +15,82 @@ export function FilterBar({ children }: { children: ReactNode }) {
   return <div className="filters">{children}</div>;
 }
 
-/** A label above a control, so each group of buttons says what it filters. */
-function Field({ label, children }: { label: string; children: ReactNode }) {
+/**
+ * A label above a control, so each group of buttons says what it filters.
+ * `info`, when given, adds the "i" button with that explanation.
+ */
+function Field({ label, info, children }: { label: string; info?: string; children: ReactNode }) {
   return (
     <div className="filter">
-      <span className="filter-label">{label}</span>
+      <span className="filter-label">
+        {label}
+        {info && <InfoTip label={label} text={info} />}
+      </span>
       {children}
     </div>
+  );
+}
+
+/**
+ * A number box that accepts a comma or a point as the decimal mark.
+ *
+ * WHY NOT `type="number"`. The browser's number box follows the computer's
+ * language: on a Spanish system it refuses "0.5" and on an English one "0,5".
+ * A text box with `inputMode="decimal"` takes both, still brings up the
+ * numeric keyboard on a phone, and `parseDecimal` (lib/filters.ts) reads
+ * either form.
+ */
+function NumberBox({
+  value,
+  placeholder,
+  label,
+  onChange,
+}: {
+  value: string;
+  placeholder?: string;
+  label: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <input
+      type="text"
+      inputMode="decimal"
+      className="number-box"
+      placeholder={placeholder}
+      value={value}
+      onChange={(event) => onChange(event.target.value)}
+      aria-label={label}
+    />
+  );
+}
+
+/**
+ * A minimum and a maximum, both optional, for one metric. Empty means "no
+ * limit on that side".
+ */
+export function RangePicker({
+  label,
+  info,
+  min,
+  max,
+  onMin,
+  onMax,
+}: {
+  label: string;
+  info?: string;
+  min: string;
+  max: string;
+  onMin: (value: string) => void;
+  onMax: (value: string) => void;
+}) {
+  return (
+    <Field label={label} info={info}>
+      <div className="range-inputs">
+        <NumberBox value={min} placeholder="min" label={`${label}, minimum`} onChange={onMin} />
+        <span className="meta">to</span>
+        <NumberBox value={max} placeholder="max" label={`${label}, maximum`} onChange={onMax} />
+      </div>
+    </Field>
   );
 }
 
@@ -164,20 +234,10 @@ export function MinimumPicker({
           Custom
         </button>
         {custom && (
-          <label className="custom-minimum">
-            <input
-              type="number"
-              min={0}
-              step={1}
-              inputMode="decimal"
-              // `autoFocus` puts the cursor in the box as soon as it appears.
-              autoFocus
-              value={value}
-              onChange={(event) => onChange(event.target.value)}
-              aria-label={`${label}, custom value in percent`}
-            />
+          <span className="custom-minimum">
+            <NumberBox value={value} label={`${label}, custom value in percent`} onChange={onChange} />
             %
-          </label>
+          </span>
         )}
       </div>
     </Field>

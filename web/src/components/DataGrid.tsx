@@ -1,6 +1,8 @@
 import { AllCommunityModule, ModuleRegistry, themeQuartz, type ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
+import { parseDecimal } from "../lib/filters";
 import { useIsNarrow } from "../lib/useIsNarrow";
+import { InfoTip } from "./InfoTip";
 
 // --- Global AG Grid setup (runs once, when this file is first imported) ---
 //
@@ -15,16 +17,26 @@ import { useIsNarrow } from "../lib/useIsNarrow";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 /**
- * A column definition: AG Grid's own `ColDef` plus one extra flag of ours.
+ * A column definition: AG Grid's own `ColDef` plus a few flags of ours.
  *
  * `secondary: true` marks a column worth showing on a laptop but not worth
  * the horizontal scrolling it would cost on a phone. This component drops
  * those columns on a narrow screen; pages only declare the intent.
  *
+ * `numeric: true` gives the column a NUMBER filter ("greater than",
+ * "between"...) instead of the default text one ("contains"), which makes no
+ * sense on a number. It accepts a comma or a point as the decimal mark.
+ *
+ * `info` adds the "i" button to the header, with that explanation.
+ *
  * `&` is TypeScript's intersection: the new type has every field of `ColDef`
- * plus `secondary`. Re-exported so pages never import anything from ag-grid.
+ * plus ours. Re-exported so pages never import anything from ag-grid.
  */
-export type Column<Row> = ColDef<Row> & { secondary?: boolean };
+export type Column<Row> = ColDef<Row> & {
+  secondary?: boolean;
+  numeric?: boolean;
+  info?: string;
+};
 export type { ColDef };
 
 // A COMPONENT'S PROPS are its inputs, like arguments to a function. `Row` is a
@@ -35,7 +47,59 @@ type Props<Row> = {
   rows: Row[];
   columns: Column<Row>[];
   height?: number;
+  /** Called with the row's data when a row is clicked. */
+  onRowClick?: (row: Row) => void;
 };
+
+/** Row and header height, in pixels: AG Grid's default leaves rows airy. */
+const ROW_HEIGHT = 30;
+const HEADER_HEIGHT = 34;
+
+/**
+ * The number filter's settings. `allowedCharPattern` lets a comma through
+ * (the grid's own number box would refuse it on some systems) and
+ * `numberParser` turns what was typed into a number, comma or point.
+ */
+const NUMBER_FILTER = {
+  filter: "agNumberColumnFilter",
+  filterParams: {
+    allowedCharPattern: "\\d\\-\\,\\.",
+    numberParser: (text: string | null) => (text == null ? null : parseDecimal(text)),
+  },
+};
+
+/**
+ * What goes inside a header cell that has an explanation: the column's name
+ * and the "i" button. AG Grid keeps drawing the rest of the header (sort
+ * arrow, filter menu) around it. `displayName` is the `headerName`, handed
+ * over by the grid; `info` comes from `innerHeaderComponentParams` below.
+ */
+function HeaderWithInfo({ displayName, info }: { displayName: string; info: string }) {
+  return (
+    <span className="grid-header">
+      {displayName}
+      <InfoTip label={displayName} text={info} />
+    </span>
+  );
+}
+
+/** Our flags turned into the AG Grid settings they stand for. */
+function toColDef<Row>({ secondary, numeric, info, ...column }: Column<Row>): ColDef<Row> {
+  // `secondary` is consumed by the filtering in DataGrid below.
+  void secondary;
+  return {
+    ...(numeric ? NUMBER_FILTER : {}),
+    ...(info
+      ? {
+          headerComponentParams: {
+            innerHeaderComponent: HeaderWithInfo,
+            innerHeaderComponentParams: { info },
+          },
+        }
+      : {}),
+    ...column,
+  };
+}
 
 /** Height of the grid on a phone: a table taller than this eats the screen. */
 const NARROW_HEIGHT = 280;
@@ -63,7 +127,7 @@ const NARROW_MAX_WIDTH = 130;
  * AG Grid requires its container to have a fixed CSS height -- hence the outer
  * <div>. Without it the table would render zero pixels tall.
  */
-export function DataGrid<Row>({ rows, columns, height = 400 }: Props<Row>) {
+export function DataGrid<Row>({ rows, columns, height = 400, onRowClick }: Props<Row>) {
   // `true` on a phone. The hook repaints this component when the width
   // crosses the breakpoint, so the columns below are recomputed.
   const isNarrow = useIsNarrow();
@@ -90,7 +154,13 @@ export function DataGrid<Row>({ rows, columns, height = 400 }: Props<Row>) {
       <AgGridReact<Row>
         theme={themeQuartz}
         rowData={rows}
-        columnDefs={visible}
+        columnDefs={visible.map(toColDef)}
+        rowHeight={ROW_HEIGHT}
+        headerHeight={HEADER_HEIGHT}
+        // `event.data` is the row object that was clicked. The pointer cursor
+        // tells the user a row can be clicked at all.
+        onRowClicked={(event) => event.data && onRowClick?.(event.data)}
+        rowStyle={onRowClick ? { cursor: "pointer" } : undefined}
         // Defaults applied to EVERY column. Each column can override them in
         // its own definition.
         defaultColDef={{

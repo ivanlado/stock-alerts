@@ -63,7 +63,8 @@ export type CompanyProfile = {
 };
 
 /**
- * prices.json -- the daily close of each alerted company.
+ * prices/<ticker>.json -- the daily closes of one stock or fund, as the file's
+ * single row. One file per ticker so a panel downloads only its own chart.
  *
  * A point is a `[date, close]` pair rather than an object: this file is mostly
  * points, and repeating two key names thousands of times would double its size
@@ -159,12 +160,13 @@ export type Fundamentals = {
 };
 
 /**
- * companies.json -- one row per SCREENED company, with BOTH rules' numbers.
+ * companies.json -- one row per stock of the universe and per fund, with BOTH
+ * rules' numbers.
  *
- * Every company that passed the fundamental filters is here, alert or not, so
- * the dashboard shows the whole shortlist rather than only today's noise.
- * `analyst_alert` and `price_alert` say which rule fired, if any -- that is
- * what the card badges -- and the rows that fired come first.
+ * Every stock is here, screened or not, because Search filters all of them;
+ * `screened` says which ones passed the fundamental filters. `analyst_alert`
+ * and `price_alert` say which rule fired, if any -- only a screened stock or a
+ * fund can fire -- and the rows that fired come first.
  */
 export type CompanyCard = Company &
   Commentary &
@@ -177,6 +179,13 @@ export type CompanyCard = Company &
      * through the price rule, and has no target, fundamentals or profile.
      */
     asset_type: "stock" | "fund";
+    /** True for a stock that passed the fundamental screener. */
+    screened: boolean;
+    /**
+     * Revenue of the last reported year against the year before, in percent.
+     * Null for a fund, or without two years of revenue to compare.
+     */
+    revenue_growth: number | null;
     /** What the fund holds; null for a company. */
     fund: FundDetails | null;
     /** Which of the two rules fired for this company. Both false is normal. */

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CompanyCards, type CardBadge } from "../components/CompanyCards";
 import { useData } from "../lib/data";
 import { rankCompanies } from "../lib/filters";
-import type { CompanyCard, PriceSeries } from "../lib/types";
+import type { CompanyCard } from "../lib/types";
 import { windowLabel, type PriceWindowKey } from "../lib/windows";
 
 /** How many companies each section of the summary shows. */
@@ -34,14 +34,12 @@ function SummarySection({
   rows,
   empty,
   badges,
-  prices,
 }: {
   title: string;
   link: string;
   rows: CompanyCard[];
   empty: string;
   badges: CardBadge[];
-  prices: PriceSeries[];
 }) {
   return (
     <section>
@@ -51,7 +49,7 @@ function SummarySection({
         {rows.length > 0 && <Link to={link}>See all {rows.length} →</Link>}
       </div>
       {rows.length === 0 && <p className="muted">{empty}</p>}
-      <CompanyCards rows={rows.slice(0, TOP)} prices={prices} badges={badges} compact />
+      <CompanyCards rows={rows.slice(0, TOP)} badges={badges} compact />
     </section>
   );
 }
@@ -67,7 +65,6 @@ function SummarySection({
  */
 export function SummaryPage() {
   const companies = useData<CompanyCard>("companies.json");
-  const prices = useData<PriceSeries>("prices.json");
 
   // `useMemo` recomputes only when the downloaded rows change.
   const analyst = useMemo(
@@ -95,9 +92,8 @@ export function SummaryPage() {
     ) as Record<PriceWindowKey, CompanyCard[]>;
   }, [companies.rows]);
 
-  if (companies.loading || prices.loading) return <p>Loading...</p>;
+  if (companies.loading) return <p>Loading...</p>;
   if (companies.error) return <p className="error">{companies.error}</p>;
-  if (prices.error) return <p className="error">{prices.error}</p>;
 
   return (
     <div className="summary">
@@ -110,7 +106,7 @@ export function SummaryPage() {
         rows={analyst}
         empty="No analyst alert today."
         badges={ANALYST_BADGES}
-        prices={prices.rows}
+       
       />
 
       {DROP_WINDOWS.map((w) => (
@@ -124,7 +120,7 @@ export function SummaryPage() {
             { label: windowLabel(w), value: (c) => c[w] },
             { label: "vs target", value: (c) => c.pct_price_diff },
           ]}
-          prices={prices.rows}
+         
         />
       ))}
     </div>

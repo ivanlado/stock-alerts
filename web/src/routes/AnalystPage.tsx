@@ -10,7 +10,7 @@ import {
   sectorsOf,
   useUrlParam,
 } from "../lib/filters";
-import type { CompanyCard, PriceSeries } from "../lib/types";
+import type { CompanyCard } from "../lib/types";
 
 /**
  * The minimum-gap buttons. "Any" (no minimum) comes first and already means
@@ -39,7 +39,6 @@ const gap = (c: CompanyCard) => c.pct_price_diff;
  */
 export function AnalystPage() {
   const companies = useData<CompanyCard>("companies.json");
-  const prices = useData<PriceSeries>("prices.json");
   const [sectorText, setSectorText] = useUrlParam("sector", "");
   const sectors = parseSectors(sectorText);
   const [minimum, setMinimum] = useUrlParam("min", "");
@@ -55,9 +54,8 @@ export function AnalystPage() {
 
   // Early returns: while loading or on failure, display that instead of the
   // page. Reaching further down guarantees the data is there.
-  if (companies.loading || prices.loading) return <p>Loading...</p>;
+  if (companies.loading) return <p>Loading...</p>;
   if (companies.error) return <p className="error">{companies.error}</p>;
-  if (prices.error) return <p className="error">{prices.error}</p>;
 
   return (
     <div>
@@ -82,7 +80,7 @@ export function AnalystPage() {
       </FilterBar>
 
       <Results count={shown.length} total={alerted.length} />
-      <CompanyCards rows={shown} prices={prices.rows} badges={BADGES} />
+      <CompanyCards rows={shown} badges={BADGES} />
     </div>
   );
 }

@@ -108,6 +108,18 @@ export function useUrlParam(name: string, fallback: string): [string, (value: st
  * as no minimum too, so a hand-edited URL cannot break the page.
  */
 export function parseMinimum(text: string): number | null {
-  const value = Number(text);
-  return text === "" || !Number.isFinite(value) || value <= 0 ? null : value;
+  const value = parseDecimal(text);
+  return value === null || value <= 0 ? null : value;
+}
+
+/**
+ * A number typed by the user, with a comma OR a point as the decimal mark --
+ * a Spanish keyboard types "0,5". Null for an empty box or anything that does
+ * not read as a number. Negatives are allowed.
+ */
+export function parseDecimal(text: string): number | null {
+  const cleaned = text.trim().replace(",", ".");
+  if (cleaned === "") return null;
+  const value = Number(cleaned);
+  return Number.isFinite(value) ? value : null;
 }
