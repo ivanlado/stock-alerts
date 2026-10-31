@@ -1,0 +1,14 @@
+{
+  "ticker": "AVB",
+  "name": "AvalonBay Communities, Inc.",
+  "generated_at": "2026-10-31T16:58:14.809027+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "AvalonBay Communities es un fondo de inversión inmobiliaria cotizado (REIT) que adquiere, desarrolla y gestiona comunidades de apartamentos residenciales en Estados Unidos. Su cartera se concentra principalmente en mercados metropolitanos de las costas este y oeste, con una reciente expansión hacia regiones del cinturón del sol.",
+    "revenue_sources": "El alquiler residencial de sus apartamentos genera más del 95% de sus ingresos totales. El porcentaje restante procede de cobros auxiliares a los residentes por servicios adicionales como aparcamiento y de comisiones menores por servicios de gestión y desarrollo.",
+    "moat": "Dispone de un foso económico estrecho basado en su escala de capital y en la ubicación geográfica de sus activos en zonas con alta demanda y estrictas barreras normativas a la nueva construcción. Sin embargo, no cuenta con patentes ni costes de cambio elevados para los inquilinos, lo que limita la solidez de su ventaja competitiva.",
+    "competitors": "Sus mayores competidores cotizados son Equity Residential (EQR), Essex Property Trust (ESS), UDR, Inc. (UDR) y Camden Property Trust (CPT).",
+    "threats": "Sus principales amenazas son los tipos de interés elevados, que encarecen el coste de la deuda y reducen las valoraciones de los inmuebles. También afronta riesgos regulatorios por normativas de control de alquileres en estados clave como California y Nueva York, además del aumento de la oferta de vivienda nueva en ciertos mercados.",
+    "outlook": "Se espera un crecimiento moderado de las rentas gracias a la escasez de oferta de vivienda en propiedad en sus áreas urbanas núcleo. Las expectativas de rentabilidad total dependerán de la estabilidad del empleo en sus regiones y de que no se materialicen presiones inflacionistas en los costes de construcción y mantenimiento."
+  }
+}

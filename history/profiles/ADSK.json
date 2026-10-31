@@ -1,0 +1,14 @@
+{
+  "ticker": "ADSK",
+  "name": "Autodesk, Inc.",
+  "generated_at": "2026-10-31T16:55:46.524257+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Autodesk desarrolla software de diseño 3D, ingeniería y entretenimiento para los sectores de arquitectura, construcción, manufactura y medios. Su catálogo incluye herramientas estándar de la industria como AutoCAD, Revit e Inventor.",
+    "revenue_sources": "Su principal fuente de ingresos es el software de Arquitectura, Ingeniería y Construcción (AEC), que aporta cerca del 45% al 50% del total. El resto procede de las soluciones de AutoCAD y AutoCAD LT con aproximadamente el 25%, Manufactura con un 20%, y Medios y Entretenimiento con cerca del 5%.",
+    "moat": "Posee un foso económico sólido fundamentado en altos costes de cambio y efectos de red derivados de formatos propietarios convertidos en estándares del sector. La profunda formación técnica requerida por los usuarios dificulta la migración de las empresas hacia herramientas de la competencia.",
+    "competitors": "Compite principalmente con Dassault Systèmes (DSY.PA), Bentley Systems (BSY), Nemetschek (NEM.DE), PTC Inc. (PTC) y Adobe (ADBE).",
+    "threats": "Sus mayores amenazas son la exposición a la ciclicidad económica del sector de la construcción y manufactura, el avance de alternativas nativas en la nube más asequibles y la resistencia de los clientes corporativos ante incrementos continuos de precios o modificaciones en las políticas de suscripción.",
+    "outlook": "Se prevé que continúe expandiendo sus ingresos a un dígito alto o doble dígito bajo mediante la digitalización de la construcción y la optimización de su modelo directo de ventas. Esta expectativa podría verse frustrada si una recesión prolongada contrae el gasto de capital comercial o si surgen fricciones operativas en su transición comercial."
+  }
+}

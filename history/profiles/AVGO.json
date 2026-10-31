@@ -1,0 +1,14 @@
+{
+  "ticker": "AVGO",
+  "name": "Broadcom Inc.",
+  "generated_at": "2026-10-31T17:16:25.784012+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Broadcom Inc. es una compañía tecnológica global que diseña y suministra semiconductores y soluciones de software de infraestructura empresarial. Su catálogo abarca componentes de red, conectividad inalámbrica y chips personalizados para centros de datos, además de plataformas de virtualización y seguridad corporativa.",
+    "revenue_sources": "Sus ingresos se dividen principalmente en soluciones de semiconductores, que representan en torno al 55% o 60% del total mediante chips de red, conectividad y silicio a medida, y software de infraestructura, que tras la integración de VMware aporta entre el 40% y el 45% restante.",
+    "moat": "Dispone de un foso económico amplio y sólido basado en elevados costes de cambio en su negocio de software empresarial y en patentes críticas y escala en semiconductores de red. Su tecnología está profundamente integrada en la infraestructura de telecomunicaciones y centros de datos globales, lo que dificulta su sustitución.",
+    "competitors": "En semiconductores compite de forma directa con empresas como Marvell Technology (MRVL), Nvidia (NVDA) y Qualcomm (QCOM). En el negocio de software de infraestructura y virtualización sus principales rivales son Nutanix (NTNX), Cisco Systems (CSCO) y Microsoft (MSFT).",
+    "threats": "Sus mayores amenazas son la elevada concentración de ingresos en pocos clientes a hiperescala y en Apple, junto con el riesgo de que estos desarrollen sus propios chips internamente. Asimismo, enfrenta riesgos financieros por la deuda asumida al adquirir VMware y el rechazo de clientes corporativos al encarecimiento de sus licencias.",
+    "outlook": "Se espera un crecimiento continuo del negocio impulsado por la demanda de aceleradores personalizados de inteligencia artificial y la migración de la base instalada de VMware a modelos de suscripción recurrente. No obstante, se trata de una expectativa que podría verse truncada si se frena el gasto de capital de los gigantes tecnológicos o si aumentan las restricciones regulatorias."
+  }
+}

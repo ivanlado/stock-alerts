@@ -1,0 +1,14 @@
+{
+  "ticker": "AENA.MC",
+  "name": "AENA, S.M.E., S.A.",
+  "generated_at": "2026-10-31T16:48:47.277726+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Aena es el mayor gestor aeroportuario del mundo por número de pasajeros, operando 46 aeropuertos y dos helipuertos en España, además de terminales en el extranjero como Londres-Luton y varios aeropuertos en Brasil. Su actividad principal abarca la provisión de servicios e infraestructuras aeronáuticas y la explotación comercial de dichos recintos.",
+    "revenue_sources": "Sus ingresos se dividen principalmente en el negocio aeronáutico (tasas a aerolíneas por pasajeros, operaciones y seguridad, en torno al 55-60% del total), el negocio comercial (tiendas libres de impuestos, restauración, aparcamientos y alquiler de coches, alrededor del 30%) y el negocio internacional (gestión de aeropuertos en el exterior, que aporta entre el 10% y el 15%).",
+    "moat": "Posee un foso económico muy sólido basado en un monopolio natural regulado y en su enorme escala operativa. La construcción de infraestructuras competidoras es inviable a corto y medio plazo debido a restricciones geográficas, medioambientales y a los altísimos costes de capital requeridos.",
+    "competitors": "A nivel internacional cotizan operadores similares como Aéroports de Paris (ADP.PA), Fraport (FRA.DE), Flughafen Zürich (FHZN.SW) y concesionarias como Vinci (DG.FP). En las rutas de corta y media distancia dentro de la península ibérica, su mayor competencia indirecta proviene del tren de alta velocidad.",
+    "threats": "Su mayor riesgo es de carácter regulatorio, ya que las tarifas aeronáuticas están estrictamente limitadas en España por los documentos DORA que aprueba el Gobierno. También está directamente expuesta a caídas en el tráfico aéreo por crisis macroeconómicas, pandemias, encarecimiento del combustible o tensiones geopolíticas globales.",
+    "outlook": "Las expectativas del mercado apuntan a un crecimiento moderado sustentado en el sólido tráfico turístico en España y en la contribución creciente de sus recientes concesiones aeroportuarias en Brasil. No obstante, este escenario positivo podría frustrarse si una recesión debilita la demanda de viajes o si las autoridades reguladoras imponen mayores rebajas tarifarias en los próximos periodos regulatorios."
+  }
+}

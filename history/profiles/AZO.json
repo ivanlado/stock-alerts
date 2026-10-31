@@ -1,0 +1,14 @@
+{
+  "ticker": "AZO",
+  "name": "AutoZone, Inc.",
+  "generated_at": "2026-10-31T16:56:13.893710+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "AutoZone es un distribuidor y minorista especializado en piezas de recambio, accesorios y productos de mantenimiento para automóviles. Opera una extensa red de tiendas orientada tanto a conductores particulares como a talleres mecánicos profesionales.",
+    "revenue_sources": "La venta minorista al consumidor particular que realiza sus propias reparaciones (segmento DIY) representa aproximadamente entre el 70% y el 75% de la facturación. El suministro comercial a talleres mecánicos profesionales (segmento DIFM) aporta entre el 25% y el 30% restante. La venta de software de diagnóstico e información técnica mediante ALLDATA supone un porcentaje marginal adicional.",
+    "moat": "Su foso económico se basa principalmente en la escala y en una densa red de distribución local con centros satélite que garantizan disponibilidad inmediata de piezas. Esta necesidad de inmediatez física protege al negocio frente al comercio electrónico tradicional, dotándolo de un foso sólido. No obstante, no disfruta de costes de cambio significativos para sus clientes.",
+    "competitors": "O'Reilly Automotive (ORLY), Advance Auto Parts (AAP), Genuine Parts Company (GPC) y plataformas en línea generales como Amazon.com (AMZN).",
+    "threats": "A largo plazo, la adopción masiva del vehículo eléctrico amenaza el modelo al requerir un mantenimiento y recambios sustancialmente menores que los motores de combustión. A corto y medio plazo, enfrenta presiones de costes laborales y logísticos, además de una intensa competencia de precios en el canal profesional.",
+    "outlook": "Se prevé que mantenga un crecimiento moderado de ingresos apoyado en la apertura de tiendas, la expansión internacional en México y Brasil y el desarrollo del canal profesional. La rentabilidad por acción continuará previsiblemente impulsada por agresivos programas de recompra de acciones, siempre que la inflación y el encarecimiento de la deuda no deterioren sus márgenes."
+  }
+}

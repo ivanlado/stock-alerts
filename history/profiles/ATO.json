@@ -1,0 +1,14 @@
+{
+  "ticker": "ATO",
+  "name": "Atmos Energy Corporation",
+  "generated_at": "2026-10-31T16:53:23.466325+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Atmos Energy Corporation es una empresa estadounidense de servicios públicos dedicada a la distribución, transporte y almacenamiento regulado de gas natural. Presta servicio a más de tres millones de clientes residenciales, comerciales e industriales en ocho estados de EE. UU., principalmente en Texas.",
+    "revenue_sources": "Sus ingresos proceden fundamentalmente del segmento de distribución regulada de gas natural a usuarios finales, que aporta alrededor del 65% al 70% de su margen operativo, complementado por el negocio de transporte en gasoductos y almacenamiento, que representa aproximadamente el 30% al 35% restante.",
+    "moat": "Cuenta con un foso económico sólido basado en un monopolio natural regulado y economías de escala. Posee derechos exclusivos de distribución otorgados por los reguladores locales, lo que impide que competidores dupliquen su red física de tuberías.",
+    "competitors": "Sus principales competidores cotizados en el negocio de distribución y transporte de gas en Estados Unidos son ONE Gas, Inc. (OGS), NiSource Inc. (NI), Spire Inc. (SR) y CenterPoint Energy, Inc. (CNP).",
+    "threats": "Sus mayores riesgos son de carácter regulatorio, como demoras o denegaciones en la revisión de tarifas para compensar inversiones, el encarecimiento del coste de financiación derivado de tipos de interés altos y las políticas de descarbonización a largo plazo que promueven la sustitución del gas por electricidad.",
+    "outlook": "Se espera que mantenga un crecimiento sostenido de los beneficios por acción en el rango del 6% al 8% anual, apoyado en su plan de inversión para modernizar y asegurar sus infraestructuras de gasoductos. El cumplimiento de esta expectativa dependerá del mantenimiento de marcos regulatorios favorables y de la evolución de las políticas energéticas hacia la electrificación del consumo doméstico."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "TECH",
+  "name": "Bio-Techne Corp",
+  "generated_at": "2026-10-31T17:12:37.177056+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Bio-Techne Corporation desarrolla, fabrica y vende reactivos biológicos, instrumentos de análisis de proteínas y herramientas diagnósticas para la investigación científica y clínica. Sus productos incluyen proteínas recombinantes, anticuerpos, inmunoensayos y tecnologías de biología espacial utilizados en laboratorios farmacéuticos y académicos.",
+    "revenue_sources": "Su facturación proviene de dos divisiones: Ciencias de las Proteínas, que genera alrededor del 70% al 75% de los ingresos mediante reactivos e instrumentos automatizados de análisis, y Diagnóstico y Genómica, que aporta entre el 25% y el 30% restante a través de ensayos de biología espacial y herramientas de diagnóstico clínico.",
+    "moat": "Su foso económico es sólido y se fundamenta en los costes de cambio y en la reputación de marca en la comunidad científica. Sus reactivos están validados y referenciados en miles de publicaciones académicas, lo que desincentiva a los investigadores a cambiar de proveedor para no poner en riesgo la reproducibilidad de sus experimentos.",
+    "competitors": "Compite con grandes proveedores del sector de las ciencias de la vida como Thermo Fisher Scientific (TMO), Danaher (DHR), Revvity (RVTY), Repligen (RGEN) y Merck KGaA (MRK).",
+    "threats": "Sus principales riesgos incluyen la reducción o el aplazamiento del gasto en I+D por parte de las empresas biotecnológicas, la dependencia de subvenciones y presupuestos públicos a la investigación científica y la debilidad en la demanda proveniente de mercados como China.",
+    "outlook": "Se espera que el negocio recupere ritmos de crecimiento orgánico de dígito simple medio o alto a medio plazo, impulsado por la estabilización del sector biotecnológico y la adopción de terapias avanzadas. Sin embargo, existe el riesgo de que una prolongada escasez de financiación de capital riesgo en biotecnología retrase esta recuperación proyectada."
+  }
+}

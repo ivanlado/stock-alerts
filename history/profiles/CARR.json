@@ -1,0 +1,14 @@
+{
+  "ticker": "CARR",
+  "name": "Carrier Global Corporation",
+  "generated_at": "2026-10-31T17:21:29.533255+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Carrier Global Corporation diseña, fabrica y distribuye soluciones de climatización, calefacción, ventilación y refrigeración para los sectores residencial, comercial e industrial. Tras vender sus negocios de seguridad e incendios, la compañía se enfoca casi por completo en climatización y refrigeración.",
+    "revenue_sources": "El segmento de climatización (HVAC), reforzado por la adquisición de Viessmann, aporta aproximadamente entre el 70% y el 75% de la facturación total. El área de refrigeración comercial y para transporte representa cerca del 25% restante. Los servicios técnicos y repuestos generan una porción recurrente y de alto margen dentro de ambas divisiones.",
+    "moat": "Cuenta con un foso económico moderado sustentado en su escala global, el reconocimiento de marca y una extensa red de distribuidores e instaladores. En el segmento comercial complejo existen costes de cambio asociados al mantenimiento, aunque el negocio residencial sufre mayor competencia por precio.",
+    "competitors": "Trane Technologies (TT), Daikin Industries (DAIKF / Tokio: 6367), Lennox International (LII) y Johnson Controls (JCI).",
+    "threats": "Destacan la alta sensibilidad al ciclo de la construcción residencial y comercial, la volatilidad en la demanda de bombas de calor en Europa y la deuda asumida tras comprar Viessmann. También afronta exigencias normativas estrictas respecto a la sustitución de refrigerantes sintéticos por alternativas de bajo impacto ambiental.",
+    "outlook": "Se espera un crecimiento anual de un solo dígito impulsado por la descarbonización de edificios, la sustitución por bombas de calor y la mayor demanda de climatización en centros de datos. Este desempeño podría verse truncado si persiste la debilidad económica en Europa o si se retrasan los subsidios a la eficiencia energética."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "BWA",
+  "name": "BorgWarner Inc.",
+  "generated_at": "2026-10-31T17:13:27.123894+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "BorgWarner diseña y fabrica componentes y sistemas de propulsión para vehículos de combustión interna, híbridos y eléctricos. Sus clientes son principalmente fabricantes de equipos originales de la industria de la automoción a escala global.",
+    "revenue_sources": "Tras la escisión de su división de combustible en 2023, sus ingresos se dividen principalmente en Air Management (aproximadamente el 45%), Drivetrain & Battery Systems (en torno al 35%) y e-Propulsion (alrededor del 20%).",
+    "moat": "Posee un foso económico moderado fundamentado en costes de cambio elevados y propiedad intelectual técnica, ya que sus sistemas se integran durante años en las plataformas de los fabricantes. No obstante, su ventaja se ve restringida por el fuerte poder de negociación que tienen los grandes grupos automotrices.",
+    "competitors": "Compite directamente contra Magna International Inc. (MGA), Valeo SE (FR), Dana Incorporated (DAN), Continental AG (CON) y Robert Bosch GmbH.",
+    "threats": "Destacan la ralentización en la adopción global de vehículos eléctricos tras destinar fuerte capital a esa transición, la presión constante en precios por parte de los fabricantes y el auge de competidores asiáticos de bajo coste. Asimismo, el negocio está expuesto a la ciclicidad intrínseca de la producción mundial de automóviles.",
+    "outlook": "Se prevé que el negocio sostenga su crecimiento gracias a la adjudicación de contratos en componentes para electrificación e hibridación. Existe el riesgo factual de que los fabricantes retrasen sus lanzamientos de vehículos eléctricos o reduzcan volúmenes, lo que perjudicaría el retorno previsto del capital invertido."
+  }
+}
