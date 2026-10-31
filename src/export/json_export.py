@@ -8,12 +8,14 @@ Five files are written:
   - ``screener.json``:        the tickers that passed the fundamental filters
   - ``analyst_alerts.json``:  one row per analyst-divergence alert
   - ``price_alerts.json``:    one row per price-drop alert
-  - ``companies.json``:       one row per SCREENED COMPANY, merging both tables
-  - ``prices.json``:          the price history of each screened company
+  - ``companies.json``:       one row per SCREENED COMPANY and per FUND, merging
+                              both tables
+  - ``prices.json``:          the price history of each screened company and fund
 
 ``companies.json`` exists because the two alert tables describe the same
 companies through different numbers: the analyst rule knows the gap to the
-price target, the price rule knows the variation over 1/3/6/9 months. The web
+price target, the price rule knows the variation over a day, a week, 1/3/6/9 months and a
+year. The web
 wants a single card per company showing whatever is known about it, so the join
 is done here, once, rather than in the browser.
 
@@ -49,7 +51,7 @@ CATALOG_COLS = ["ticker", "short_name", "sector", "description"]
 
 # The numbers each alert table contributes to a company card.
 ANALYST_COLS = ["current", "median", "pct_price_diff"]
-PRICE_COLS = ["var_1m", "var_3m", "var_6m", "var_9m"]
+PRICE_COLS = ["var_1d", "var_1w", "var_1m", "var_3m", "var_6m", "var_9m", "var_1y"]
 
 # Written by enrichment/commentary.py onto the rows that alerted. Only those:
 # a rule that did not fire has nothing to explain.
@@ -174,8 +176,13 @@ def _fundamentals_by_ticker(fundamentals: pd.DataFrame, period_col: str) -> dict
 
 
 def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
-    """One row per screened company, merging both alert tables."""
-    if not snapshot.screened:
+    """One row per screened company and per fund, merging both alert tables.
+
+    ``asset_type`` tells the two apart: a fund ("fund") has no statements, no
+    analyst target and no profile, so the web hides those blocks instead of
+    painting a card full of dashes.
+    """
+    if not snapshot.screened and not snapshot.funds:
         return []
 
     analyst = _subset(snapshot.analyst_all, ANALYST_COLS)
@@ -185,7 +192,9 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
     # An outer join only knows the tickers its two sides carry. Starting from
     # the screened list instead means a company whose price target could not be
     # downloaded still gets a card, with that number missing.
-    merged = pd.DataFrame({"ticker": snapshot.screened}).merge(merged, on="ticker", how="left")
+    tickers = snapshot.screened + snapshot.funds
+    merged = pd.DataFrame({"ticker": tickers}).merge(merged, on="ticker", how="left")
+    merged["asset_type"] = merged["ticker"].isin(snapshot.funds).map({True: "fund", False: "stock"})
 
     merged = merged.merge(_explanations(snapshot), on="ticker", how="left")
     merged["analyst_alert"] = merged["ticker"].isin(_tickers(snapshot.analyst_alerts))
@@ -220,6 +229,9 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
         today = valuation.get(row["ticker"], {})
         row["trailing_pe"] = today.get("trailing_pe")
         row["price_to_sales"] = today.get("price_to_sales")
+        # What a fund holds; null for a company, and for a fund the source
+        # had nothing on today.
+        row["fund"] = snapshot.fund_details.get(row["ticker"])
 
     return rows
 

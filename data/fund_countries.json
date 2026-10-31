@@ -1,0 +1,125 @@
+{
+  "as_of": "2026-10-31",
+  "funds": {
+    "SXR8.DE": [
+      {
+        "country": "United States",
+        "weight": 97.48
+      },
+      {
+        "country": "Ireland",
+        "weight": 1.15
+      },
+      {
+        "country": "Other",
+        "weight": 1.37
+      }
+    ],
+    "EUNL.DE": [
+      {
+        "country": "United States",
+        "weight": 70.32
+      },
+      {
+        "country": "Japan",
+        "weight": 5.79
+      },
+      {
+        "country": "United Kingdom",
+        "weight": 3.68
+      },
+      {
+        "country": "Canada",
+        "weight": 3.39
+      },
+      {
+        "country": "Other",
+        "weight": 16.82
+      }
+    ],
+    "IUSQ.DE": [
+      {
+        "country": "United States",
+        "weight": 62.39
+      },
+      {
+        "country": "Japan",
+        "weight": 5.22
+      },
+      {
+        "country": "Taiwan",
+        "weight": 3.44
+      },
+      {
+        "country": "United Kingdom",
+        "weight": 3.12
+      },
+      {
+        "country": "Other",
+        "weight": 25.83
+      }
+    ],
+    "IS3N.DE": [
+      {
+        "country": "Taiwan",
+        "weight": 27.3
+      },
+      {
+        "country": "South Korea",
+        "weight": 19.9
+      },
+      {
+        "country": "China",
+        "weight": 16.99
+      },
+      {
+        "country": "India",
+        "weight": 12.51
+      },
+      {
+        "country": "Other",
+        "weight": 23.3
+      }
+    ],
+    "SXRV.DE": [
+      {
+        "country": "United States",
+        "weight": 94.08
+      },
+      {
+        "country": "United Kingdom",
+        "weight": 1.65
+      },
+      {
+        "country": "Netherlands",
+        "weight": 1.32
+      },
+      {
+        "country": "Other",
+        "weight": 2.95
+      }
+    ],
+    "EXW1.DE": [
+      {
+        "country": "France",
+        "weight": 28.63
+      },
+      {
+        "country": "Germany",
+        "weight": 28.4
+      },
+      {
+        "country": "Netherlands",
+        "weight": 18.77
+      },
+      {
+        "country": "Spain",
+        "weight": 11.4
+      },
+      {
+        "country": "Other",
+        "weight": 12.8
+      }
+    ]
+  }
+}

@@ -49,7 +49,16 @@ class Snapshot:
     # target -- it just was not wide enough to alert on.
     analyst_all: pd.DataFrame = field(default_factory=pd.DataFrame)
     price_all: pd.DataFrame = field(default_factory=pd.DataFrame)
-    # Daily closes of the screened tickers, for the chart on the web.
+    # Index funds and ETFs (``data/funds.json``). They have no statements and
+    # no analyst targets, so they skip the screener and the analyst rule and
+    # only go through the price rule: their rows sit in ``price_all`` and, when
+    # they fire, in ``price_alerts``, next to the companies'.
+    funds: list[str] = field(default_factory=list)
+    # ``{ticker: {"expense_ratio", "top_holdings", "sectors"}}`` per fund: what
+    # the fund holds, for its detail panel. Only the top ten holdings, which
+    # is all the source publishes.
+    fund_details: dict[str, dict] = field(default_factory=dict)
+    # Daily closes of the screened tickers and the funds, for the chart on the web.
     prices: pd.DataFrame = field(default_factory=pd.DataFrame)
     # ``{ticker: profile}`` -- the cached LLM description of each screened
     # company. See ``enrichment/profiles.py``.
@@ -102,9 +111,16 @@ def run_pipeline(
             fundamentals=pd.DataFrame(),
         )
 
+    funds = data_provider.get_funds()
+    print(f"Funds watched for price drops: {len(funds)} -> {funds}")
+    fund_details = data_provider.get_fund_details(funds)
+
     # Downloaded once and reused: the price rule needs it to compute its
     # windows, and the web needs the same series for the chart on each card.
-    prices = data_provider.get_prices(screened, period=PRICE_HISTORY_PERIOD, interval="1d")
+    # One request for companies and funds alike.
+    prices = data_provider.get_prices(
+        screened + funds, period=PRICE_HISTORY_PERIOD, interval="1d"
+    )
 
     # Only for the screened tickers: nothing filters on the quarterly figures,
     # they are there for the company cards.
@@ -130,7 +146,7 @@ def run_pipeline(
     )
 
     analyst = AnalystAlerts(screened, data_provider=data_provider)
-    price = PriceAlert(screened, data_provider=data_provider, prices=prices)
+    price = PriceAlert(screened + funds, data_provider=data_provider, prices=prices)
 
     analyst_alerts, analyst_all = analyst.run(), analyst.run_all()
     price_alerts, price_all = price.run(), price.run_all()
@@ -146,6 +162,8 @@ def run_pipeline(
     return Snapshot(
         generated_at=generated_at,
         screened=screened,
+        funds=funds,
+        fund_details=fund_details,
         analyst_alerts=analyst_alerts,
         price_alerts=price_alerts,
         fundamentals=screened_fundamentals,

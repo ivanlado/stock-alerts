@@ -16,6 +16,18 @@ class DataProvider(ABC):
         raise NotImplementedError
 
     @abstractmethod
+    def get_funds(self) -> list[str]:
+        """Index funds and ETFs: watched for price drops only, never screened."""
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_fund_details(self, funds: list[str]) -> dict[str, dict]:
+        """What each fund holds: ``{ticker: {"expense_ratio", "top_holdings",
+        "sectors", and optionally "countries", "countries_as_of"}}``. A fund
+        the source knows nothing about is left out."""
+        raise NotImplementedError
+
+    @abstractmethod
     def get_analyst_targets(self, tickers: list[str]) -> pd.DataFrame:
         """Analysts' mean price target for each ticker."""
         raise NotImplementedError

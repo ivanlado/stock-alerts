@@ -163,6 +163,69 @@ class YFinanceProvider(DataProvider):
     
     def get_tickers(self) -> list[str]:
         raise NotImplementedError("YFinanceProvider does not implement get_tickers()")
+
+    def get_funds(self) -> list[str]:
+        raise NotImplementedError("YFinanceProvider does not implement get_funds()")
+
+    # yfinance's sector keys, mapped to the names ``data/tickers.csv`` uses for
+    # companies, so a fund's sectors read like the sector pills on the cards.
+    FUND_SECTORS = {
+        "realestate": "Real Estate",
+        "consumer_cyclical": "Consumer Cyclical",
+        "basic_materials": "Basic Materials",
+        "consumer_defensive": "Consumer Defensive",
+        "technology": "Technology",
+        "communication_services": "Communication Services",
+        "financial_services": "Financial Services",
+        "utilities": "Utilities",
+        "industrials": "Industrials",
+        "energy": "Energy",
+        "healthcare": "Healthcare",
+    }
+
+    def get_fund_details(self, funds: list[str]) -> dict[str, dict]:
+        """Expense ratio, top holdings and sector weights per fund.
+
+        Yahoo publishes only the TEN largest holdings of a fund, not the full
+        list. Weights are returned in percent, like every other ratio the web
+        receives. A sector at 0% is dropped: it only adds a blank bar.
+        """
+        details: dict[str, dict] = {}
+        for t in funds:
+            time.sleep(random.uniform(0.4, 1.7))
+            try:
+                data = yf.Ticker(t).funds_data
+                top = data.top_holdings
+                sectors = data.sector_weightings or {}
+                operations = data.fund_operations
+            except Exception as e:
+                print(f"Error fetching fund data for {t}: {e}")
+                continue
+
+            holdings = [
+                {"symbol": str(symbol), "name": row["Name"], "weight": float(row["Holding Percent"]) * 100}
+                for symbol, row in (top.iterrows() if top is not None else [])
+            ]
+            sector_rows = sorted(
+                (
+                    {"sector": self.FUND_SECTORS.get(key, key), "weight": float(weight) * 100}
+                    for key, weight in sectors.items()
+                    if weight
+                ),
+                key=lambda row: row["weight"],
+                reverse=True,
+            )
+            expense_ratio = None
+            if operations is not None and "Annual Report Expense Ratio" in operations.index:
+                value = operations.loc["Annual Report Expense Ratio"].iloc[0]
+                expense_ratio = None if pd.isna(value) else float(value) * 100
+
+            details[t] = {
+                "expense_ratio": expense_ratio,
+                "top_holdings": holdings,
+                "sectors": sector_rows,
+            }
+        return details
     
     
     def get_fundamentals(self, tickers: list[str]) -> pd.DataFrame:
