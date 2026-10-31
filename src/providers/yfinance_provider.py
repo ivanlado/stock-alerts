@@ -66,7 +66,7 @@ def _fetch_statements(stock: "yf.Ticker", quarterly: bool) -> dict[str, pd.DataF
     for name in _STATEMENTS:
         attr = f"quarterly_{name}" if quarterly else name
         # Random sleep so we do not hit the API rate limits.
-        time.sleep(random.uniform(0.4, 1.7))
+        time.sleep(random.uniform(0.1, 0.7))
         try:
             statements[name] = getattr(stock, attr)
         except Exception as e:
@@ -141,7 +141,7 @@ class YFinanceProvider(DataProvider):
         rows = []
         for t in tickers:
             # Random sleep so we do not hit the API rate limits.
-            time.sleep(random.uniform(0.4, 1.7))
+            time.sleep(random.uniform(0.1, 0.7))
             try:
                 pt = yf.Ticker(t).analyst_price_targets
             except Exception as e:
@@ -192,7 +192,7 @@ class YFinanceProvider(DataProvider):
         """
         details: dict[str, dict] = {}
         for t in funds:
-            time.sleep(random.uniform(0.4, 1.7))
+            time.sleep(random.uniform(0.1, 0.7))
             try:
                 data = yf.Ticker(t).funds_data
                 top = data.top_holdings
@@ -294,7 +294,7 @@ class YFinanceProvider(DataProvider):
             print(f"Fetching valuation inputs for {len(missing)} ticker(s)")
             rows = []
             for t in missing:
-                time.sleep(random.uniform(0.4, 1.7))
+                time.sleep(random.uniform(0.1, 0.7))
                 try:
                     statements = {"financials": yf.Ticker(t).financials}
                 except Exception as e:
