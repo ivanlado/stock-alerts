@@ -32,6 +32,8 @@ export type Company = {
   ticker: string;
   short_name: string | null;
   sector: string | null;
+  /** Where the company is headquartered, per Yahoo. Null for a fund. */
+  country: string | null;
   description: string | null;
 };
 

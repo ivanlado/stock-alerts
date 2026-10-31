@@ -51,7 +51,7 @@ LOGOS_DIR = REPO_ROOT / "web" / "public" / "logos"
 # web receives. ``description`` is Yahoo's own business summary: it exists for
 # every ticker, so the UI always has something to show even when the LLM
 # commentary is missing.
-CATALOG_COLS = ["ticker", "short_name", "sector", "description"]
+CATALOG_COLS = ["ticker", "short_name", "sector", "country", "description"]
 
 # The numbers each alert table contributes to a company card.
 ANALYST_COLS = ["current", "median", "pct_price_diff"]

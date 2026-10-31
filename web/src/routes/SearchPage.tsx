@@ -219,6 +219,9 @@ export function SearchPage() {
       info: "",
     };
     return [
+      // First, and pinned with the ticker so both stay in view while the
+      // table scrolls sideways through the fundamentals.
+      { field: "country", headerName: "Country", minWidth: 130, pinned: "left", secondary: true },
       {
         field: "ticker",
         headerName: "Ticker",

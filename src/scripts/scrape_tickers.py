@@ -1,5 +1,8 @@
 import json
 import logging
+import random
+import sys
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -40,6 +43,7 @@ def _fetch_ticker_info(ticker_list: list[str]) -> tuple[pd.DataFrame, list[str]]
             "sector": info.get("sector", "N/A"),
             "industry": info.get("industry", "N/A"),
             "description": info.get("longBusinessSummary", "N/A"),
+            "country": info.get("country"),
         })
     return pd.DataFrame(rows), errors
 
@@ -55,7 +59,34 @@ def _update_csv(new_df: pd.DataFrame) -> None:
     merged.to_csv(TICKERS_CSV, index=False)
 
 
-if __name__ == "__main__":
+def backfill_country() -> None:
+    """Fills the ``country`` column for the rows that lack it, touching nothing else.
+
+    Run with ``python -m scripts.scrape_tickers --country``. It exists because
+    the column was added after the catalogue was built, and a full scrape would
+    rewrite every row -- including the hand-written fund rows. A fund has no
+    country of its own (its holdings span many), so those stay empty.
+    """
+    catalog = pd.read_csv(TICKERS_CSV)
+    if "country" not in catalog.columns:
+        catalog["country"] = None
+    pending = catalog.loc[catalog["country"].isna() & (catalog["sector"] != "Fund"), "ticker"]
+    print(f"Fetching the country of {len(pending)} ticker(s)")
+    for ticker in pending:
+        time.sleep(random.uniform(0.1, 0.4))
+        try:
+            country = yf.Ticker(ticker).info.get("country")
+        except Exception as e:
+            print(f"Error fetching info for {ticker}: {e}")
+            continue
+        catalog.loc[catalog["ticker"] == ticker, "country"] = country
+    catalog.to_csv(TICKERS_CSV, index=False)
+    print(f"Countries known: {catalog['country'].notna().sum()} of {len(catalog)}")
+
+
+if __name__ == "__main__" and "--country" in sys.argv:
+    backfill_country()
+elif __name__ == "__main__":
     TICKERS_DIR.mkdir(parents=True, exist_ok=True)
     all_info = []
     error_summary = {}

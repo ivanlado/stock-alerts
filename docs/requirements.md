@@ -196,7 +196,9 @@ except the LLM commentary, which is in Spanish.
 - **R4.7.4** Every fundamental has a small "i" button; hovering or clicking
   it shows a short explanation in plain words for non-experts.
 - **R4.7.5** Default order: most undervalued against the analyst target first.
-  Columns: ticker, name, sector, price, target, gap to target, variation over
+  Columns: country (where the company is headquartered; empty for a fund),
+  ticker with its logo -- both pinned on the left -- then name, sector,
+  price, target, gap to target, variation over
   the chosen window, PER, price/sales, operating margin, debt/equity, current
   ratio, revenue, revenue growth, free cash flow, and whether it passes the
   screener. Every column sorts; numeric columns have a number filter (greater
