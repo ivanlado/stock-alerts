@@ -1,14 +1,17 @@
-# Regenerates requirements.txt from the code's actual imports.
+# Checks that requirements.txt lists exactly the packages src/ imports.
 # Installation (once per person cloning the repo):
 #     pip install pre-commit
 #     pre-commit install
+#
+# It compares package NAMES only and never rewrites the file: the versions are
+# pinned by hand. See tools/check_requirements.py for why.
 repos:
   - repo: local
     hooks:
-      - id: pipreqs
-        name: Regenerate requirements.txt (pipreqs)
-        entry: python -m pipreqs.pipreqs src --savepath requirements.txt --force
+      - id: requirements
+        name: Check requirements.txt matches the imports
+        entry: python tools/check_requirements.py
         language: python
         additional_dependencies: [pipreqs]
         pass_filenames: false
-        files: \.py$
+        files: (\.py|requirements\.txt)$
