@@ -16,6 +16,12 @@ npm --prefix web install && npm --prefix web run dev
 
 The GitHub Actions workflow runs `python main.py` with `working-directory: src`, so every import is relative to `src/`.
 
+To regenerate `requirements.txt`: `python -m pipreqs.pipreqs . --force`.
+
+## Functional requirements
+
+**`docs/requirements.md` is the source of truth for WHAT the application does**: thresholds, windows, pages, filters, defaults, ordering, the email. This file only covers HOW it is built. **Keep it up to date**: any change that alters behaviour visible to the user -- a threshold, a filter, a default, a page, a column in the email -- must update `docs/requirements.md` in the same change. When the code and that file disagree, ask which one is right rather than silently following either.
+
 ## Project structure
 
 ```
@@ -36,6 +42,8 @@ repo/
     utils/              # Cross-cutting helpers (llm.py: LLM calls via LiteLLM)
     main.py             # Entry point: pipeline -> export + email
   data/                 # Input: hand-curated (ticker JSON, CSV) and cached statements
+                        #   funds.json: index ETFs, watched for price drops only
+                        #   fund_countries.json: country split per fund (manual script)
                         #   fundamentals.csv / fundamentals_quarterly.csv
                         #   valuation_inputs.csv (EPS and share count, screened only)
   history/              # Parquet archive of past runs (gitignored on master;
@@ -47,19 +55,26 @@ repo/
     src/
       lib/              # types.ts (JSON contract) + data.ts (useData hook)
         format.ts       # Rounding and the green/red gradient, shared by every view
+        filters.ts      # Sector/minimum filtering, ranking and filters kept in the URL
+        windows.ts      # The price rule's windows (1D ... 1Y) and their labels
       components/       # Reusable wrappers around charting libraries
         DataGrid.tsx    # AG Grid Community (the only file that knows about it)
         Chart.tsx       # ECharts (the only file that knows about it)
         CompanyCards.tsx # Card grid + detail panel for the alerted companies
         PriceHistory.tsx # The price line of one company, with 3M/1Y/5Y buttons
+        Filters.tsx     # Sector chips, button pickers, minimum with a custom value
+        FundComposition.tsx # A fund's top holdings and sectors, as bars
       routes/           # One page per route
-        AlertsPage.tsx  # Alert views
+        SummaryPage.tsx # Home: top 5 of each rule, with links to the full lists
+        AnalystPage.tsx # Analyst alerts, filtered by sector and minimum gap
+        PriceDropsPage.tsx # Price-drop alerts, by sector, window and minimum drop
         SearchPage.tsx  # Search (placeholder)
       App.tsx           # Menu and routes
       main.tsx          # Entry point
   tests/                # Tests
   notebooks/            # Exploration and prototypes
   docs/                 # Documentation
+    requirements.md     # Functional requirements (keep up to date, see above)
   .github/workflows/    # CI/CD
 ```
 
@@ -87,6 +102,8 @@ repo/
   - The questions all live in `prompts.py`, and adding a section there plus a line in `PROFILE_SECTIONS` in `CompanyCards.tsx` is the whole job. A failed call leaves the field null rather than stopping the run.
 - **The LLM answers are in Spanish, and nothing else is**: they are what the reader of the dashboard reads. Every label, heading and column name around them stays English, like the rest of the repository.
 - **LLM calls go through `utils/llm.py`**: `ask()` wraps LiteLLM, so the provider is a model name (`gemini/...`, `ollama/...`) and no caller needs to know which one answers. It is also the one place that throttles: calls are spaced `LLM_MIN_INTERVAL` apart and a rate-limited one is waited out and retried, because a 429 turns into an empty cell and a run of empty cells into a blank dashboard.
+- **The price windows are calendar time, measured from the LAST price**: `var_1w` ... `var_1y` compare the last row against the close of the last session on or before the same date that many weeks/months back; `var_1d` compares it against the previous session. At 14:00 in Spain the last row of a European ticker is today's session in progress and that of an American one is yesterday's close, so 1D is always the move since the previous close. Counting trading rows instead (as before 2026-10-31) made "1M" mean six weeks and "9M" more than a year. Thresholds live in `THRESHOLDS` in `price_alerts.py`.
+- **Funds are a second universe, price rule only**: `data/funds.json` lists index ETFs. It lives outside `data/tickers/` on purpose -- a fund has no statements, so mixed into the stock universe the screener would discard it. `run_pipeline()` downloads their prices in the same request as the companies' and runs `PriceAlert` on `screened + funds`; they skip the screener, the analyst rule and the profiles. They travel on `Snapshot.funds`, their rows land in `price_all` / `price_alerts` next to the companies', and `companies.json` marks them `asset_type: "fund"` so the cards hide the target, fundamentals and profile. Their names are hand-written rows in `data/tickers.csv` with sector "Fund" (`scrape_tickers.py` keeps rows it did not fetch). What each fund holds (`get_fund_details()`: TER, top ten holdings, sector weights, all in percent) is fetched every run onto `Snapshot.fund_details` and exported as `fund` on its `companies.json` row; `FundComposition.tsx` draws it. Yahoo publishes only the top ten holdings, so the list covers a quarter to a half of a fund. **The split by country is not in Yahoo**: `scripts/fund_countries.py` reads it from justETF's public ETF pages (by ISIN, listed in the script) into `data/fund_countries.json`, run by hand because scraping a third-party page from the daily job would break the run the day the page changes. `DataProviderImpl.get_fund_details()` merges that file in, with its `as_of` date, which the panel shows.
 - **Ingestion scripts** (`src/scripts/`): run manually to refresh `data/`. Not part of the main flow.
 
 ## Frontend architecture (`web/`)
@@ -98,6 +115,7 @@ repo/
 - **The fundamentals shown, and their labels and units, live in one array**: `FUNDAMENTALS` in `components/CompanyCards.tsx`. The cards lead with the first three, which are the ratios the Python screener filters on. The prose sections of the profile are declared the same way, in `PROFILE_SECTIONS` right below it.
 - **The price chart holds one series and slices it**: `PriceHistory.tsx` downloads five years once and each range button (3M / 1Y / 5Y) only decides how much of that array is drawn, so switching range never costs a request.
 - **The detail panel freezes the page behind it**: it sets `body { overflow: hidden }` while open and restores whatever was there on close, so the wheel scrolls the panel rather than the list of cards underneath.
+- **Three views over `companies.json`**: Summary (`/`), Analyst alerts (`/analyst`) and Price drops (`/price-drops`) all read the same file and keep only the rows whose rule fired (`analyst_alert` / `price_alert`). Filtering and ranking is `rankCompanies()` in `lib/filters.ts`, and every filter lives in the URL query (`?sector=...&min=15&window=var_1m`) so a reload or a shared link keeps the view. A minimum is a positive number meaning "down at least that much"; the rule's own threshold is already applied in Python, so the buttons only make it stricter. `CompanyCards` paints rows in the order given and takes the badges to show from the page, the first one drawn larger.
 - **Pages (`routes/`) know neither where the data comes from nor how a grid is painted**: they declare columns, call `useData` and compose.
 - **One breakpoint, 640px, in two places**: the `@media` block at the end of `index.css` (paddings, badges per row) and `NARROW_WIDTH` in `lib/useIsNarrow.ts`, the hook for what CSS cannot decide (how tall a grid or chart is, which columns exist). Everything else adapts on its own through `auto-fill`/`auto-fit`. If the breakpoint moves, both must move together.
 - **A column can declare itself `secondary`**: `DataGrid` drops those columns below the breakpoint and caps the width the rest ask for, so the table fits a phone without sideways scrolling. Pages declare the intent; the responsive logic lives in `DataGrid.tsx`.
