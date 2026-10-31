@@ -133,9 +133,10 @@ ANALYST_DIVERGENCE = Prompt(
 # Asked for the rows of price_alerts.
 PRICE_DROP = Prompt(
     template=(
-        "{name} ({ticker}) se ha movido un {var_1m} en el último mes, "
-        "{var_3m} en tres meses, {var_6m} en seis meses y {var_9m} en nueve "
-        "meses. En cuatro frases como máximo: ¿qué explica ese movimiento "
+        "{name} ({ticker}) se ha movido un {var_1d} en la última sesión, "
+        "{var_1w} en una semana, {var_1m} en el último mes, {var_3m} en tres "
+        "meses, {var_6m} en seis meses, {var_9m} en nueve meses y {var_1y} en "
+        "un año. En cuatro frases como máximo: ¿qué explica ese movimiento "
         "reciente de la cotización?"
     ),
     web_search=True,

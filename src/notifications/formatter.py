@@ -18,8 +18,9 @@ def format_analyst_alerts(alerts: pd.DataFrame) -> str:
 def format_price_alerts(alerts: pd.DataFrame) -> str:
     lines = [
         f"{row['ticker']} ({row['short_name']}): "
+        f"1D={row['var_1d']:.2f}% | 1W={row['var_1w']:.2f}% | "
         f"1M={row['var_1m']:.2f}% | 3M={row['var_3m']:.2f}% | "
-        f"6M={row['var_6m']:.2f}% | 9M={row['var_9m']:.2f}%"
+        f"6M={row['var_6m']:.2f}% | 9M={row['var_9m']:.2f}% | 1Y={row['var_1y']:.2f}%"
         for _, row in alerts.iterrows()
     ]
     return "\n".join(lines)
