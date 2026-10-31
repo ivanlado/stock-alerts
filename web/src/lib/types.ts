@@ -75,6 +75,25 @@ export type PriceSeries = {
   points: [string, number][];
 };
 
+/**
+ * What an index fund holds, from yfinance's fund data. Weights are percent.
+ * Only the ten largest holdings: that is all the source publishes, so the
+ * list covers a quarter to a half of the fund, not all of it.
+ */
+export type FundDetails = {
+  /** Annual fee, in percent (0.2 = 0.2% a year). */
+  expense_ratio: number | null;
+  top_holdings: { symbol: string; name: string; weight: number }[];
+  sectors: { sector: string; weight: number }[];
+  /**
+   * The four largest countries plus "Other", from justETF. Fetched by hand
+   * (`src/scripts/fund_countries.py`), so it may be absent, and
+   * `countries_as_of` says how old it is.
+   */
+  countries?: { country: string; weight: number }[];
+  countries_as_of?: string | null;
+};
+
 /** analyst_alerts.json */
 export type AnalystAlert = Company &
   Commentary & {
@@ -84,16 +103,28 @@ export type AnalystAlert = Company &
     pct_price_diff: number | null;
   };
 
+/**
+ * The price rule's variation over each window, in percent: the last price
+ * against the close that far back in calendar time (see
+ * `src/alerts/price_alerts.py`). Null when the history does not reach that far.
+ * `var_1d` is against the previous session's close.
+ */
+export type PriceVariations = {
+  var_1d: number | null;
+  var_1w: number | null;
+  var_1m: number | null;
+  var_3m: number | null;
+  var_6m: number | null;
+  var_9m: number | null;
+  var_1y: number | null;
+};
+
 /** price_alerts.json */
 export type PriceAlert = Company &
   Commentary & {
     date: string;
     close: number | null;
-    var_1m: number | null;
-    var_3m: number | null;
-    var_6m: number | null;
-    var_9m: number | null;
-  };
+  } & PriceVariations;
 
 /**
  * One period of a company's fundamentals.
@@ -136,14 +167,18 @@ export type Fundamentals = {
  * what the card badges -- and the rows that fired come first.
  */
 export type CompanyCard = Company &
-  Commentary & {
+  Commentary &
+  PriceVariations & {
     current: number | null;
     median: number | null;
     pct_price_diff: number | null;
-    var_1m: number | null;
-    var_3m: number | null;
-    var_6m: number | null;
-    var_9m: number | null;
+    /**
+     * "fund" for an index fund or ETF from `data/funds.json`: it only goes
+     * through the price rule, and has no target, fundamentals or profile.
+     */
+    asset_type: "stock" | "fund";
+    /** What the fund holds; null for a company. */
+    fund: FundDetails | null;
     /** Which of the two rules fired for this company. Both false is normal. */
     analyst_alert: boolean;
     price_alert: boolean;

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { CountryBar, FundComposition } from "./FundComposition";
 import { PriceHistory } from "./PriceHistory";
 import {
   formatCompact,
@@ -8,6 +9,7 @@ import {
   MISSING,
 } from "../lib/format";
 import type { CompanyCard, CompanyProfile, Fundamentals, PriceSeries } from "../lib/types";
+import { PRICE_WINDOWS } from "../lib/windows";
 
 /**
  * The screened companies as a grid of cards, each opening a full detail panel.
@@ -94,10 +96,38 @@ function companyText(c: CompanyCard): string | null {
   return c.profile?.summary ?? c.description ?? null;
 }
 
-/** One coloured number: green for a rise, red for a drop. */
-function Metric({ label, value }: { label: string; value: number | null }) {
+/**
+ * One coloured badge on a card: a label and the function that reads its
+ * number off the company. Each page passes its own list (see `badges` on
+ * CompanyCards), so the number a page ranks by is the one its cards lead with.
+ */
+export type CardBadge = {
+  label: string;
+  value: (company: CompanyCard) => number | null;
+};
+
+/** What a card shows when the page does not say: one of each rule. */
+const DEFAULT_BADGES: CardBadge[] = [
+  { label: "vs target", value: (c) => c.pct_price_diff },
+  { label: "1M", value: (c) => c.var_1m },
+  { label: "6M", value: (c) => c.var_6m },
+];
+
+/**
+ * One coloured number: green for a rise, red for a drop. `lead` draws it
+ * larger, for the number the page is ranked by.
+ */
+function Metric({
+  label,
+  value,
+  lead = false,
+}: {
+  label: string;
+  value: number | null;
+  lead?: boolean;
+}) {
   return (
-    <div className="metric" style={variationStyle(value)}>
+    <div className={lead ? "metric lead" : "metric"} style={variationStyle(value)}>
       <span className="metric-label">{label}</span>
       <span className="metric-value">{formatPercent(value)}</span>
     </div>
@@ -286,6 +316,9 @@ function Detail({
   const latest = company.fundamentals;
   const profile = company.profile;
   const summary = companyText(company);
+  // A fund has no statements, target or profile: those blocks are left out
+  // rather than drawn full of dashes.
+  const isFund = company.asset_type === "fund";
 
   return (
     // Clicking the dark backdrop closes the panel. `stopPropagation` on the
@@ -306,27 +339,32 @@ function Detail({
         </div>
 
         <div className="detail-numbers">
-          <p>
-            Price {formatNumber(company.current)} · Target {formatNumber(company.median)}
-          </p>
+          {!isFund && (
+            <p>
+              Price {formatNumber(company.current)} · Target {formatNumber(company.median)}
+            </p>
+          )}
           <div className="metrics">
-            <Metric label="vs target" value={company.pct_price_diff} />
-            <Metric label="1M" value={company.var_1m} />
-            <Metric label="3M" value={company.var_3m} />
-            <Metric label="6M" value={company.var_6m} />
-            <Metric label="9M" value={company.var_9m} />
+            {!isFund && <Metric label="vs target" value={company.pct_price_diff} />}
+            {PRICE_WINDOWS.map((w) => (
+              <Metric key={w.key} label={w.label} value={company[w.key]} />
+            ))}
           </div>
         </div>
 
         {/* Its own heading, away from the reported figures below: these are
             today's price over the last twelve months, not the 2025 accounts,
             and filing them under "Fundamentals (2025)" would date them wrong. */}
-        <h4>Valuation (today)</h4>
-        <div className="stats">
-          {VALUATION.map((row) => (
-            <Stat key={row.key} label={row.label} value={formatNumber(company[row.key])} />
-          ))}
-        </div>
+        {!isFund && (
+          <>
+            <h4>Valuation (today)</h4>
+            <div className="stats">
+              {VALUATION.map((row) => (
+                <Stat key={row.key} label={row.label} value={formatNumber(company[row.key])} />
+              ))}
+            </div>
+          </>
+        )}
 
         {latest && (
           <>
@@ -339,8 +377,12 @@ function Detail({
           </>
         )}
 
+        {isFund && <CountryBar fund={company.fund} />}
+
         <h4>Price history</h4>
         <PriceHistory series={series} />
+
+        {isFund && <FundComposition fund={company.fund} />}
 
         <Section heading="Summary" text={summary} />
 
@@ -360,7 +402,7 @@ function Detail({
         {/* An absent profile is a normal state -- the model may have been out
             of quota when this company came up -- and an unexplained gap where
             six sections should be reads as a broken page. So it says so. */}
-        {!profile && (
+        {!profile && !isFund && (
           <p className="muted prose">
             No profile written yet: the model had nothing to say about this company on
             the last run. It is filled in on a later run and then cached.
@@ -379,12 +421,18 @@ function Detail({
   );
 }
 
+/**
+ * `rows` are drawn in the order given: filtering and sorting is the page's
+ * job (see lib/filters.ts), this component only paints.
+ */
 export function CompanyCards({
   rows,
   prices = [],
+  badges = DEFAULT_BADGES,
 }: {
   rows: CompanyCard[];
   prices?: PriceSeries[];
+  badges?: CardBadge[];
 }) {
   // `useState` is how a component remembers something across repaints. Here it
   // holds the company whose detail panel is open, or null when none is. React
@@ -425,23 +473,31 @@ export function CompanyCards({
               </div>
 
               <div className="metrics">
-                <Metric label="vs target" value={company.pct_price_diff} />
-                <Metric label="1M" value={company.var_1m} />
-                <Metric label="6M" value={company.var_6m} />
-              </div>
-
-              <div className="stats">
-                {HEADLINE_FUNDAMENTALS.map((row) => (
-                  <Stat
-                    key={row.key}
-                    label={row.label}
-                    value={latest ? row.format(latest[row.key]) : MISSING}
+                {badges.map((badge, index) => (
+                  <Metric
+                    key={badge.label}
+                    label={badge.label}
+                    value={badge.value(company)}
+                    lead={index === 0}
                   />
                 ))}
-                {VALUATION.map((row) => (
-                  <Stat key={row.key} label={row.label} value={formatNumber(company[row.key])} />
-                ))}
               </div>
+
+              {/* A fund has no fundamentals or valuation to show. */}
+              {company.asset_type !== "fund" && (
+                <div className="stats">
+                  {HEADLINE_FUNDAMENTALS.map((row) => (
+                    <Stat
+                      key={row.key}
+                      label={row.label}
+                      value={latest ? row.format(latest[row.key]) : MISSING}
+                    />
+                  ))}
+                  {VALUATION.map((row) => (
+                    <Stat key={row.key} label={row.label} value={formatNumber(company[row.key])} />
+                  ))}
+                </div>
+              )}
 
               {/* The text is clamped to a few lines by CSS rather than cut in
                   JavaScript, so the full string stays in the DOM and the panel
