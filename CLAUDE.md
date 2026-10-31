@@ -16,7 +16,7 @@ npm --prefix web install && npm --prefix web run dev
 
 The GitHub Actions workflow runs `python main.py` with `working-directory: src`, so every import is relative to `src/`.
 
-To regenerate `requirements.txt`: `python -m pipreqs.pipreqs . --force`.
+`requirements.txt` is pinned by hand. The pre-commit hook (`tools/check_requirements.py`) only checks that the package names match the imports in `src/`, and fails naming what is missing or unused; it never rewrites versions.
 
 ## Functional requirements
 
@@ -83,7 +83,7 @@ repo/
 - **Hexagonal**: `providers/base.py` defines the `DataProvider` interface (ABC). `YFinanceProvider` is the concrete adapter. `DataProviderImpl` composes the adapters and adds loading tickers from JSON.
 - **One source, N sinks**: `pipeline.run_pipeline()` computes and returns a `Snapshot` (a dataclass with `screened`, `analyst_alerts`, `price_alerts`) with no side effects. Consumers format it: `notifications/` into text for the email, `export/` into JSON for the web.
 - **Alerts return data, not text**: `BaseAlert.run()` returns a `DataFrame` enriched with `short_name`. Subclasses implement `compute()` (the rule's numbers for every ticker) and `apply_rules()` (the rows that trigger). No formatting inside `alerts/`.
-- **The dashboard shows every SCREENED company, not only the alerted ones**: hiding the quiet ones would leave the reader wondering what happened to them. `companies.json` has one row per company that passed the fundamental filters, `analyst_alert` / `price_alert` say which rule fired (if any) and the rows that fired come first. How many companies that is comes from `DEFAULT_TICKER_LIMIT` in `pipeline.py` -- 20 while the project is in development. The alert tables (`analyst_alerts.json`, `price_alerts.json`) and the email still carry only what fired.
+- **The dashboard shows every SCREENED company, not only the alerted ones**: hiding the quiet ones would leave the reader wondering what happened to them. `companies.json` has one row per company that passed the fundamental filters, `analyst_alert` / `price_alert` say which rule fired (if any) and the rows that fired come first. Every company that passes is kept: `DEFAULT_TICKER_LIMIT` in `pipeline.py` is `None` (about 220 of the ~540 tickers pass today), and a number there caps the list for a quicker local run. The alert tables (`analyst_alerts.json`, `price_alerts.json`) and the email still carry only what fired.
 - **Both rules describe every company**: `run_all()` returns the unfiltered table, and the cards take their numbers from it. A ticker that only fired the price rule still has a gap to its analyst target -- it just was not wide enough to alert on.
 - **Prices are downloaded once, for five years** (`PRICE_HISTORY_PERIOD` in `pipeline.py`): the price rule needs more than a year for its longest window, and the web chart offers a five-year view. `prices.json` carries every trading day of the last year and one point a week before that, which is all a 3-month view needs and a fifth of what five daily years would weigh.
 - **Main flow**: `main.py` → `run_pipeline()` → `export_json()` + (when there are alerts) `format_snapshot()` → `send_email()`.
