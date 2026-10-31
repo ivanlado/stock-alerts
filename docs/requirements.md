@@ -99,10 +99,15 @@ except the LLM commentary, which is in Spanish.
 
 ### 4.2 Summary (`/`)
 
-- **R4.2.1** Shows the 5 most undervalued analyst alerts (ranked as in §4.3)
-  and, below, the 5 biggest price drops over 3M (ranked as in §4.4).
-- **R4.2.2** Each block has a "See all" link to its full section, with the
-  total number of alerts.
+- **R4.2.1** Four blocks, in this order: the 5 most undervalued analyst alerts
+  (ranked as in §4.3), then the 5 biggest price drops over 1D, over 1W and
+  over 6M (ranked as in §4.4 with that window).
+- **R4.2.2** A price block lists the companies and funds that fired the price
+  rule AND fell over that window; one that rose over it is left out.
+- **R4.2.3** Each block has a "See all" link to its full section (for a price
+  block, with its window already chosen), with the number of companies.
+- **R4.2.4** Cards are compact: name, tags and the numbers, without
+  fundamentals or text. A click opens the same detail panel as elsewhere.
 
 ### 4.3 Analyst alerts (`/analyst`)
 

@@ -424,15 +424,21 @@ function Detail({
 /**
  * `rows` are drawn in the order given: filtering and sorting is the page's
  * job (see lib/filters.ts), this component only paints.
+ *
+ * `compact` draws only the name, the tags and the badges -- no fundamentals,
+ * no text -- for the summary page, where several lists share one screen. The
+ * detail panel a click opens is the same either way.
  */
 export function CompanyCards({
   rows,
   prices = [],
   badges = DEFAULT_BADGES,
+  compact = false,
 }: {
   rows: CompanyCard[];
   prices?: PriceSeries[];
   badges?: CardBadge[];
+  compact?: boolean;
 }) {
   // `useState` is how a component remembers something across repaints. Here it
   // holds the company whose detail panel is open, or null when none is. React
@@ -452,7 +458,7 @@ export function CompanyCards({
 
   return (
     <>
-      <div className="cards">
+      <div className={compact ? "cards compact" : "cards"}>
         {/* `key` lets React tell list items apart between repaints, so it
             reuses the right element instead of rebuilding the whole list. */}
         {rows.map((company) => {
@@ -484,7 +490,7 @@ export function CompanyCards({
               </div>
 
               {/* A fund has no fundamentals or valuation to show. */}
-              {company.asset_type !== "fund" && (
+              {!compact && company.asset_type !== "fund" && (
                 <div className="stats">
                   {HEADLINE_FUNDAMENTALS.map((row) => (
                     <Stat
@@ -502,10 +508,14 @@ export function CompanyCards({
               {/* The text is clamped to a few lines by CSS rather than cut in
                   JavaScript, so the full string stays in the DOM and the panel
                   has it ready. */}
-              <p className="card-text">
-                {text ?? <span className="muted">No description available</span>}
-              </p>
-              <span className="card-more">Read more</span>
+              {!compact && (
+                <>
+                  <p className="card-text">
+                    {text ?? <span className="muted">No description available</span>}
+                  </p>
+                  <span className="card-more">Read more</span>
+                </>
+              )}
             </article>
           );
         })}

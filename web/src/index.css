@@ -476,6 +476,40 @@ h2 {
   color: #333;
 }
 
+/* --- The summary page: four short lists on one screen --- */
+
+.summary h2 {
+  margin: 0.8rem 0 0.2rem;
+}
+
+/* `auto-fit` instead of the default `auto-fill`: with only five cards, the
+   columns left empty collapse and the five stretch across the whole width. */
+.cards.compact {
+  margin-top: 0.2rem;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cards.compact .card {
+  padding: 0.4rem 0.75rem;
+}
+
+.cards.compact .card h3 {
+  margin-bottom: 0.2rem;
+}
+
+.cards.compact .detail-tags {
+  margin-bottom: 0;
+}
+
+.cards.compact .metrics {
+  margin: 0.25rem 0 0;
+}
+
+.cards.compact .metric {
+  padding: 0.1rem 0.5rem;
+}
+
 /* A summary section's heading with its "See all" link on the right. */
 .section-head {
   display: flex;
