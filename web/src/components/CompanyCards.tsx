@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CountryBar, FundComposition } from "./FundComposition";
+import { Logo } from "./Logo";
 import { PriceHistory } from "./PriceHistory";
 import {
   formatCompact,
@@ -338,8 +339,11 @@ export function CompanyDetail({
           ×
         </button>
 
-        <h3>
-          {company.ticker} <span className="meta">{company.short_name}</span>
+        <h3 className="company-title">
+          <Logo ticker={company.ticker} src={company.logo} size={40} />
+          <span>
+            {company.ticker} <span className="meta">{company.short_name}</span>
+          </span>
         </h3>
         <div className="detail-tags">
           {company.sector && <span className="sector">{company.sector}</span>}
@@ -472,8 +476,11 @@ export function CompanyCards({
               className="card"
               onClick={() => setSelected(company)}
             >
-              <h3>
-                {company.ticker} <span className="meta">{company.short_name}</span>
+              <h3 className="company-title">
+                <Logo ticker={company.ticker} src={company.logo} />
+                <span>
+                  {company.ticker} <span className="meta">{company.short_name}</span>
+                </span>
               </h3>
               <div className="detail-tags">
                 {company.sector && <span className="sector">{company.sector}</span>}

@@ -1,5 +1,6 @@
 litellm==1.106.1
 pandas==3.0.6
+Pillow==13.0.0
 pyarrow==22.0.0
 python-dotenv==1.2.4
 Requests==2.34.2

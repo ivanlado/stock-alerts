@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { CompanyDetail } from "../components/CompanyCards";
 import { DataGrid, type Column } from "../components/DataGrid";
+import { Logo } from "../components/Logo";
 import {
   ButtonPicker,
   FilterBar,
@@ -218,7 +219,22 @@ export function SearchPage() {
       info: "",
     };
     return [
-      { field: "ticker", headerName: "Ticker", minWidth: 95, pinned: "left" },
+      {
+        field: "ticker",
+        headerName: "Ticker",
+        minWidth: 115,
+        pinned: "left",
+        // `cellRenderer` draws the cell with a component instead of plain
+        // text: the logo, then the ticker. Sorting and filtering still use
+        // the ticker itself.
+        cellRenderer: (params: { data?: CompanyCard }) =>
+          params.data ? (
+            <span className="grid-ticker">
+              <Logo ticker={params.data.ticker} src={params.data.logo} size={20} />
+              {params.data.ticker}
+            </span>
+          ) : null,
+      },
       { field: "short_name", headerName: "Name", minWidth: 190 },
       { field: "sector", headerName: "Sector", minWidth: 150, secondary: true },
       priceColumn("Price", (c) => c.current),

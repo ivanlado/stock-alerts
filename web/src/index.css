@@ -109,6 +109,42 @@ h2 {
   margin: 0 0 0.35rem;
 }
 
+/* Logo on the left, ticker and name beside it, centred on the logo. */
+.company-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+/* A logo in a white rounded square, whatever its own shape: `object-fit:
+   contain` fits a wide logo inside without stretching it. `flex: none` stops
+   a long company name from squeezing it. */
+.logo {
+  flex: none;
+  box-sizing: border-box;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+/* The stand-in when there is no logo: the ticker's first letters. */
+.logo-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef1f5;
+  color: #445;
+  font-weight: 600;
+}
+
+/* A ticker cell in the Search table: small logo, then the ticker. */
+.grid-ticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
 /* The sector, as a small neutral pill under the company name. */
 .sector {
   display: inline-block;

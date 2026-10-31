@@ -43,6 +43,9 @@ from pipeline import Snapshot
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = REPO_ROOT / "data"
 WEB_DATA_DIR = REPO_ROOT / "web" / "public" / "data"
+# Fetched by hand with ``scripts/fetch_logos.py`` and committed; the page
+# reaches them at ``logos/<ticker>.png``, next to ``data/``.
+LOGOS_DIR = REPO_ROOT / "web" / "public" / "logos"
 
 # Columns taken from the hand-curated catalogue and attached to every row the
 # web receives. ``description`` is Yahoo's own business summary: it exists for
@@ -232,6 +235,9 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
         row["fundamentals"] = entry["latest"] if entry else None
         row["fundamentals_history"] = entry["history"] if entry else []
         row["revenue_growth"] = _revenue_growth(row["fundamentals_history"])
+        # A path the page can load, or null: the web then draws the initials.
+        has_logo = (LOGOS_DIR / f"{row['ticker']}.png").exists()
+        row["logo"] = f"logos/{row['ticker']}.png" if has_logo else None
         quarters = quarterly.get(row["ticker"])
         row["fundamentals_quarterly"] = quarters["history"] if quarters else []
         profile = snapshot.profiles.get(row["ticker"]) or {}

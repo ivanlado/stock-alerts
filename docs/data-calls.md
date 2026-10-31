@@ -30,6 +30,7 @@ until the file is deleted.
 |---|---|---|
 | Catalog (name, sector, description) | `Ticker(t).info` | `data/tickers.csv` |
 | Fund country split | justETF, 1 per fund | `data/fund_countries.json` |
+| Logos | Financial Modeling Prep image endpoint, 1 per ticker | `web/public/logos/` |
 
 ## Why per company
 

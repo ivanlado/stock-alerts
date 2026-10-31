@@ -179,6 +179,8 @@ export type CompanyCard = Company &
      * through the price rule, and has no target, fundamentals or profile.
      */
     asset_type: "stock" | "fund";
+    /** `logos/<ticker>.png`, or null when no logo was fetched. */
+    logo: string | null;
     /** True for a stock that passed the fundamental screener. */
     screened: boolean;
     /**

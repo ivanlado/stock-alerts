@@ -152,6 +152,9 @@ except the LLM commentary, which is in Spanish.
 
 ### 4.6 Company card and detail panel
 
+- **R4.6.0** Every stock and fund shows its logo: on its card, in the detail
+  panel and in the Search table. Without a logo, its initials stand in.
+  Logos are fetched by hand (`python -m scripts.fetch_logos`), not daily.
 - **R4.6.1** A card shows ticker, name, sector, which rules fired, its badges
   (per section, above), the screening ratios, today's PER and price/sales, and
   a short description.
