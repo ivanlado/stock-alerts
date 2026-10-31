@@ -35,16 +35,16 @@ class Snapshot:
     screened: list[str]
     analyst_alerts: pd.DataFrame
     price_alerts: pd.DataFrame
-    # Long-form table (ticker, year, metric, value) for the screened tickers.
-    # Kept on the Snapshot so a sink can show WHY a company passed the filters,
-    # not just that it did.
+    # Long-form table (ticker, year, metric, value) for EVERY stock in the
+    # universe, screened or not. Kept on the Snapshot so a sink can show WHY a
+    # company passed the filters, and so Search can filter the ones that did not.
     fundamentals: pd.DataFrame
     # The same metrics quarter by quarter (ticker, period, metric, value), for
     # the recent trend. Nothing filters on these: the screener works on the
     # annual figures, which are the audited ones.
     fundamentals_quarterly: pd.DataFrame = field(default_factory=pd.DataFrame)
-    # The same two rules computed for EVERY screened ticker, whether it alerted
-    # or not. A company card shows both rules for every company on it, and a
+    # The same two rules computed for EVERY ticker of the universe and every
+    # fund, whether it alerted or not. A company card shows both rules for every company on it, and a
     # ticker that only fired the price rule still has a gap to its analyst
     # target -- it just was not wide enough to alert on.
     analyst_all: pd.DataFrame = field(default_factory=pd.DataFrame)
@@ -54,11 +54,15 @@ class Snapshot:
     # only go through the price rule: their rows sit in ``price_all`` and, when
     # they fire, in ``price_alerts``, next to the companies'.
     funds: list[str] = field(default_factory=list)
+    # Every stock in the universe, screened or not. The two rules are computed
+    # for all of them (``analyst_all``, ``price_all``) so Search can filter the
+    # whole list, but only a screened stock -- or a fund -- can raise an alert.
+    universe: list[str] = field(default_factory=list)
     # ``{ticker: {"expense_ratio", "top_holdings", "sectors"}}`` per fund: what
     # the fund holds, for its detail panel. Only the top ten holdings, which
     # is all the source publishes.
     fund_details: dict[str, dict] = field(default_factory=dict)
-    # Daily closes of the screened tickers and the funds, for the chart on the web.
+    # Daily closes of the whole universe and the funds, for the chart on the web.
     prices: pd.DataFrame = field(default_factory=pd.DataFrame)
     # ``{ticker: profile}`` -- the cached LLM description of each screened
     # company. See ``enrichment/profiles.py``.
@@ -115,41 +119,47 @@ def run_pipeline(
     print(f"Funds watched for price drops: {len(funds)} -> {funds}")
     fund_details = data_provider.get_fund_details(funds)
 
+    # Everything below is computed for the WHOLE universe, not just the
+    # screened stocks: Search filters all of them. The alerts are narrowed
+    # back to the screened ones further down.
+
     # Downloaded once and reused: the price rule needs it to compute its
     # windows, and the web needs the same series for the chart on each card.
     # One request for companies and funds alike.
     prices = data_provider.get_prices(
-        screened + funds, period=PRICE_HISTORY_PERIOD, interval="1d"
+        tickers + funds, period=PRICE_HISTORY_PERIOD, interval="1d"
     )
 
-    # Only for the screened tickers: nothing filters on the quarterly figures,
-    # they are there for the company cards.
-    fundamentals_quarterly = data_provider.get_quarterly_fundamentals(screened)
+    # Cached ticker by ticker, so only a stock never seen before costs a call.
+    fundamentals_quarterly = data_provider.get_quarterly_fundamentals(tickers)
 
     # The PER and price/sales series, computed rather than fetched: they need a
     # price per year, which is why they cannot live in the fundamentals cache
     # (see valuation.py). Appended to the annual table so every sink sees them
     # as two more metrics.
-    screened_fundamentals = fundamentals[fundamentals["ticker"].isin(screened)]
-    valuation_inputs = data_provider.get_valuation_inputs(screened)
-    history = valuation_history(valuation_inputs, screened_fundamentals, prices)
+    valuation_inputs = data_provider.get_valuation_inputs(tickers)
+    history = valuation_history(valuation_inputs, fundamentals, prices)
     if not history.empty:
-        screened_fundamentals = pd.concat([screened_fundamentals, history], ignore_index=True)
+        fundamentals = pd.concat([fundamentals, history], ignore_index=True)
 
     # The same two ratios against TODAY's price and the last twelve months.
     # Computed from the price history and the statements already in hand, not
     # fetched: yfinance's own ``trailingPE`` contradicts its own accounts for
     # some tickers (see valuation.py), and a number that disagrees with the
     # price printed next to it is worse than no number.
-    valuation = valuation_today(
-        prices, fundamentals_quarterly, valuation_inputs, screened_fundamentals
-    )
+    valuation = valuation_today(prices, fundamentals_quarterly, valuation_inputs, fundamentals)
 
-    analyst = AnalystAlerts(screened, data_provider=data_provider)
-    price = PriceAlert(screened + funds, data_provider=data_provider, prices=prices)
+    analyst = AnalystAlerts(tickers, data_provider=data_provider)
+    price = PriceAlert(tickers + funds, data_provider=data_provider, prices=prices)
 
+    # A rule is computed for everyone, but only a screened stock (or a fund,
+    # for the price rule) raises an alert: the screener is what decides which
+    # companies are worth an email.
+    can_alert = set(screened) | set(funds)
     analyst_alerts, analyst_all = analyst.run(), analyst.run_all()
     price_alerts, price_all = price.run(), price.run_all()
+    analyst_alerts = analyst_alerts[analyst_alerts["ticker"].isin(screened)]
+    price_alerts = price_alerts[price_alerts["ticker"].isin(can_alert)]
 
     if commentary:
         analyst_alerts = add_commentary(analyst_alerts, prompts.ANALYST_DIVERGENCE)
@@ -164,9 +174,10 @@ def run_pipeline(
         screened=screened,
         funds=funds,
         fund_details=fund_details,
+        universe=tickers,
         analyst_alerts=analyst_alerts,
         price_alerts=price_alerts,
-        fundamentals=screened_fundamentals,
+        fundamentals=fundamentals,
         fundamentals_quarterly=fundamentals_quarterly,
         analyst_all=analyst_all,
         price_all=price_all,

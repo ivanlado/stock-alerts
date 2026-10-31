@@ -4,28 +4,28 @@ The contract with the frontend is the shape of these files, not the Python
 code: every file is ``{"generated_at": <ISO>, "rows": [...]}`` so metadata can
 be added later without breaking any consumer.
 
-Five files are written:
+These files are written:
   - ``screener.json``:        the tickers that passed the fundamental filters
   - ``analyst_alerts.json``:  one row per analyst-divergence alert
   - ``price_alerts.json``:    one row per price-drop alert
-  - ``companies.json``:       one row per SCREENED COMPANY and per FUND, merging
-                              both tables
-  - ``prices.json``:          the price history of each screened company and fund
+  - ``companies.json``:       one row per stock of the UNIVERSE and per FUND,
+                              merging both tables
+  - ``prices/<ticker>.json``: the price history of one stock or fund, a file
+                              each so the browser downloads only the chart it
+                              opens instead of hundreds of series up front
 
 ``companies.json`` exists because the two alert tables describe the same
 companies through different numbers: the analyst rule knows the gap to the
-price target, the price rule knows the variation over a day, a week, 1/3/6/9 months and a
-year. The web
-wants a single card per company showing whatever is known about it, so the join
-is done here, once, rather than in the browser.
+price target, the price rule knows the variation over a day, a week,
+1/3/6/9 months and a year. The web wants a single card per company showing
+whatever is known about it, so the join is done here, once, rather than in the
+browser.
 
-Every company that PASSED THE SCREENER is on that list, alert or not. The
-dashboard is for looking at the companies that got through the fundamental
-filters, and hiding the quiet ones would only leave the reader wondering what
-happened to them. ``analyst_alert`` / ``price_alert`` say which rule fired, if
-any, and the rows that did fire come first. How many companies that is comes
-from ``DEFAULT_TICKER_LIMIT`` in ``pipeline.py``, which can cap the screener
-(it does not by default).
+EVERY STOCK of the universe is on that list, screened or not, because Search
+filters all of them; ``screened`` says which ones passed the fundamental
+filters. ``analyst_alert`` / ``price_alert`` say which rule fired, if any --
+only a screened stock or a fund can fire -- and the rows that did fire come
+first. The alert pages show only those.
 
 Their numbers come from the UNFILTERED tables (``analyst_all``, ``price_all``),
 so a card always shows both rules: firing only the price rule never meant the
@@ -94,10 +94,19 @@ def _records(df: pd.DataFrame) -> list[dict]:
     return json.loads(df.to_json(orient="records", date_format="iso"))
 
 
-def _write(path: Path, generated_at: str, rows: list[dict]) -> None:
+def _write(path: Path, generated_at: str, rows: list[dict], compact: bool = False) -> None:
+    """``compact`` drops the indentation: for the price files, which are
+    almost all numbers, it would add a third to their size for nobody to read.
+    """
     payload = {"generated_at": generated_at, "rows": rows}
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"Wrote {path.name} ({len(rows)} rows)")
+    text = (
+        json.dumps(payload, separators=(",", ":"), ensure_ascii=False)
+        if compact
+        else json.dumps(payload, indent=2, ensure_ascii=False)
+    )
+    path.write_text(text, encoding="utf-8")
+    if not compact:
+        print(f"Wrote {path.name} ({len(rows)} rows)")
 
 
 def _catalog() -> pd.DataFrame:
@@ -177,13 +186,15 @@ def _fundamentals_by_ticker(fundamentals: pd.DataFrame, period_col: str) -> dict
 
 
 def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
-    """One row per screened company and per fund, merging both alert tables.
+    """One row per stock of the universe and per fund, merging both rule tables.
 
-    ``asset_type`` tells the two apart: a fund ("fund") has no statements, no
+    ``screened`` marks the stocks that passed the fundamental filters.
+    ``asset_type`` tells stocks and funds apart: a fund ("fund") has no statements, no
     analyst target and no profile, so the web hides those blocks instead of
     painting a card full of dashes.
     """
-    if not snapshot.screened and not snapshot.funds:
+    tickers = (snapshot.universe or snapshot.screened) + snapshot.funds
+    if not tickers:
         return []
 
     analyst = _subset(snapshot.analyst_all, ANALYST_COLS)
@@ -193,9 +204,9 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
     # An outer join only knows the tickers its two sides carry. Starting from
     # the screened list instead means a company whose price target could not be
     # downloaded still gets a card, with that number missing.
-    tickers = snapshot.screened + snapshot.funds
     merged = pd.DataFrame({"ticker": tickers}).merge(merged, on="ticker", how="left")
     merged["asset_type"] = merged["ticker"].isin(snapshot.funds).map({True: "fund", False: "stock"})
+    merged["screened"] = merged["ticker"].isin(snapshot.screened)
 
     merged = merged.merge(_explanations(snapshot), on="ticker", how="left")
     merged["analyst_alert"] = merged["ticker"].isin(_tickers(snapshot.analyst_alerts))
@@ -220,6 +231,7 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
         entry = annual.get(row["ticker"])
         row["fundamentals"] = entry["latest"] if entry else None
         row["fundamentals_history"] = entry["history"] if entry else []
+        row["revenue_growth"] = _revenue_growth(row["fundamentals_history"])
         quarters = quarterly.get(row["ticker"])
         row["fundamentals_quarterly"] = quarters["history"] if quarters else []
         profile = snapshot.profiles.get(row["ticker"]) or {}
@@ -235,6 +247,22 @@ def _company_rows(snapshot: Snapshot, catalog: pd.DataFrame) -> list[dict]:
         row["fund"] = snapshot.fund_details.get(row["ticker"])
 
     return rows
+
+
+def _revenue_growth(history: list[dict]) -> float | None:
+    """Last reported year's revenue against the year before, in percent.
+
+    ``history`` is oldest first. None when two consecutive years with revenue
+    are not there, or the earlier one is not positive (a growth rate off a
+    zero or negative base is arithmetic, not information).
+    """
+    years = [entry for entry in history if entry.get("total_revenue") is not None]
+    if len(years) < 2:
+        return None
+    previous, latest = years[-2]["total_revenue"], years[-1]["total_revenue"]
+    if previous <= 0:
+        return None
+    return (latest / previous - 1) * 100
 
 
 def _valuation_by_ticker(valuation: pd.DataFrame) -> dict[str, dict]:
@@ -317,6 +345,26 @@ def _price_rows(prices: pd.DataFrame) -> list[dict]:
     return rows
 
 
+def _write_prices(out_dir: Path, generated_at: str, series: list[dict]) -> None:
+    """One file per ticker under ``prices/``, each with that ticker's series
+    as its single row, so the file keeps the ``{generated_at, rows}`` shape
+    of every other one.
+
+    The directory is emptied first: a ticker that left the universe must not
+    leave a stale chart behind. ``prices.json``, the single file this replaced,
+    is removed for the same reason.
+    """
+    prices_dir = out_dir / "prices"
+    prices_dir.mkdir(parents=True, exist_ok=True)
+    for old in prices_dir.glob("*.json"):
+        old.unlink()
+    (out_dir / "prices.json").unlink(missing_ok=True)
+
+    for row in series:
+        _write(prices_dir / f"{row['ticker']}.json", generated_at, [row], compact=True)
+    print(f"Wrote prices/ ({len(series)} files)")
+
+
 def _screened_rows(tickers: list[str], catalog: pd.DataFrame) -> list[dict]:
     """Screened tickers with their display name and sector."""
     screened = pd.DataFrame({"ticker": tickers})
@@ -341,4 +389,4 @@ def export_json(snapshot: Snapshot, out_dir: Path = WEB_DATA_DIR) -> None:
         _records(_with_catalog(snapshot.price_alerts, catalog)),
     )
     _write(out_dir / "companies.json", generated_at, _company_rows(snapshot, catalog))
-    _write(out_dir / "prices.json", generated_at, _price_rows(snapshot.prices))
+    _write_prices(out_dir, generated_at, _price_rows(snapshot.prices))
