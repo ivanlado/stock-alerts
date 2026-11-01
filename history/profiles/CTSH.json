@@ -1,0 +1,14 @@
+{
+  "ticker": "CTSH",
+  "name": "Cognizant Technology Solutions ",
+  "generated_at": "2026-11-01T19:38:41.281593+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Cognizant Technology Solutions es una empresa multinacional que presta servicios de tecnologías de la información, consultoría y externalización de procesos de negocio. Ayuda a grandes corporaciones a modernizar su infraestructura tecnológica y gestionar sus operaciones digitales.",
+    "revenue_sources": "Sus ingresos se dividen principalmente en Servicios Financieros (en torno al 30%), Salud y Ciencias de la Vida (alrededor del 29%), y Productos y Recursos (cerca del 24%). El resto procede de Comunicaciones, Medios y Tecnología, que aporta aproximadamente el 17%.",
+    "moat": "Cuenta con un foso económico estrecho basado en costes de cambio y economías de escala. Su integración profunda en sistemas operativos críticos corporativos dificulta su sustitución, aunque carece de poder fuerte de fijación de precios.",
+    "competitors": "Accenture (ACN), Infosys (INFY), Tata Consultancy Services (TCS), Wipro (WIT) e IBM (IBM).",
+    "threats": "Sufre la fuerte presión de precios de competidores con bases operativas de bajo coste, lo que afecta a sus márgenes. La automatización y la inteligencia artificial generativa amenazan con canibalizar servicios tradicionales de mantenimiento de código y operaciones. Además, depende fuertemente del ciclo de gasto discrecional en tecnología de las grandes empresas.",
+    "outlook": "Se espera que el negocio mantenga un crecimiento modesto de un solo dígito apoyado en la demanda de proyectos de inteligencia artificial y migración a la nube. No obstante, existe el riesgo de que la debilidad macroeconómica o la pérdida de cuota de mercado frente a competidores más ágiles impidan alcanzar estas previsiones."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "BLK",
+  "name": "BlackRock, Inc.",
+  "generated_at": "2026-11-01T19:21:16.948006+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "BlackRock es la mayor gestora de activos del mundo y ofrece servicios de inversión tanto a instituciones como a particulares. Su actividad principal abarca productos de gestión activa y pasiva, destacando su familia de fondos cotizados iShares, junto con servicios de tecnología financiera.",
+    "revenue_sources": "Las comisiones base por gestión y asesoramiento de inversiones representan aproximadamente entre el 75% y el 80% de los ingresos totales. Los servicios de tecnología, liderados por su plataforma Aladdin, aportan cerca del 8% al 10%, mientras que las comisiones por éxito y las tarifas de distribución completan el resto con porcentajes menores.",
+    "moat": "Cuenta con un foso económico amplio y muy sólido sustentado en su inmensa escala y en los costes de cambio. Su tamaño le permite operar con costes unitarios extremadamente bajos en productos pasivos, mientras que su software Aladdin crea una fuerte dependencia operativa entre sus clientes institucionales.",
+    "competitors": "Compite directamente con The Vanguard Group (no cotizada), State Street Corporation (STT), Invesco Ltd. (IVZ) y T. Rowe Price Group, Inc. (TROW). En el ámbito de plataformas tecnológicas y servicios de datos financieros compite de forma indirecta con firmas como MSCI Inc. (MSCI).",
+    "threats": "Su mayor riesgo financiero es un mercado bajista prolongado que reduzca el valor de los activos bajo gestión y, por tanto, las comisiones cobradas. También afronta una intensa presión competitiva que comprime las comisiones en fondos pasivos y un creciente escrutinio regulatorio o político en torno a su peso en el mercado y la inversión sostenible.",
+    "outlook": "Las previsiones apuntan a un crecimiento sostenido apoyado en la mayor penetración de los fondos cotizados iShares, la expansión hacia activos alternativos privados y la venta de su tecnología Aladdin. Sin embargo, este crecimiento es una expectativa que podría verse frustrada por la volatilidad macroeconómica, caídas generalizadas de las bolsas o una aceleración en la bajada de márgenes por comisiones."
+  }
+}

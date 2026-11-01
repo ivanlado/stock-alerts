@@ -1,0 +1,14 @@
+{
+  "ticker": "BIIB",
+  "name": "Biogen Inc.",
+  "generated_at": "2026-11-01T19:18:42.024598+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Biogen Inc. es una empresa biotecnológica global dedicada al descubrimiento, desarrollo y comercialización de terapias para enfermedades neurológicas y neurodegenerativas. Su cartera se centra principalmente en tratamientos para la esclerosis múltiple, la atrofia muscular espinal y la enfermedad de Alzheimer.",
+    "revenue_sources": "Sus mayores ingresos proceden de los fármacos para la esclerosis múltiple (como Tysabri, Tecfidera y Vumerity), que representan cerca de la mitad de las ventas totales. La segunda fuente principal es Spinraza, para la atrofia muscular espinal, que aporta aproximadamente una quinta parte de los ingresos, seguida de los ingresos por colaboraciones y royalties de nuevos lanzamientos como Leqembi.",
+    "moat": "Su foso económico se basa en patentes y activos intangibles derivados de su intensa investigación y desarrollo en neurología. Sin embargo, este foso es moderado y está debilitándose debido al vencimiento de patentes clave y a la creciente penetración de medicamentos genéricos y biosimilares.",
+    "competitors": "Compite directamente con Roche (RHHBY) y Novartis (NVS) en los tratamientos para la esclerosis múltiple y la atrofia muscular espinal. En el mercado emergente del Alzheimer, su principal competidor directo es Eli Lilly (LLY).",
+    "threats": "La mayor amenaza financiera es la rápida pérdida de cuota de mercado de su negocio tradicional de esclerosis múltiple frente a genéricos y biosimilares más baratos. Adicionalmente, afronta riesgos de adopción clínica lenta y barreras de reembolso hospitalario para Leqembi, además del elevado coste de los ensayos clínicos fallidos en neurociencia.",
+    "outlook": "Las previsiones apuntan a un periodo de transición en el que la caída de ventas de fármacos maduros debería compensarse con el crecimiento progresivo de Leqembi y Skyclarys. Existe no obstante el riesgo de que la rampa de ingresos de estos nuevos tratamientos sea más lenta de lo proyectado y retrase la recuperación del crecimiento operativo global."
+  }
+}

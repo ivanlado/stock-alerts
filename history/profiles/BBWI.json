@@ -1,0 +1,14 @@
+{
+  "ticker": "BBWI",
+  "name": "Bath & Body Works, Inc.",
+  "generated_at": "2026-11-01T19:05:59.719217+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Bath & Body Works, Inc. es una empresa minorista especializada en la venta de fragancias para el hogar, productos de cuidado corporal, jabones y desinfectantes. Distribuye sus productos principalmente a través de su red de tiendas físicas en Norteamérica y su plataforma de comercio electrónico.",
+    "revenue_sources": "Sus mayores fuentes de ingresos son las fragancias para el hogar (velas y aromatizadores), que representan alrededor del 40% de las ventas, y los productos de cuidado corporal, con aproximadamente el 35%. La categoría de jabones y desinfectantes de manos aporta cerca del 15% al 20%, mientras que las ventas internacionales y otros conceptos completan el resto.",
+    "moat": "Cuenta con un foso económico estrecho basado en la fortaleza de su marca y en economías de escala derivadas de su cadena de suministro centralizada. Este foso se refuerza con un programa de fidelización de alta recurrencia y lanzamientos estacionales constantes. No obstante, carece de costes de cambio para el cliente, lo que hace vulnerable su posición ante la competencia.",
+    "competitors": "Compite con minoristas especializados en belleza y cosmética como Ulta Beauty (ULTA) y Sephora, filial de LVMH (MC.PA), así como con fabricantes globales como The Estée Lauder Companies (EL). También rivaliza en precios y conveniencia con cadenas de distribución masiva como Target Corporation (TGT) y Walmart Inc. (WMT).",
+    "threats": "Su negocio está expuesto a la reducción del gasto discrecional por presiones inflacionarias, dado que vende artículos no esenciales. También afronta riesgos financieros por la volatilidad en los costes de materias primas e insumos que presionan sus márgenes operativos. Asimismo, existe el riesgo competitivo de no adaptarse con rapidez a las cambiantes preferencias de los consumidores hacia ingredientes naturales o cosmética limpia.",
+    "outlook": "Las expectativas del mercado apuntan a un crecimiento de ingresos plano o moderado a medio plazo, centrado en la optimización de costes y la expansión selectiva fuera de centros comerciales cerrados. La dirección busca sostener la rentabilidad mediante la entrada en nuevas categorías masculinas y acuerdos de franquicia internacional. El mayor riesgo para cumplir este escenario es una recesión económica prolongada que frene el consumo en su mercado principal estadounidense."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "COO",
+  "name": "The Cooper Companies, Inc.",
+  "generated_at": "2026-11-01T19:43:18.781151+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "The Cooper Companies es una empresa de dispositivos médicos especializada en salud visual y salud de la mujer. Opera a través de dos divisiones principales dedicadas a lentes de contacto y a productos para fertilidad y ginecología.",
+    "revenue_sources": "Su principal fuente de ingresos es CooperVision, que genera aproximadamente el 66% del total mediante lentes de contacto esféricas, tóricas y multifocales. El 34% restante proviene de CooperSurgical, orientada a fertilidad, dispositivos de anticoncepción y material quirúrgico ginecológico.",
+    "moat": "Dispone de un foso económico moderado basado en patentes, aprobación regulatoria y costes de cambio derivados de la fidelidad del prescriptor. Los profesionales de la salud visual y reproductiva tienden a ser conservadores a la hora de cambiar de proveedor una vez que conocen el producto.",
+    "competitors": "En el negocio de lentes de contacto compite con Alcon (ALC), Johnson & Johnson (JNJ) y Bausch + Lomb (BLCO). En salud reproductiva y ginecología compite con compañías como Hologic (HOLX).",
+    "threats": "Sus mayores amenazas son la competencia en innovación y precios por parte de rivales con mayores presupuestos de I+D, la presión en márgenes por costes de fabricación y la dependencia de aprobaciones regulatorias continuas para nuevos tratamientos e implantes.",
+    "outlook": "Se espera un crecimiento continuo del negocio respaldado por el aumento global de la miopía y la mayor demanda demográfica de tratamientos de fertilidad. El cumplimiento de estas expectativas dependerá de mantener la innovación en lentes de reemplazo diario y de evitar problemas de integración en sus adquisiciones."
+  }
+}

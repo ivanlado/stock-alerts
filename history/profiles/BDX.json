@@ -1,0 +1,14 @@
+{
+  "ticker": "BDX",
+  "name": "Becton, Dickinson and Company",
+  "generated_at": "2026-11-01T19:11:08.356301+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Becton, Dickinson and Company es una empresa de tecnología médica que fabrica y comercializa suministros médicos, dispositivos de administración de fármacos y sistemas de diagnóstico. Sus productos de uso recurrente se utilizan en hospitales, laboratorios clínicos e industrias farmacéuticas de todo el mundo.",
+    "revenue_sources": "Sus ingresos proceden del segmento BD Medical (aproximadamente el 50%, centrado en jeringas, sistemas de infusión y administración de fármacos), BD Life Sciences (alrededor del 25%, enfocado en diagnósticos integrados e investigación biológica) y BD Interventional (cerca del 25%, centrado en dispositivos vasculares, quirúrgicos y urológicos).",
+    "moat": "Posee un foso económico sólido sustentado en economías de escala y elevados costes de cambio para el cliente. La integración de sus consumibles en equipos instalados y su posición estándar en los protocolos hospitalarios dificultan el reemplazo de sus productos por parte de competidores.",
+    "competitors": "Entre sus principales competidores se encuentran Baxter International (BAX), Abbott Laboratories (ABT), Boston Scientific (BSX), Danaher (DHR) y Medtronic (MDT).",
+    "threats": "Sus mayores amenazas son los fallos regulatorios y retiradas de productos por parte de agencias como la FDA, la presión sobre precios ejercida por centrales de compra hospitalarias y los riesgos de ejecución derivados de adquisiciones e integración tecnológica.",
+    "outlook": "El consenso de mercado espera un crecimiento de ingresos de un dígito simple medio impulsado por la normalización del suministro de sus bombas de infusión y la demanda de automatización de laboratorios. Como riesgos para esta expectativa figuran posibles retrasos regulatorios y restricciones en el gasto de los sistemas sanitarios públicos y privados."
+  }
+}

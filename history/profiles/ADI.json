@@ -1,0 +1,14 @@
+{
+  "ticker": "ADI",
+  "name": "Analog Devices, Inc.",
+  "generated_at": "2026-11-01T18:52:24.276830+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Analog Devices diseña y fabrica circuitos integrados analógicos, de señal mixta y de procesamiento de señales que transforman fenómenos del mundo real en datos digitales. Sus componentes se comercializan a clientes globales de sectores como la industria, la automoción y las telecomunicaciones.",
+    "revenue_sources": "El mercado industrial es su mayor fuente de ingresos y aporta aproximadamente el 50% de las ventas totales, seguido por la automoción con cerca del 24%. Las infraestructuras de comunicaciones representan alrededor del 13% y el sector de consumo aporta el 13% restante.",
+    "moat": "Posee un foso económico sólido fundamentado en elevados costes de cambio y propiedad intelectual. Los clientes integran sus chips en diseños industriales y automotrices con ciclos de vida de hasta diez años, haciendo que reemplazarlos resulte financieramente inviable y técnicamente arriesgado.",
+    "competitors": "Compite directamente con Texas Instruments (TXN), NXP Semiconductors (NXPI) y STMicroelectronics (STM).",
+    "threats": "Destaca la ciclicidad de la demanda de semiconductores, que provoca correcciones bruscas de inventario en sus clientes industriales. Asimismo, la fuerte inversión en capacidad de fabricación de 300 mm por parte de Texas Instruments puede presionar los precios a la baja, sumado a las restricciones geopolíticas de exportación hacia China.",
+    "outlook": "Se espera que la compañía recupere el crecimiento de ventas apoyada en la electrificación del automóvil, la automatización industrial y las redes de centros de datos. Sin embargo, existe el riesgo de que una prolongada debilidad macroeconómica retrase el ciclo de reposición de inventarios en sus clientes clave."
+  }
+}

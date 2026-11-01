@@ -1,0 +1,14 @@
+{
+  "ticker": "BKR",
+  "name": "Baker Hughes Company",
+  "generated_at": "2026-11-01T19:03:29.631152+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Baker Hughes es una empresa que suministra equipos, tecnologías y servicios para la perforación y producción de petróleo y gas, así como turbomaquinaria para instalaciones de gas natural licuado y aplicaciones industriales. También diseña soluciones de control de emisiones y tecnologías para la transición energética.",
+    "revenue_sources": "El negocio se estructura en dos segmentos: Oilfield Services & Equipment, que aporta aproximadamente el 60% de los ingresos mediante servicios y herramientas para pozos, e Industrial & Energy Technology, que genera alrededor del 40% restante mediante turbinas, compresores y tecnología para gas natural y descarbonización.",
+    "moat": "Presenta un foso económico moderado basado en patentes, elevados costes de cambio y escala operativa internacional. Su ventaja es especialmente sólida en el nicho de turbomaquinaria para plantas de gas licuado, donde mantiene una cuota de mercado dominante y contratos de mantenimiento de ciclo de vida prolongado.",
+    "competitors": "Compite directamente con SLB (SLB), Halliburton (HAL), TechnipFMC (FTI) y Weatherford International (WFRD).",
+    "threats": "Sus mayores riesgos son la alta ciclicidad del gasto de capital de las petroleras ligado al precio del crudo y las presiones regulatorias globales asociadas a la transición hacia energías renovables. Asimismo, se expone al riesgo de retrasos en las decisiones finales de inversión de grandes proyectos de infraestructura de gas natural licuado.",
+    "outlook": "Las estimaciones del mercado apuntan a un crecimiento respaldado por el aumento de capacidad global de exportación de gas natural licuado y la modernización de infraestructuras energéticas. Este escenario depende de que se mantenga el gasto de sus clientes, con el riesgo latente de que una desaceleración económica global reduzca la demanda energética y paralice nuevos proyectos."
+  }
+}

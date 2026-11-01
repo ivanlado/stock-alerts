@@ -1,0 +1,14 @@
+{
+  "ticker": "BRO",
+  "name": "Brown & Brown, Inc.",
+  "generated_at": "2026-11-01T19:30:14.027945+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Brown & Brown es una empresa de corretaje que intermedia productos de seguros y servicios de gestión de riesgos para empresas, entidades públicas y particulares. Opera como intermediario comisionista, por lo que no asume el riesgo directo de las pólizas suscritas.",
+    "revenue_sources": "Sus ingresos provienen de comisiones y honorarios divididos en cuatro segmentos: Retail (minorista), que aporta aproximadamente el 55-60%; National Programs (programas especializados), con cerca del 25-30%; Wholesale Brokerage (mayorista), con un 10-15%; y Services (servicios de gestión de siniestros y consultoría), que ronda el 3-5%.",
+    "moat": "Su foso económico es moderado y se apoya en costes de cambio y escala local. La alta inercia del cliente para cambiar de agente de seguros genera tasas de retención superiores al 90%, complementadas por una red consolidada que dificulta la entrada de competidores locales más pequeños.",
+    "competitors": "Sus competidores directos más relevantes en el mercado bursátil son Arthur J. Gallagher & Co. (AJG), Marsh McLennan (MMC), Aon plc (AON) y Willis Towers Watson (WTW).",
+    "threats": "Su negocio está expuesto a la llegada de un ciclo de mercado blando que reduzca los precios de las primas y, consecuentemente, sus comisiones. Asimismo, afronta riesgos de integración o sobreendeudamiento derivados de su agresiva estrategia de adquisición de corredurías locales independientes.",
+    "outlook": "Se espera que continúe expandiendo sus ingresos mediante una combinación de crecimiento orgánico moderado y la compra recurrente de pequeñas agencias regionales. Este escenario favorable es una previsión que podría frustrarse si los tipos de interés encarecen la financiación de su estrategia de adquisiciones o si la actividad empresarial se desacelera."
+  }
+}

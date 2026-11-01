@@ -1,0 +1,14 @@
+{
+  "ticker": "APA",
+  "name": "APA Corporation",
+  "generated_at": "2026-11-01T18:56:34.761455+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "APA Corporation es una compañía energética independiente dedicada a la exploración y producción de petróleo crudo, gas natural y líquidos de gas natural. Sus activos operativos principales se sitúan en Estados Unidos, Egipto y el Mar del Norte británico, además de exploraciones en Surinam.",
+    "revenue_sources": "La mayor parte de su facturación procede de la venta de petróleo crudo, que suele representar entre el 70% y el 80% de los ingresos totales. El resto se genera a través de la comercialización de gas natural y líquidos del gas natural (LGN).",
+    "moat": "No posee un foso económico defendible al operar como un productor de materias primas estandarizadas sin poder de fijación de precios. Su rentabilidad depende enteramente de los ciclos del mercado energético y de su eficiencia de costes respecto al sector.",
+    "competitors": "Compite en exploración y producción con petroleras independientes como Devon Energy (DVN), Diamondback Energy (FANG), EOG Resources (EOG) y Occidental Petroleum (OXY).",
+    "threats": "Las principales amenazas son la alta volatilidad de los precios del petróleo y gas, los cambios fiscales desfavorables en el Mar del Norte y el riesgo geopolítico en Egipto. También afronta el endurecimiento de la regulación ambiental sobre los hidrocarburos.",
+    "outlook": "Las expectativas de crecimiento futuro están muy ligadas al desarrollo comercial de sus descubrimientos offshore en Surinam y a la integración de Callon Petroleum. No obstante, este potencial depende de que los precios internacionales del crudo se mantengan en niveles rentables para justificar sus inversiones de capital."
+  }
+}

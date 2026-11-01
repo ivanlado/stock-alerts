@@ -1,0 +1,14 @@
+{
+  "ticker": "DAL",
+  "name": "Delta Air Lines, Inc.",
+  "generated_at": "2026-11-01T19:46:56.225761+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Delta Air Lines es una aerolínea de red global con sede en Estados Unidos que presta servicios de transporte aéreo de pasajeros y carga. Su modelo operativo conecta rutas domésticas e internacionales mediante un sistema centralizado de centros de conexión o hubs.",
+    "revenue_sources": "El transporte de pasajeros genera en torno al 80-85% de los ingresos totales, desglosado entre billetes de clase turista y productos premium. El resto procede principalmente de su programa de fidelización y la alianza con American Express (aproximadamente un 10-12%), además del transporte de carga aérea y servicios de mantenimiento a terceros.",
+    "moat": "Dispone de un foso económico estrecho basado en el efecto de red de sus rutas y el control de slots en aeropuertos clave de alta congestión. No obstante, este foso es limitado debido a la intensidad de capital de la industria y la sensibilidad de los clientes al precio de los billetes.",
+    "competitors": "Compite directamente con grandes aerolíneas de red como United Airlines Holdings (UAL) y American Airlines Group (AAL), así como con aerolíneas de bajo coste como Southwest Airlines (LUV). En el ámbito internacional compite con operadores como el grupo IAG (IAG) y Air France-KLM (AF).",
+    "threats": "Sus mayores riesgos provienen de la volatilidad en el precio del combustible para aviones y los crecientes costes salariales tras las renovaciones de convenios laborales. Asimismo, es vulnerable a la desaceleración económica que retrae el gasto en viajes y a los retrasos en las entregas de aeronaves por parte de los fabricantes.",
+    "outlook": "Se prevé que la compañía sostenga un crecimiento moderado de ingresos apoyado en la mayor demanda de cabinas premium y la solidez de sus acuerdos comerciales con tarjetas de crédito. Sin embargo, existe la expectativa de que presiones inflacionarias y una potencial contracción del gasto discrecional puedan reducir los márgenes operativos proyectados."
+  }
+}

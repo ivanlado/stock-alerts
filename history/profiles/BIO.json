@@ -1,0 +1,14 @@
+{
+  "ticker": "BIO",
+  "name": "Bio-Rad Laboratories, Inc.",
+  "generated_at": "2026-11-01T19:12:37.341693+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Bio-Rad Laboratories desarrolla, fabrica y comercializa instrumental, reactivos y software utilizados en la investigación de ciencias de la vida y el diagnóstico clínico. Sus productos son empleados principalmente por hospitales, laboratorios de referencia, universidades y empresas farmacéuticas de todo el mundo.",
+    "revenue_sources": "Sus ingresos se dividen en dos segmentos: Diagnóstico Clínico, que representa en torno al 55% y 60% del total, y Ciencias de la Vida, que aporta aproximadamente entre el 40% y 45%. Una gran proporción de estas ventas proviene de consumibles y reactivos de carácter recurrente vinculados a su base de equipos instalados.",
+    "moat": "Su foso económico es moderado y se sustenta en los costes de cambio y la protección por patentes. Reemplazar sus plataformas analíticas en entornos clínicos y de investigación implica elevados costes de recertificación regulatoria y adaptación de flujos de trabajo validados.",
+    "competitors": "Compite con grandes empresas del sector de herramientas científicas y diagnósticos como Thermo Fisher Scientific (TMO), Danaher Corporation (DHR), Agilent Technologies (A) y Abbott Laboratories (ABT).",
+    "threats": "Entre sus mayores riesgos figuran la contracción del gasto en I+D de biotecnología y entidades académicas, la intensa competencia frente a rivales de mayor escala y la volatilidad contable que le genera su importante participación accionarial en Sartorius AG.",
+    "outlook": "Se prevé una estabilización de la demanda hacia un crecimiento orgánico moderado impulsado por el consumo de reactivos diagnósticos y la normalización del gasto biofarmacéutico. El cumplimiento de esta expectativa dependerá de la recuperación en los presupuestos globales de investigación y de que se disipe la cautela en el gasto de capital de los laboratorios."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "EOG",
+  "name": "EOG Resources, Inc.",
+  "generated_at": "2026-11-01T19:50:46.616937+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "EOG Resources es una compañía estadounidense dedicada a la exploración y producción de petróleo crudo, gas natural y líquidos del gas natural. Sus operaciones se concentran principalmente en las cuencas terrestres no convencionales de Estados Unidos, como la Cuenca Pérmica y Eagle Ford.",
+    "revenue_sources": "La mayor parte de su facturación proviene de la venta de petróleo crudo y condensados, que suele representar entre el 75% y el 80% de los ingresos totales. El resto se divide entre los líquidos del gas natural, que aportan cerca del 10% al 12%, y el gas natural seco, que supone alrededor del 10% restante.",
+    "moat": "Cuenta con un foso económico estrecho basado en ventajas de costes, sostenido por una alta eficiencia operativa y una extensa cartera de pozos de bajo coste de extracción. Sin embargo, al comercializar materias primas homogéneas carece de poder de fijación de precios, lo que limita la solidez estructural de dicha ventaja.",
+    "competitors": "Sus principales competidores en el segmento de exploración y producción estadounidense son ConocoPhillips (COP), Devon Energy (DVN), Diamondback Energy (FANG) y Occidental Petroleum (OXY).",
+    "threats": "Afronta como principal amenaza la volatilidad inherente a las cotizaciones internacionales del petróleo y el gas natural. Asimismo, encara presiones regulatorias crecientes vinculadas a restricciones medioambientales sobre la fracturación hidráulica y el riesgo de agotamiento progresivo de sus zonas de perforación más rentables.",
+    "outlook": "Se espera que continúe priorizando la disciplina de capital, la moderación del crecimiento de la producción y la retribución al accionista mediante dividendos y recompras de acciones. Esta perspectiva depende directamente de que los precios de los hidrocarburos se sostengan en niveles favorables y de que no se produzca una contracción severa de la demanda energética mundial."
+  }
+}

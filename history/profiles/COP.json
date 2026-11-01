@@ -1,0 +1,14 @@
+{
+  "ticker": "COP",
+  "name": "ConocoPhillips",
+  "generated_at": "2026-11-01T19:40:34.614293+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "ConocoPhillips es una compañía independiente dedicada a la exploración y producción de hidrocarburos a nivel global. Su negocio se enfoca exclusivamente en el segmento 'upstream', localizando, extrayendo y comercializando petróleo crudo, betún, gas natural y líquidos del gas natural.",
+    "revenue_sources": "La venta de petróleo crudo es su mayor fuente de ingresos, representando habitualmente más del 75% del total de las ventas. El resto procede de la comercialización de gas natural (en torno al 10-15%) y de líquidos del gas natural (NGL), junto con ingresos residuales por transporte y optimización de suministros.",
+    "moat": "Posee un foso económico moderado basado en economías de escala y en una cartera de activos con costes de suministro muy bajos, particularmente en la Cuenca Pérmica y Alaska. Sin embargo, la fortaleza del foso es limitada porque comercializa materias primas indiferenciadas cuyos precios fija el mercado internacional.",
+    "competitors": "Compite directamente con otras firmas independientes de exploración y producción como EOG Resources (EOG), Occidental Petroleum (OXY) y Devon Energy (DVN). También compite por activos y recursos con grandes petroleras integradas como ExxonMobil (XOM) y Chevron (CVX).",
+    "threats": "Afronta una alta vulnerabilidad ante caídas en los precios del petróleo y del gas, que merman de inmediato sus márgenes y flujo de caja. Adicionalmente, enfrenta presiones regulatorias por objetivos de descarbonización, riesgos de transición energética que amenazan la demanda futura y la inflación de costes en servicios de perforación.",
+    "outlook": "Se prevé que la empresa continúe expandiendo moderadamente su producción mediante la integración de adquisiciones y proyectos de gas natural licuado, manteniendo el foco en la disciplina de capital y el retorno al accionista. No obstante, el cumplimiento de estas expectativas dependerá directamente de la fortaleza de la demanda global de energía y de la estabilidad geopolítica en las regiones productoras."
+  }
+}

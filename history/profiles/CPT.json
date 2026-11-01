@@ -1,0 +1,14 @@
+{
+  "ticker": "CPT",
+  "name": "Camden Property Trust",
+  "generated_at": "2026-11-01T19:36:43.181825+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Camden Property Trust es un fondo de inversión inmobiliaria (REIT) centrado en la adquisición, desarrollo y gestión de comunidades de apartamentos residenciales en Estados Unidos. Su cartera se concentra predominantemente en mercados con crecimiento demográfico, principalmente en la región del Sunbelt.",
+    "revenue_sources": "La mayor parte de su facturación, que supera habitualmente el 90% del total, proviene del cobro de rentas por alquiler residencial. El porcentaje restante procede de otros ingresos auxiliares de la propiedad, como reembolsos de suministros, tarifas de estacionamiento y cargos por servicios a inquilinos.",
+    "moat": "Carece de un foso económico sólido o este es muy estrecho, limitándose a ciertas ventajas de escala operativa y ubicaciones favorables. Las barreras de entrada en el sector residencial multifamiliar son moderadas y los inquilinos tienen costes de cambio prácticamente nulos al vencimiento de sus contratos.",
+    "competitors": "Sus competidores directos más relevantes son Mid-America Apartment Communities (MAA), AvalonBay Communities (AVB), Equity Residential (EQR) y UDR, Inc. (UDR).",
+    "threats": "La principal amenaza competitiva es el exceso de oferta derivado del volumen récord de nuevas promociones de apartamentos en sus zonas clave, lo que reduce su capacidad para elevar rentas. En el ámbito financiero, unos tipos de interés altos encarecen su refinanciación y deprimen las valoraciones de los inmuebles, sumado a presiones de costes en seguros locales e impuestos.",
+    "outlook": "Se espera que el negocio mantenga un crecimiento moderado impulsado a largo plazo por el crecimiento demográfico en el Sunbelt. Sin embargo, existe la expectativa de que el crecimiento de ingresos por alquiler siga contenido a corto plazo mientras se absorbe la nueva oferta de vivienda. Una recesión que frene la creación de empleo en sus ciudades objetivo representa el mayor riesgo para cumplir este escenario."
+  }
+}
