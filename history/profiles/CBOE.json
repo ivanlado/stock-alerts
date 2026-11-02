@@ -1,0 +1,14 @@
+{
+  "ticker": "CBOE",
+  "name": "Cboe Global Markets, Inc.",
+  "generated_at": "2026-11-02T22:36:35.046217+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Cboe Global Markets es un operador de bolsas y mercados financieros globales especializado en la negociación de opciones, acciones, futuros y divisas. Proporciona infraestructura de mercado, servicios de compensación y herramientas de datos a inversores institucionales y minoristas.",
+    "revenue_sources": "Su principal fuente de ingresos es la negociación y compensación de opciones, que genera en torno al 60% de sus ingresos netos. La negociación de renta variable norteamericana y europea aporta aproximadamente un 15-20%, mientras que los servicios de datos de mercado y conectividad representan cerca del 15%.",
+    "moat": "Posee un foso económico muy sólido basado en derechos de propiedad intelectual exclusivos (como las licencias sobre el índice S&P 500 y el VIX) y en efectos de red. La gran liquidez acumulada en sus libros de órdenes atrae a más participantes, dificultando que los competidores repliquen sus mercados de referencia.",
+    "competitors": "Sus mayores competidores en derivados, acciones y datos de mercado son CME Group (CME), Intercontinental Exchange (ICE) y Nasdaq (NDAQ).",
+    "threats": "Sus principales riesgos son de tipo regulatorio, especialmente respecto a posibles límites a las opciones de vencimiento intradía (0DTE), y la competencia de plataformas electrónicas privadas. Asimismo, una caída prolongada de la volatilidad en los mercados financieros reduciría sustancialmente sus volúmenes de negociación.",
+    "outlook": "Se espera que continúe creciendo a ritmo moderado gracias a la popularización de las opciones y al aumento de sus ingresos recurrentes por datos propietarios. Sin embargo, este crecimiento es una expectativa que dependerá de mantener la actividad transaccional y de conservar las licencias clave de sus índices exclusivos."
+  }
+}

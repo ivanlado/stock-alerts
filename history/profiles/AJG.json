@@ -1,0 +1,14 @@
+{
+  "ticker": "AJG",
+  "name": "Arthur J. Gallagher & Co.",
+  "generated_at": "2026-11-02T22:31:58.171447+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Arthur J. Gallagher & Co. es una compañía global de servicios de correduría de seguros y gestión de riesgos. Actúa como intermediaria entre empresas y aseguradoras comerciales, además de prestar servicios de consultoría de beneficios para empleados.",
+    "revenue_sources": "Su principal fuente de ingresos es el segmento de correduría (brokerage), que genera en torno al 85% de la facturación mediante comisiones y honorarios. El 15% restante procede de su división de gestión de riesgos, centrada en la administración de siniestros para terceros.",
+    "moat": "Su foso económico es moderado y se apoya en costes de cambio y escala. La complejidad de transferir programas corporativos de seguros propicia tasas de retención de clientes superiores al 90%, reforzadas por su amplia red de distribución global.",
+    "competitors": "Compite principalmente con otros grandes intermediarios del sector asegurador como Marsh McLennan (MMC), Aon (AON), Willis Towers Watson (WTW) y Brown & Brown (BRO).",
+    "threats": "Sus mayores amenazas son la ralentización del mercado asegurador hacia una etapa de primas más bajas, lo que reduce directamente sus comisiones, y los riesgos de integración derivados de su intensiva estrategia de compras de empresas. Asimismo, un endurecimiento regulatorio sobre las comisiones de intermediación podría comprimir sus márgenes.",
+    "outlook": "Se espera que continúe creciendo a tasas de un dígito medio de forma orgánica, impulsado además por adquisiciones complementarias de corredurías locales más pequeñas. Este escenario esperado podría frustrarse si un entorno prolongado de tipos altos encarece la deuda usada para compras o si una recesión reduce las coberturas contratadas por sus clientes."
+  }
+}

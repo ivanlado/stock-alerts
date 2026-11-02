@@ -1,0 +1,14 @@
+{
+  "ticker": "EW",
+  "name": "Edwards Lifesciences Corporatio",
+  "generated_at": "2026-11-02T22:47:03.784019+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Edwards Lifesciences diseña y fabrica dispositivos médicos especializados en el tratamiento de cardiopatías estructurales. Su negocio principal es el desarrollo de válvulas cardíacas transcatéter para sustituir o reparar válvulas sin necesidad de cirugía a corazón abierto.",
+    "revenue_sources": "Su principal vía de ingresos es el reemplazo valvular aórtico transcatéter (TAVR), que aporta aproximadamente el 75% del total tras la venta de su división de cuidados críticos. El resto procede de las válvulas para cirugía tradicional (en torno al 15%) y de las terapias para las válvulas mitral y tricúspide (TMTT, alrededor del 10%).",
+    "moat": "Cuenta con un foso económico sólido basado en patentes, elevados costes de cambio derivados del largo entrenamiento técnico que requieren los cirujanos y altas barreras regulatorias para aprobar implantes cardíacos. Esta combinación le ha permitido proteger sus márgenes y retener una elevada cuota de mercado.",
+    "competitors": "Sus competidores directos en cardiología estructural son Medtronic (MDT), Boston Scientific (BSX) y Abbott Laboratories (ABT).",
+    "threats": "Afronta una mayor presión competitiva y de precios en su segmento estrella TAVR frente a Medtronic y Boston Scientific, además de una posible ralentización en el volumen de procedimientos. También depende estrechamente de las aprobaciones regulatorias y de las políticas de reembolso de los sistemas sanitarios.",
+    "outlook": "Se prevé que el negocio crezca a tasas de un solo dígito alto gracias a la expansión internacional y a la maduración de las terapias mitral y tricúspide. Esta expectativa podría frustrarse si el mercado de TAVR se satura antes de lo esperado o si los nuevos dispositivos sufren retrasos clínicos o regulatorios."
+  }
+}
