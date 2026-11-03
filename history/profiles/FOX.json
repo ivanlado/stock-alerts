@@ -1,0 +1,14 @@
+{
+  "ticker": "FOX",
+  "name": "Fox Corporation",
+  "generated_at": "2026-11-03T20:34:15.285882+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Fox Corporation es una empresa de medios de comunicación que produce y distribuye contenidos informativos, deportivos y de entretenimiento a través de televisión en abierto, cable y plataformas digitales. Sus activos más destacados incluyen Fox News Media, Fox Sports, la cadena de televisión en abierto FOX y el servicio de streaming con publicidad Tubi.",
+    "revenue_sources": "Sus ingresos provienen principalmente de las tarifas de distribución o afiliación cobradas a operadores de cable y televisión de pago, que representan aproximadamente el 50% del total. La venta de publicidad aporta en torno al 40% o 45% de la facturación, mientras que el porcentaje restante corresponde a licencias de contenidos y otros servicios auxiliares.",
+    "moat": "Posee un foso económico moderado o estrecho basado en el valor de marca y el arraigo de su audiencia en noticias en directo (Fox News) y eventos deportivos en vivo (Fox Sports). No obstante, este foso se ve presionado por no contar con costes de cambio significativos para el consumidor final frente al abandono del cable tradicional.",
+    "competitors": "Sus principales competidores incluyen a The Walt Disney Company (DIS), Comcast Corporation (CMCSA), Warner Bros. Discovery (WBD) y Paramount Global (PARA).",
+    "threats": "Su mayor riesgo es el abandono continuado de la televisión por suscripción tradicional (cord-cutting), lo que reduce sus ingresos por afiliación y audiencia publicitaria. También afronta la creciente inflación en los costes de derechos deportivos y riesgos legales vinculados a litigios por difamación en sus emisiones informativas.",
+    "outlook": "Se espera que la compañía mantenga una generación de caja estable respaldada por la resiliencia de Fox News, los eventos deportivos y el crecimiento publicitario en Tubi. Sin embargo, existe la expectativa de un estancamiento o desaceleración si el declive de la televisión de pago se acelera más rápido de lo que el negocio digital puede absorber."
+  }
+}

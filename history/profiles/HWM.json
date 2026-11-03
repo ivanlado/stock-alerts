@@ -1,0 +1,14 @@
+{
+  "ticker": "HWM",
+  "name": "Howmet Aerospace Inc.",
+  "generated_at": "2026-11-03T20:36:20.520762+00:00",
+  "model": "default",
+  "sections": {
+    "summary": "Howmet Aerospace fabrica componentes avanzados de ingeniería de titanio, níquel y aluminio, especializados en piezas para motores a reacción, fijaciones y estructuras aeroespaciales. La empresa suministra elementos críticos a los sectores aeroespacial comercial, de defensa y de transporte pesado.",
+    "revenue_sources": "Su principal fuente de ingresos es la división de Productos para Motores (Engine Products), que aporta aproximadamente el 50% de las ventas. Las fijaciones aeroespaciales (Fastening Systems) generan en torno al 20-25%, seguidas de las Ruedas Forjadas para camiones comerciales (~15%) y las Estructuras de Ingeniería (~15%).",
+    "moat": "Dispone de un foso económico amplio y sólido basado en patentes, propiedad intelectual de aleaciones complejas y elevadísimos costes de cambio. Las estrictas certificaciones regulatorias de seguridad aérea hacen que reemplazar sus componentes sea extremadamente costoso y arriesgado para los fabricantes de aviones.",
+    "competitors": "Sus competidores más directos cotizados son ATI Inc. (ATI), Woodward Inc. (WWD) y Hexcel Corporation (HXL). También compite fuertemente con Precision Castparts Corp., empresa no cotizada perteneciente a Berkshire Hathaway.",
+    "threats": "Sus mayores amenazas son los retrasos y problemas de producción en sus principales clientes, Airbus y Boeing, así como la volatilidad en el precio y suministro de materias primas como el titanio. Además, el negocio de ruedas de camión expone a la compañía a la ciclicidad macroeconómica del transporte terrestre.",
+    "outlook": "Se espera que la empresa mantenga una senda de crecimiento respaldada por el aumento en las cadencias de fabricación de aviones comerciales y la solidez del gasto en defensa. Este escenario favorable es una expectativa y podría truncarse si persisten los cuellos de botella en la cadena de suministro o si se deteriora la demanda global de viajes."
+  }
+}
