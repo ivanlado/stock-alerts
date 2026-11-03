@@ -1,0 +1,14 @@
+{
+  "ticker": "LRCX",
+  "name": "Lam Research Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Lam Research fabrica equipos para producir semiconductores, especializados en grabado y deposición de capas, pasos clave en la fabricación de chips de memoria y lógica.",
+    "revenue_sources": "La venta de sistemas aporta cerca de dos tercios de los ingresos, con fuerte peso de fabricantes de memoria. El grupo de soporte al cliente (servicios, repuestos, mejoras) aporta el resto.",
+    "moat": "Foso amplio: lidera el grabado de capas para memoria 3D NAND y chips avanzados, con tecnología muy difícil de igualar y una gran base instalada.",
+    "competitors": "Applied Materials (AMAT), Tokyo Electron (8035.T) y KLA (KLAC) en inspección.",
+    "threats": "Ciclo de inversión de los fabricantes de memoria, restricciones de exportación a China y concentración de clientes.",
+    "outlook": "Se espera crecimiento por la memoria de alto ancho de banda para IA y la transición a nuevas arquitecturas de chips. Un frenazo en la inversión en memoria o en China sería el principal riesgo."
+  }
+}

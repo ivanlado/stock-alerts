@@ -1,0 +1,14 @@
+{
+  "ticker": "FFIV",
+  "name": "F5, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "F5 vende tecnología para entregar y proteger aplicaciones: balanceadores de carga, cortafuegos de aplicaciones web y protección de API, en hardware, software y nube.",
+    "revenue_sources": "Algo más de la mitad son servicios de mantenimiento recurrentes. El resto son productos: sistemas físicos y, cada vez más, software y suscripciones.",
+    "moat": "Foso estrecho por su base instalada en grandes empresas y operadores y por los costes de cambio de su tecnología integrada en aplicaciones críticas.",
+    "competitors": "Cloudflare (NET), Akamai (AKAM), Citrix/NetScaler, Imperva (Thales) y los servicios nativos de AWS, Azure y Google Cloud.",
+    "threats": "El paso a la nube puede reducir la demanda de sus equipos físicos y los servicios nativos de las nubes compiten con ella.",
+    "outlook": "Se espera crecimiento bajo a medio apoyado en seguridad de aplicaciones y renovación de equipos. Una migración más rápida a servicios nativos de nube limitaría sus ventas."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "FDS",
+  "name": "FactSet Research Systems Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "FactSet vende datos financieros, análisis y software a gestores de activos, bancos de inversión y asesores.",
+    "revenue_sources": "Casi todos los ingresos son suscripciones. Las mayores categorías de clientes son gestores de activos (buy-side) y bancos (sell-side), seguidos de patrimonio y corporaciones.",
+    "moat": "Foso estrecho a amplio por costes de cambio: sus datos y herramientas se integran en flujos de trabajo de analistas.",
+    "competitors": "Bloomberg, LSEG/Refinitiv (LSEG), S&P Global (SPGI) y Morningstar (MORN).",
+    "threats": "Recortes de personal en la industria financiera, competencia de la IA y presión en precios.",
+    "outlook": "Se espera crecimiento de un dígito medio con inversión en IA. Recortes de presupuesto en sus clientes lo frenarían."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "MLM",
+  "name": "Martin Marietta Materials, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Martin Marietta produce áridos (piedra, grava, arena), cemento y otros materiales de construcción en Estados Unidos.",
+    "revenue_sources": "Los áridos aportan la gran mayoría de los ingresos y del beneficio. Cemento, hormigón y especialidades (magnesia) aportan el resto.",
+    "moat": "Foso amplio: las canteras cercanas a las ciudades son muy difíciles de conseguir por permisos y el coste de transporte hace que la competencia sea local.",
+    "competitors": "Vulcan Materials (VMC), CRH (CRH), Heidelberg Materials (HEI) y Knife River (KNF).",
+    "threats": "Ciclo de la construcción, dependencia del gasto público en infraestructuras y volúmenes débiles en residencial.",
+    "outlook": "Se espera crecimiento de beneficio por subidas de precio y gasto en infraestructuras y centros de datos, aunque con volúmenes moderados. Una caída de la construcción frenaría los volúmenes."
+  }
+}

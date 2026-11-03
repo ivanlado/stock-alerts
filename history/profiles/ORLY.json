@@ -1,0 +1,14 @@
+{
+  "ticker": "ORLY",
+  "name": "O'Reilly Automotive, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "O'Reilly es uno de los mayores minoristas de recambios y accesorios de automóvil de Estados Unidos, con tiendas también en México y Canadá.",
+    "revenue_sources": "Sus ventas se reparten de forma bastante equilibrada entre particulares que reparan su coche y talleres profesionales.",
+    "moat": "Foso amplio por su red de tiendas y almacenes, que garantiza disponibilidad rápida de piezas, y por su fortaleza con clientes profesionales.",
+    "competitors": "AutoZone (AZO), Advance Auto Parts (AAP), Genuine Parts/NAPA (GPC) y Amazon (AMZN).",
+    "threats": "El coche eléctrico necesita menos mantenimiento a largo plazo, y le afectan la inflación de salarios y su deuda para recompras.",
+    "outlook": "Se espera crecimiento estable por el envejecimiento del parque de vehículos y ganancias de cuota con talleres. La electrificación es un riesgo de largo plazo."
+  }
+}

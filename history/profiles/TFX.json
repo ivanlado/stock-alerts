@@ -1,0 +1,14 @@
+{
+  "ticker": "TFX",
+  "name": "Teleflex Incorporated",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Teleflex fabrica dispositivos médicos para cuidados críticos, cirugía, urología y anestesia. Ha planteado separar parte de su negocio.",
+    "revenue_sources": "Acceso vascular, intervencionismo, anestesia, cirugía y urología (UroLift) son sus principales líneas.",
+    "moat": "Foso estrecho por productos especializados y relación con hospitales.",
+    "competitors": "Becton Dickinson (BDX), Medtronic (MDT), Boston Scientific (BSX) y B. Braun.",
+    "threats": "Debilidad de UroLift, presión de precios y riesgo de ejecución en la separación.",
+    "outlook": "Se espera crecimiento bajo mientras reorganiza su cartera."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "CHD",
+  "name": "Church & Dwight Company, Inc.",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Church & Dwight vende productos de consumo y cuidado personal con marcas como Arm & Hammer, OxiClean, Trojan, Batiste y TheraBreath.",
+    "revenue_sources": "Consumo en EE. UU. aporta la mayor parte de las ventas, seguido de internacional y productos especiales (nutrición animal).",
+    "moat": "Foso estrecho por marcas líderes en nichos y gestión eficiente de cartera.",
+    "competitors": "Procter & Gamble (PG), Clorox (CLX), Colgate-Palmolive (CL), Unilever (ULVR) y marcas blancas.",
+    "threats": "Competencia de marcas blancas, costes de materias primas y debilidad de algunas marcas adquiridas.",
+    "outlook": "Se espera crecimiento orgánico de un dígito bajo a medio, con desinversión de marcas débiles. Un consumo más sensible al precio presionaría márgenes."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "NKE",
+  "name": "Nike, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Nike diseña y vende calzado, ropa y equipamiento deportivo, con marcas como Nike, Jordan y Converse.",
+    "revenue_sources": "El calzado aporta cerca de dos tercios de los ingresos, la ropa la mayor parte del resto. Norteamérica es su mayor mercado, seguida de Europa, China y otros.",
+    "moat": "Foso amplio por su marca global y el patrocinio de atletas, aunque la marca ha perdido algo de tracción frente a nuevos competidores.",
+    "competitors": "Adidas (ADS), On Holding (ONON), Deckers/Hoka (DECK), Puma (PUM), New Balance y Lululemon (LULU).",
+    "threats": "Pérdida de cuota frente a marcas emergentes, aranceles sobre su producción en Asia, debilidad en China y exceso de inventario.",
+    "outlook": "Se espera un año de transición con márgenes presionados mientras reconstruye su relación con los minoristas y su innovación. La recuperación depende de que vuelvan a funcionar sus nuevos productos."
+  }
+}

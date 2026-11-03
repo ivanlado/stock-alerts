@@ -1,0 +1,14 @@
+{
+  "ticker": "QRVO",
+  "name": "Qorvo, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Qorvo diseña chips de radiofrecuencia para móviles, infraestructura, defensa y automoción. Ha acordado fusionarse con Skyworks.",
+    "revenue_sources": "Móviles (radiofrecuencia para smartphones, con Apple como mayor cliente) aporta más de la mitad. Infraestructura, defensa y conectividad aportan el resto.",
+    "moat": "Foso estrecho por tecnología de filtros y radiofrecuencia, aunque con mucha competencia.",
+    "competitors": "Skyworks (SWKS), Broadcom (AVGO), Qualcomm (QCOM) y Murata (6981.T).",
+    "threats": "Dependencia de Apple, que reduce contenido de terceros, competencia china y riesgo de la fusión.",
+    "outlook": "Se espera que la fusión con Skyworks genere ahorros. Perder contenido en iPhone sería el principal riesgo."
+  }
+}

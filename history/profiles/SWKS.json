@@ -1,0 +1,14 @@
+{
+  "ticker": "SWKS",
+  "name": "Skyworks Solutions, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Skyworks diseña chips de radiofrecuencia para móviles, automoción, industria e infraestructura. Ha acordado fusionarse con Qorvo.",
+    "revenue_sources": "Móviles aporta la mayor parte de los ingresos, con Apple como mayor cliente. Mercados de banda ancha, automoción e industria aportan el resto.",
+    "moat": "Foso estrecho por tecnología de radiofrecuencia, aunque con dependencia de pocos clientes.",
+    "competitors": "Qorvo (QRVO), Broadcom (AVGO), Qualcomm (QCOM) y Murata (6981.T).",
+    "threats": "Pérdida de contenido en iPhone, competencia china y riesgo de la fusión.",
+    "outlook": "Se espera que la fusión con Qorvo genere ahorros y diversificación. Reducir dependencia de Apple es su reto."
+  }
+}

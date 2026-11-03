@@ -1,0 +1,14 @@
+{
+  "ticker": "HCA",
+  "name": "HCA Healthcare, Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "HCA Healthcare es el mayor operador de hospitales con ánimo de lucro de Estados Unidos, con cerca de 190 hospitales y miles de centros ambulatorios.",
+    "revenue_sources": "Servicios hospitalarios y ambulatorios aportan casi todos los ingresos, pagados por aseguradoras privadas, Medicare y Medicaid.",
+    "moat": "Foso estrecho por escala y densidad en mercados locales en crecimiento como Florida y Texas.",
+    "competitors": "Tenet (THC), Community Health Systems (CYH), Universal Health Services (UHS) y sistemas hospitalarios sin ánimo de lucro.",
+    "threats": "Recortes en Medicaid y en las ayudas de seguros públicos, costes de personal y regulación.",
+    "outlook": "Se espera crecimiento estable de volúmenes y beneficio. Los cambios en Medicaid y en los subsidios de la ley sanitaria son el riesgo clave."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "EXPD",
+  "name": "Expeditors International of Washington",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Expeditors es una empresa de logística que organiza transporte aéreo y marítimo de mercancías, despacho de aduanas y almacenaje sin ser dueña de aviones ni barcos.",
+    "revenue_sources": "Transporte aéreo y marítimo aportan la mayor parte de los ingresos, seguidos de servicios de aduanas y otros.",
+    "moat": "Foso estrecho por su red global, cultura y sistemas propios, en un sector competitivo.",
+    "competitors": "DSV (DSV), Kuehne+Nagel (KNIN), C.H. Robinson (CHRW), DHL (DHL) y UPS (UPS).",
+    "threats": "Volatilidad de las tarifas de flete, aranceles y caída del comercio mundial.",
+    "outlook": "Se espera actividad volátil ligada al comercio y los aranceles, con negocio de aduanas favorecido por la complejidad arancelaria. Una caída del comercio global sería el riesgo."
+  }
+}

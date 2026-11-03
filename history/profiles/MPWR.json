@@ -1,0 +1,14 @@
+{
+  "ticker": "MPWR",
+  "name": "Monolithic Power Systems, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Monolithic Power diseña chips de gestión de energía de alto rendimiento para servidores de IA, automoción, industria y consumo.",
+    "revenue_sources": "Computación y almacenamiento (incluidos servidores de IA) y empresas son su mayor segmento. Automoción, industria, comunicaciones y consumo aportan el resto.",
+    "moat": "Foso estrecho a amplio por su tecnología de proceso propia, que da chips más pequeños y eficientes, y por su rapidez en desarrollar productos.",
+    "competitors": "Infineon (IFX), Texas Instruments (TXN), Renesas (6723.T), Analog Devices (ADI) y Vicor (VICR).",
+    "threats": "Concentración en clientes de IA como NVIDIA, pérdida de diseños en nuevas generaciones de GPU y valoración exigente.",
+    "outlook": "Se espera crecimiento fuerte por servidores de IA y automoción. Perder cuota en plataformas de IA sería el principal riesgo."
+  }
+}

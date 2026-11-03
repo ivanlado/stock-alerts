@@ -1,0 +1,14 @@
+{
+  "ticker": "CVX",
+  "name": "Chevron Corporation",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Chevron es una de las mayores petroleras integradas del mundo: explora y produce petróleo y gas, y refina y vende combustibles y productos químicos.",
+    "revenue_sources": "La producción (upstream) genera la mayor parte del beneficio, con el Pérmico, Kazajistán, Australia (GNL) y, tras comprar Hess, Guyana. El refino y la venta de combustibles (downstream) aportan el resto.",
+    "moat": "Foso estrecho por escala, activos de bajo coste y balance sólido, aunque vende materias primas a precio de mercado.",
+    "competitors": "ExxonMobil (XOM), Shell (SHEL), BP (BP), TotalEnergies (TTE) y ConocoPhillips (COP).",
+    "threats": "Precio del crudo, riesgo de ejecución de proyectos, transición energética y litigios climáticos.",
+    "outlook": "Se espera crecimiento de producción por Guyana y el Pérmico, y alta remuneración al accionista. Una caída del petróleo reduciría el beneficio."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "WST",
+  "name": "West Pharmaceutical Services, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "West Pharmaceutical fabrica componentes para inyectables: tapones, émbolos y sistemas de administración de medicamentos para farmacéuticas.",
+    "revenue_sources": "Productos de envasado farmacéutico proprietario (tapones de alta gama) aportan la mayor parte de los ingresos; la fabricación por contrato el resto.",
+    "moat": "Foso amplio: sus componentes están validados en los registros de los medicamentos y cambiarlos exige nueva aprobación regulatoria.",
+    "competitors": "Aptar (ATR), Datwyler (DAE), Stevanato (STVN) y BD (BDX).",
+    "threats": "Ajustes de inventario de clientes tras la pandemia y dependencia de pocos grandes fármacos como los GLP-1.",
+    "outlook": "Se espera recuperación con la demanda de inyectables para obesidad y biológicos."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "WYNN",
+  "name": "Wynn Resorts, Limited",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Wynn Resorts opera casinos y resorts de lujo en Las Vegas, Macao y Boston, y desarrolla un complejo en Emiratos Árabes Unidos.",
+    "revenue_sources": "Macao aporta en torno a la mitad de los ingresos, seguido de Las Vegas y Encore Boston Harbor.",
+    "moat": "Foso estrecho por licencias de juego escasas en Macao y la calidad de sus resorts de lujo.",
+    "competitors": "Las Vegas Sands (LVS), MGM Resorts (MGM), Galaxy Entertainment (0027.HK) y Caesars (CZR).",
+    "threats": "Dependencia de la economía y la política china en Macao, deuda elevada y riesgo de ejecución en Emiratos.",
+    "outlook": "Se espera crecimiento ligado a la recuperación de Macao y la apertura de su resort en Emiratos. Una economía china débil limitaría la parte de Macao."
+  }
+}

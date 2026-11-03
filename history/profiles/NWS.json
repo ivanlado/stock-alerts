@@ -1,0 +1,14 @@
+{
+  "ticker": "NWS",
+  "name": "News Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "News Corp es un grupo de medios con The Wall Street Journal, Dow Jones, The Times, The Sun, la editorial HarperCollins y el portal inmobiliario REA Group en Australia.",
+    "revenue_sources": "Dow Jones (noticias, datos y riesgo profesionales) y servicios inmobiliarios digitales (REA, Realtor.com) son los mayores motores de beneficio. Publicación de libros y noticias generalistas aportan el resto.",
+    "moat": "Foso estrecho por marcas de prestigio, la información profesional de Dow Jones y el liderazgo de REA en Australia.",
+    "competitors": "New York Times (NYT), Bloomberg, Thomson Reuters (TRI), Zillow (Z) y CoStar (CSGP).",
+    "threats": "Declive de la prensa escrita, uso de su contenido por la IA y ciclo inmobiliario.",
+    "outlook": "Se espera crecimiento moderado impulsado por Dow Jones y REA, más acuerdos de licencia de contenido para IA. (NWS son las acciones clase B, con voto; NWSA, las clase A sin voto.)"
+  }
+}

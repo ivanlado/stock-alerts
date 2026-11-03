@@ -1,0 +1,14 @@
+{
+  "ticker": "ZBRA",
+  "name": "Zebra Technologies Corporation",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Zebra fabrica ordenadores móviles, lectores de códigos de barras, impresoras de etiquetas, RFID y visión artificial para almacenes, comercio, sanidad y fabricación.",
+    "revenue_sources": "Soluciones de productividad conectada (ordenadores móviles, servicios) es su mayor segmento. Visibilidad de activos (impresoras, consumibles, RFID) aporta el resto.",
+    "moat": "Foso estrecho por liderazgo en dispositivos empresariales robustos y un ecosistema de software y socios.",
+    "competitors": "Honeywell (HON), Datalogic (DAL.MI), Cognex (CGNX) y SATO.",
+    "threats": "Ciclo de inversión de minoristas y logística, aranceles sobre su producción en Asia y competencia de móviles de consumo.",
+    "outlook": "Se espera recuperación de ventas por la renovación de dispositivos y la automatización. Un gasto débil de los minoristas retrasaría el ciclo."
+  }
+}

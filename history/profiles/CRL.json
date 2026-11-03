@@ -1,0 +1,14 @@
+{
+  "ticker": "CRL",
+  "name": "Charles River Laboratories International",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Charles River presta servicios de investigación preclínica a farmacéuticas y biotecnológicas: modelos de investigación (animales de laboratorio), estudios de seguridad y servicios de fabricación.",
+    "revenue_sources": "Descubrimiento y evaluación de seguridad (estudios preclínicos) es su mayor segmento. Modelos de investigación y soluciones de fabricación aportan el resto.",
+    "moat": "Foso estrecho por escala, experiencia regulatoria y relación con farmacéuticas en una etapa crítica del desarrollo de fármacos.",
+    "competitors": "Inotiv (NOTV), Labcorp (LH), WuXi AppTec (2359.HK) e Envigo.",
+    "threats": "Menor financiación biotecnológica, iniciativas de la FDA para reducir los ensayos con animales y problemas de suministro de primates.",
+    "outlook": "Se espera recuperación lenta de la demanda biotecnológica. La reducción regulatoria de ensayos con animales es un riesgo estructural."
+  }
+}

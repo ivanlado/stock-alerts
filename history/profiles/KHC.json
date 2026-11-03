@@ -1,0 +1,14 @@
+{
+  "ticker": "KHC",
+  "name": "The Kraft Heinz Company",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Kraft Heinz es una de las mayores empresas de alimentación, con marcas como Heinz, Kraft, Oscar Mayer, Philadelphia y Lunchables. Ha anunciado su separación en dos compañías.",
+    "revenue_sources": "Norteamérica aporta la gran mayoría de las ventas, con salsas, condimentos, queso, comidas preparadas y carne procesada. El resto procede de mercados internacionales.",
+    "moat": "Foso estrecho por marcas reconocidas, aunque desgastadas frente a marcas blancas.",
+    "competitors": "General Mills (GIS), Conagra (CAG), Unilever (ULVR), Nestlé (NESN) y marcas blancas.",
+    "threats": "Caída de volúmenes, competencia de marcas blancas y cambio de hábitos hacia alimentos más saludables.",
+    "outlook": "Se espera crecimiento plano o negativo mientras ejecuta la separación. Seguir perdiendo volumen sería el principal riesgo."
+  }
+}

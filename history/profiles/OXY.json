@@ -1,0 +1,14 @@
+{
+  "ticker": "OXY",
+  "name": "Occidental Petroleum Corporation",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Occidental produce petróleo y gas en EE. UU. (Pérmico), Oriente Medio y Latinoamérica, y fabrica químicos (OxyChem, en venta a Berkshire Hathaway). Invierte en captura directa de carbono.",
+    "revenue_sources": "La producción de petróleo y gas aporta la mayor parte de los ingresos. Químicos y midstream aportan el resto.",
+    "moat": "Foso estrecho por su posición en el Pérmico y su experiencia en recuperación mejorada de petróleo con CO2.",
+    "competitors": "ConocoPhillips (COP), EOG (EOG), Chevron (CVX) y Diamondback (FANG).",
+    "threats": "Precio del crudo, deuda elevada tras comprar CrownRock y retorno incierto de la captura de carbono.",
+    "outlook": "Se espera reducción de deuda y producción estable, con Berkshire Hathaway como gran accionista. Una caída del crudo dificultaría el desapalancamiento."
+  }
+}

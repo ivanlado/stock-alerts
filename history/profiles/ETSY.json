@@ -1,0 +1,14 @@
+{
+  "ticker": "ETSY",
+  "name": "Etsy, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Etsy opera mercados online de productos hechos a mano, vintage y únicos, donde pequeños vendedores venden a compradores de todo el mundo. También es dueña de Depop.",
+    "revenue_sources": "La mayor parte de los ingresos son comisiones por venta, procesamiento de pagos y publicidad que pagan los vendedores (ingresos de mercado). Una parte menor viene de servicios a vendedores como anuncios y envíos.",
+    "moat": "Foso estrecho por efecto red en su nicho: muchos vendedores únicos atraen compradores y viceversa.",
+    "competitors": "Amazon Handmade (AMZN), eBay (EBAY), Temu (PDD), Shein y Shopify (SHOP) como alternativa para vendedores.",
+    "threats": "Caída de compradores activos tras el auge de la pandemia, competencia de plataformas de bajo coste y riesgo de perder su identidad de producto artesanal.",
+    "outlook": "Se espera estabilidad en el volumen de ventas más que crecimiento fuerte, con foco en márgenes y recompras. Recuperar compradores activos es su principal reto."
+  }
+}

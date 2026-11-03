@@ -1,0 +1,14 @@
+{
+  "ticker": "WAB",
+  "name": "Westinghouse Air Brake Technologies",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Wabtec fabrica locomotoras, frenos, componentes y sistemas digitales para trenes de mercancías y transporte de pasajeros.",
+    "revenue_sources": "El segmento de carga (locomotoras, servicios, componentes y digital) aporta cerca de tres cuartas partes de las ventas. Tránsito (componentes para trenes de pasajeros) aporta el resto.",
+    "moat": "Foso amplio: base instalada enorme de locomotoras y frenos que genera servicios y recambios durante décadas.",
+    "competitors": "Progress Rail (Caterpillar, CAT), Knorr-Bremse (KBX), Alstom (ALO) y Siemens Mobility (SIE).",
+    "threats": "Ciclo de inversión de los ferrocarriles de mercancías, que dependen del volumen de carga, y proyectos internacionales con riesgo político.",
+    "outlook": "Se espera crecimiento sólido por pedidos internacionales de locomotoras y modernizaciones. Una caída del tráfico ferroviario de mercancías lo frenaría."
+  }
+}

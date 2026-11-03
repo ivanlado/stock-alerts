@@ -1,0 +1,14 @@
+{
+  "ticker": "ON",
+  "name": "ON Semiconductor Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "onsemi fabrica semiconductores de potencia (incluido carburo de silicio) y sensores de imagen, sobre todo para automoción e industria.",
+    "revenue_sources": "Automoción aporta en torno a la mitad de los ingresos (inversores de coches eléctricos, sensores de asistencia a la conducción). Industria y otros aportan el resto.",
+    "moat": "Foso estrecho por su integración vertical en carburo de silicio y su posición en sensores de imagen para coches.",
+    "competitors": "Infineon (IFX), STMicroelectronics (STM), Wolfspeed (WOLF), Texas Instruments (TXN) y Sony (SONY) en sensores.",
+    "threats": "Desaceleración del coche eléctrico, competencia china en carburo de silicio y ciclo de inventarios de automoción e industria.",
+    "outlook": "Se espera recuperación gradual desde la parte baja del ciclo, apoyada en centros de datos e industria. Un coche eléctrico más débil limitaría la parte de carburo de silicio."
+  }
+}

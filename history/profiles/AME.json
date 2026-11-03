@@ -1,0 +1,14 @@
+{
+  "ticker": "AME",
+  "name": "AMETEK, Inc.",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "AMETEK fabrica instrumentos electrónicos de precisión y dispositivos electromecánicos para nichos industriales, aeroespaciales, médicos y energéticos. Crece en buena parte comprando empresas pequeñas de nicho.",
+    "revenue_sources": "Su grupo de instrumentos electrónicos (análisis, test, medición, potencia) aporta cerca de dos tercios de las ventas. El grupo electromecánico (motores, conectores, componentes especializados) aporta el tercio restante.",
+    "moat": "Foso estrecho a amplio: domina nichos pequeños donde es líder, con productos críticos de bajo coste relativo para el cliente, lo que le da poder de precios. Su disciplina en adquisiciones y mejora operativa es una ventaja contrastada.",
+    "competitors": "Fortive (FTV), Roper Technologies (ROP), Keysight (KEYS), Thermo Fisher (TMO) en instrumentación, y Teledyne (TDY).",
+    "threats": "Depende de la demanda industrial y aeroespacial, que es cíclica. Su modelo de crecimiento por adquisiciones puede encarecerse con tipos de interés altos o salir mal si paga demasiado por una compra.",
+    "outlook": "Se espera crecimiento de un dígito medio con márgenes altos y estables, apoyado en adquisiciones. Una desaceleración industrial prolongada o la falta de compras atractivas limitarían ese crecimiento."
+  }
+}

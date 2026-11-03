@@ -1,0 +1,14 @@
+{
+  "ticker": "EMN",
+  "name": "Eastman Chemical Company",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Eastman es una empresa química que fabrica materiales especiales, aditivos, fibras y productos químicos intermedios, con apuesta por el reciclaje molecular de plásticos.",
+    "revenue_sources": "Sus ingresos se reparten entre materiales avanzados (plásticos especiales, películas), aditivos y productos funcionales, intermedios químicos y fibras.",
+    "moat": "Foso estrecho en especialidades por tecnología propia y relación con clientes, aunque los intermedios son más de tipo materia prima.",
+    "competitors": "Celanese (CE), Dow (DOW), BASF (BAS), DuPont (DD) y Huntsman (HUN).",
+    "threats": "Demanda industrial y de consumo débil, sobrecapacidad china en química y rentabilidad incierta de sus plantas de reciclaje.",
+    "outlook": "Se espera una recuperación lenta ligada al ciclo industrial y al ritmo de las plantas de reciclaje. Un ciclo químico débil prolongado limitaría los márgenes."
+  }
+}

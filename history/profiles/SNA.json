@@ -1,0 +1,14 @@
+{
+  "ticker": "SNA",
+  "name": "Snap-On Incorporated",
+  "generated_at": "2026-10-31T16:17:40.077967+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Snap-on fabrica herramientas profesionales, equipos de diagnóstico y software para talleres de automoción, aviación e industria, y las vende con su red de camiones-tienda.",
+    "revenue_sources": "Su grupo de herramientas (venta directa a mecánicos) es el mayor. Le siguen soluciones de reparación (diagnóstico y software), grupo comercial e industrial y su negocio financiero, que concede créditos a mecánicos y franquiciados.",
+    "moat": "Foso amplio por su marca premium entre mecánicos y su red de franquiciados que visitan los talleres cada semana.",
+    "competitors": "Stanley Black & Decker (SWK), Matco Tools (Fortive), Mac Tools, Bosch y Milwaukee (TTI).",
+    "threats": "Debilidad de los mecánicos para comprar herramientas caras, riesgo de crédito en su financiación y caída del gasto en talleres.",
+    "outlook": "Se espera crecimiento bajo y estable, con márgenes altos. Un deterioro del poder adquisitivo de los mecánicos afectaría la venta de herramientas."
+  }
+}

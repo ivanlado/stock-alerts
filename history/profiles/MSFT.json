@@ -1,0 +1,14 @@
+{
+  "ticker": "MSFT",
+  "name": "Microsoft Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Microsoft vende software (Windows, Office 365), servicios en la nube (Azure), videojuegos (Xbox, Activision), LinkedIn y herramientas de IA como Copilot.",
+    "revenue_sources": "La nube inteligente (Azure y servidores) es su mayor segmento y el de más crecimiento. Productividad y procesos (Office 365, LinkedIn, Dynamics) y computación personal (Windows, Xbox, búsqueda) aportan el resto.",
+    "moat": "Foso amplio por costes de cambio en software empresarial, efecto red de Office y Windows, y escala en la nube.",
+    "competitors": "Amazon AWS (AMZN), Alphabet/Google Cloud (GOOGL), Salesforce (CRM), Oracle (ORCL), Apple (AAPL) y Sony (SONY) en videojuegos.",
+    "threats": "Gasto enorme en centros de datos de IA con retorno por demostrar, competencia en la nube y regulación antimonopolio.",
+    "outlook": "Se espera crecimiento de dos dígitos por Azure y la monetización de la IA. Si la demanda de IA no cubre la inversión, los márgenes sufrirían."
+  }
+}

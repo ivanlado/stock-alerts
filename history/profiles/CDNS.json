@@ -1,0 +1,14 @@
+{
+  "ticker": "CDNS",
+  "name": "Cadence Design Systems, Inc.",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Cadence vende software y propiedad intelectual para diseñar chips y sistemas electrónicos (EDA), además de hardware de emulación para verificarlos.",
+    "revenue_sources": "El software de diseño y verificación de chips aporta la mayor parte de los ingresos, en contratos plurianuales. El hardware de emulación, la propiedad intelectual y el software de análisis de sistemas aportan el resto.",
+    "moat": "Foso amplio: forma un duopolio con Synopsys, sus herramientas están integradas en los flujos de diseño de los fabricantes y cambiar de proveedor es muy costoso y arriesgado.",
+    "competitors": "Synopsys (SNPS) y Siemens EDA (SIE).",
+    "threats": "Las restricciones de exportación a China pueden limitar ventas. Su valoración es exigente y una desaceleración en el diseño de chips o la competencia en IA para diseño podrían afectarle.",
+    "outlook": "Se espera crecimiento de dos dígitos bajos con márgenes altos, impulsado por la complejidad de los chips de IA y el diseño de sistemas. Un parón en nuevos diseños de chips sería el riesgo principal."
+  }
+}

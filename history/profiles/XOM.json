@@ -1,0 +1,14 @@
+{
+  "ticker": "XOM",
+  "name": "Exxon Mobil Corporation",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "ExxonMobil es la mayor petrolera occidental: produce petróleo y gas, refina combustibles y fabrica productos químicos.",
+    "revenue_sources": "La producción (upstream) genera la mayor parte del beneficio, con el Pérmico y Guyana como grandes motores. Refino, química y productos especiales aportan el resto.",
+    "moat": "Foso estrecho por escala, integración y proyectos de bajo coste.",
+    "competitors": "Chevron (CVX), Shell (SHEL), TotalEnergies (TTE), BP (BP) y Saudi Aramco (2222.SR).",
+    "threats": "Precio del crudo, transición energética y litigios climáticos.",
+    "outlook": "Se espera crecimiento de producción en Guyana y el Pérmico con alta remuneración al accionista. Una caída del petróleo reduciría el beneficio."
+  }
+}

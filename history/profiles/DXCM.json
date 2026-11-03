@@ -1,0 +1,14 @@
+{
+  "ticker": "DXCM",
+  "name": "DexCom, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "DexCom fabrica sistemas de monitorización continua de glucosa (sensores que se llevan en la piel) para personas con diabetes.",
+    "revenue_sources": "Casi todos sus ingresos proceden de la venta de sensores y transmisores (G7, Stelo) en EE. UU. e internacional. Es un negocio recurrente porque los sensores se cambian cada pocos días.",
+    "moat": "Foso estrecho: precisión reconocida de sus sensores, integración con bombas de insulina y patentes, en un mercado con pocos competidores.",
+    "competitors": "Abbott (ABT) con FreeStyle Libre, Medtronic (MDT) y nuevos entrantes como Roche y fabricantes chinos.",
+    "threats": "Competencia fuerte de Abbott en precio y volumen, problemas de calidad o retiradas de producto y presión de las aseguradoras sobre precios.",
+    "outlook": "Se espera crecimiento de dos dígitos por la expansión a pacientes con diabetes tipo 2 sin insulina. Problemas de calidad o pérdida de cuota frente a Abbott frenarían esa expectativa."
+  }
+}

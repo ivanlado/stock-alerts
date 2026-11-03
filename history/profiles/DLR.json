@@ -1,0 +1,14 @@
+{
+  "ticker": "DLR",
+  "name": "Digital Realty Trust, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Digital Realty es un fondo de inversión inmobiliaria (REIT) que posee y alquila centros de datos en todo el mundo a empresas de nube, tecnológicas y corporaciones.",
+    "revenue_sources": "Casi todos sus ingresos son rentas de espacio, energía e interconexión en centros de datos. Se reparten entre grandes despliegues para nubes y clientes de colocación más pequeños con interconexión.",
+    "moat": "Foso estrecho por su escala global, su acceso a energía y terrenos en mercados clave y el ecosistema de interconexión, que hace costoso cambiar de proveedor.",
+    "competitors": "Equinix (EQIX), Iron Mountain (IRM), CyrusOne y QTS (privadas), y las grandes nubes que construyen sus propios centros.",
+    "threats": "La disponibilidad de energía limita su crecimiento. Si la inversión en IA se frena, podría haber exceso de capacidad, y depende de financiación externa con tipos de interés altos.",
+    "outlook": "Se espera fuerte demanda por la IA y las nubes, con subidas de rentas en renovaciones. Retrasos en el acceso a electricidad o un parón de la inversión en IA serían los principales riesgos."
+  }
+}

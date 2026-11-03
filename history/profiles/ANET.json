@@ -1,0 +1,14 @@
+{
+  "ticker": "ANET",
+  "name": "Arista Networks, Inc.",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Arista Networks vende conmutadores de red de alto rendimiento y software (EOS) para centros de datos en la nube, empresas y redes de campus. Es un proveedor clave de redes para infraestructura de inteligencia artificial.",
+    "revenue_sources": "La mayor parte de los ingresos viene de productos de conmutación y enrutamiento para centros de datos, con una fuerte concentración en grandes nubes como Microsoft y Meta. Servicios y software de suscripción aportan una parte menor y creciente.",
+    "moat": "Foso estrecho a amplio basado en su sistema operativo de red, considerado más fiable y programable, y en su relación técnica con los mayores operadores de nube.",
+    "competitors": "Cisco (CSCO), NVIDIA (NVDA) con su red Spectrum-X, Juniper (ahora parte de HPE), Celestica (CLS) y fabricantes de marca blanca.",
+    "threats": "Depende mucho de unos pocos clientes de nube; si uno reduce la inversión, sus ingresos lo notan. NVIDIA compite con soluciones de red integradas con sus GPU, y los grandes clientes podrían usar más equipos de marca blanca.",
+    "outlook": "Se espera un crecimiento fuerte impulsado por los centros de datos de IA y la transición a redes Ethernet de mayor velocidad. Una pausa en la inversión de las grandes nubes sería el principal riesgo."
+  }
+}

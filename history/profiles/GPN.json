@@ -1,0 +1,14 @@
+{
+  "ticker": "GPN",
+  "name": "Global Payments Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Global Payments procesa pagos con tarjeta para comercios y vende software a negocios. Está comprando Worldpay y vendiendo su negocio de emisores a FIS.",
+    "revenue_sources": "Soluciones para comercios (procesamiento de pagos y software) aporta la gran mayoría de los ingresos. El negocio de emisores, en venta, aportaba el resto.",
+    "moat": "Foso estrecho por escala y software integrado con pagos en verticales concretos.",
+    "competitors": "Fiserv (FI), Adyen (ADYEN), Stripe, Block (XYZ) y Shift4 (FOUR).",
+    "threats": "Ejecución de la compra de Worldpay, competencia intensa en pagos y presión en márgenes.",
+    "outlook": "Se espera una empresa más centrada en comercios tras las operaciones. Problemas en la integración serían el riesgo principal."
+  }
+}

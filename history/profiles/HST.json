@@ -1,0 +1,14 @@
+{
+  "ticker": "HST",
+  "name": "Host Hotels & Resorts, Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Host Hotels es el mayor fondo de inversión inmobiliaria (REIT) hotelero de EE. UU., dueño de hoteles de lujo y alta gama gestionados por Marriott, Hyatt y otras cadenas.",
+    "revenue_sources": "Los ingresos proceden de la operación de sus hoteles: habitaciones, comida y bebida, y otros servicios.",
+    "moat": "Foso estrecho por la calidad de sus activos en ubicaciones privilegiadas.",
+    "competitors": "Park Hotels (PK), Pebblebrook (PEB), Ryman Hospitality (RHP) y Sunstone (SHO).",
+    "threats": "Sensibilidad a la economía y a los viajes de negocios, costes laborales y tipos de interés.",
+    "outlook": "Se espera crecimiento moderado apoyado en lujo y ocio. Una recesión reduciría ocupación y precios."
+  }
+}

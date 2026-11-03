@@ -1,0 +1,14 @@
+{
+  "ticker": "GWW",
+  "name": "W.W. Grainger, Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Grainger distribuye productos de mantenimiento, reparación y operaciones (MRO) a empresas: herramientas, seguridad, iluminación, fontanería y más.",
+    "revenue_sources": "Soluciones de alto contacto en Norteamérica (grandes clientes) aporta la mayor parte de las ventas. Soluciones de búsqueda infinita (Zoro y MonotaRO, online) aporta el resto.",
+    "moat": "Foso amplio por su red logística, gran catálogo y relaciones con grandes empresas.",
+    "competitors": "Fastenal (FAST), MSC Industrial (MSM), Amazon Business (AMZN) y distribuidores locales.",
+    "threats": "Ciclo industrial y competencia online.",
+    "outlook": "Se espera crecimiento de un dígito medio con ganancias de cuota y márgenes estables. Una recesión industrial lo frenaría."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "TAP",
+  "name": "Molson Coors Beverage Company",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Molson Coors fabrica y vende cerveza (Coors Light, Miller Lite, Molson, Blue Moon) y bebidas en Norteamérica, Europa y otros mercados.",
+    "revenue_sources": "Norteamérica aporta la mayor parte de las ventas y EMEA y Asia-Pacífico el resto.",
+    "moat": "Foso estrecho por marcas y distribución, en un mercado de cerveza maduro.",
+    "competitors": "Anheuser-Busch InBev (ABI), Constellation Brands (STZ), Heineken (HEINA) y cerveceras artesanales.",
+    "threats": "Caída del consumo de cerveza, competencia de otras bebidas y costes del aluminio.",
+    "outlook": "Se espera crecimiento plano o negativo de volumen con recorte de costes. Una caída continuada del consumo sería el principal riesgo."
+  }
+}

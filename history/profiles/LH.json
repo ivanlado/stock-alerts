@@ -1,0 +1,14 @@
+{
+  "ticker": "LH",
+  "name": "Labcorp Holdings Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Labcorp es uno de los mayores laboratorios clínicos de EE. UU. y presta servicios de desarrollo de fármacos (laboratorio central para ensayos clínicos).",
+    "revenue_sources": "Diagnóstico (análisis clínicos) aporta cerca de tres cuartas partes de los ingresos. Soluciones de desarrollo biofarmacéutico aporta el resto.",
+    "moat": "Foso estrecho por escala, red de centros y contratos con aseguradoras y farmacéuticas.",
+    "competitors": "Quest Diagnostics (DGX), IQVIA (IQV), ICON (ICLR) y laboratorios hospitalarios.",
+    "threats": "Recortes de reembolsos de Medicare y debilidad del gasto biofarmacéutico en ensayos.",
+    "outlook": "Se espera crecimiento de un dígito medio con adquisiciones de laboratorios hospitalarios. Cambios de reembolsos serían el principal riesgo."
+  }
+}

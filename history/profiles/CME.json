@@ -1,0 +1,14 @@
+{
+  "ticker": "CME",
+  "name": "CME Group Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "CME Group opera los mayores mercados de futuros y opciones del mundo, sobre tipos de interés, índices bursátiles, energía, materias primas agrícolas, metales y divisas.",
+    "revenue_sources": "Las comisiones por negociación y compensación aportan la gran mayoría de los ingresos, con los derivados de tipos de interés como mayor categoría. Los datos de mercado aportan el resto.",
+    "moat": "Foso amplio por efecto red: la liquidez concentrada en sus contratos atrae a más participantes, y su cámara de compensación crea costes de cambio.",
+    "competitors": "Intercontinental Exchange (ICE), Cboe (CBOE), Eurex (Deutsche Börse, DB1) y nuevas plataformas de cripto y futuros.",
+    "threats": "Volatilidad baja que reduce el volumen, competencia de nuevos mercados de futuros y cambios regulatorios.",
+    "outlook": "Se espera crecimiento estable apoyado en la incertidumbre sobre tipos de interés y la demanda de cobertura. Mercados muy tranquilos reducirían la negociación."
+  }
+}

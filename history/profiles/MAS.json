@@ -1,0 +1,14 @@
+{
+  "ticker": "MAS",
+  "name": "Masco Corporation",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Masco fabrica productos para el hogar, sobre todo grifería (Delta, Hansgrohe) y pinturas (Behr), vendidos en tiendas de bricolaje y a profesionales.",
+    "revenue_sources": "Productos de plomería (grifería, duchas) aportan cerca de dos tercios de las ventas. Productos decorativos (pinturas Behr) aportan el resto, con Home Depot como gran cliente.",
+    "moat": "Foso estrecho por marcas líderes y relación con grandes minoristas.",
+    "competitors": "Fortune Brands (FBIN), Kohler, Sherwin-Williams (SHW), PPG (PPG) y marcas de Grohe (Lixil).",
+    "threats": "Debilidad del mercado de reformas, aranceles y dependencia de Home Depot.",
+    "outlook": "Se espera crecimiento bajo hasta que se recupere el mercado de reformas. Unos tipos de interés altos prolongados lo retrasarían."
+  }
+}

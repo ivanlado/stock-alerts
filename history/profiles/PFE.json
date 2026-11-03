@@ -1,0 +1,14 @@
+{
+  "ticker": "PFE",
+  "name": "Pfizer, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Pfizer es una de las mayores farmacéuticas del mundo, con medicamentos en oncología, vacunas, cardiología, inmunología y enfermedades raras.",
+    "revenue_sources": "Oncología (reforzada con Seagen), vacunas (Prevnar, Comirnaty), y medicina interna (Eliquis, Vyndaqel) son sus mayores áreas.",
+    "moat": "Foso amplio por escala en I+D y comercial, aunque enfrenta pérdidas de patente importantes.",
+    "competitors": "Merck (MRK), AbbVie (ABBV), Johnson & Johnson (JNJ), AstraZeneca (AZN) y Novartis (NOVN).",
+    "threats": "Pérdida de patentes de varios grandes fármacos antes de 2030, caída de ventas COVID y negociación de precios en EE. UU.",
+    "outlook": "Se espera ingresos planos mientras los lanzamientos compensan las pérdidas de patente, con recorte de costes. El éxito en obesidad y oncología es clave."
+  }
+}

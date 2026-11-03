@@ -1,0 +1,14 @@
+{
+  "ticker": "BKNG",
+  "name": "Booking Holdings Inc.",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Booking Holdings es la mayor agencia de viajes online del mundo, dueña de Booking.com, Priceline, Agoda, Kayak y OpenTable. Cobra comisiones por reservas de alojamiento, vuelos, coches y restaurantes.",
+    "revenue_sources": "Booking.com genera la gran mayoría de los ingresos, sobre todo comisiones de alojamiento en Europa. El resto procede de Agoda en Asia, Priceline en EE. UU., publicidad (Kayak) y reservas de restaurantes.",
+    "moat": "Foso amplio por efecto red: más hoteles atraen más viajeros y viceversa, con una oferta enorme de alojamientos alternativos. Su escala en marketing digital es difícil de igualar.",
+    "competitors": "Expedia (EXPE), Airbnb (ABNB), Trip.com (TCOM) y Google (GOOGL) en búsqueda de viajes.",
+    "threats": "Depende mucho del tráfico pagado de Google, que podría quedarse más reservas o cambiar sus reglas. La regulación europea (Ley de Mercados Digitales), los agentes de IA y una recesión que reduzca los viajes son riesgos relevantes.",
+    "outlook": "Se espera crecimiento de reservas de un dígito alto y márgenes estables, apoyado en vuelos, pagos y el programa de fidelidad. Un cambio en cómo se buscan viajes con asistentes de IA podría alterar su ventaja."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "TROW",
+  "name": "T. Rowe Price Group, Inc.",
+  "generated_at": "2026-10-31T16:17:40.077967+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "T. Rowe Price es una gestora de fondos, con foco tradicional en fondos de gestión activa de renta variable y planes de jubilación en EE. UU.",
+    "revenue_sources": "Casi todos los ingresos son comisiones de gestión sobre activos, repartidos entre renta variable, fondos de fecha objetivo para jubilación, renta fija y alternativos.",
+    "moat": "Foso estrecho por marca y presencia en planes de jubilación, aunque erosionado por el paso a fondos indexados.",
+    "competitors": "BlackRock (BLK), Vanguard, Fidelity, Franklin Resources (BEN) e Invesco (IVZ).",
+    "threats": "Salidas continuas de fondos activos hacia indexados y ETF, presión sobre comisiones y dependencia del mercado bursátil.",
+    "outlook": "Se espera estabilidad de activos con salidas moderadas compensadas por la subida de los mercados. Las salidas de gestión activa son su reto estructural."
+  }
+}

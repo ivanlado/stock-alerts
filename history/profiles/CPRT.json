@@ -1,0 +1,14 @@
+{
+  "ticker": "CPRT",
+  "name": "Copart, Inc.",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Copart gestiona subastas online de vehículos, sobre todo coches siniestrados que las aseguradoras declaran pérdida total, con grandes parcelas de almacenamiento en EE. UU. y otros países.",
+    "revenue_sources": "La mayor parte son comisiones de servicio que cobra a vendedores (principalmente aseguradoras) y compradores. Una parte menor procede de la venta de vehículos que compra por cuenta propia.",
+    "moat": "Foso amplio: su red de terrenos cerca de ciudades es muy difícil de replicar por los permisos necesarios, y su plataforma atrae a compradores de todo el mundo (efecto red).",
+    "competitors": "RB Global/IAA (RBA) y ACV Auctions (ACVA).",
+    "threats": "Depende del número de siniestros con pérdida total, que puede bajar con sistemas de asistencia a la conducción. Su valoración es exigente y los volúmenes de las aseguradoras fluctúan.",
+    "outlook": "Se espera crecimiento estable apoyado en vehículos más caros de reparar, que elevan el porcentaje de pérdidas totales. Una caída de los precios de coches usados reduciría ingresos."
+  }
+}

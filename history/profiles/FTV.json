@@ -1,0 +1,14 @@
+{
+  "ticker": "FTV",
+  "name": "Fortive Corporation",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Fortive fabrica instrumentos y software de precisión, como herramientas de medida Fluke, equipos de prueba Tektronix y soluciones de seguridad y salud.",
+    "revenue_sources": "Tecnologías de precisión (Fluke, Tektronix) y soluciones de instalaciones inteligentes son sus segmentos tras separar su negocio de salud y precisión (Ralliant).",
+    "moat": "Foso estrecho por marcas líderes y base instalada con software recurrente.",
+    "competitors": "Keysight (KEYS), Emerson (EMR), Honeywell (HON) y AMETEK (AME).",
+    "threats": "Demanda industrial cíclica y ejecución tras la separación.",
+    "outlook": "Se espera crecimiento moderado con más software recurrente. Una debilidad industrial limitaría pedidos."
+  }
+}

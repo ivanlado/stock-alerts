@@ -1,0 +1,14 @@
+{
+  "ticker": "JNJ",
+  "name": "Johnson & Johnson",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Johnson & Johnson es una de las mayores empresas sanitarias del mundo, con medicamentos innovadores y dispositivos médicos, tras separar su negocio de consumo (Kenvue).",
+    "revenue_sources": "Medicina innovadora (oncología, inmunología, neurociencia) aporta cerca de dos tercios de los ingresos. MedTech (ortopedia, cirugía, cardiovascular, visión) aporta el resto.",
+    "moat": "Foso amplio por patentes, escala en I+D y comercial, y diversificación.",
+    "competitors": "Pfizer (PFE), Merck (MRK), AbbVie (ABBV), Roche (ROG), Medtronic (MDT) y Stryker (SYK).",
+    "threats": "Pérdida de patente de Stelara, litigios por talco y negociación de precios de medicamentos en EE. UU.",
+    "outlook": "Se espera crecimiento de un dígito medio apoyado en oncología y nuevos lanzamientos, compensando a Stelara. Litigios y precios de fármacos son los riesgos."
+  }
+}

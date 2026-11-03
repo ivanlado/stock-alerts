@@ -1,0 +1,14 @@
+{
+  "ticker": "DPZ",
+  "name": "Domino's Pizza Inc",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Domino's es la mayor cadena de pizzerías del mundo, centrada en reparto a domicilio y comida para llevar, casi toda a través de franquiciados.",
+    "revenue_sources": "La mayor parte de sus ingresos procede de su cadena de suministro, que vende ingredientes a los franquiciados de EE. UU. El resto viene de royalties de franquicias en EE. UU. e internacionales y de sus tiendas propias.",
+    "moat": "Foso estrecho a amplio por escala en reparto y logística, densidad de tiendas que acorta tiempos de entrega y una plataforma digital propia muy eficaz.",
+    "competitors": "Pizza Hut (YUM), Papa John's (PZZA), Little Caesars, y plataformas de reparto como DoorDash (DASH) y Uber Eats (UBER).",
+    "threats": "Las plataformas de reparto dan a los clientes más alternativas, la inflación de ingredientes y salarios presiona a los franquiciados, y depende del consumo de rentas medias y bajas.",
+    "outlook": "Se espera crecimiento de ventas moderado apoyado en nuevas tiendas, su programa de fidelidad y su presencia en plataformas de terceros. Un consumo más débil limitaría las ventas comparables."
+  }
+}

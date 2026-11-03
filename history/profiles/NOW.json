@@ -1,0 +1,14 @@
+{
+  "ticker": "NOW",
+  "name": "ServiceNow, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "ServiceNow vende una plataforma en la nube para automatizar flujos de trabajo en empresas: gestión de servicios de TI, recursos humanos, atención al cliente y procesos con IA.",
+    "revenue_sources": "Más del 95% de los ingresos son suscripciones. La gestión de servicios de TI es la línea principal, con crecimiento en atención al cliente, recursos humanos y productos de IA.",
+    "moat": "Foso amplio por costes de cambio: su plataforma se convierte en el sistema central de procesos internos de grandes empresas.",
+    "competitors": "Salesforce (CRM), Microsoft (MSFT), Atlassian (TEAM), SAP (SAP) y Workday (WDAY).",
+    "threats": "Valoración exigente, competencia de agentes de IA de otros proveedores y posible desaceleración del gasto en software.",
+    "outlook": "Se espera crecimiento de en torno al 20% con márgenes altos, apoyado en productos de IA. Una desaceleración del gasto de grandes empresas sería el riesgo principal."
+  }
+}

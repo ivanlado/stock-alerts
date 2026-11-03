@@ -1,0 +1,14 @@
+{
+  "ticker": "O",
+  "name": "Realty Income Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Realty Income es un fondo de inversión inmobiliaria (REIT) que posee miles de locales comerciales e industriales alquilados con contratos largos de arrendamiento neto, conocido por pagar dividendo mensual.",
+    "revenue_sources": "Casi todos sus ingresos son rentas de inmuebles alquilados a minoristas (supermercados, tiendas de conveniencia, farmacias, gimnasios) y, cada vez más, a industria y en Europa.",
+    "moat": "Foso estrecho por escala y coste de financiación bajo, que le permiten comprar inmuebles con margen sobre su coste de capital.",
+    "competitors": "NNN REIT (NNN), Agree Realty (ADC), W. P. Carey (WPC) y fondos privados.",
+    "threats": "Tipos de interés altos que encarecen su financiación y reducen su capacidad de crecer, y quiebras de inquilinos minoristas.",
+    "outlook": "Se espera crecimiento bajo pero estable de su dividendo. Unos tipos de interés altos prolongados limitarían sus adquisiciones."
+  }
+}

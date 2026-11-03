@@ -1,0 +1,14 @@
+{
+  "ticker": "DIS",
+  "name": "Walt Disney Company (The)",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Disney es un grupo de entretenimiento con estudios de cine (Disney, Pixar, Marvel, Star Wars), plataformas de streaming (Disney+, Hulu), canales de televisión, ESPN y parques temáticos y cruceros.",
+    "revenue_sources": "Entretenimiento (estudios, streaming, televisión) aporta en torno a la mitad de los ingresos. Experiencias (parques, cruceros, productos) aporta algo más de un tercio y la mayoría del beneficio, y deportes (ESPN) el resto.",
+    "moat": "Foso amplio por sus marcas y personajes, que se aprovechan en cine, parques, productos y streaming durante décadas.",
+    "competitors": "Netflix (NFLX), Comcast/Universal (CMCSA), Warner Bros. Discovery (WBD), Amazon (AMZN), Paramount (PSKY) y Apple (AAPL).",
+    "threats": "Declive de la televisión por cable, competencia intensa en streaming, dependencia de éxitos en taquilla y sensibilidad de los parques al consumo.",
+    "outlook": "Se espera crecimiento de beneficios apoyado en la rentabilidad del streaming y la inversión en parques y cruceros, con un nuevo consejero delegado en transición. Una desaceleración del consumo afectaría a los parques."
+  }
+}

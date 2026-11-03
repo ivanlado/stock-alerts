@@ -1,0 +1,14 @@
+{
+  "ticker": "NVR",
+  "name": "NVR, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "NVR construye y vende viviendas en Estados Unidos con marcas como Ryan Homes, y presta servicios hipotecarios a sus compradores.",
+    "revenue_sources": "La construcción de viviendas aporta casi todos los ingresos, concentrados en el este y medio oeste de EE. UU. Su negocio hipotecario aporta el resto.",
+    "moat": "Foso estrecho por su modelo de bajo riesgo: compra opciones sobre terrenos en lugar de terrenos, lo que le da retornos altos y poco endeudamiento.",
+    "competitors": "D.R. Horton (DHI), Lennar (LEN), PulteGroup (PHM), Toll Brothers (TOL) y constructores locales.",
+    "threats": "Tipos hipotecarios altos, costes de construcción y debilidad de la demanda de vivienda nueva.",
+    "outlook": "Se espera estabilidad con márgenes algo presionados mientras las hipotecas sigan caras. Una bajada de tipos impulsaría los pedidos."
+  }
+}

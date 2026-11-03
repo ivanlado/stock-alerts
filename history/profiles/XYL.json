@@ -1,0 +1,14 @@
+{
+  "ticker": "XYL",
+  "name": "Xylem Inc.",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Xylem fabrica tecnología de agua: bombas, sistemas de tratamiento, contadores inteligentes y análisis para servicios públicos de agua e industria.",
+    "revenue_sources": "Se reparte entre transporte de agua (bombas), soluciones de agua y tratamiento, infraestructura de medición (contadores) y soluciones de agua para la industria, tras comprar Evoqua.",
+    "moat": "Foso estrecho por marca, base instalada en servicios públicos y relaciones de largo plazo.",
+    "competitors": "Grundfos, Veolia (VIE), Badger Meter (BMI), Pentair (PNR) y Ecolab (ECL).",
+    "threats": "Presupuestos de los servicios públicos, ciclo industrial y retrasos en proyectos.",
+    "outlook": "Se espera crecimiento de un dígito medio con márgenes en mejora por la escasez de agua y la modernización de infraestructuras. Retrasos en inversión pública frenarían los pedidos."
+  }
+}

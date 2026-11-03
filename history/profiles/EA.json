@@ -1,0 +1,14 @@
+{
+  "ticker": "EA",
+  "name": "Electronic Arts Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Electronic Arts desarrolla y publica videojuegos como EA Sports FC, Madden NFL, Battlefield, Apex Legends y The Sims. Está en proceso de ser comprada por un consorcio de inversores, incluido el fondo soberano saudí.",
+    "revenue_sources": "La mayor parte de los ingresos son servicios en vivo: compras dentro de los juegos, sobre todo los modos Ultimate Team de sus juegos deportivos. Las ventas de juegos completos aportan el resto.",
+    "moat": "Foso estrecho por franquicias deportivas con licencias exclusivas y comunidades de jugadores.",
+    "competitors": "Take-Two (TTWO), Activision Blizzard (MSFT), Ubisoft (UBI), Epic Games y Sony (SONY).",
+    "threats": "Dependencia de pocas franquicias, fracasos de nuevos lanzamientos y regulación de las cajas de botín.",
+    "outlook": "La operación de compra para sacarla de bolsa condiciona su cotización hasta que se cierre. Un bloqueo regulatorio de la operación sería el principal riesgo."
+  }
+}

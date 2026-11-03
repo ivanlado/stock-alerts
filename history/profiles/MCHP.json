@@ -1,0 +1,14 @@
+{
+  "ticker": "MCHP",
+  "name": "Microchip Technology Incorporated",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Microchip fabrica microcontroladores, semiconductores analógicos y chips programables para industria, automoción, aeroespacial y electrónica de consumo.",
+    "revenue_sources": "Los microcontroladores aportan algo más de la mitad de los ingresos. Los productos analógicos y otros (FPGA, memoria, temporización) aportan el resto.",
+    "moat": "Foso estrecho: sus chips se diseñan dentro de productos con ciclos de vida largos y tiene una base de clientes muy fragmentada.",
+    "competitors": "NXP (NXPI), STMicroelectronics (STM), Renesas (6723.T), Texas Instruments (TXN) e Infineon (IFX).",
+    "threats": "Ha sufrido una fuerte corrección de inventarios de sus clientes, la industria es cíclica y la competencia china crece en gama baja.",
+    "outlook": "Se espera una recuperación desde la parte baja del ciclo, con mejora de márgenes al normalizarse inventarios. Una demanda industrial débil retrasaría esa recuperación."
+  }
+}

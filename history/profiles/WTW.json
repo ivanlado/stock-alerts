@@ -1,0 +1,14 @@
+{
+  "ticker": "WTW",
+  "name": "Willis Towers Watson Public Limited Company",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "WTW es una correduría de seguros y consultora de recursos humanos, pensiones y gestión de riesgos para empresas.",
+    "revenue_sources": "Se reparte entre Health, Wealth & Career (consultoría de beneficios, pensiones y compensación) y Risk & Broking (corretaje de seguros para empresas).",
+    "moat": "Foso estrecho por relaciones de largo plazo con grandes empresas y costes de cambio en consultoría de pensiones.",
+    "competitors": "Marsh McLennan (MMC), Aon (AON), Arthur J. Gallagher (AJG) y Mercer (de Marsh).",
+    "threats": "Ciclo de precios de los seguros, competencia por talento y un crecimiento menor que el de sus rivales.",
+    "outlook": "Se espera crecimiento orgánico de un dígito medio con mejora de márgenes tras vender su negocio de reaseguros minoristas. Un mercado de seguros más blando moderaría las comisiones."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "DD",
+  "name": "DuPont de Nemours, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "DuPont fabrica materiales y productos especializados para electrónica, agua, construcción, sanidad e industria, como Kevlar, Tyvek o membranas de filtración.",
+    "revenue_sources": "Sus ingresos se reparten entre electrónica e industrial (materiales para semiconductores y circuitos) y agua y protección (filtración, Tyvek, Kevlar). La empresa está separando su negocio de electrónica en una compañía independiente (Qnity).",
+    "moat": "Foso estrecho por patentes, marcas reconocidas y materiales técnicos difíciles de sustituir en las aplicaciones de sus clientes.",
+    "competitors": "3M (MMM), Entegris (ENTG), Honeywell (HON), Celanese (CE) y Dow (DOW).",
+    "threats": "Litigios por contaminación con compuestos PFAS, demanda industrial cíclica y riesgos de ejecución en las separaciones de negocios.",
+    "outlook": "Se espera que la separación deje dos empresas más enfocadas, con electrónica creciendo por semiconductores. Nuevos costes de litigios o una demanda industrial débil serían los riesgos."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "ULTA",
+  "name": "Ulta Beauty, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Ulta Beauty es la mayor cadena de tiendas de cosmética y belleza de EE. UU., con productos de lujo y gran consumo, y servicios de peluquería.",
+    "revenue_sources": "Cosmética, cuidado de la piel, fragancias y cuidado del cabello aportan casi todos los ingresos; los servicios de salón una pequeña parte.",
+    "moat": "Foso estrecho por su programa de fidelidad muy amplio y su mezcla de lujo y gran consumo.",
+    "competitors": "Sephora (LVMH), Amazon (AMZN), Target (TGT), Walmart (WMT) y marcas directas.",
+    "threats": "Competencia de Sephora en Kohl's y de Amazon, y consumo discrecional.",
+    "outlook": "Se espera crecimiento moderado con nuevas tiendas e iniciativas. Más competencia limitaría las ventas comparables."
+  }
+}

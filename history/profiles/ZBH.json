@@ -1,0 +1,14 @@
+{
+  "ticker": "ZBH",
+  "name": "Zimmer Biomet Holdings, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Zimmer Biomet fabrica implantes ortopédicos de rodilla y cadera, productos de columna, traumatología y el robot quirúrgico ROSA.",
+    "revenue_sources": "Rodilla y cadera aportan la mayor parte de las ventas. Medicina deportiva, extremidades, traumatología y otros aportan el resto.",
+    "moat": "Foso estrecho por base instalada y relación con cirujanos, aunque en un mercado de crecimiento lento.",
+    "competitors": "Stryker (SYK), Johnson & Johnson DePuy (JNJ), Smith & Nephew (SN) y Medtronic (MDT).",
+    "threats": "Pérdida de cuota frente a Stryker y su robot Mako, presión de precios y riesgo de adquisiciones.",
+    "outlook": "Se espera crecimiento de un dígito medio por la demanda de cirugías y nuevos productos."
+  }
+}

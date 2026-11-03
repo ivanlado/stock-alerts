@@ -1,0 +1,14 @@
+{
+  "ticker": "MDLZ",
+  "name": "Mondelez International, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Mondelez es una de las mayores empresas de snacks del mundo, con galletas (Oreo, Chips Ahoy, LU), chocolate (Milka, Cadbury, Toblerone) y caramelos.",
+    "revenue_sources": "Galletas y snacks horneados aportan cerca de la mitad de los ingresos y chocolate cerca de un tercio. Europa es su mayor región, seguida de Norteamérica y mercados emergentes.",
+    "moat": "Foso amplio por marcas globales, distribución en mercados emergentes y escala.",
+    "competitors": "Nestlé (NESN), Hershey (HSY), Ferrero, Mars y PepsiCo (PEP).",
+    "threats": "Subida récord del precio del cacao, que presiona márgenes, y cambios de hábitos de consumo incluidos los fármacos para adelgazar.",
+    "outlook": "Se espera crecimiento de ingresos por precios con volúmenes débiles mientras el cacao siga caro. Una normalización del cacao mejoraría márgenes."
+  }
+}

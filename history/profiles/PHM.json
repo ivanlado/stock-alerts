@@ -1,0 +1,14 @@
+{
+  "ticker": "PHM",
+  "name": "PulteGroup, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "PulteGroup es una de las mayores constructoras de viviendas de Estados Unidos, con marcas como Pulte, Centex, Del Webb (jubilados) y DiVosta.",
+    "revenue_sources": "La venta de viviendas aporta casi todos los ingresos, repartidos entre primeros compradores, familias que cambian de casa y jubilados. Servicios financieros aportan el resto.",
+    "moat": "Foso estrecho por diversificación de clientes y marca Del Webb en vivienda para mayores.",
+    "competitors": "D.R. Horton (DHI), Lennar (LEN), NVR (NVR) y Toll Brothers (TOL).",
+    "threats": "Tipos hipotecarios altos y costes de terrenos y construcción.",
+    "outlook": "Se espera estabilidad con márgenes presionados por incentivos. Una bajada de tipos impulsaría la demanda."
+  }
+}

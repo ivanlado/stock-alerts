@@ -1,0 +1,14 @@
+{
+  "ticker": "EPAM",
+  "name": "EPAM Systems, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "EPAM presta servicios de ingeniería de software, consultoría digital y desarrollo de plataformas a grandes empresas, con equipos en Europa del Este, Asia y Latinoamérica.",
+    "revenue_sources": "Sus ingresos se reparten entre servicios financieros, software y tecnología, consumo, salud y otras industrias. Norteamérica y Europa son sus mayores mercados.",
+    "moat": "Foso estrecho por su reputación en ingeniería de alto nivel y relaciones de largo plazo con clientes, en un mercado muy competitivo.",
+    "competitors": "Globant (GLOB), Accenture (ACN), Endava (DAVA), Cognizant (CTSH) y Thoughtworks.",
+    "threats": "La IA puede reducir la demanda de horas de programación, la guerra en Ucrania obligó a reubicar gran parte de su plantilla y el gasto en consultoría es sensible a la economía.",
+    "outlook": "Se espera crecimiento moderado con la IA como palanca de nuevos proyectos. Si la IA reduce el volumen de trabajo más rápido de lo que crea, el crecimiento sufriría."
+  }
+}

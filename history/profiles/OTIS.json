@@ -1,0 +1,14 @@
+{
+  "ticker": "OTIS",
+  "name": "Otis Worldwide Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Otis es el mayor fabricante de ascensores y escaleras mecánicas del mundo y gestiona el mantenimiento de una base instalada de más de dos millones de unidades.",
+    "revenue_sources": "El servicio (mantenimiento, reparación y modernización) aporta cerca del 60% de los ingresos y la mayoría del beneficio. Las instalaciones nuevas aportan el resto.",
+    "moat": "Foso amplio: su base instalada genera contratos de mantenimiento recurrentes de alta renovación y su densidad de técnicos le da ventaja de costes.",
+    "competitors": "Schindler (SCHP), KONE (KNEBV), TK Elevator y Mitsubishi Electric (6503.T).",
+    "threats": "Caída de la construcción nueva, sobre todo en China, y competencia de mantenedores independientes.",
+    "outlook": "Se espera crecimiento de servicio y modernización que compense la debilidad de equipos nuevos en China. Un mercado chino aún más débil sería el principal riesgo."
+  }
+}

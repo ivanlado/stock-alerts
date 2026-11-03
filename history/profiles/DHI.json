@@ -1,0 +1,14 @@
+{
+  "ticker": "DHI",
+  "name": "D.R. Horton, Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "D.R. Horton es la mayor constructora de viviendas de Estados Unidos por volumen, centrada en casas asequibles para primer comprador.",
+    "revenue_sources": "La venta de viviendas aporta casi todos los ingresos. Servicios financieros, alquiler y su filial de terrenos (Forestar) aportan el resto.",
+    "moat": "Foso estrecho por escala y eficiencia de costes en un sector cíclico.",
+    "competitors": "Lennar (LEN), PulteGroup (PHM), NVR (NVR) y KB Home (KBH).",
+    "threats": "Tipos hipotecarios altos, incentivos que reducen márgenes y costes de terrenos y mano de obra.",
+    "outlook": "Se espera volumen estable con márgenes presionados mientras sigan caras las hipotecas. Una bajada de tipos sería el principal impulso."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "QCOM",
+  "name": "QUALCOMM Incorporated",
+  "generated_at": "2026-10-31T16:17:40.077967+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Qualcomm diseña procesadores y módems para móviles (Snapdragon) y licencia sus patentes de comunicaciones inalámbricas; también vende chips para coches, PC y dispositivos conectados.",
+    "revenue_sources": "Los chips (QCT) aportan la mayor parte de los ingresos, con los móviles como principal mercado y automoción e IoT en crecimiento. La licencia de patentes (QTL) aporta menos ingresos pero márgenes muy altos.",
+    "moat": "Foso amplio por su cartera de patentes esenciales en 3G, 4G y 5G y su liderazgo en módems.",
+    "competitors": "MediaTek (2454.TW), Apple (AAPL) con módems propios, Samsung, Broadcom (AVGO) y NVIDIA (NVDA) en automoción.",
+    "threats": "Apple sustituye sus módems por diseños propios, exposición a China y fabricantes chinos, y madurez del mercado de móviles.",
+    "outlook": "Se espera crecimiento de automoción, PC con IA e IoT para compensar la pérdida de Apple. Un mercado de móviles débil sería el principal freno."
+  }
+}

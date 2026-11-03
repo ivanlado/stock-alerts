@@ -1,0 +1,14 @@
+{
+  "ticker": "MDT",
+  "name": "Medtronic plc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Medtronic es uno de los mayores fabricantes de dispositivos médicos del mundo: marcapasos, ablación, cirugía, neurociencia y diabetes.",
+    "revenue_sources": "Cardiovascular (marcapasos, ablación, válvulas) es su mayor segmento, seguido de neurociencia, médico-quirúrgico y diabetes, que planea separar.",
+    "moat": "Foso amplio por escala, amplitud de catálogo y relación con hospitales y médicos.",
+    "competitors": "Abbott (ABT), Boston Scientific (BSX), Johnson & Johnson (JNJ), Stryker (SYK) y Edwards (EW).",
+    "threats": "Pérdida de cuota en ablación por campo pulsado, crecimiento lento y retrasos en lanzamientos.",
+    "outlook": "Se espera crecimiento de un dígito medio apoyado en ablación, denervación renal y robótica. Perder la carrera en nuevas tecnologías sería el riesgo."
+  }
+}

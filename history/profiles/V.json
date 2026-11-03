@@ -1,0 +1,14 @@
+{
+  "ticker": "V",
+  "name": "Visa Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Visa opera la mayor red de pagos con tarjeta del mundo: conecta bancos emisores, comercios y consumidores, y cobra por procesar transacciones.",
+    "revenue_sources": "Servicios (por volumen de pagos), procesamiento de datos, transacciones internacionales y otros servicios de valor añadido son sus fuentes de ingresos.",
+    "moat": "Foso amplio por efecto red: casi todos los comercios aceptan Visa y casi todos los bancos emiten sus tarjetas.",
+    "competitors": "Mastercard (MA), American Express (AXP), redes nacionales, pagos instantáneos (Bizum, Pix) y criptomonedas estables.",
+    "threats": "Regulación de comisiones, litigios antimonopolio y alternativas de pago en tiempo real.",
+    "outlook": "Se espera crecimiento de dos dígitos bajos por el paso del efectivo a los pagos digitales. La regulación de comisiones es el riesgo clave."
+  }
+}

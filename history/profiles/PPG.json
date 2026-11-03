@@ -1,0 +1,14 @@
+{
+  "ticker": "PPG",
+  "name": "PPG Industries, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "PPG fabrica pinturas, recubrimientos y materiales especiales para automoción, aeroespacial, construcción e industria.",
+    "revenue_sources": "Recubrimientos de rendimiento (aeroespacial, reparación de automóviles, protección) y recubrimientos industriales (fabricantes de coches, envases) son sus dos segmentos.",
+    "moat": "Foso estrecho por tecnología de recubrimientos y relación con fabricantes.",
+    "competitors": "Sherwin-Williams (SHW), Akzo Nobel (AKZA), Axalta (AXTA) y RPM (RPM).",
+    "threats": "Demanda industrial débil, materias primas y aranceles.",
+    "outlook": "Se espera crecimiento bajo con foco en márgenes tras vender su negocio de arquitectura en EE. UU. Una economía industrial débil lo limitaría."
+  }
+}

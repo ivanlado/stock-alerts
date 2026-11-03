@@ -1,0 +1,14 @@
+{
+  "ticker": "APTV",
+  "name": "Aptiv PLC",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Aptiv es un proveedor de automoción que diseña la arquitectura eléctrica y electrónica de los vehículos: cableado, conectores, unidades de control y software para seguridad y asistencia a la conducción.",
+    "revenue_sources": "La arquitectura de señal y potencia (cableado y conectores) aporta en torno a dos tercios de los ingresos. Los sistemas avanzados de seguridad y experiencia de usuario (sensores, software, computación) aportan el resto.",
+    "moat": "Foso estrecho: está integrado en las plataformas de los fabricantes durante años y su escala en conectores le da ventaja de costes. Aun así, el sector de proveedores de automoción tiene poco poder de negociación.",
+    "competitors": "Bosch, Continental (CON), TE Connectivity (TEL), Yazaki, Lear (LEA) y Magna (MGA).",
+    "threats": "Depende del volumen de producción de vehículos y de la presión de precios de los fabricantes. El retraso del coche eléctrico, los aranceles y la competencia china en electrónica de automoción son riesgos relevantes.",
+    "outlook": "Se espera un crecimiento modesto ligado a más contenido electrónico por vehículo, y la empresa ha planteado separar su negocio de distribución eléctrica. Una caída de la producción mundial de coches afectaría directamente a sus ventas."
+  }
+}

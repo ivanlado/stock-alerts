@@ -1,0 +1,14 @@
+{
+  "ticker": "FTNT",
+  "name": "Fortinet, Inc.",
+  "generated_at": "2026-10-31T16:14:33.486743+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Fortinet vende soluciones de ciberseguridad, sobre todo cortafuegos (FortiGate) con chips propios, además de redes seguras, acceso remoto y servicios de seguridad por suscripción.",
+    "revenue_sources": "Algo más de un tercio son productos (cortafuegos y equipos) y el resto, servicios: suscripciones de seguridad y soporte técnico. Su base de clientes es muy amplia, de pymes a grandes empresas.",
+    "moat": "Foso amplio: sus chips propios le dan ventaja de coste y rendimiento, y la plataforma integrada crea costes de cambio.",
+    "competitors": "Palo Alto Networks (PANW), Cisco (CSCO), Check Point (CHKP), Zscaler (ZS) y CrowdStrike (CRWD).",
+    "threats": "Ciclo de renovación de cortafuegos irregular, competencia de plataformas de seguridad en la nube y vulnerabilidades en sus propios productos que dañan su reputación.",
+    "outlook": "Se espera crecimiento de dos dígitos bajos apoyado en el ciclo de renovación de cortafuegos y en sus servicios de acceso seguro. Una desaceleración del gasto en seguridad afectaría a sus ventas de producto."
+  }
+}

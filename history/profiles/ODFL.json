@@ -1,0 +1,14 @@
+{
+  "ticker": "ODFL",
+  "name": "Old Dominion Freight Line, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Old Dominion es una de las mayores empresas de transporte por carretera de carga fraccionada (LTL) de Estados Unidos, que agrupa envíos de varios clientes en un mismo camión.",
+    "revenue_sources": "Casi todos los ingresos vienen del transporte de carga fraccionada nacional, sobre todo de clientes industriales y minoristas.",
+    "moat": "Foso amplio por su red de terminales, difícil de replicar, y su calidad de servicio líder (pocas reclamaciones y entregas puntuales), que le permite cobrar más.",
+    "competitors": "Saia (SAIA), XPO (XPO), FedEx Freight (FDX), ArcBest (ARCB) y Estes.",
+    "threats": "Recesión de la carga industrial, que lleva varios años débil, y competencia en precios de rivales que crecen.",
+    "outlook": "Se espera recuperación de volúmenes cuando mejore el ciclo industrial, con márgenes líderes. Una debilidad industrial prolongada lo retrasaría."
+  }
+}

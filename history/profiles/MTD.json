@@ -1,0 +1,14 @@
+{
+  "ticker": "MTD",
+  "name": "Mettler-Toledo International",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Mettler-Toledo fabrica instrumentos de precisión: balanzas de laboratorio, equipos analíticos, sistemas de pesaje industrial e inspección de productos.",
+    "revenue_sources": "Laboratorio aporta más de la mitad de las ventas. Industrial e inspección de productos y comercio alimentario aportan el resto. Servicios suponen cerca de un tercio.",
+    "moat": "Foso amplio por liderazgo en pesaje de precisión, marca y servicios recurrentes.",
+    "competitors": "Sartorius (SRT3), Thermo Fisher (TMO), Waters (WAT) y Ishida.",
+    "threats": "Demanda débil en China y ciclo industrial y farmacéutico.",
+    "outlook": "Se espera crecimiento de un dígito medio con márgenes altos. La debilidad de China sería el principal freno."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "FAST",
+  "name": "Fastenal Company",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Fastenal distribuye tornillería, herramientas, equipos de seguridad y suministros industriales y de construcción, con máquinas expendedoras y almacenes dentro de las fábricas de sus clientes.",
+    "revenue_sources": "Tornillería aporta en torno a un tercio de las ventas. Equipos de seguridad, herramientas y otros suministros aportan el resto, sobre todo a fabricantes y constructoras.",
+    "moat": "Foso amplio por sus máquinas expendedoras y almacenes integrados en los clientes, que generan costes de cambio y densidad logística.",
+    "competitors": "W.W. Grainger (GWW), MSC Industrial (MSM), Amazon Business (AMZN) y distribuidores locales.",
+    "threats": "Ciclo industrial y de construcción, y valoración exigente.",
+    "outlook": "Se espera crecimiento de un dígito medio a alto apoyado en grandes clientes y digitalización. Una recesión industrial lo frenaría."
+  }
+}

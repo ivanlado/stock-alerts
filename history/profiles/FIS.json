@@ -1,0 +1,14 @@
+{
+  "ticker": "FIS",
+  "name": "Fidelity National Information Services",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "FIS vende software y servicios de procesamiento para bancos y mercados de capitales: sistemas centrales bancarios, pagos, tarjetas y gestión de patrimonios.",
+    "revenue_sources": "Soluciones bancarias aporta la mayor parte de los ingresos, seguida de mercados de capitales. Tras vender Worldpay, está comprando el negocio de emisores de Global Payments.",
+    "moat": "Foso amplio por costes de cambio: los bancos rara vez cambian su sistema central por el riesgo y la complejidad de la migración.",
+    "competitors": "Fiserv (FI), Jack Henry (JKHY), Temenos (TEMN) y Broadridge (BR).",
+    "threats": "Crecimiento lento, consolidación de bancos clientes, competencia de proveedores en la nube y riesgos de integración en sus adquisiciones.",
+    "outlook": "Se espera crecimiento de un dígito medio con mejora de márgenes y recompras. Errores en la integración del negocio de Global Payments serían el riesgo principal."
+  }
+}

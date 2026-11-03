@@ -1,0 +1,14 @@
+{
+  "ticker": "DGX",
+  "name": "Quest Diagnostics Incorporated",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Quest Diagnostics es el mayor laboratorio de análisis clínicos de Estados Unidos: realiza pruebas de diagnóstico para médicos, hospitales, empresas y particulares.",
+    "revenue_sources": "Servicios de diagnóstico aportan casi todos los ingresos, repartidos entre médicos, hospitales y aseguradoras, y pruebas a consumidores y empresas.",
+    "moat": "Foso estrecho por escala, red de centros de extracción y contratos con aseguradoras.",
+    "competitors": "Labcorp (LH), laboratorios hospitalarios, Sonic Healthcare (SHL) y BioReference.",
+    "threats": "Recortes de reembolsos de Medicare (ley PAMA) y presión de precios de aseguradoras.",
+    "outlook": "Se espera crecimiento de un dígito medio con adquisiciones de laboratorios hospitalarios. Cambios en los reembolsos públicos serían el principal riesgo."
+  }
+}

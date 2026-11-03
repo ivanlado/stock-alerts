@@ -1,0 +1,14 @@
+{
+  "ticker": "DVN",
+  "name": "Devon Energy Corporation",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Devon es una petrolera independiente que extrae petróleo y gas en Estados Unidos, sobre todo en la cuenca del Pérmico y en las Rocosas.",
+    "revenue_sources": "La mayor parte de los ingresos procede de la venta de petróleo, seguida de gas natural y líquidos del gas. El Pérmico (cuenca de Delaware) es su activo principal.",
+    "moat": "Sin foso relevante: vende materias primas a precio de mercado, aunque tiene activos de calidad en el Pérmico con costes competitivos.",
+    "competitors": "EOG Resources (EOG), Diamondback (FANG), ConocoPhillips (COP), Occidental (OXY) y Coterra (CTRA).",
+    "threats": "Su beneficio depende directamente del precio del petróleo y del gas. También influyen el agotamiento de sus mejores pozos y la regulación ambiental.",
+    "outlook": "Se espera producción estable y prioridad en devolver caja al accionista mediante dividendos y recompras. Una caída prolongada del crudo reduciría ese retorno."
+  }
+}

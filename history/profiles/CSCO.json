@@ -1,0 +1,14 @@
+{
+  "ticker": "CSCO",
+  "name": "Cisco Systems, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Cisco fabrica equipos de red (conmutadores, enrutadores, wifi) y vende software de seguridad, colaboración (Webex) y observabilidad, este último reforzado con la compra de Splunk.",
+    "revenue_sources": "Las redes aportan más de la mitad de los ingresos. Seguridad (incluida Splunk), colaboración, observabilidad y servicios aportan el resto, con un peso creciente de ingresos recurrentes.",
+    "moat": "Foso amplio por su enorme base instalada en empresas, operadores y administraciones, la familiaridad de los técnicos con sus sistemas y su red de distribución.",
+    "competitors": "Arista Networks (ANET), HPE/Juniper (HPE), Palo Alto Networks (PANW), Fortinet (FTNT) y Microsoft (MSFT) en colaboración.",
+    "threats": "Perder cuota en los centros de datos de la nube frente a Arista y NVIDIA. La demanda empresarial de red es cíclica y la integración de Splunk debe dar resultados.",
+    "outlook": "Se espera crecimiento bajo a medio con más ingresos recurrentes y pedidos de red para IA de las grandes nubes. Una recuperación débil del gasto empresarial limitaría ese crecimiento."
+  }
+}

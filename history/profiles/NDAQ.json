@@ -1,0 +1,14 @@
+{
+  "ticker": "NDAQ",
+  "name": "Nasdaq, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Nasdaq opera bolsas de valores y vende tecnología financiera: software contra fraude y blanqueo, datos de mercado, índices y servicios para empresas cotizadas.",
+    "revenue_sources": "Tecnología financiera (Verafin, Adenza, tecnología de mercados) y servicios de capital (datos, índices como el Nasdaq-100, cotización) aportan la mayor parte. Los servicios de mercado (comisiones de negociación) aportan el resto.",
+    "moat": "Foso amplio por la marca Nasdaq, efecto red en negociación y cotización, y costes de cambio de su software regulatorio.",
+    "competitors": "Intercontinental Exchange/NYSE (ICE), Cboe (CBOE), LSEG (LSEG), S&P Global (SPGI) y MSCI (MSCI) en índices.",
+    "threats": "Menos salidas a bolsa, competencia en negociación y riesgos de integración en adquisiciones grandes como Adenza.",
+    "outlook": "Se espera crecimiento estable con más ingresos recurrentes de software. Un mercado bajista reduciría datos, índices y negociación."
+  }
+}

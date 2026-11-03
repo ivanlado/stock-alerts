@@ -1,0 +1,14 @@
+{
+  "ticker": "MCD",
+  "name": "McDonald's Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "McDonald's es la mayor cadena de comida rápida del mundo, con más de 40.000 restaurantes, la gran mayoría gestionados por franquiciados.",
+    "revenue_sources": "La mayor parte del beneficio viene de rentas y royalties que pagan los franquiciados, ya que McDonald's suele ser dueña del local. Las ventas de restaurantes propios aportan el resto de los ingresos.",
+    "moat": "Foso amplio: marca global, escala de compras, ubicaciones inmobiliarias privilegiadas y un modelo de franquicia muy rentable.",
+    "competitors": "Burger King (QSR), Wendy's (WEN), Yum! Brands (YUM), Chick-fil-A, Starbucks (SBUX) y cadenas locales.",
+    "threats": "Pérdida de clientes de rentas bajas por subidas de precios, competencia por valor y tendencias de salud, incluidos los fármacos para adelgazar.",
+    "outlook": "Se espera crecimiento estable apoyado en aperturas, menús de valor y su programa de fidelidad. Un consumidor de rentas bajas más débil limitaría las ventas comparables."
+  }
+}

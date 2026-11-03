@@ -1,0 +1,14 @@
+{
+  "ticker": "VMC",
+  "name": "Vulcan Materials Company",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Vulcan Materials es el mayor productor de áridos de construcción (piedra triturada, arena y grava) de Estados Unidos, además de asfalto y hormigón.",
+    "revenue_sources": "Los áridos aportan la gran mayoría de los ingresos y del beneficio. Asfalto y hormigón aportan el resto.",
+    "moat": "Foso amplio: sus canteras cerca de ciudades en crecimiento son casi imposibles de replicar por permisos, y el transporte limita la competencia a escala local.",
+    "competitors": "Martin Marietta (MLM), CRH (CRH), Heidelberg Materials (HEI) y Knife River (KNF).",
+    "threats": "Ciclo de la construcción, volúmenes residenciales débiles y dependencia del gasto público.",
+    "outlook": "Se espera crecimiento de beneficio por subidas de precio por tonelada y gasto en infraestructura. Volúmenes débiles limitarían el crecimiento."
+  }
+}

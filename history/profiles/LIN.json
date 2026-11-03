@@ -1,0 +1,14 @@
+{
+  "ticker": "LIN",
+  "name": "Linde plc",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Linde es la mayor empresa de gases industriales del mundo: produce y distribuye oxígeno, nitrógeno, argón, hidrógeno y gases especiales, y construye plantas de gas.",
+    "revenue_sources": "Se reparte entre América, EMEA, Asia-Pacífico e ingeniería. Gran parte procede de contratos a largo plazo con plantas in situ que suministran a clientes industriales y sanitarios.",
+    "moat": "Foso amplio: contratos de 15-20 años con cláusulas de pago mínimo, plantas junto a los clientes y economía de densidad en distribución.",
+    "competitors": "Air Liquide (AI), Air Products (APD) y Nippon Sanso (4091.T).",
+    "threats": "Debilidad industrial, sobre todo en Europa y China, y riesgo de proyectos de hidrógeno limpio.",
+    "outlook": "Se espera crecimiento de beneficio de un dígito alto apoyado en su cartera de proyectos y en subidas de precio. Una recesión industrial reduciría volúmenes."
+  }
+}

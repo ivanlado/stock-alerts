@@ -1,0 +1,14 @@
+{
+  "ticker": "MNST",
+  "name": "Monster Beverage Corporation",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Monster Beverage vende bebidas energéticas como Monster Energy, Reign y Bang, distribuidas sobre todo por la red de Coca-Cola.",
+    "revenue_sources": "Las bebidas energéticas Monster aportan la gran mayoría de las ventas, con más de un tercio fuera de EE. UU. y creciendo.",
+    "moat": "Foso amplio por marca líder, distribución global a través de Coca-Cola y escala en el segmento.",
+    "competitors": "Red Bull, Celsius (CELH), PepsiCo (PEP), Coca-Cola (KO) y Prime.",
+    "threats": "Competencia de nuevas marcas energéticas, costes del aluminio y regulación sobre la cafeína.",
+    "outlook": "Se espera crecimiento de dos dígitos bajos apoyado en mercados internacionales. Una pérdida de cuota frente a nuevos competidores sería el riesgo."
+  }
+}

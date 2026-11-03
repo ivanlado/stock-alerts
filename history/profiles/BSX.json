@@ -1,0 +1,14 @@
+{
+  "ticker": "BSX",
+  "name": "Boston Scientific Corporation",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Boston Scientific fabrica dispositivos médicos mínimamente invasivos, sobre todo para el corazón (arritmias, válvulas, stents), además de urología, endoscopia y neuromodulación.",
+    "revenue_sources": "El área cardiovascular aporta la mayor parte de los ingresos, impulsada por la ablación de campo pulsado (Farapulse) y el cierre de orejuela (Watchman). El resto procede de MedSurg: endoscopia, urología y neuromodulación.",
+    "moat": "Foso amplio: patentes, relación con los médicos que se forman en sus dispositivos y barreras regulatorias para lanzar productos nuevos.",
+    "competitors": "Medtronic (MDT), Abbott (ABT), Johnson & Johnson MedTech (JNJ), Edwards Lifesciences (EW) y Stryker (SYK).",
+    "threats": "Competencia intensa en ablación de campo pulsado, posibles problemas de seguridad o retiradas de productos, y presión de precios de los sistemas de salud.",
+    "outlook": "Se espera crecimiento orgánico de dos dígitos bajos impulsado por electrofisiología y Watchman, con márgenes en mejora. La entrada de competidores en su segmento estrella podría moderar ese ritmo."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "FCX",
+  "name": "Freeport-McMoRan, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Freeport-McMoRan es una de las mayores productoras de cobre del mundo, con minas en Indonesia (Grasberg), Estados Unidos y Perú. También produce oro y molibdeno.",
+    "revenue_sources": "El cobre aporta la mayor parte de los ingresos, seguido del oro (sobre todo de Grasberg) y el molibdeno.",
+    "moat": "Foso estrecho por la calidad y escala de sus yacimientos, en especial Grasberg, uno de los mayores del mundo y difícil de replicar.",
+    "competitors": "BHP (BHP), Southern Copper (SCCO), Rio Tinto (RIO), Codelco y Glencore (GLEN).",
+    "threats": "Precio del cobre y del oro, incidentes operativos en Grasberg, riesgo político en Indonesia y Perú, y costes de energía.",
+    "outlook": "Se espera fuerte demanda de cobre por la electrificación y los centros de datos. Accidentes o interrupciones en Grasberg, o una caída del precio del cobre, afectarían sus resultados."
+  }
+}

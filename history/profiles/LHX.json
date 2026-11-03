@@ -1,0 +1,14 @@
+{
+  "ticker": "LHX",
+  "name": "L3Harris Technologies, Inc.",
+  "generated_at": "2026-10-31T16:14:33.486743+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "L3Harris es un contratista de defensa que fabrica sistemas de comunicaciones, satélites y sensores espaciales, electrónica aeronáutica y motores de cohetes (Aerojet Rocketdyne).",
+    "revenue_sources": "Sistemas espaciales y aéreos, sistemas integrados de misión, comunicaciones y Aerojet Rocketdyne son sus segmentos. El gobierno de EE. UU. es su principal cliente.",
+    "moat": "Foso estrecho por su tecnología especializada, autorizaciones de seguridad y relación de décadas con el Departamento de Defensa.",
+    "competitors": "Lockheed Martin (LMT), Northrop Grumman (NOC), RTX (RTX), General Dynamics (GD) y BAE Systems (BA.L).",
+    "threats": "Dependencia del presupuesto de defensa, programas con sobrecostes y competencia en contratos.",
+    "outlook": "Se espera crecimiento apoyado en munición, motores de misiles y satélites de defensa. Recortes o retrasos presupuestarios serían el principal riesgo."
+  }
+}

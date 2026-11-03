@@ -1,0 +1,14 @@
+{
+  "ticker": "ECL",
+  "name": "Ecolab Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Ecolab ofrece productos y servicios de higiene, tratamiento de agua y control de infecciones para hostelería, sanidad, industria y alimentación.",
+    "revenue_sources": "Industria global (agua, alimentación) e institucional y especialidades (restaurantes, hoteles) son sus mayores segmentos. Sanidad y ciencias de la vida, y control de plagas aportan el resto.",
+    "moat": "Foso amplio por su red de técnicos que visitan a los clientes, costes de cambio y la importancia de sus productos frente a su bajo coste relativo.",
+    "competitors": "Diversey (Solenis), Veolia (VIE), Xylem (XYL), Rentokil (RTO) y Kurita (6370.T).",
+    "threats": "Costes de materias primas, ciclo industrial y regulación química.",
+    "outlook": "Se espera crecimiento de beneficio de dos dígitos por mejora de márgenes y demanda de agua para centros de datos. Una debilidad industrial limitaría volúmenes."
+  }
+}

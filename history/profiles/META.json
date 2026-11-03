@@ -1,0 +1,14 @@
+{
+  "ticker": "META",
+  "name": "Meta Platforms, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Meta es dueña de Facebook, Instagram, WhatsApp y Messenger, y desarrolla realidad virtual, gafas inteligentes e inteligencia artificial.",
+    "revenue_sources": "La publicidad en sus aplicaciones aporta casi todos los ingresos. Reality Labs (gafas y realidad virtual) aporta muy poco y pierde mucho dinero cada año.",
+    "moat": "Foso amplio por efecto red de miles de millones de usuarios, datos para segmentar anuncios y escala en infraestructura de IA.",
+    "competitors": "Alphabet/YouTube (GOOGL), TikTok (ByteDance), Snap (SNAP), Amazon Ads (AMZN), Microsoft (MSFT) y OpenAI en IA.",
+    "threats": "Regulación de privacidad y competencia en EE. UU. y Europa, enorme gasto en IA y Reality Labs con retorno incierto, y competencia de TikTok por la atención.",
+    "outlook": "Se espera crecimiento de ingresos de dos dígitos por anuncios mejorados con IA, con gastos en fuerte aumento. Que la inversión en IA no se traduzca en ingresos sería el principal riesgo."
+  }
+}

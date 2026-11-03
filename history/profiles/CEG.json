@@ -1,0 +1,14 @@
+{
+  "ticker": "CEG",
+  "name": "Constellation Energy Corporation",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Constellation es el mayor productor de energía nuclear de Estados Unidos y vende electricidad libre de carbono a empresas, hogares y redes mayoristas.",
+    "revenue_sources": "Sus ingresos proceden de la venta de electricidad generada sobre todo en centrales nucleares, más gas e hidráulica, a clientes mayoristas y comerciales. Cada vez pesan más los contratos a largo plazo con tecnológicas para centros de datos.",
+    "moat": "Foso amplio: su flota nuclear es imposible de replicar a corto plazo y produce electricidad constante y sin emisiones, muy demandada por los centros de datos.",
+    "competitors": "Vistra (VST), NRG Energy (NRG), Talen Energy (TLN) y grandes eléctricas como NextEra (NEE).",
+    "threats": "Riesgos regulatorios sobre los precios y la conexión directa de centros de datos a centrales, posibles problemas operativos en reactores y la volatilidad del precio de la electricidad.",
+    "outlook": "Se espera crecimiento de beneficios por contratos con grandes tecnológicas y por la demanda de electricidad de la IA, reforzado por su compra de Calpine. Cambios regulatorios o una menor demanda de los centros de datos lo pondrían en riesgo."
+  }
+}

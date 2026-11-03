@@ -1,0 +1,14 @@
+{
+  "ticker": "ETN",
+  "name": "Eaton Corporation, PLC",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Eaton es una empresa de gestión de energía que fabrica equipos eléctricos (cuadros, transformadores, sistemas de alimentación ininterrumpida) y componentes para aeroespacial y vehículos.",
+    "revenue_sources": "El negocio eléctrico en América y en el resto del mundo aporta la gran mayoría de los ingresos, con los centros de datos como mercado de mayor crecimiento. Aeroespacial, vehículos y movilidad eléctrica aportan el resto.",
+    "moat": "Foso amplio por su base instalada, la reputación de fiabilidad y las relaciones con instaladores y diseñadores, que la especifican en los proyectos.",
+    "competitors": "Schneider Electric (SU), ABB (ABBN), Siemens (SIE), Vertiv (VRT) y Hubbell (HUBB).",
+    "threats": "Su valoración descuenta mucho crecimiento ligado a los centros de datos; un parón de esa inversión le afectaría. También le afectan las restricciones de suministro y el ciclo de la construcción.",
+    "outlook": "Se espera un crecimiento sólido por centros de datos, electrificación y modernización de la red eléctrica, con una cartera de pedidos alta. Un recorte de la inversión en IA sería el principal riesgo."
+  }
+}

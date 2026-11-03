@@ -1,0 +1,14 @@
+{
+  "ticker": "PKG",
+  "name": "Packaging Corporation of America",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Packaging Corporation of America fabrica papel para cartón y cajas de cartón ondulado en EE. UU., además de papel blanco.",
+    "revenue_sources": "Embalaje (cartón ondulado y cajas) aporta la gran mayoría de las ventas y el papel el resto.",
+    "moat": "Foso estrecho por integración vertical y eficiencia, en un sector cíclico.",
+    "competitors": "International Paper (IP), Smurfit Westrock (SW) y Graphic Packaging (GPK).",
+    "threats": "Demanda de cajas ligada al consumo y precios del cartón cíclicos.",
+    "outlook": "Se espera estabilidad con mejora por su compra de la división de cajas de Greif. Una caída del consumo reduciría volúmenes."
+  }
+}

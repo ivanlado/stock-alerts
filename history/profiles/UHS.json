@@ -1,0 +1,14 @@
+{
+  "ticker": "UHS",
+  "name": "Universal Health Services, Inc.",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Universal Health Services gestiona hospitales generales de agudos y es el mayor operador de hospitales psiquiátricos y de salud conductual de Estados Unidos, con presencia también en Reino Unido.",
+    "revenue_sources": "Los hospitales de agudos aportan algo más de la mitad de los ingresos y la salud conductual (psiquiatría, adicciones) el resto.",
+    "moat": "Foso estrecho por escala en salud conductual y presencia en mercados locales con pocos competidores.",
+    "competitors": "HCA Healthcare (HCA), Tenet (THC), Acadia Healthcare (ACHC) y Community Health Systems (CYH).",
+    "threats": "Cambios en Medicaid y en los reembolsos públicos, escasez de personal sanitario y litigios de responsabilidad.",
+    "outlook": "Se espera crecimiento de beneficio moderado con demanda estable de salud conductual. Recortes en programas públicos de salud serían el principal riesgo."
+  }
+}

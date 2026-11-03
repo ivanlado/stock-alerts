@@ -1,0 +1,14 @@
+{
+  "ticker": "MSCI",
+  "name": "MSCI Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "MSCI crea índices bursátiles (MSCI World, MSCI Emerging Markets), herramientas de análisis de riesgo, datos ESG y de activos privados.",
+    "revenue_sources": "Índices aporta más de la mitad de los ingresos: suscripciones y comisiones de los ETF que replican sus índices. Análisis, sostenibilidad y activos privados aportan el resto.",
+    "moat": "Foso amplio: sus índices son referencia mundial y cambiarlos implica alterar mandatos de inversión y productos.",
+    "competitors": "S&P Global (SPGI), FTSE Russell (LSEG), Bloomberg, Morningstar (MORN) y Solactive.",
+    "threats": "Dependencia de los mercados (comisiones de ETF ligadas a activos), menor interés en ESG y presión de precios de grandes clientes.",
+    "outlook": "Se espera crecimiento de un dígito alto con márgenes muy altos. Un mercado bajista reduciría las comisiones ligadas a activos."
+  }
+}

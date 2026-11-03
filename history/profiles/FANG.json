@@ -1,0 +1,14 @@
+{
+  "ticker": "FANG",
+  "name": "Diamondback Energy, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Diamondback es una petrolera independiente centrada en la cuenca del Pérmico, en Texas, donde es uno de los mayores productores tras comprar Endeavor.",
+    "revenue_sources": "La mayor parte de los ingresos procede de la venta de petróleo, con gas natural y líquidos del gas en segundo lugar. También tiene participaciones en negocios de derechos minerales y agua.",
+    "moat": "Foso estrecho por sus costes de perforación entre los más bajos del sector y su gran superficie contigua en el Pérmico, aunque vende materias primas a precio de mercado.",
+    "competitors": "EOG Resources (EOG), Devon (DVN), ConocoPhillips (COP), Occidental (OXY) y ExxonMobil (XOM) en el Pérmico.",
+    "threats": "Depende del precio del petróleo, del agotamiento de sus mejores pozos y de la regulación ambiental.",
+    "outlook": "Se espera producción estable y alta devolución de caja al accionista. Una caída del crudo por debajo de sus costes marginales reduciría ese retorno."
+  }
+}

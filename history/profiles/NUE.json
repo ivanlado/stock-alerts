@@ -1,0 +1,14 @@
+{
+  "ticker": "NUE",
+  "name": "Nucor Corporation",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Nucor es el mayor productor de acero de Estados Unidos, con acerías eléctricas que reciclan chatarra, y fabrica productos de acero para la construcción.",
+    "revenue_sources": "Las acerías (chapa, barras, perfiles) aportan la mayor parte de los ingresos. Productos de acero (vigas, estructuras, cubiertas) y materias primas aportan el resto.",
+    "moat": "Foso estrecho por bajo coste de sus hornos eléctricos y flexibilidad operativa.",
+    "competitors": "Steel Dynamics (STLD), Cleveland-Cliffs (CLF), U.S. Steel (Nippon Steel) e importaciones.",
+    "threats": "Precio del acero cíclico, importaciones y política arancelaria.",
+    "outlook": "Se espera mejora de beneficio por la protección arancelaria y la demanda de infraestructura. Una caída de la construcción reduciría precios."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "PTC",
+  "name": "PTC Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "PTC vende software industrial para diseñar productos (Creo, Onshape), gestionar su ciclo de vida (Windchill) y dar servicio posventa.",
+    "revenue_sources": "Casi todos los ingresos son suscripciones de software. La gestión del ciclo de vida del producto (Windchill) es la mayor línea, seguida de CAD.",
+    "moat": "Foso amplio por costes de cambio: sus sistemas guardan los datos de diseño de los productos de grandes fabricantes.",
+    "competitors": "Dassault Systèmes (DSY), Siemens (SIE), Autodesk (ADSK) y Hexagon (HEXA-B).",
+    "threats": "Ciclo de inversión industrial y competencia de grandes rivales.",
+    "outlook": "Se espera crecimiento de dos dígitos bajos con márgenes altos, centrado en CAD y PLM tras vender su negocio de IoT. Una caída de la inversión industrial lo frenaría."
+  }
+}

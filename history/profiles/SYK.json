@@ -1,0 +1,14 @@
+{
+  "ticker": "SYK",
+  "name": "Stryker Corporation",
+  "generated_at": "2026-10-31T16:17:40.077967+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Stryker fabrica dispositivos médicos: implantes de rodilla y cadera, el robot quirúrgico Mako, equipos de quirófano, instrumental, neurotecnología y productos de columna.",
+    "revenue_sources": "MedSurg y neurotecnología (instrumental, endoscopia, equipos médicos) aporta algo más de la mitad. Ortopedia (implantes, Mako) aporta el resto.",
+    "moat": "Foso amplio por su base instalada de robots Mako y equipos, relaciones con cirujanos y amplio catálogo.",
+    "competitors": "Zimmer Biomet (ZBH), Johnson & Johnson MedTech (JNJ), Medtronic (MDT) y Smith & Nephew (SN).",
+    "threats": "Presión de precios de hospitales, retrasos en cirugías y aranceles sobre componentes.",
+    "outlook": "Se espera crecimiento orgánico de un dígito alto por la demanda de cirugías y la adopción de Mako. Una caída de los volúmenes quirúrgicos sería el principal riesgo."
+  }
+}

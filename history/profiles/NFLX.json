@@ -1,0 +1,14 @@
+{
+  "ticker": "NFLX",
+  "name": "Netflix, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Netflix es la mayor plataforma de streaming de series y películas por suscripción del mundo, con producciones propias y contenidos con licencia.",
+    "revenue_sources": "Casi todos los ingresos son suscripciones de usuarios en todo el mundo, repartidos entre EE. UU. y Canadá, Europa, Latinoamérica y Asia. La publicidad en su plan con anuncios crece pero aún es pequeña.",
+    "moat": "Foso amplio por escala: reparte el coste de su contenido entre cientos de millones de suscriptores y tiene datos sobre qué ve la gente.",
+    "competitors": "Disney+ (DIS), Amazon Prime Video (AMZN), YouTube (GOOGL), Max (WBD), Apple TV+ (AAPL) y TikTok.",
+    "threats": "Saturación del mercado en países ricos, coste de contenido creciente y competencia por el tiempo de ocio, sobre todo de YouTube y redes sociales.",
+    "outlook": "Se espera crecimiento de ingresos de dos dígitos por subidas de precio, publicidad y eventos en directo. Una saturación de suscriptores frenaría el crecimiento."
+  }
+}

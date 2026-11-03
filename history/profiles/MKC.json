@@ -1,0 +1,14 @@
+{
+  "ticker": "MKC",
+  "name": "McCormick & Company, Incorporated",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "McCormick es el mayor fabricante de especias, condimentos y salsas del mundo, con marcas como McCormick, French's, Frank's RedHot y Cholula.",
+    "revenue_sources": "Consumo (especias y condimentos en supermercados) aporta cerca del 60% de las ventas. Soluciones de sabor para fabricantes de alimentos y restaurantes aporta el resto.",
+    "moat": "Foso amplio por marcas líderes, escala de compra de especias y relaciones con fabricantes de alimentos.",
+    "competitors": "Marcas blancas, Kraft Heinz (KHC), Unilever (ULVR), Givaudan (GIVN) y Symrise (SY1) en sabores.",
+    "threats": "Costes de materias primas y aranceles, presión de marcas blancas y débil demanda de algunos clientes industriales.",
+    "outlook": "Se espera crecimiento de un dígito bajo a medio con márgenes en mejora por eficiencias. Los aranceles y la inflación de especias serían el principal riesgo."
+  }
+}

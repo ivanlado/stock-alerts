@@ -1,0 +1,14 @@
+{
+  "ticker": "DHR",
+  "name": "Danaher Corporation",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Danaher es un grupo de ciencias de la vida y diagnóstico que fabrica equipos y consumibles para producir medicamentos biológicos, hacer investigación y diagnosticar enfermedades.",
+    "revenue_sources": "Biotecnología (Cytiva, equipos y consumibles para fabricar biológicos) y diagnóstico (Beckman Coulter, Cepheid, Leica) son sus mayores áreas. Ciencias de la vida (instrumentos de laboratorio) aporta el resto. La mayoría de los ingresos son consumibles recurrentes.",
+    "moat": "Foso amplio: sus productos están validados dentro de procesos de fabricación de fármacos regulados, cambiar de proveedor exige nuevas aprobaciones y su sistema de gestión (DBS) es una ventaja operativa reconocida.",
+    "competitors": "Thermo Fisher (TMO), Sartorius (SRT3), Merck KGaA (MRK.DE), Roche (ROG) y Abbott (ABT) en diagnóstico.",
+    "threats": "Recuperación lenta de la demanda de bioprocesos tras la pandemia, recortes de financiación pública a la investigación y presión en China por precios y política de compras.",
+    "outlook": "Se espera una vuelta a crecimientos de un dígito medio a medida que se normalizan los pedidos de biotecnología. Recortes en financiación científica o en el gasto de las farmacéuticas podrían retrasarlo."
+  }
+}

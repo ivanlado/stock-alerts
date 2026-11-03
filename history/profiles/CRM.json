@@ -1,0 +1,14 @@
+{
+  "ticker": "CRM",
+  "name": "Salesforce, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Salesforce vende software en la nube para gestionar la relación con clientes (CRM): ventas, atención al cliente, marketing, comercio electrónico y análisis de datos, además de Slack, Tableau y MuleSoft.",
+    "revenue_sources": "Las suscripciones suponen más del 90% de los ingresos. Las mayores líneas son Service Cloud y Sales Cloud, seguidas de plataforma y otros (Slack), integración y análisis (MuleSoft, Tableau) y marketing y comercio.",
+    "moat": "Foso amplio por costes de cambio: los datos y procesos de ventas de una empresa viven en Salesforce y migrarlos es caro y arriesgado. Su ecosistema de aplicaciones y consultores refuerza la ventaja.",
+    "competitors": "Microsoft Dynamics (MSFT), Oracle (ORCL), SAP (SAP), HubSpot (HUBS), ServiceNow (NOW) y Adobe (ADBE) en marketing.",
+    "threats": "Su crecimiento se ha desacelerado al madurar el mercado de CRM. La IA podría reducir el número de licencias por usuario, y los nuevos agentes de IA de otros proveedores compiten por el mismo presupuesto.",
+    "outlook": "Se espera crecimiento de un dígito alto con márgenes en mejora y apuesta por agentes de IA (Agentforce) y datos. Si la IA no se traduce en ingresos nuevos, el crecimiento podría seguir frenándose."
+  }
+}

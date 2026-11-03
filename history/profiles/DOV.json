@@ -1,0 +1,14 @@
+{
+  "ticker": "DOV",
+  "name": "Dover Corporation",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Dover es un grupo industrial diversificado que fabrica equipos y componentes: bombas, válvulas, sistemas de refrigeración para supermercados, equipos de impresión industrial, de combustible y para la industria química.",
+    "revenue_sources": "Sus ingresos se reparten en cinco segmentos: productos de ingeniería, tecnologías de combustible y limpieza, imagen y marcaje, bombas y soluciones de proceso, y climatización y refrigeración. Ninguno domina el total.",
+    "moat": "Foso estrecho: posiciones de liderazgo en nichos industriales y productos críticos con recambios y servicio recurrentes.",
+    "competitors": "IDEX (IEX), Ingersoll Rand (IR), Parker-Hannifin (PH), Graco (GGG) y Nordson (NDSN).",
+    "threats": "Demanda industrial cíclica, debilidad de algunos mercados finales y riesgo de pagar de más en adquisiciones.",
+    "outlook": "Se espera crecimiento de un dígito medio apoyado en bombas para biofarmacia, refrigeración y componentes para centros de datos. Una recesión industrial sería el principal riesgo."
+  }
+}

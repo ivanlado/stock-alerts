@@ -1,0 +1,14 @@
+{
+  "ticker": "FOXA",
+  "name": "Fox Corporation",
+  "generated_at": "2026-10-31T16:14:33.486743+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Fox Corporation es un grupo de medios estadounidense con Fox News, Fox Sports, la cadena de televisión FOX, emisoras locales y la plataforma de streaming gratuita Tubi.",
+    "revenue_sources": "Las cadenas por cable (Fox News, Fox Business, FS1) aportan algo más de la mitad de los ingresos, sobre todo cuotas de distribución y publicidad. La televisión en abierto (cadena FOX, deportes como la NFL, emisoras locales) y Tubi aportan el resto.",
+    "moat": "Foso estrecho: Fox News lidera la audiencia de noticias por cable y los derechos deportivos en directo mantienen el interés de anunciantes y distribuidores.",
+    "competitors": "Comcast/NBCUniversal (CMCSA), Disney/ABC/ESPN (DIS), Warner Bros. Discovery/CNN (WBD) y Paramount/CBS (PSKY).",
+    "threats": "Pérdida de abonados de televisión de pago, coste creciente de los derechos deportivos y litigios por difamación, como el caso Dominion.",
+    "outlook": "Se espera estabilidad apoyada en noticias y deportes en directo, más el crecimiento de Tubi y su nuevo servicio directo de streaming. La caída del cable sigue siendo un viento en contra estructural. (FOXA son las acciones clase A, sin voto; FOX, las clase B con voto.)"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "CTAS",
+  "name": "Cintas Corporation",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Cintas alquila y limpia uniformes de trabajo y ofrece servicios de instalaciones, primeros auxilios, seguridad y protección contra incendios a empresas de EE. UU.",
+    "revenue_sources": "El alquiler de uniformes y servicios de instalaciones aporta cerca de tres cuartas partes de los ingresos. Primeros auxilios y seguridad, y protección contra incendios, aportan el resto.",
+    "moat": "Foso amplio por densidad de rutas, que le da costes bajos, y contratos recurrentes con alta renovación.",
+    "competitors": "UniFirst (UNF), Vestis (VSTS) y Alsco.",
+    "threats": "Empleo débil, que reduce el número de uniformes, y valoración exigente.",
+    "outlook": "Se espera crecimiento de un dígito alto con márgenes en mejora y venta cruzada de servicios. Una caída del empleo frenaría el crecimiento."
+  }
+}

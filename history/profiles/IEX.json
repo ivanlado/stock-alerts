@@ -1,0 +1,14 @@
+{
+  "ticker": "IEX",
+  "name": "IDEX Corporation",
+  "generated_at": "2026-10-31T16:14:33.486743+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "IDEX fabrica bombas especializadas, caudalímetros, componentes ópticos y de fluidos, y equipos de seguridad contra incendios, para nichos industriales y científicos.",
+    "revenue_sources": "Tecnologías de fluidos y medición, salud y ciencia, y seguridad contra incendios y diversificados son sus tres segmentos; ninguno domina el total.",
+    "moat": "Foso estrecho: lidera nichos pequeños con productos críticos y de bajo coste relativo para el cliente, lo que le da poder de precios.",
+    "competitors": "Dover (DOV), Graco (GGG), Ingersoll Rand (IR), Nordson (NDSN) y Roper (ROP).",
+    "threats": "Demanda industrial cíclica y debilidad de mercados como semiconductores o agricultura en algunos ciclos.",
+    "outlook": "Se espera crecimiento moderado con márgenes altos y adquisiciones selectivas. Una recesión industrial sería el principal riesgo."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "ROP",
+  "name": "Roper Technologies, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Roper es un grupo de software vertical: compra y gestiona empresas de software de nicho (seguros, salud, construcción, gobierno) y algunos productos tecnológicos.",
+    "revenue_sources": "Software de aplicación y software de red aportan la gran mayoría de los ingresos. Productos tecnológicos (medición, dispositivos) aportan el resto.",
+    "moat": "Foso amplio: sus negocios de software lideran nichos con altos costes de cambio, y su modelo de capital es muy eficiente.",
+    "competitors": "Constellation Software (CSU), Tyler Technologies (TYL) y los rivales de cada nicho.",
+    "threats": "Riesgo de pagar demasiado por adquisiciones y crecimiento orgánico lento.",
+    "outlook": "Se espera crecimiento de un dígito alto apoyado en adquisiciones. Pagar de más por compras sería el principal riesgo."
+  }
+}

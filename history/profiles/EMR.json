@@ -1,0 +1,14 @@
+{
+  "ticker": "EMR",
+  "name": "Emerson Electric Company",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Emerson es una empresa de automatización industrial que vende válvulas, medición, sistemas de control y software, incluida su filial AspenTech y National Instruments.",
+    "revenue_sources": "Automatización inteligente de dispositivos (válvulas, medición) es su mayor segmento. Software y control (sistemas de control, AspenTech, prueba y medida) aporta el resto.",
+    "moat": "Foso amplio por su base instalada en plantas de proceso, con altos costes de cambio.",
+    "competitors": "Honeywell (HON), Siemens (SIE), ABB (ABBN), Rockwell Automation (ROK) y Schneider Electric (SU).",
+    "threats": "Ciclo de inversión industrial, sobre todo en química y energía, y riesgo de integración de adquisiciones.",
+    "outlook": "Se espera crecimiento de un dígito medio con más software. Una caída de inversión en procesos industriales frenaría pedidos."
+  }
+}

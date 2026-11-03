@@ -1,0 +1,14 @@
+{
+  "ticker": "KDP",
+  "name": "Keurig Dr Pepper Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Keurig Dr Pepper vende refrescos (Dr Pepper, Canada Dry, 7UP en EE. UU.), bebidas energéticas y café en cápsulas Keurig. Ha acordado comprar JDE Peet's y separarse en dos empresas.",
+    "revenue_sources": "Refrescos en EE. UU. es su mayor segmento, seguido de café en EE. UU. (cápsulas y cafeteras Keurig) e internacional.",
+    "moat": "Foso estrecho por marcas y red de distribución, con la base instalada de cafeteras Keurig.",
+    "competitors": "Coca-Cola (KO), PepsiCo (PEP), Nestlé (NESN), Starbucks (SBUX) y Monster (MNST).",
+    "threats": "Debilidad del negocio de café, inflación del café verde y riesgo de ejecución en la operación con JDE Peet's.",
+    "outlook": "Se espera crecimiento en refrescos y energéticas mientras reestructura el café. La integración y separación son el principal riesgo."
+  }
+}

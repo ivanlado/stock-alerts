@@ -1,0 +1,14 @@
+{
+  "ticker": "NVDA",
+  "name": "NVIDIA Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "NVIDIA diseña procesadores gráficos (GPU) y sistemas completos de computación acelerada, dominantes en el entrenamiento y la ejecución de inteligencia artificial, además de chips para videojuegos y automoción.",
+    "revenue_sources": "Centros de datos aporta cerca del 90% de los ingresos (GPU, sistemas y redes para IA). Videojuegos, visualización profesional y automoción aportan el resto.",
+    "moat": "Foso amplio: su plataforma de software CUDA y su ecosistema de desarrolladores crean altos costes de cambio, sumados a su liderazgo en hardware y redes.",
+    "competitors": "AMD (AMD), Broadcom (AVGO) y Marvell (MRVL) con chips a medida, Intel (INTC) y los chips propios de Google, Amazon y Microsoft.",
+    "threats": "Concentración en pocos grandes clientes de nube, restricciones de exportación a China, posible exceso de inversión en IA y competencia de chips a medida.",
+    "outlook": "Se espera fuerte crecimiento mientras continúe la inversión en IA con nuevas generaciones de producto. Un frenazo del gasto en centros de datos sería el principal riesgo."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "BF-B",
+  "name": "Brown-Forman Corporation",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Brown-Forman produce y vende bebidas alcohólicas, sobre todo whisky americano, con marcas como Jack Daniel's, Woodford Reserve, Old Forester, el tequila Herradura y la ginebra Gin Mare.",
+    "revenue_sources": "Jack Daniel's y su familia de marcas aportan cerca de la mitad de los ingresos. Otros whiskies, tequila y bebidas listas para tomar aportan el resto; EE. UU. es su mayor mercado.",
+    "moat": "Foso amplio por marcas icónicas con décadas de historia y whisky que necesita años de envejecimiento.",
+    "competitors": "Diageo (DGE), Pernod Ricard (RI), Beam Suntory, Constellation Brands (STZ) y Campari (CPR).",
+    "threats": "Caída del consumo de alcohol entre jóvenes, aranceles en represalia sobre el whisky americano y exceso de inventario en distribuidores.",
+    "outlook": "Se espera crecimiento bajo y una recuperación lenta del sector de destilados. Los aranceles y los cambios de hábitos de consumo son el principal riesgo."
+  }
+}

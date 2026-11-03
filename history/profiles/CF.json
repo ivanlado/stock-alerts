@@ -1,0 +1,14 @@
+{
+  "ticker": "CF",
+  "name": "CF Industries Holdings, Inc.",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "CF Industries fabrica fertilizantes nitrogenados (amoníaco, urea, nitrato) a partir de gas natural, y está invirtiendo en amoníaco bajo en carbono.",
+    "revenue_sources": "Amoníaco, urea y UAN (solución nitrogenada) aportan la mayor parte de las ventas, sobre todo a agricultores de Norteamérica.",
+    "moat": "Foso estrecho por su ventaja de coste: usa gas natural barato de EE. UU. frente a productores europeos y asiáticos.",
+    "competitors": "Nutrien (NTR), Yara (YAR), Koch Fertilizer y productores de Rusia y Oriente Medio.",
+    "threats": "Precio del gas natural y de los fertilizantes, que es cíclico, y demanda agrícola.",
+    "outlook": "Se espera rentabilidad sólida por su ventaja de coste de gas y posible demanda de amoníaco limpio. Una caída de precios de fertilizantes reduciría márgenes."
+  }
+}

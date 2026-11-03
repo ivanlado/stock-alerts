@@ -1,0 +1,14 @@
+{
+  "ticker": "AMAT",
+  "name": "Applied Materials, Inc.",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Applied Materials es el mayor fabricante mundial de equipos para producir semiconductores: máquinas de deposición, grabado, implantación e inspección que usan las fábricas de chips. También da servicio y repuestos a la base instalada.",
+    "revenue_sources": "Sistemas de semiconductores aporta en torno a tres cuartas partes de las ventas. Servicios globales (mantenimiento, repuestos, mejoras) supone cerca de una cuarta parte, y una pequeña parte procede de equipos para pantallas.",
+    "moat": "Foso amplio por escala, I+D y la amplitud de su catálogo, que le permite estar presente en casi todos los pasos de fabricación. Su enorme base instalada genera ingresos de servicio recurrentes.",
+    "competitors": "Lam Research (LRCX), Tokyo Electron (8035.T), KLA (KLAC) y ASML (ASML) en algunos segmentos.",
+    "threats": "Las restricciones de exportación a China, que ha sido un mercado muy importante, son su mayor riesgo. Además, la inversión de los fabricantes de chips es cíclica y está concentrada en pocos clientes como TSMC, Samsung e Intel.",
+    "outlook": "Se espera que crezca con la inversión en chips para inteligencia artificial, memoria avanzada y nuevas arquitecturas de transistores. Un endurecimiento de los controles a China o un recorte de inversión de sus grandes clientes podría frenarlo."
+  }
+}

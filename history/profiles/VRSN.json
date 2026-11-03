@@ -1,0 +1,14 @@
+{
+  "ticker": "VRSN",
+  "name": "VeriSign, Inc.",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "VeriSign gestiona los registros de dominios .com y .net, y opera parte de la infraestructura raíz de internet.",
+    "revenue_sources": "Casi todos sus ingresos son las tarifas que cobra por cada dominio .com y .net registrado o renovado.",
+    "moat": "Foso amplio: tiene la concesión exclusiva del registro .com, con contratos que le permiten subir precios de forma pautada.",
+    "competitors": "No tiene competencia directa en .com; indirectamente compite con otros dominios genéricos y de país gestionados por Identity Digital o Afilias.",
+    "threats": "Cambios en su contrato con el gobierno de EE. UU. e ICANN, y estancamiento del número de dominios registrados.",
+    "outlook": "Se espera crecimiento bajo por subidas de precio con volumen de dominios plano, y fuertes recompras de acciones. Un cambio regulatorio en sus precios sería el principal riesgo."
+  }
+}

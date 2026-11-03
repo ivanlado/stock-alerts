@@ -1,0 +1,14 @@
+{
+  "ticker": "ARE",
+  "name": "Alexandria Real Estate Equities",
+  "generated_at": "2026-10-31T16:11:21.631477+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Alexandria es un fondo de inversión inmobiliaria (REIT) que posee y alquila campus de laboratorios y oficinas para empresas de ciencias de la vida y tecnología. Se concentra en grandes polos como Boston, San Francisco y San Diego.",
+    "revenue_sources": "Casi todos sus ingresos son rentas de alquiler de laboratorios a farmacéuticas, biotecnológicas, instituciones y tecnológicas. Una pequeña parte viene de recuperación de gastos y de inversiones en empresas biotecnológicas.",
+    "moat": "Foso estrecho por la calidad y ubicación de sus campus en los principales clústeres de investigación, difíciles de replicar, y por relaciones de largo plazo con inquilinos de calidad.",
+    "competitors": "BioMed Realty (privada, de Blackstone), Boston Properties (BXP) y Healthpeak (DOC) en laboratorios.",
+    "threats": "Hay un exceso de oferta de laboratorios tras la construcción de los últimos años y menos financiación para biotecnológicas, lo que presiona la ocupación y las rentas. Los tipos de interés altos encarecen su deuda y bajan la valoración de sus activos.",
+    "outlook": "Se espera un periodo de rentas y ocupación débiles mientras el mercado absorbe la oferta, con ventas de activos para reducir deuda. Una recuperación de la financiación biotecnológica sería la clave para mejorar."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "MTCH",
+  "name": "Match Group, Inc.",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Match Group opera aplicaciones de citas como Tinder, Hinge, Match.com, Meetic y OkCupid.",
+    "revenue_sources": "Casi todos los ingresos son suscripciones y compras dentro de las aplicaciones. Tinder es la mayor marca y Hinge la que más crece.",
+    "moat": "Foso estrecho por efecto red: más usuarios hacen más útil cada aplicación, aunque los usuarios cambian con facilidad entre apps.",
+    "competitors": "Bumble (BMBL), Grindr (GRND), Feeld, Meta (META) y nuevas apps de citas.",
+    "threats": "Caída de usuarios de pago en Tinder, cansancio de los jóvenes con las apps de citas y comisiones de las tiendas de Apple y Google.",
+    "outlook": "Se espera crecimiento bajo con Hinge compensando la debilidad de Tinder, y foco en márgenes y recompras. Una caída continuada de Tinder sería el riesgo principal."
+  }
+}

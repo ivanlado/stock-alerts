@@ -1,0 +1,14 @@
+{
+  "ticker": "REGN",
+  "name": "Regeneron Pharmaceuticals, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Regeneron es una biotecnológica que desarrolla medicamentos de anticuerpos, como Eylea (oftalmología) y Dupixent (alergias e inflamación, con Sanofi).",
+    "revenue_sources": "La colaboración con Sanofi por Dupixent es su mayor fuente de beneficio. Eylea y Eylea HD, Libtayo (oncología) y otros aportan el resto.",
+    "moat": "Foso amplio por su tecnología de descubrimiento de anticuerpos y patentes.",
+    "competitors": "Roche (ROG) con Vabysmo, Amgen (AMGN), Eli Lilly (LLY) y biosimilares de Eylea.",
+    "threats": "Biosimilares de Eylea y competencia de Vabysmo, y fracasos clínicos.",
+    "outlook": "Se espera crecimiento de Dupixent y nuevos lanzamientos que compensen Eylea. El éxito de su cartera de I+D es clave."
+  }
+}

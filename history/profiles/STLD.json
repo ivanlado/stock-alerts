@@ -1,0 +1,14 @@
+{
+  "ticker": "STLD",
+  "name": "Steel Dynamics, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Steel Dynamics es uno de los mayores productores de acero de EE. UU., con hornos eléctricos, reciclaje de metales y una nueva planta de aluminio.",
+    "revenue_sources": "Las operaciones de acero aportan la mayor parte de los ingresos. Reciclaje de metales, fabricación de estructuras de acero y aluminio aportan el resto.",
+    "moat": "Foso estrecho por bajos costes y eficiencia de sus acerías eléctricas.",
+    "competitors": "Nucor (NUE), Cleveland-Cliffs (CLF), U.S. Steel (Nippon Steel) y Novelis en aluminio.",
+    "threats": "Precio del acero cíclico, ejecución de la planta de aluminio y política arancelaria.",
+    "outlook": "Se espera mejora apoyada en aranceles y el arranque del aluminio. Una caída del precio del acero reduciría beneficio."
+  }
+}

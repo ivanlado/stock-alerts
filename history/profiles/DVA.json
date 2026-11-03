@@ -1,0 +1,14 @@
+{
+  "ticker": "DVA",
+  "name": "DaVita Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "DaVita gestiona clínicas de diálisis para pacientes con enfermedad renal crónica, sobre todo en Estados Unidos, donde es uno de los dos grandes proveedores.",
+    "revenue_sources": "Casi todos los ingresos vienen de servicios de diálisis en EE. UU. Los seguros privados pagan mucho más por tratamiento que Medicare, por lo que una minoría de pacientes con seguro privado genera gran parte del beneficio.",
+    "moat": "Foso estrecho por escala y densidad de clínicas, que forman un duopolio con Fresenius en EE. UU.",
+    "competitors": "Fresenius Medical Care (FMS) y operadores más pequeños como U.S. Renal Care.",
+    "threats": "Los nuevos fármacos (GLP-1, SGLT2) podrían frenar la progresión de la enfermedad renal y reducir pacientes. Además, depende de cambios en los reembolsos públicos y de la mezcla de pacientes con seguro privado.",
+    "outlook": "Se espera crecimiento de beneficio por acción apoyado en eficiencias y recompras de acciones, con un número de tratamientos estable o en ligero descenso. Una reducción de pacientes por los nuevos fármacos es el riesgo a vigilar."
+  }
+}

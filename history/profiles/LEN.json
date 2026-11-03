@@ -1,0 +1,14 @@
+{
+  "ticker": "LEN",
+  "name": "Lennar Corporation",
+  "generated_at": "2026-10-31T16:14:33.486743+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Lennar es una de las mayores constructoras de viviendas de Estados Unidos, centrada en casas unifamiliares en mercados del sur y oeste del país.",
+    "revenue_sources": "La venta de viviendas aporta la gran mayoría de los ingresos. Los servicios financieros (hipotecas, títulos) y otras inversiones aportan el resto.",
+    "moat": "Foso estrecho por escala y eficiencia de costes, aunque la construcción de viviendas es un sector cíclico y competitivo.",
+    "competitors": "D.R. Horton (DHI), PulteGroup (PHM), NVR (NVR), Toll Brothers (TOL) y KB Home (KBH).",
+    "threats": "Tipos hipotecarios altos que reducen la capacidad de compra, costes de materiales y mano de obra y la necesidad de ofrecer incentivos que estrechan márgenes.",
+    "outlook": "Se espera volumen alto con márgenes presionados mientras las hipotecas sigan caras. Una bajada de tipos sería el principal impulso."
+  }
+}

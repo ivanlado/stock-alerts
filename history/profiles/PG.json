@@ -1,0 +1,14 @@
+{
+  "ticker": "PG",
+  "name": "Procter & Gamble Company (The)",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Procter & Gamble es la mayor empresa de productos de consumo del mundo, con marcas como Tide, Pampers, Gillette, Ariel, Head & Shoulders, Oral-B y Febreze.",
+    "revenue_sources": "Cuidado del tejido y del hogar es su mayor segmento, seguido de bebé, femenino y familia, belleza, salud y aseo.",
+    "moat": "Foso amplio por marcas líderes, escala en publicidad y distribución, e innovación constante.",
+    "competitors": "Unilever (ULVR), Colgate-Palmolive (CL), Kimberly-Clark (KMB), Church & Dwight (CHD) y marcas blancas.",
+    "threats": "Consumidor más sensible al precio, aranceles y costes de materias primas.",
+    "outlook": "Se espera crecimiento orgánico de un dígito bajo y dividendo creciente. Una pérdida de volumen frente a marcas blancas sería el riesgo."
+  }
+}

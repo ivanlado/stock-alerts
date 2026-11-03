@@ -1,0 +1,14 @@
+{
+  "ticker": "NDSN",
+  "name": "Nordson Corporation",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Nordson fabrica equipos de precisión para aplicar adhesivos, recubrimientos y fluidos, además de equipos de inspección para electrónica y componentes médicos.",
+    "revenue_sources": "Soluciones de ingeniería industrial (adhesivos y recubrimientos) es su mayor segmento. Medicina y fluidos, y sistemas de electrónica avanzada aportan el resto.",
+    "moat": "Foso amplio: sus equipos se integran en las líneas de producción de los clientes y generan recambios y consumibles recurrentes.",
+    "competitors": "Graco (GGG), IDEX (IEX), Henkel (HEN3) en adhesivos y empresas de inspección como KLA (KLAC).",
+    "threats": "Demanda industrial y de electrónica cíclica, y riesgo en la integración de adquisiciones.",
+    "outlook": "Se espera crecimiento moderado apoyado en medicina y recuperación de la electrónica. Una debilidad industrial prolongada lo limitaría."
+  }
+}

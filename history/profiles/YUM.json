@@ -1,0 +1,14 @@
+{
+  "ticker": "YUM",
+  "name": "Yum! Brands, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Yum! Brands franquicia restaurantes de comida rápida con KFC, Taco Bell, Pizza Hut y Habit Burger en todo el mundo.",
+    "revenue_sources": "Royalties de franquicias y ventas de restaurantes propios. KFC aporta la mayor parte del beneficio, seguido de Taco Bell.",
+    "moat": "Foso amplio por marcas globales y modelo casi totalmente franquiciado.",
+    "competitors": "McDonald's (MCD), Restaurant Brands International (QSR), Domino's (DPZ) y Chipotle (CMG).",
+    "threats": "Debilidad de Pizza Hut, consumo de rentas bajas y riesgo geopolítico en mercados emergentes.",
+    "outlook": "Se espera crecimiento por nuevas aperturas, sobre todo de KFC internacional, y estudia opciones para Pizza Hut."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "PM",
+  "name": "Philip Morris International Inc",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Philip Morris International vende cigarrillos (Marlboro) fuera de EE. UU. y productos sin humo: tabaco calentado IQOS, bolsas de nicotina ZYN y cigarrillos electrónicos.",
+    "revenue_sources": "Los cigarrillos aún aportan algo más de la mitad de los ingresos. Los productos sin humo (IQOS, ZYN) aportan cerca del 40% y son el motor de crecimiento.",
+    "moat": "Foso amplio por marcas, poder de precios en un producto adictivo y liderazgo en alternativas sin humo.",
+    "competitors": "British American Tobacco (BATS), Altria (MO), Japan Tobacco (2914.T) e Imperial Brands (IMB).",
+    "threats": "Regulación del tabaco y la nicotina, impuestos, y competencia en bolsas de nicotina.",
+    "outlook": "Se espera crecimiento de un dígito alto en beneficio por IQOS y ZYN. Restricciones regulatorias sobre nicotina serían el principal riesgo."
+  }
+}

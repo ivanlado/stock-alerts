@@ -1,0 +1,14 @@
+{
+  "ticker": "PAYC",
+  "name": "Paycom Software, Inc.",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Paycom vende software en la nube de nóminas y gestión de recursos humanos a medianas empresas de EE. UU.",
+    "revenue_sources": "Casi todos los ingresos son recurrentes por nóminas y módulos de recursos humanos, más intereses sobre fondos de clientes.",
+    "moat": "Foso estrecho por costes de cambio de sistemas de nómina y su producto Beti, que automatiza la nómina.",
+    "competitors": "ADP (ADP), Paychex (PAYX), Paylocity (PCTY), Workday (WDAY) y Dayforce (DAY).",
+    "threats": "Competencia intensa, crecimiento más lento y menores intereses sobre fondos de clientes si bajan los tipos.",
+    "outlook": "Se espera crecimiento de un dígito alto con márgenes altos. Una caída del empleo en sus clientes reduciría ingresos."
+  }
+}

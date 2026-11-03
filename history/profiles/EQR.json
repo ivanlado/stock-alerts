@@ -1,0 +1,14 @@
+{
+  "ticker": "EQR",
+  "name": "Equity Residential",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Equity Residential es un fondo de inversión inmobiliaria (REIT) que posee y gestiona edificios de apartamentos de alquiler en grandes ciudades de EE. UU.",
+    "revenue_sources": "Casi todos sus ingresos son rentas de apartamentos en Boston, Nueva York, Washington, el sur de California, San Francisco y Seattle, con una expansión reciente a Denver, Atlanta y Dallas.",
+    "moat": "Foso estrecho por la calidad de sus edificios en ciudades caras donde construir es difícil, con inquilinos de rentas altas.",
+    "competitors": "AvalonBay (AVB), Essex Property Trust (ESS), UDR (UDR) y Camden (CPT).",
+    "threats": "Regulación de alquileres en sus ciudades, debilidad del empleo tecnológico en la costa oeste y tipos de interés altos.",
+    "outlook": "Se espera crecimiento moderado de rentas apoyado en la escasa construcción nueva en sus mercados costeros. Un mercado laboral más débil reduciría la demanda."
+  }
+}

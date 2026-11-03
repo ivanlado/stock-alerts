@@ -1,0 +1,14 @@
+{
+  "ticker": "MAA",
+  "name": "Mid-America Apartment Communities",
+  "generated_at": "2026-10-31T16:16:02.254193+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "MAA es un fondo de inversión inmobiliaria (REIT) que posee y gestiona edificios de apartamentos de alquiler en el sureste y suroeste de Estados Unidos.",
+    "revenue_sources": "Casi todos sus ingresos son rentas de apartamentos en ciudades como Atlanta, Dallas, Austin, Charlotte, Orlando y Tampa.",
+    "moat": "Foso estrecho por escala y diversificación en mercados del Sun Belt con crecimiento de población y empleo.",
+    "competitors": "Camden (CPT), AvalonBay (AVB), Equity Residential (EQR) y UDR (UDR).",
+    "threats": "Exceso de nueva oferta de apartamentos en el Sun Belt, que limita las subidas de renta, y tipos de interés altos.",
+    "outlook": "Se espera una recuperación gradual de rentas a medida que la nueva oferta se absorbe. Un empleo más débil en sus mercados la retrasaría."
+  }
+}

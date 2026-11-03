@@ -1,0 +1,14 @@
+{
+  "ticker": "CTVA",
+  "name": "Corteva, Inc.",
+  "generated_at": "2026-10-31T16:13:00.276421+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Corteva es una empresa agrícola que vende semillas (Pioneer) y productos de protección de cultivos (herbicidas, insecticidas, fungicidas y biológicos).",
+    "revenue_sources": "Las semillas aportan algo más de la mitad de las ventas, sobre todo maíz y soja. La protección de cultivos aporta el resto. Norteamérica es su mayor mercado, seguido de Latinoamérica.",
+    "moat": "Foso amplio en semillas por su genética e I+D, que los agricultores valoran por el rendimiento, y por la propiedad de rasgos biotecnológicos.",
+    "competitors": "Bayer (BAYN), Syngenta (de ChemChina), BASF (BAS) y FMC (FMC).",
+    "threats": "Precios bajos de los cereales, que reducen la renta del agricultor, competencia de genéricos chinos en protección de cultivos y riesgos legales y regulatorios sobre agroquímicos.",
+    "outlook": "Se espera mejora de márgenes por sus propios rasgos genéticos, que reducen regalías pagadas a terceros, y por biológicos; además ha planteado separar semillas y protección de cultivos. Un ciclo agrícola débil limitaría el crecimiento."
+  }
+}

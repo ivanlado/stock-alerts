@@ -1,0 +1,14 @@
+{
+  "ticker": "TMO",
+  "name": "Thermo Fisher Scientific Inc",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Thermo Fisher es la mayor empresa de servicios y equipos científicos del mundo: instrumentos de laboratorio, reactivos, consumibles y servicios de desarrollo y fabricación de fármacos.",
+    "revenue_sources": "Productos y servicios de laboratorio (incluida fabricación por contrato) es su mayor segmento. Ciencias de la vida, instrumentos analíticos y diagnóstico aportan el resto.",
+    "moat": "Foso amplio por escala, amplitud de catálogo y relación con farmacéuticas.",
+    "competitors": "Danaher (DHR), Agilent (A), Merck KGaA (MRK.DE), IQVIA (IQV) y Lonza (LONN).",
+    "threats": "Recortes de financiación académica, debilidad de biotecnología y exposición a China.",
+    "outlook": "Se espera crecimiento de un dígito medio con mejora de márgenes. Una recuperación lenta de biotecnología lo limitaría."
+  }
+}

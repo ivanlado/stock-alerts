@@ -1,0 +1,14 @@
+{
+  "ticker": "SBUX",
+  "name": "Starbucks Corporation",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Starbucks es la mayor cadena de cafeterías del mundo, con tiendas propias y licenciadas en más de 80 países.",
+    "revenue_sources": "Las tiendas propias en Norteamérica aportan la gran mayoría de los ingresos. Internacional (con China como gran mercado) y canal de consumo (Nestlé) aportan el resto.",
+    "moat": "Foso amplio por marca global, programa de fidelidad y ubicaciones.",
+    "competitors": "Dunkin', McDonald's (MCD), Luckin Coffee (LKNCY), Dutch Bros (BROS) y cafeterías locales.",
+    "threats": "Caída de ventas comparables, competencia en China y costes laborales y del café.",
+    "outlook": "Se espera una recuperación lenta de ventas con el plan del nuevo consejero delegado. Si no recupera tráfico de clientes, los márgenes seguirían bajo presión."
+  }
+}

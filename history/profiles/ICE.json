@@ -1,0 +1,14 @@
+{
+  "ticker": "ICE",
+  "name": "Intercontinental Exchange Inc.",
+  "generated_at": "2026-10-31T16:20:31.146595+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "ICE opera bolsas y cámaras de compensación (NYSE, futuros de energía como el Brent), vende datos financieros y tecnología hipotecaria.",
+    "revenue_sources": "Bolsas (energía, tipos, acciones) es su mayor segmento. Renta fija y servicios de datos, y tecnología hipotecaria (Black Knight, Ellie Mae) aportan el resto.",
+    "moat": "Foso amplio por efecto red en sus mercados de energía y costes de cambio en datos y software hipotecario.",
+    "competitors": "CME Group (CME), Nasdaq (NDAQ), LSEG (LSEG) y Bloomberg.",
+    "threats": "Mercado hipotecario débil, volatilidad baja en energía y riesgos de integración.",
+    "outlook": "Se espera crecimiento estable apoyado en energía y datos, con potencial de mejora cuando se recupere el mercado hipotecario."
+  }
+}

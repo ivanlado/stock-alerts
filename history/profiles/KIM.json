@@ -1,0 +1,14 @@
+{
+  "ticker": "KIM",
+  "name": "Kimco Realty Corporation",
+  "generated_at": "2026-10-31T16:22:32.155211+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "Kimco es un fondo de inversión inmobiliaria (REIT) que posee centros comerciales al aire libre, muchos anclados por supermercados, en las principales áreas metropolitanas de EE. UU.",
+    "revenue_sources": "Casi todos los ingresos son rentas de locales en centros comerciales, con supermercados, tiendas de descuento, restaurantes y servicios como inquilinos.",
+    "moat": "Foso estrecho por escala y ubicaciones en zonas densas con alta afluencia diaria.",
+    "competitors": "Regency Centers (REG), Brixmor (BRX), Federal Realty (FRT) y Phillips Edison (PECO).",
+    "threats": "Quiebras de minoristas y tipos de interés altos.",
+    "outlook": "Se espera crecimiento estable de rentas por alta ocupación y escasa nueva oferta comercial. Una recesión que afecte a inquilinos sería el riesgo."
+  }
+}

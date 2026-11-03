@@ -1,0 +1,14 @@
+{
+  "ticker": "VICI",
+  "name": "VICI Properties Inc.",
+  "generated_at": "2026-10-31T16:19:06.429267+00:00",
+  "model": "claude-opus-5-5 (hand-written)",
+  "sections": {
+    "summary": "VICI Properties es un fondo de inversión inmobiliaria (REIT) dueño de casinos y complejos de ocio, como Caesars Palace y varios hoteles de Las Vegas, que alquila a operadores con contratos muy largos.",
+    "revenue_sources": "Casi todos los ingresos son rentas de casinos y resorts alquilados a operadores como Caesars y MGM. Una parte creciente viene de préstamos y de otros activos de ocio.",
+    "moat": "Foso estrecho a amplio: activos únicos difíciles de replicar y contratos de décadas con subidas ligadas a la inflación.",
+    "competitors": "Gaming and Leisure Properties (GLPI) y fondos privados.",
+    "threats": "Concentración en pocos inquilinos (Caesars, MGM), debilidad del turismo en Las Vegas y tipos de interés altos.",
+    "outlook": "Se espera crecimiento estable de rentas y dividendo. Problemas financieros de un gran inquilino serían el riesgo principal."
+  }
+}
